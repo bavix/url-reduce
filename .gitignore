@@ -1,3 +1,7 @@
 composer.phar
 /vendor/
 /assets/rendered/*.php
+.idea/
+composer.lock
+web/*.html
+web/*.xml
