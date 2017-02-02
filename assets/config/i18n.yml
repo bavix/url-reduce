@@ -1,0 +1,5 @@
+lifetime: 86400
+default: 'ru'
+list:
+  - 'ru'
+  - 'en'

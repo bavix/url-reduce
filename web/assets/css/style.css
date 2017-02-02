@@ -1,0 +1,68 @@
+html, body {
+  height: 100%; }
+
+h1 {
+  font-family: Arial, sans-serif;
+  font-size: 64px;
+  color: #c3c8ee; }
+
+.shorten-input {
+  width: 480px;
+  text-align: center;
+  margin: 0 auto; }
+
+.table-view {
+  color: #555555;
+  background: white;
+  text-align: center;
+  border-radius: 1px; }
+
+#form-result .input-group {
+  width: 400px;
+  text-align: center;
+  margin: 0 auto; }
+
+#choose-language {
+  position: absolute;
+  right: 40px;
+  top: 5px; }
+  #choose-language .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 160px; }
+
+#result {
+  margin: 0 auto;
+  width: 375px; }
+
+.social:hover i {
+  color: #777777;
+  text-align: center; }
+
+.referral:hover {
+  color: #5bc0de; }
+
+.goto, .page404 {
+  font-size: 18px;
+  margin: 0 auto;
+  width: 550px; }
+  .goto a, .page404 a {
+    color: #d9534f !important; }
+
+.lead {
+  color: #f0ad4e; }
+
+/* Custom container */
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100%;
+  background-color: #110022;
+  color: #eee;
+  overflow: hidden; }
+  .container-full a {
+    color: #efefef;
+    text-decoration: none; }
+
+.v-center {
+  margin-top: 7%; }
+
+/*# sourceMappingURL=style.css.map */

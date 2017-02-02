@@ -1,0 +1,26 @@
+api:
+  - '/api/v<version>/<controller>(/<action>(/<data>))'
+  -
+    action: 'default'
+    __API__: 1
+
+redirect:
+  - '/s/<hash>'
+  -
+    controller: 'To'
+    action: 'default'
+
+default:
+  - '(/<controller>(/<action>(/<id>)))'
+  -
+    controller: 'shorten'
+    action: 'default'
+
+error404:
+  -
+    0: '/<def>'
+    1:
+      def: '[\w\W]+'
+  -
+    controller: 'error'
+    action: 'default'

@@ -1,0 +1,81 @@
+$gray-darker: lighten(#000, 13.5%)
+$gray-dark: lighten(#000, 20%)
+$gray: lighten(#000, 33.5%)
+$gray-light: lighten(#000, 46.7%)
+$gray-lighter: lighten(#000, 93.5%)
+
+$brand-primary: darken(#428bca, 6.5%)
+$brand-success: #5cb85c
+$brand-info: #5bc0de
+$brand-warning: #f0ad4e
+$brand-danger: #d9534f
+
+$default-color: #110022
+
+html, body
+  height: 100%
+
+h1
+  font-family: Arial, sans-serif
+  font-size: 64px
+  color: #c3c8ee
+
+.shorten-input
+  width: 480px
+  text-align: center
+  margin: 0 auto
+
+.table-view
+  color: $gray
+  background: white
+  text-align: center
+  border-radius: 1px
+
+#form-result .input-group
+  width: 400px
+  text-align: center
+  margin: 0 auto
+
+#choose-language
+  position: absolute
+  right: 40px
+  top: 5px
+  .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn)
+    width: 160px
+
+#result
+  margin: 0 auto
+  width: 375px
+
+.social:hover i
+  color: $gray-light
+  text-align: center
+
+.referral:hover
+  color: $brand-info
+
+.goto, .page404
+  font-size: 18px
+  margin: 0 auto
+  width: 550px
+  a
+    color: $brand-danger !important
+
+.lead
+  color: #f0ad4e
+
+/* Custom container
+
+.container-full
+  margin: 0 auto
+  width: 100%
+  min-height: 100%
+  background-color: $default-color
+  color: #eee
+  overflow: hidden
+  a
+    color: #efefef
+    text-decoration: none
+
+.v-center
+  margin-top: 7%

@@ -1,0 +1,5 @@
+default:
+  user: 'shorten'
+  password: 'SH5Og1ykXqM9Pgsr'
+  driver: 'pdo'
+  connection: 'mysql:host=localhost;dbname=shorten'

@@ -1,0 +1,88 @@
+!!!
+%html{:lang => $lang}
+  %head
+    %title =$title
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}
+    %link{:href => "/favicon.ico", :rel => "icon", :type => "image/ico"}
+    %link(href="/assets/css/bootstrap.min.css" rel="stylesheet")
+    %link(href="/assets/css/font-awesome.min.css" rel="stylesheet")
+    %link(href="/assets/css/flag-icon.min.css" rel="stylesheet")
+    %link(href="/assets/css/bootstrap-select.min.css" rel="stylesheet")
+    %link(href="/assets/css/style.css" rel="stylesheet")
+    %link(href="/assets/css/media-queries.css" rel="stylesheet")
+    - if (isset($isRedirect) && $isRedirect)
+      %meta{:content => "5; url=" . $url, "http-equiv" => "refresh"}
+  %body
+    .container-full
+      #choose-language
+        %select.selectpicker(onchange = "location = this.value;")
+          %option{"data-content" => '<span class="flag-icon flag-icon-us"></span> English', :value => "/en/", :selected => $lang == "en"}
+          %option{"data-content" => '<span class="flag-icon flag-icon-ru"></span> Русский', :value => "/ru/", :selected => $lang == "ru"}
+      .row
+        partial: $subview
+        -# .col-lg-12
+          .col-lg-3
+          .col-lg-6
+            %table.table.table-striped.table-view#table-view
+              %thead
+                %tr
+                  %th Original URL
+                  %th Created
+                  %th Short URL
+                  %th All Clicks
+              %tbody
+                %tr(style="text-align: left")
+                  %td https://ln4.ru/
+                  %td Jun 15, 2016
+                  %td goo.gl/ZuXnZX
+                  %td 123
+          .col-lg-3
+        .row
+          .col-lg-12.text-center.v-center{:style => "font-size: 30pt;"}
+            %a.social(href="/s/fbook" rel="nofollow" target="__blank" title="Facebook")
+              %i.fa.fa-facebook-square
+            %a.social(href="/s/twitt" rel="nofollow" target="__blank" title="Twitter")
+              %i.fa.fa-twitter-square
+            %a.social(href="/s/githb" rel="nofollow" target="__blank" title="Github")
+              %i.fa.fa-github-square
+          .col-lg-12.text-center
+            %a.referral(href="/s/DigOn" rel="nofollow" target="__blank") =$referral
+    %script{:src => "/assets/js/jquery/jquery.min.js"}
+    %script{:src => "/assets/js/bootstrap/bootstrap.min.js"}
+    %script{:src => "/assets/js/bootstrap-select/bootstrap-select.min.js"}
+    %script{:src => "/assets/js/clipboard/clipboard.min.js"}
+    %script{:src => "/assets/js/js.cookie.js"}
+    %script{:src => "/assets/js/shorten/shorten.js"}
+    %script{:src => "/assets/js/analytics.js"}
+    / Yandex.Metrika counter
+    :javascript
+      (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter40143720 = new Ya.Metrika({
+                    id:40143720,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+      })(document, window, "yandex_metrika_callbacks");
+    %noscript
+      %div
+        %img{:alt => "", :src => "https://mc.yandex.ru/watch/40143720", :style => "position:absolute; left:-9999px;"}
+    / /Yandex.Metrika counter

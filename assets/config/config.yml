@@ -1,0 +1,14 @@
+timezone: 'Europe/Moscow'
+encoding: 'UTF-8'
+modules:
+  2-dev:
+    haml: '\PHPixie\Haml'
+    i18n: '\Ext\i18n'
+  3-dev:
+    orm: '\PHPixie\ORM'
+    auth: '\PHPixie\Auth'
+    http: '\PHPixie\HTTP'
+    slice: '\PHPixie\Slice'
+    database: '\PHPixie\Database'
+    security: '\PHPixie\Security'
+    authLogin: '\PHPixie\AuthLogin'

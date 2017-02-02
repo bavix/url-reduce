@@ -1,0 +1,3 @@
+User-agent: *
+host: ln4.ru
+Sitemap: https://ln4.ru/sitemap.xml

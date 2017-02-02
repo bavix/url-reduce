@@ -1,0 +1,31 @@
+.col-lg-12.text-center.v-center
+  %h1
+    %a(href="//ln4.ru/")
+      =$header
+  %p.lead =$lead
+  %br
+  %br
+  %br
+  .col-lg-12
+    %form#add-url( action="/api/v1.0/shorten/add/" method="POST" )
+      %input(type="hidden" name="key" value="__ddos__")
+      %input(type="hidden" name="DDoS" value="#{$DDoS}")
+      .input-group.shorten-input
+        %input.form-control.input-lg{:placeholder => $placeholder, :name => "link", :type => "text", :autocomplete => "off"}
+        %span.input-group-btn
+          %button.btn.btn-lg.btn-warning =$submit
+  %br
+  %br
+  %br
+  %br
+  .col-lg-12
+    %form#form-result(style="display: none")
+      .input-group
+        %input#result.form-control.input-lg(type="text" autocomplete="off")
+        %span.input-group-btn
+          %button.btn.btn-lg.btn-danger(data-clipboard-target="#result")
+            %img(src="/assets/svg/clippy.svg" alt="Copy to clipboard!" width="18px")
+  %br
+  %br
+  %br
+  %br
