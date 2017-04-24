@@ -11,3 +11,4 @@ npm-debug.log
 .env
 /public/node_modules
 web
+composer.lock
