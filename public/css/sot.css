@@ -1,0 +1,38 @@
+body {
+  padding-top: 5rem; }
+
+#blocks div + div {
+  margin-top: 1em; }
+
+#menu {
+  display: block; }
+  #menu li a {
+    color: #99979c;
+    font-size: 90%;
+    padding: 0.25rem 0.75rem; }
+
+footer {
+  color: white; }
+  footer a {
+    color: #bfffff; }
+    footer a:hover {
+      color: white; }
+  footer .btn-link {
+    color: white;
+    font-size: 83%; }
+    footer .btn-link:hover {
+      color: #f0ebef; }
+
+.footer-bottom {
+  background: #3d6277;
+  padding: 2em; }
+
+.footer-top {
+  background: #2d4958; }
+
+.footer-middle {
+  background: #3d6277;
+  padding-top: 2em;
+  color: white; }
+
+/*# sourceMappingURL=sot.css.map */
