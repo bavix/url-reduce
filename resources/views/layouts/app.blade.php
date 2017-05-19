@@ -72,10 +72,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-lg-9">
             @yield('content')
         </div>
-        <div id="blocks" class="col-md-3">
+        <div id="blocks" class="col-lg-3">
             <div class="card">
                 <div class="card-block">
                     <h5 class="card-title">Важная информация</h5>
@@ -211,12 +211,12 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12">
-                    <!--Footer Bottom-->
-                    <p class="text-xs-center">
-                        <a class="btn btn-link" title="Babichev Maxim" href="https://babichev.net/" target="_blank">Создание сайта - Babichev</a>
-                    </p>
-                </div>
+                <a class="bavix" title="Разработка и техническая поддержка сайта - bavix" href="https://bavix.ru/" target="_blank">
+                    <img width="90px"
+                         src="https://bavix.ru/images/bavix.svg"
+                         alt="Разработка и техническая поддержка сайта - bavix"
+                         title="Разработка и техническая поддержка сайта - bavix" />
+                </a>
             </div>
         </div>
     </div>
