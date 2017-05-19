@@ -139,15 +139,15 @@
                             <h4>Контакты</h4>
                             <address>
                                 <ul class="list-unstyled">
-                                    <li>
-                                        г. БЕЛОРЕЧЕНСК<br>
-                                        ул. 8 МАРТА, д. 57<br>
-                                        КРАСНОДАРСКИЙ край<br>
-                                        352630<br><br/>
+                                    <li class="space">
+                                        <span>г. БЕЛОРЕЧЕНСК,</span>
+                                        <span>ул. 8 Марта, д. 57,</span>
+                                        <span>Краснодарский край,</span>
+                                        <span>352631</span>
                                     </li>
                                     <li>
-                                        Телефоны: 86155-33803<br/>
-                                        Электронная почта: nat_krakovsk@mail.ru<br/>
+                                        Телефоны: <span>(86155) 33803</span><br/>
+                                        Электронная почта: <span>sut-belora@yandex.ru</span><br/>
                                     </li>
                                 </ul>
                             </address>

@@ -20,23 +20,28 @@ footer {
     color: #bfffff; }
     footer a:hover {
       color: white; }
+    footer a.bavix {
+      margin: auto; }
+      footer a.bavix img {
+        width: 115px; }
   footer .btn-link {
     color: white;
     font-size: 83%; }
     footer .btn-link:hover {
       color: #f0ebef; }
-
-.footer-bottom {
-  background: #3d6277;
-  padding-bottom: 2em; }
-
-.footer-top {
-  background: #2d4958; }
-
-.footer-middle {
-  background: #3d6277;
-  padding-top: 2em;
-  color: white; }
+  footer span {
+    white-space: pre; }
+  footer .list-unstyled li.space {
+    padding-bottom: 1em; }
+  footer .footer-bottom {
+    background: #3d6277;
+    padding-bottom: 1em; }
+  footer .footer-top {
+    background: #2d4958; }
+  footer .footer-middle {
+    background: #3d6277;
+    padding-top: 2em;
+    color: white; }
 
 body {
   padding-top: 5rem; }
@@ -50,10 +55,5 @@ body {
     color: #99979c;
     font-size: 90%;
     padding: 0.25rem 0.75rem; }
-
-a.bavix {
-  margin: auto; }
-  a.bavix img {
-    width: 115px; }
 
 /*# sourceMappingURL=sot.css.map */
