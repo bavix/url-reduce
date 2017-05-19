@@ -28,55 +28,52 @@
 </head>
 <body>
 
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">СЮТ</a>
+<header>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">СЮТ</a>
 
-    <div class="collapse navbar-collapse" id="navbarDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/') }}">Новости <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item drop">
-                <a class="nav-link" href="{{ url('/albums') }}">Альбомы</a>
-            </li>
-            <li class="nav-item drop">
-                <a class="nav-link" href="{{ url('/polls') }}">Опросы</a>
-            </li>
-            <li class="nav-item drop">
-                <a class="nav-link" href="{{ url('/poll/1') }}">Подача заявления</a>
-            </li>
-            <li class="nav-item drop">
-                <a class="nav-link" href="{{ url('/poll/2') }}">+</a>
-            </li>
-            <li class="nav-item drop">
-                <a class="nav-link" href="{{ url('/poll/3') }}">-</a>
-            </li>
-            {{--<li class="nav-item dropdown">--}}
-            {{--<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"--}}
-            {{--aria-haspopup="true" aria-expanded="false">Страницы</a>--}}
-            {{--<div class="dropdown-menu" aria-labelledby="dropdown01">--}}
-            {{--<a class="dropdown-item" href="{{ url('/page/1-info') }}">Страница 1</a>--}}
-            {{--<a class="dropdown-item" href="{{ url('/page/2-info') }}">Страница 2</a>--}}
-            {{--<a class="dropdown-item" href="{{ url('/page/3-info') }}">Страница 3</a>--}}
-            {{--<a class="dropdown-item" href="{{ url('/page/4-info') }}">Страница 4</a>--}}
-            {{--</div>--}}
-            {{--</li>--}}
-        </ul>
-    </div>
-</nav>
+            <div class="collapse navbar-collapse" id="navbarDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/') }}">Новости <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item drop">
+                        <a class="nav-link" href="{{ url('/albums') }}">Альбомы</a>
+                    </li>
+                    <li class="nav-item drop">
+                        <a class="nav-link" href="{{ url('/polls') }}">Опросы</a>
+                    </li>
+                    <li class="nav-item drop">
+                        <a class="nav-link" href="{{ url('/poll/1') }}">Подача заявления</a>
+                    </li>
+                    <li class="nav-item drop">
+                        <a class="nav-link" href="{{ url('/poll/2') }}">+</a>
+                    </li>
+                    <li class="nav-item drop">
+                        <a class="nav-link" href="{{ url('/poll/3') }}">-</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
 <div class="wrapper">
 
     <main class="container">
+
         <div class="row">
+
             <article class="col-lg-9">
                 @yield('content')
             </article>
+
             <aside id="blocks" class="col-lg-3">
                 <div class="card">
                     <div class="card-block">
@@ -126,7 +123,9 @@
                 <div class="clearfix"></div>
 
             </aside>
+
         </div>
+
     </main>
 
     <footer class="mainfooter">
@@ -205,8 +204,7 @@
             <div class="container">
                 <div class="row">
                     <a class="bavix" title="Разработка и техническая поддержка сайта - bavix" href="https://bavix.ru/" target="_blank">
-                        <img width="90px"
-                             src="https://bavix.ru/images/bavix.svg"
+                        <img src="https://bavix.ru/images/bavix.svg"
                              alt="Разработка и техническая поддержка сайта - bavix"
                              title="Разработка и техническая поддержка сайта - bavix" />
                     </a>
