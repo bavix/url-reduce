@@ -1,8 +1,8 @@
 $(function () {
 
     var options = {
-        min: 14,
-        max: 22,
+        min: 1,
+        max: 1.5,
         current: undefined
     };
 
@@ -26,24 +26,24 @@ $(function () {
             $plus.addClass('disabled');
         }
 
-        $('#zoom').text('* { font-size: ' + difference + 'px }');
+        $('#zoom').text('* { font-size: ' + difference + 'rem }');
 
     });
 
-    options.current = bavix.local.get('fontSize', 16);
+    options.current = bavix.local.get('fontSize', options.min);
 
     $('.zoom').click(function (e) {
         e.preventDefault();
 
         var type = $(this).data('type');
 
-        switch (type) {
+        switch (type) { // todo
             case 0:
-                options.current++;
+                options.current += 0.1;
                 break;
 
             case 1:
-                options.current--;
+                options.current -= 0.1;
                 break;
         }
 
