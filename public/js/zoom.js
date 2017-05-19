@@ -26,7 +26,7 @@ $(function () {
             $plus.addClass('disabled');
         }
 
-        $('#zoom').text('* { font-size: ' + difference + 'rem }');
+        $('body').text('* { font-size: ' + difference + 'rem }');
 
     });
 
