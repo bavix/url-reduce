@@ -25,6 +25,8 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+
+    <style id="zoom"></style>
 </head>
 <body>
 
@@ -52,11 +54,24 @@
                     <li class="nav-item drop">
                         <a class="nav-link" href="{{ url('/poll/1') }}">Подача заявления</a>
                     </li>
+                </ul>
+
+                <ul class="navbar-nav pull-right">
                     <li class="nav-item drop">
-                        <a class="nav-link" href="{{ url('/poll/2') }}">+</a>
+                        <a href="#" class="zoom nav-link" data-type="0">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.8 511.8">
+                                <path d="M307.8 192h-84v-84c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v84h-84c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h84v84c0 6.6 5.4 12 12 12h8c6.6 0 12-5.4 12-12v-84h84c6.6 0 12-5.4 12-12v-8c0-6.6-5.4-12-12-12z"/>
+                                <path d="M508.3 480l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-8.5C395.7 310.6 416 261.7 416 208 416 93.8 324.9 1.5 210.7 0 93.7-1.5-1.5 93.7 0 210.7 1.5 324.9 93.8 416 208 416c53.7 0 102.6-20.3 139.5-53.7v8.5c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l11.3-11.3c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z"/>
+                            </svg>
+                        </a>
                     </li>
                     <li class="nav-item drop">
-                        <a class="nav-link" href="{{ url('/poll/3') }}">-</a>
+                        <a href="#" class="zoom nav-link" data-type="1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.8 511.8">
+                                <path d="M307.8 223.8h-200c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12z"/>
+                                <path d="M508.3 480l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-8.5C395.7 310.6 416 261.7 416 208 416 93.8 324.9 1.5 210.7 0 93.7-1.5-1.5 93.7 0 210.7 1.5 324.9 93.8 416 208 416c53.7 0 102.6-20.3 139.5-53.7v8.5c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l11.3-11.3c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z"/>
+                            </svg>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -70,11 +85,11 @@
 
         <div class="row">
 
-            <article class="col-lg-9">
+            <article class="col-lg-8">
                 @yield('content')
             </article>
 
-            <aside id="blocks" class="col-lg-3">
+            <aside id="blocks" class="col-lg-4">
                 <div class="card">
                     <div class="card-block">
                         <h5 class="card-title">Важная информация</h5>
@@ -215,9 +230,12 @@
 
 </div>
 
-    <!-- Scripts -->
+<!-- Scripts -->
+<script defer async src="{{ asset('js/watch.min.js') }}"></script>
+<script defer async src="{{ asset('js/bavix.js') }}"></script>
 <script defer async src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}"></script>
 <script defer async src="{{ asset('node_modules/tether/dist/js/tether.min.js') }}"></script>
 <script defer async src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script defer async src="{{ asset('js/zoom.js') }}"></script>
 </body>
 </html>
