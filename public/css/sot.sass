@@ -1,22 +1,20 @@
-body
-  padding-top: 5rem
+*
+  margin: 0
+  padding: 0
 
-#blocks
-  div + div
-    margin-top: 1em
+html, body
+  height: 100%
 
-#menu
-  display: block
-  li
-    a
-      color: #99979c
-      font-size: 90%
-      padding: .25rem .75rem
+.wrapper
+  display: flex
+  flex-direction: column
+  height: 100%
 
-a.bavix
-  margin: auto
+main
+  flex: 1 0 auto
 
 footer
+  flex: 0 0 auto
   color: white
   a
     color: #bfffff
@@ -39,3 +37,21 @@ footer
   background: #3d6277
   padding-top: 2em
   color: white
+
+body
+  padding-top: 5rem
+
+#blocks
+  div + div
+    margin-top: 1em
+
+#menu
+  display: block
+  li
+    a
+      color: #99979c
+      font-size: 90%
+      padding: .25rem .75rem
+
+a.bavix
+  margin: auto
