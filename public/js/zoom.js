@@ -1,8 +1,8 @@
 $(function () {
 
     var options = {
-        min: 1,
-        max: 1.5,
+        min: 10,
+        max: 15,
         current: undefined
     };
 
@@ -26,7 +26,7 @@ $(function () {
             $plus.addClass('disabled');
         }
 
-        $('body').text('* { font-size: ' + difference + 'rem }');
+        $('body').css('font-size', (difference / 10) + 'rem');
 
     });
 
@@ -39,11 +39,11 @@ $(function () {
 
         switch (type) { // todo
             case 0:
-                options.current += 0.1;
+                options.current++;
                 break;
 
             case 1:
-                options.current -= 0.1;
+                options.current--;
                 break;
         }
 

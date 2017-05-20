@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Routing\Router;
+use Encore\Admin\Facades\Admin;
 
 Admin::registerHelpersRoutes();
 
@@ -11,24 +12,25 @@ Route::group([
     'middleware'    => ['web', 'admin'],
 ], function (Router $router) {
 
-    $router->get('/', 'App\Admin\Controllers\DashboardController@default');
+    // dashboard
+    $router->resource('/', \App\Admin\Controllers\DashboardController::class);
+
+    // statements
+    $router->resource('/statements', \App\Admin\Controllers\StatementController::class);
 
     // pages
-    $router->get('/statements', 'App\Admin\Controllers\StatementController@default');
-
-    // pages
-    $router->get('/pages', 'App\Admin\Controllers\PageController@default');
+    $router->resource('/pages', \App\Admin\Controllers\PageController::class);
 
     // news
-    $router->get('/news', 'App\Admin\Controllers\NewController@default');
+    $router->resource('/news', \App\Admin\Controllers\NewController::class);
 
     // albums
-    $router->get('/albums', 'App\Admin\Controllers\AlbumController@default');
+    $router->resource('/albums', \App\Admin\Controllers\AlbumController::class);
 
     // polls
-    $router->get('/polls', 'App\Admin\Controllers\PollController@default');
+    $router->resource('/polls', \App\Admin\Controllers\PollController::class);
 
     // files
-    $router->get('/documents', 'App\Admin\Controllers\DocumentController@default');
+    $router->resource('/documents', \App\Admin\Controllers\DocumentController::class);
 
 });

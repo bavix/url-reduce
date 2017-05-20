@@ -1,67 +1,79 @@
+/* @site    https://bavix.ru/ */
+/* @author  rez1dent3 */
+/* @version 1.0 */
+/** all tags */
 * {
   margin: 0;
   padding: 0; }
 
-html, body {
-  height: 100%; }
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%; }
-
-main {
-  flex: 1 0 auto; }
-
-nav svg {
-  width: 16px; }
-  nav svg path {
-    fill: white; }
-
-.zoom[disabled] {
-  color: grey; }
-
-footer {
-  flex: 0 0 auto;
-  color: white; }
-  footer a {
-    color: #bfffff; }
-    footer a:hover {
+html {
+  height: 100%;
+  /** header (navigation) */
+  /** context */ }
+  html body {
+    height: 100%;
+    padding-top: 5.5rem; }
+  html header nav .navbar-brand img {
+    width: 1.6rem; }
+  html header nav a.zoom.disabled path {
+    fill: grey; }
+  html header nav a.zoom svg {
+    width: 1rem; }
+    html header nav a.zoom svg path {
+      fill: white; }
+  @media (max-width: 576px) {
+    html header nav .container {
+      position: initial;
+      margin-left: 0; } }
+  html .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /** content */ }
+    html .wrapper main {
+      /** footer down bottom */
+      flex: 1 0 auto;
+      /** blocks */ }
+      html .wrapper main .panel-heading {
+        padding-bottom: 1rem; }
+      html .wrapper main .panel-body {
+        padding-bottom: 1.5rem; }
+      html .wrapper main aside.blocks div + div {
+        margin-top: 1rem; }
+      html .wrapper main aside.blocks ul.menu {
+        display: block; }
+        html .wrapper main aside.blocks ul.menu li a {
+          color: #99979c;
+          font-size: 0.9rem; }
+    html .wrapper footer {
+      /** footer down bottom */
+      flex: 0 0 auto;
       color: white; }
-    footer a.bavix {
-      margin: auto; }
-      footer a.bavix img {
-        width: 115px; }
-  footer .btn-link {
-    color: white;
-    font-size: 0.83rem; }
-    footer .btn-link:hover {
-      color: #f0ebef; }
-  footer span {
-    white-space: pre; }
-  footer .list-unstyled li.space {
-    padding-bottom: 1em; }
-  footer .footer-bottom {
-    background: #3d6277;
-    padding-bottom: 1em; }
-  footer .footer-top {
-    background: #2d4958; }
-  footer .footer-middle {
-    background: #3d6277;
-    padding-top: 2em;
-    color: white; }
-
-body {
-  padding-top: 5rem; }
-
-#blocks div + div {
-  margin-top: 1em; }
-
-#menu {
-  display: block; }
-  #menu li a {
-    color: #99979c;
-    font-size: 0.9rem;
-    padding: 0.25rem 0.75rem; }
+      html .wrapper footer a {
+        color: #bfffff; }
+        html .wrapper footer a:hover {
+          color: white; }
+        html .wrapper footer a.bavix {
+          margin: auto; }
+          html .wrapper footer a.bavix img {
+            width: 7.5rem; }
+      html .wrapper footer .btn-link {
+        color: white;
+        font-size: 0.83rem; }
+        html .wrapper footer .btn-link:hover {
+          color: #f0ebef; }
+      html .wrapper footer span {
+        white-space: pre; }
+      html .wrapper footer .list-unstyled li.space {
+        padding-bottom: 1rem; }
+      html .wrapper footer .footer-bottom {
+        background: #3d6277;
+        padding-bottom: 1rem; }
+      html .wrapper footer .footer-top {
+        background: #2d4958; }
+      html .wrapper footer .footer-middle {
+        background: #3d6277;
+        padding-top: 2rem;
+        color: white; }
 
 /*# sourceMappingURL=sot.css.map */

@@ -21,7 +21,7 @@ use Encore\Admin\Widgets\Table;
 
 class DashboardController extends Controller
 {
-    public function default()
+    public function index()
     {
         return Admin::content(function (Content $content) {
 

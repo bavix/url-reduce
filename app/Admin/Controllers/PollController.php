@@ -8,7 +8,7 @@ use Encore\Admin\Layout\Content;
 
 class PollController extends Controller
 {
-    public function default()
+    public function index()
     {
         return Admin::content(function (Content $content) {
 
