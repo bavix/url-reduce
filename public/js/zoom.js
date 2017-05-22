@@ -6,8 +6,12 @@ $(function () {
         current: undefined
     };
 
+    var _default = 10;
+
     var $plus = $('.zoom[data-type=0]');
     var $minus = $('.zoom[data-type=1]');
+
+    var current = bavix.local.get('fontSize', _default);
 
     watch(options, 'current', function (prop, action, difference) {
 
@@ -30,7 +34,7 @@ $(function () {
 
     });
 
-    options.current = bavix.local.get('fontSize', options.min);
+    options.current = current === 'NaN' ? options.min : current;
 
     $('.zoom').click(function (e) {
         e.preventDefault();

@@ -2,27 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NewModel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
      *
+     * @param Request $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        /**
+         * @var \Illuminate\Database\Eloquent\Builder $query
+         */
+        $query = NewModel::with(['category']);
+
+        return view('home.index', [
+            'items' => $query->paginate(10)
+        ]);
     }
+
 }

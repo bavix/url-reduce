@@ -45,7 +45,7 @@ class DashboardController extends Controller
 
                 $row->column(2, new InfoBox('Альбомы', 'picture-o', 'green', '/cp/albums', AlbumModel::query()->count()));
 
-                $row->column(2, new InfoBox('Ответы', 'question-circle', 'gray', '/cp/polls', PollModel::query()->count()));
+                $row->column(2, new InfoBox('Опросы', 'question-circle', 'gray', '/cp/polls', PollModel::query()->count()));
 
             });
 

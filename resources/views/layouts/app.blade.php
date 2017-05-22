@@ -19,19 +19,15 @@
     <link href="{{ asset('css/sot.css')  }}" rel="stylesheet"/>
 
     <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
+    <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token()]) !!};</script>
 
-    <style id="zoom"></style>
 </head>
 <body>
 
 <header>
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
         <div class="container">
+
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                     data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -149,6 +145,7 @@
     </main>
 
     <div class="clearfix"></div>
+    <br />
 
     <footer class="mainfooter">
 
@@ -160,7 +157,6 @@
                         <div class="footer-pad">
                             <h4>Popular Services</h4>
                             <ul class="list-unstyled">
-                                <li><a href="#"></a></li>
                                 <li><a href="#">Payment Center</a></li>
                                 <li><a href="#">Contact Directory</a></li>
                                 <li><a href="#">Forms</a></li>
@@ -197,7 +193,7 @@
                                     </li>
                                     <li>
                                         Телефоны: <span>(86155) 33803</span><br/>
-                                        Электронная почта: <span>sut-belora@yandex.ru</span><br/>
+                                        Электронная почта: <span>sut-belora@yandex.ru</span>
                                     </li>
                                 </ul>
                             </address>
@@ -222,11 +218,11 @@
 </div>
 
 <!-- Scripts -->
-<script defer async src="{{ asset('js/watch.min.js') }}"></script>
-<script defer async src="{{ asset('js/bavix.js') }}"></script>
 <script defer async src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}"></script>
 <script defer async src="{{ asset('node_modules/tether/dist/js/tether.min.js') }}"></script>
 <script defer async src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script defer async src="{{ asset('js/watch.min.js') }}"></script>
+<script defer async src="{{ asset('js/bavix.js') }}"></script>
 <script defer async src="{{ asset('js/zoom.js') }}"></script>
 </body>
 </html>

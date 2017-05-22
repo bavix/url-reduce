@@ -16,10 +16,13 @@ Route::group([
     $router->resource('/', \App\Admin\Controllers\DashboardController::class);
 
     // categories
-    $router->resource('/categories', \App\Admin\Controllers\CategoryController::class);
+    $router->resource('/types', \App\Admin\Controllers\TypeController::class);
 
     // statements
     $router->resource('/statements', \App\Admin\Controllers\StatementController::class);
+
+    // categories
+    $router->resource('/categories', \App\Admin\Controllers\CategoryController::class);
 
     // news
     $router->resource('/news', \App\Admin\Controllers\NewController::class);
