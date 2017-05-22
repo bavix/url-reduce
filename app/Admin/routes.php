@@ -21,9 +21,6 @@ Route::group([
     // statements
     $router->resource('/statements', \App\Admin\Controllers\StatementController::class);
 
-    // pages
-    $router->resource('/pages', \App\Admin\Controllers\PageController::class);
-
     // news
     $router->resource('/news', \App\Admin\Controllers\NewController::class);
 
