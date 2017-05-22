@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class NewModel extends Model
 {
+    protected $table = 'news';
+
+    public function category()
+    {
+        return $this->belongsTo(CategoryModel::class);
+    }
 
 }

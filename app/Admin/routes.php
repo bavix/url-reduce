@@ -15,6 +15,9 @@ Route::group([
     // dashboard
     $router->resource('/', \App\Admin\Controllers\DashboardController::class);
 
+    // categories
+    $router->resource('/categories', \App\Admin\Controllers\CategoryController::class);
+
     // statements
     $router->resource('/statements', \App\Admin\Controllers\StatementController::class);
 
