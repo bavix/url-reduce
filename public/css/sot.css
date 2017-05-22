@@ -33,16 +33,19 @@ html {
     html .wrapper main {
       /** footer down bottom */
       flex: 1 0 auto;
+      /** card */
       /** blocks */ }
       html .wrapper main .panel-heading {
         padding-bottom: 1rem; }
       html .wrapper main .panel-body {
         padding-bottom: 1.5rem; }
-      html .wrapper main aside.blocks div + div {
+      html .wrapper main div.card + div.card {
         margin-top: 1rem; }
-      html .wrapper main aside.blocks ul.menu {
+      html .wrapper main article {
+        margin-bottom: 1rem; }
+      html .wrapper main .blocks ul.menu {
         display: block; }
-        html .wrapper main aside.blocks ul.menu li a {
+        html .wrapper main .blocks ul.menu li a {
           color: #99979c;
           font-size: 0.9rem; }
     html .wrapper footer {

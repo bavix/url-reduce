@@ -95,46 +95,27 @@
                     <div class="card-block">
                         <h5 class="card-title">Важная информация</h5>
                         <ul class="menu nav bd-sidenav">
-                            <li>
-                                <a href="{{ url('/page/1') }}">Страница 1</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/page/2') }}">Страница 2</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/page/3') }}">Страница 3</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/page/4') }}">Страница 4</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/page/5') }}">Страница 5</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/page/6') }}">Страница 6</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/page/7') }}">Страница 7</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/page/8') }}">Страница 8</a>
-                            </li>
+                            @foreach($infoBlock as $info)
+                                <li>
+                                    <a href="{{ $info->url }}" title="{{ $info->title }}">{{ $info->title }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-block">
-                        <h5 class="card-title">Last news</h5>
-                        <p class="card-text">Java Script</p>
-                        <a href="#" class="btn btn-primary btn-sm btn-block">Self</a>
-                        <a href="#" class="btn btn-info btn-sm btn-block">Self</a>
-                        <a href="#" class="btn btn-warning btn-sm btn-block">Self</a>
-                        <a href="#" class="btn btn-danger btn-sm btn-block">Self</a>
-                        <a href="#" class="btn btn-success btn-sm btn-block">Self</a>
-                        <a href="#" class="btn btn-default btn-sm btn-block">Self</a>
-                    </div>
-                </div>
+                {{--<div class="card">--}}
+                    {{--<div class="card-block">--}}
+                        {{--<h5 class="card-title">Last news</h5>--}}
+                        {{--<p class="card-text">Java Script</p>--}}
+                        {{--<a href="#" class="btn btn-primary btn-sm btn-block">Self</a>--}}
+                        {{--<a href="#" class="btn btn-info btn-sm btn-block">Self</a>--}}
+                        {{--<a href="#" class="btn btn-warning btn-sm btn-block">Self</a>--}}
+                        {{--<a href="#" class="btn btn-danger btn-sm btn-block">Self</a>--}}
+                        {{--<a href="#" class="btn btn-success btn-sm btn-block">Self</a>--}}
+                        {{--<a href="#" class="btn btn-default btn-sm btn-block">Self</a>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
                 <div class="clearfix"></div>
 

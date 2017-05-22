@@ -24,7 +24,7 @@ class HomeController extends Controller
 
         return view('home.index', [
             'items' => $query->paginate(10)
-        ]);
+        ], $this->mergeData());
     }
 
 }

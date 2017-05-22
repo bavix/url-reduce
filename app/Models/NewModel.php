@@ -22,14 +22,6 @@ class NewModel extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function image()
-    {
-        return $this->belongsTo(ImageModel::class);
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function images()
@@ -43,6 +35,14 @@ class NewModel extends Model
     public function friendly()
     {
         return  Str::friendlyUrl($this->title);
+    }
+
+    /**
+     * @return string
+     */
+    public function url()
+    {
+        return '/new/' . $this->id  . '-' . $this->friendly() . '.html';
     }
 
 }

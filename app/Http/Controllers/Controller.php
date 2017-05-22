@@ -10,4 +10,17 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function mergeData()
+    {
+        return [
+            'infoBlock' => [ // todo
+                (object)[
+                    'url' => url('/hello'),
+                    'title' => 'world'
+                ]
+
+            ]
+        ];
+    }
 }

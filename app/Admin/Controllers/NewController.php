@@ -4,7 +4,10 @@ namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
+use App\Models\ImageModel;
 use App\Models\NewModel;
+use Bavix\Helpers\Str;
+use Bavix\SDK\PathBuilder;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -102,16 +105,15 @@ class NewController extends Controller
             $form->textarea('description', 'Описание')->rows(3);
             $form->ckeditor('content', 'Текст');
 
+            $form->image('image', 'Изображение');
+
             $form->select('category_id', 'Категория')->options(
                 CategoryModel::all('id', 'title')
                     ->pluck('title' , 'id')
                     ->all()
             );
 
-            $form->select('active', 'Видимость')->options([
-                1 => 'Включить',
-                0 => 'Выключить' ,
-            ]);
+            $form->switch('active', 'Видимость');
 
             $form->ignore(['created_at', 'updated_at']);
 
