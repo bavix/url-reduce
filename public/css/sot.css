@@ -43,6 +43,8 @@ html {
         margin-top: 1rem; }
       html .wrapper main article {
         margin-bottom: 1rem; }
+        html .wrapper main article img {
+          max-width: 100%; }
       html .wrapper main .blocks ul.menu {
         display: block; }
         html .wrapper main .blocks ul.menu li a {

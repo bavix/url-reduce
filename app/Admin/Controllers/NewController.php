@@ -114,7 +114,7 @@ class NewController extends Controller
             );
 
             $form->switch('active', 'Видимость');
-
+            
             $form->ignore(['created_at', 'updated_at']);
 
         });

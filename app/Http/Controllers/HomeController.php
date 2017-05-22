@@ -21,6 +21,8 @@ class HomeController extends Controller
          * @var \Illuminate\Database\Eloquent\Builder $query
          */
         $query = NewModel::with(['category']);
+        $query->orderBy('id', 'desc');
+        $query->where('active', 1);
 
         return view('home.index', [
             'items' => $query->paginate(10)
