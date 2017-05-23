@@ -18,6 +18,9 @@ Route::group([
     // categories
     $router->resource('/types', \App\Admin\Controllers\TypeController::class);
 
+    // questions
+    $router->resource('/questions', \App\Admin\Controllers\QuestionController::class);
+
     // links
     $router->resource('/links', \App\Admin\Controllers\LinkController::class);
 
