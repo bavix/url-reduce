@@ -26,7 +26,8 @@ class PollController extends Controller
         $query->where('active', 1);
 
         return view('new.index', [
-            'items' => $query->paginate(10)
+            'items' => $query->paginate(10),
+            'title' => 'Опросы'
         ], $this->mergeData());
     }
 
@@ -44,7 +45,8 @@ class PollController extends Controller
         \abort_if(!$model, 404);
 
         return view('poll.view', [
-            'item' => $model
+            'item' => $model,
+            'title' => $model->title . ' - Опрос'
         ], $this->mergeData());
     }
 

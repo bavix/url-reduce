@@ -65,7 +65,10 @@ class NewModel extends Model
      */
     public function url()
     {
-        return '/new/' . $this->id  . '-' . $this->friendly() . '.html';
+        return route('new.view', [
+            'id'    => $this->id,
+            'title' => $this->friendly(),
+        ]);
     }
 
 }

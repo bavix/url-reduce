@@ -25,7 +25,8 @@ class NewController extends Controller
         $query->where('active', 1);
 
         return view('new.index', [
-            'items' => $query->paginate(10)
+            'items' => $query->paginate(10),
+            'title' => 'Новости'
         ], $this->mergeData());
     }
 
@@ -43,7 +44,8 @@ class NewController extends Controller
         \abort_if(!$model, 404);
 
         return view('new.view', [
-            'item' => $model
+            'item' => $model,
+            'title' => $model->title . ' - Новости'
         ], $this->mergeData());
     }
 

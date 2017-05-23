@@ -18,6 +18,9 @@ Route::group([
     // categories
     $router->resource('/types', \App\Admin\Controllers\TypeController::class);
 
+    // links
+    $router->resource('/links', \App\Admin\Controllers\LinkController::class);
+
     // statements
     $router->resource('/statements', \App\Admin\Controllers\StatementController::class);
 

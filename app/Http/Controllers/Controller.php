@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LinkModel;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -14,13 +15,10 @@ class Controller extends BaseController
     public function mergeData()
     {
         return [
-            'infoBlock' => [ // todo
-                (object)[
-                    'url' => url('/hello'),
-                    'title' => 'world'
-                ]
-
-            ]
+            'infoBlock' => LinkModel::query()
+                ->where('active', 1)
+                ->orderBy('id', 'desc')
+                ->get()
         ];
     }
 }

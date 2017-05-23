@@ -5,7 +5,7 @@ namespace App\Admin\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
 use App\Models\NewModel;
-use App\Models\TypeModel;
+use App\Models\LinkModel;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -15,7 +15,7 @@ use Encore\Admin\Widgets\Table;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 
-class TypeController extends Controller
+class LinkController extends Controller
 {
     use ModelForm;
 
@@ -28,7 +28,7 @@ class TypeController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('Категории');
+            $content->header('Ссылки');
 
             $content->body($this->grid());
         });
@@ -44,7 +44,7 @@ class TypeController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('Категории');
+            $content->header('Ссылки');
 
             $content->body($this->form()->edit($id));
         });
@@ -59,7 +59,7 @@ class TypeController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('Категории');
+            $content->header('Ссылки');
 
             $content->body($this->form());
         });
@@ -72,7 +72,7 @@ class TypeController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(TypeModel::class, function (Grid $grid) {
+        return Admin::grid(LinkModel::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
 
@@ -89,11 +89,12 @@ class TypeController extends Controller
     protected function form()
     {
 
-        return Admin::form(TypeModel::class, function (Form $form) {
+        return Admin::form(LinkModel::class, function (Form $form) {
 
             $form->display('id', 'ID');
 
-            $form->text('title', 'Заголовок');
+            $form->text('title', 'Название');
+            $form->url('url', 'Ссылка');
 
             $form->switch('active', 'Видимость');
 
