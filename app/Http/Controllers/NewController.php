@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoryModel;
 use App\Models\NewModel;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,16 @@ class NewController extends Controller
 
         if (is_numeric($id))
         {
-            $query->where('category_id', (int)$id);
+            $category = CategoryModel::query()->find($id);
+            \abort_if( $category === null, 404);
+
+            $query->where('category_id', $id);
+
+            if ($request->url() !== $category->url())
+            {
+                // seo
+                return redirect($category->url(), 301);
+            }
         }
 
         return view('new.index', [
