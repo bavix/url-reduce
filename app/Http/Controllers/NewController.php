@@ -41,7 +41,7 @@ class NewController extends Controller
         }
 
         return view('new.index', [
-            'items' => $query->paginate(10),
+            'items' => $query->paginate(2),
             'title' => 'Новости'
         ], $this->mergeData());
     }

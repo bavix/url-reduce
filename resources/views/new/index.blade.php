@@ -35,7 +35,9 @@
 
         </div>
 
-        {{ $items->links() }}
+        <div class="col-md-12">
+            {{ $items->links('pagination::bootstrap-4') }}
+        </div>
 
     </div>
 
