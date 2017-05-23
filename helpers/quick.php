@@ -10,7 +10,9 @@ if (!function_exists('active'))
      */
     function active($route)
     {
-        return in_array(request()->route()->action['as'], (array)$route, true);
+        $object = request()->route();
+
+        return $object && in_array($object->action['as'], (array)$route, true);
     }
 
 }

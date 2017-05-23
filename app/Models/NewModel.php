@@ -44,7 +44,10 @@ class NewModel extends Model
         $config = \HTMLPurifier_Config::createDefault();
         $config->set('Cache.SerializerPath', base_path('storage/purifier'));
 
-        $this->attributes['content'] = (new \HTMLPurifier($config))->purify($content);
+        $data = (new \HTMLPurifier($config))->purify($content);
+        $data = str_replace('<table>', '<table class="table">', $data);
+
+        $this->attributes['content'] = $data;
     }
 
     public function gallery()
