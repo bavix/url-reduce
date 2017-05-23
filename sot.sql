@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 23, 2017 at 04:58 PM
--- Server version: 5.7.18-0ubuntu0.17.04.1-log
--- PHP Version: 7.1.4-1+deb.sury.org~xenial+1
+-- Generation Time: May 23, 2017 at 08:45 PM
+-- Server version: 5.7.18-0ubuntu0.16.04.1
+-- PHP Version: 7.1.5-1+deb.sury.org~xenial+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -130,7 +130,352 @@ INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `inp
 (34, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-23 10:27:46', '2017-05-23 10:27:46'),
 (35, 1, 'cp/documents', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-23 10:27:46', '2017-05-23 10:27:46'),
 (36, 1, 'cp/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-23 10:27:48', '2017-05-23 10:27:48'),
-(37, 1, 'cp/auth/logs', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-23 10:27:51', '2017-05-23 10:27:51');
+(37, 1, 'cp/auth/logs', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-23 10:27:51', '2017-05-23 10:27:51'),
+(38, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\"}', '2017-05-23 12:07:52', '2017-05-23 12:07:52'),
+(39, 1, 'cp/news', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:06', '2017-05-23 12:08:06'),
+(40, 1, 'cp/news/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:15', '2017-05-23 12:08:15'),
+(41, 1, 'cp/news', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:23', '2017-05-23 12:08:23'),
+(42, 1, 'cp/news/5/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\\/5\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:28', '2017-05-23 12:08:28'),
+(43, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\\/\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:41', '2017-05-23 12:08:41'),
+(44, 1, 'cp/statements', 'GET', '127.0.0.1', '{\"q\":\"cp\\/statements\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:43', '2017-05-23 12:08:43'),
+(45, 1, 'cp/types', 'GET', '127.0.0.1', '{\"q\":\"cp\\/types\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:44', '2017-05-23 12:08:44'),
+(46, 1, 'cp/categories', 'GET', '127.0.0.1', '{\"q\":\"cp\\/categories\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:47', '2017-05-23 12:08:47'),
+(47, 1, 'cp/news', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:49', '2017-05-23 12:08:49'),
+(48, 1, 'cp/categories', 'GET', '127.0.0.1', '{\"q\":\"cp\\/categories\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:55', '2017-05-23 12:08:55'),
+(49, 1, 'cp/categories', 'GET', '127.0.0.1', '{\"q\":\"cp\\/categories\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:08:58', '2017-05-23 12:08:58'),
+(50, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:09:00', '2017-05-23 12:09:00'),
+(51, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"q\":\"cp\\/albums\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:09:01', '2017-05-23 12:09:01'),
+(52, 1, 'cp/documents', 'GET', '127.0.0.1', '{\"q\":\"cp\\/documents\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:09:03', '2017-05-23 12:09:03'),
+(53, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\\/\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:09:07', '2017-05-23 12:09:07'),
+(54, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\"}', '2017-05-23 12:10:30', '2017-05-23 12:10:30'),
+(55, 1, 'cp/news', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:10:54', '2017-05-23 12:10:54'),
+(56, 1, 'cp/news/4/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\\/4\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:11:06', '2017-05-23 12:11:06'),
+(57, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\\/\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:21:23', '2017-05-23 12:21:23'),
+(58, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\\/\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:21:24', '2017-05-23 12:21:24'),
+(59, 1, 'cp/links', 'GET', '127.0.0.1', '{\"q\":\"cp\\/links\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:21:25', '2017-05-23 12:21:25'),
+(60, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\\/\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:21:26', '2017-05-23 12:21:26'),
+(61, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\\/\"}', '2017-05-23 12:25:00', '2017-05-23 12:25:00'),
+(62, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:25:07', '2017-05-23 12:25:07'),
+(63, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"q\":\"cp\\/albums\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:25:08', '2017-05-23 12:25:08'),
+(64, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:25:09', '2017-05-23 12:25:09'),
+(65, 1, 'cp/polls/1/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\\/1\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:25:12', '2017-05-23 12:25:12'),
+(66, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 12:33:46', '2017-05-23 12:33:46'),
+(67, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 12:34:09', '2017-05-23 12:34:09'),
+(68, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:34:11', '2017-05-23 12:34:11'),
+(69, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"\\u0421\\u043a\\u043e\\u043b\\u044c\\u043a\\u043e \\u0441\\u0442\\u043e\\u0438\\u0442 \\u0434\\u043e\\u043b\\u043b\\u0430\\u0440?\",\"answers\":{\"new_1\":{\"title\":\"56.33\",\"correct\":\"on\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"title\":\"66\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_3\":{\"title\":\"44\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_4\":{\"title\":\"99\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:34:50', '2017-05-23 12:34:50'),
+(70, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:34:50', '2017-05-23 12:34:50'),
+(71, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"\\u0421\\u043a\\u043e\\u043b\\u044c\\u043a\\u043e \\u0441\\u0442\\u043e\\u0438\\u0442 \\u0434\\u043e\\u043b\\u043b\\u0430\\u0440?\",\"answers\":{\"new_1\":{\"title\":\"\\u0421\\u043a\\u043e\\u043b\\u044c\\u043a\\u043e \\u0441\\u0442\\u043e\\u0438\\u0442 \\u0434\\u043e\\u043b\\u043b\\u0430\\u0440?\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"title\":\"\\u0421\\u043a\\u043e\\u043b\\u044c\\u043a\\u043e \\u0441\\u0442\\u043e\\u0438\\u0442 \\u0434\\u043e\\u043b\\u043b\\u0430\\u0440?\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_3\":{\"title\":\"\\u0421\\u043a\\u043e\\u043b\\u044c\\u043a\\u043e \\u0441\\u0442\\u043e\\u0438\\u0442 \\u0434\\u043e\\u043b\\u043b\\u0430\\u0440?\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_4\":{\"title\":\"\\u0421\\u043a\\u043e\\u043b\\u044c\\u043a\\u043e \\u0441\\u0442\\u043e\\u0438\\u0442 \\u0434\\u043e\\u043b\\u043b\\u0430\\u0440?\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:35:18', '2017-05-23 12:35:18'),
+(72, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:35:18', '2017-05-23 12:35:18'),
+(73, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:36:59', '2017-05-23 12:36:59'),
+(74, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"title\":\"1\",\"correct\":\"on\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"title\":\"2\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_3\":{\"title\":\"3\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:37:11', '2017-05-23 12:37:11'),
+(75, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:37:11', '2017-05-23 12:37:11'),
+(76, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:37:17', '2017-05-23 12:37:17'),
+(77, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:37:19', '2017-05-23 12:37:19'),
+(78, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 12:37:20', '2017-05-23 12:37:20'),
+(79, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 12:38:25', '2017-05-23 12:38:25'),
+(80, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:38:27', '2017-05-23 12:38:27'),
+(81, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"title\":\"1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:38:33', '2017-05-23 12:38:33'),
+(82, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:38:33', '2017-05-23 12:38:33'),
+(83, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"title\":\"asdfasdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"1\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:38:53', '2017-05-23 12:38:53'),
+(84, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 12:38:53', '2017-05-23 12:38:53'),
+(85, 1, 'cp/questions/5', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"q\":\"cp\\/questions\\/5\"}', '2017-05-23 12:38:58', '2017-05-23 12:38:58'),
+(86, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:38:58', '2017-05-23 12:38:58'),
+(87, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 12:39:28', '2017-05-23 12:39:28'),
+(88, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:39:30', '2017-05-23 12:39:30'),
+(89, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdf\",\"answers\":{\"new_1\":{\"answer\":\"11\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:39:35', '2017-05-23 12:39:35'),
+(90, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:39:35', '2017-05-23 12:39:35'),
+(91, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:40:25', '2017-05-23 12:40:25'),
+(92, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"sad\",\"answers\":{\"new_1\":{\"answer\":\"1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions&q=cp%2Fquestions\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:40:31', '2017-05-23 12:40:31'),
+(93, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:40:31', '2017-05-23 12:40:31'),
+(94, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:40:39', '2017-05-23 12:40:39'),
+(95, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdf\",\"answers\":{\"new_1\":{\"answer\":\"111\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:40:46', '2017-05-23 12:40:46'),
+(96, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:40:46', '2017-05-23 12:40:46'),
+(97, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:42:00', '2017-05-23 12:42:00'),
+(98, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:42:07', '2017-05-23 12:42:07'),
+(99, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:43:47', '2017-05-23 12:43:47'),
+(100, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:43:54', '2017-05-23 12:43:54'),
+(101, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:43:58', '2017-05-23 12:43:58'),
+(102, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:43:59', '2017-05-23 12:43:59'),
+(103, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:44:00', '2017-05-23 12:44:00'),
+(104, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:44:01', '2017-05-23 12:44:01'),
+(105, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:44:02', '2017-05-23 12:44:02'),
+(106, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:44:09', '2017-05-23 12:44:09'),
+(107, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:44:11', '2017-05-23 12:44:11'),
+(108, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:44:22', '2017-05-23 12:44:22'),
+(109, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"aadsf\",\"answers\":{\"new_1\":{\"answer\":\"123\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:44:34', '2017-05-23 12:44:34'),
+(110, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:44:34', '2017-05-23 12:44:34'),
+(111, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"aadsf\",\"answers\":{\"new_1\":{\"answer\":\"123\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:45:57', '2017-05-23 12:45:57'),
+(112, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:45:57', '2017-05-23 12:45:57'),
+(113, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:48:12', '2017-05-23 12:48:12'),
+(114, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"111\",\"answers\":{\"new_1\":{\"answer\":\"1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:48:21', '2017-05-23 12:48:21'),
+(115, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:48:21', '2017-05-23 12:48:21'),
+(116, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"111\",\"answers\":{\"new_1\":{\"answer\":\"1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:48:35', '2017-05-23 12:48:35'),
+(117, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:48:35', '2017-05-23 12:48:35'),
+(118, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:48:46', '2017-05-23 12:48:46'),
+(119, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"question\",\"answers\":{\"new_1\":{\"answer\":\"1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:51:18', '2017-05-23 12:51:18'),
+(120, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 12:51:18', '2017-05-23 12:51:18'),
+(121, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"question\",\"answers\":{\"new_1\":{\"answer\":\"1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:52:16', '2017-05-23 12:52:16'),
+(122, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 12:53:34', '2017-05-23 12:53:34'),
+(123, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:53:37', '2017-05-23 12:53:37'),
+(124, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"23\",\"answers\":{\"new_1\":{\"answer\":\"123\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:53:42', '2017-05-23 12:53:42'),
+(125, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 12:55:20', '2017-05-23 12:55:20'),
+(126, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:55:23', '2017-05-23 12:55:23'),
+(127, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"qwe\",\"answers\":{\"new_1\":{\"answer\":\"1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:55:29', '2017-05-23 12:55:29'),
+(128, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 12:55:59', '2017-05-23 12:55:59'),
+(129, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:56:02', '2017-05-23 12:56:02'),
+(130, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"qwer\",\"answers\":{\"new_1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:56:10', '2017-05-23 12:56:10'),
+(131, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 12:56:34', '2017-05-23 12:56:34'),
+(132, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 12:56:37', '2017-05-23 12:56:37'),
+(133, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"qwer\",\"answers\":{\"new_1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 12:56:43', '2017-05-23 12:56:43'),
+(134, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:00:14', '2017-05-23 13:00:14'),
+(135, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:00:18', '2017-05-23 13:00:18'),
+(136, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:00:19', '2017-05-23 13:00:19'),
+(137, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:00:24', '2017-05-23 13:00:24'),
+(138, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"q1\",\"answers\":{\"new_1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:00:40', '2017-05-23 13:00:40'),
+(139, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:00:40', '2017-05-23 13:00:40'),
+(140, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:01:52', '2017-05-23 13:01:52'),
+(141, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"q1\",\"answers\":{\"new_1\":{\"answer\":\"a2\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:01:59', '2017-05-23 13:01:59'),
+(142, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:02:41', '2017-05-23 13:02:41'),
+(143, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:05:44', '2017-05-23 13:05:44'),
+(144, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:05:45', '2017-05-23 13:05:45'),
+(145, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"q1\",\"answers\":{\"new_1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:05:51', '2017-05-23 13:05:51'),
+(146, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:05:51', '2017-05-23 13:05:51'),
+(147, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:06:08', '2017-05-23 13:06:08'),
+(148, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"q1\",\"answers\":{\"new_1\":{\"answer\":\"a1\",\"correct\":\"on\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"a2\",\"correct\":\"on\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:06:20', '2017-05-23 13:06:20'),
+(149, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:06:38', '2017-05-23 13:06:38'),
+(150, 1, 'cp/questions/19/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/19\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:06:42', '2017-05-23 13:06:42'),
+(151, 1, 'cp/questions/19', 'PUT', '127.0.0.1', '{\"title\":\"q1\",\"answers\":{\"1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":\"1\",\"_remove_\":\"0\"},\"2\":{\"answer\":\"a2\",\"correct\":\"off\",\"id\":\"2\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\\/19\"}', '2017-05-23 13:06:47', '2017-05-23 13:06:47'),
+(152, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:06:47', '2017-05-23 13:06:47'),
+(153, 1, 'cp/questions/19/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/19\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:06:49', '2017-05-23 13:06:49'),
+(154, 1, 'cp/questions/19/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/19\\/edit\"}', '2017-05-23 13:07:00', '2017-05-23 13:07:00'),
+(155, 1, 'cp/questions/19', 'PUT', '127.0.0.1', '{\"title\":\"q1\",\"answers\":{\"1\":{\"answer\":\"a1\",\"correct\":\"on\",\"id\":\"1\",\"_remove_\":\"0\"},\"2\":{\"answer\":\"a2\",\"correct\":\"on\",\"id\":\"2\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions\",\"q\":\"cp\\/questions\\/19\"}', '2017-05-23 13:07:12', '2017-05-23 13:07:12'),
+(156, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:07:12', '2017-05-23 13:07:12'),
+(157, 1, 'cp/questions/19/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/19\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:07:15', '2017-05-23 13:07:15'),
+(158, 1, 'cp/questions/19/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/19\\/edit\"}', '2017-05-23 13:07:35', '2017-05-23 13:07:35'),
+(159, 1, 'cp/questions/19', 'PUT', '127.0.0.1', '{\"title\":\"q1\",\"answers\":{\"1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":\"1\",\"_remove_\":\"0\"},\"2\":{\"answer\":\"a2\",\"correct\":\"off\",\"id\":\"2\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/19\\/edit?q=cp%2Fquestions%2F19%2Fedit\",\"q\":\"cp\\/questions\\/19\"}', '2017-05-23 13:07:41', '2017-05-23 13:07:41'),
+(160, 1, 'cp/questions/19/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/19\\/edit\"}', '2017-05-23 13:07:41', '2017-05-23 13:07:41'),
+(161, 1, 'cp/questions/19/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/19\\/edit\"}', '2017-05-23 13:07:43', '2017-05-23 13:07:43'),
+(162, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:07:51', '2017-05-23 13:07:51'),
+(163, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:07:53', '2017-05-23 13:07:53'),
+(164, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"qqq\",\"answers\":{\"new_1\":{\"answer\":\"aaa 1\",\"correct\":\"on\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"bbb 2\",\"correct\":\"on\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:08:04', '2017-05-23 13:08:04'),
+(165, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:08:15', '2017-05-23 13:08:15'),
+(166, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:15:29', '2017-05-23 13:15:29'),
+(167, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:15:30', '2017-05-23 13:15:30'),
+(168, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:15:30', '2017-05-23 13:15:30'),
+(169, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"dasd\",\"answers\":{\"new_1\":{\"answer\":\"asdasd\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"aaaaaaa\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:15:41', '2017-05-23 13:15:41'),
+(170, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:16:00', '2017-05-23 13:16:00'),
+(171, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:16:01', '2017-05-23 13:16:01'),
+(172, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:16:03', '2017-05-23 13:16:03'),
+(173, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:16:38', '2017-05-23 13:16:38'),
+(174, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"qqq\",\"answers\":{\"new_1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"a2\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:16:50', '2017-05-23 13:16:50'),
+(175, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:16:52', '2017-05-23 13:16:52'),
+(176, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:17:03', '2017-05-23 13:17:03'),
+(177, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:17:06', '2017-05-23 13:17:06'),
+(178, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"a2\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:17:16', '2017-05-23 13:17:16'),
+(179, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:17:16', '2017-05-23 13:17:16'),
+(180, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"a2\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:17:53', '2017-05-23 13:17:53'),
+(181, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:17:53', '2017-05-23 13:17:53'),
+(182, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:19:43', '2017-05-23 13:19:43'),
+(183, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:20:02', '2017-05-23 13:20:02'),
+(184, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"q1\",\"answers\":{\"new_1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"a2\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:20:18', '2017-05-23 13:20:18'),
+(185, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:20:18', '2017-05-23 13:20:18'),
+(186, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:20:50', '2017-05-23 13:20:50'),
+(187, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdf\",\"answers\":{\"new_1\":{\"answer\":\"a1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"a2\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:21:00', '2017-05-23 13:21:00'),
+(188, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:21:40', '2017-05-23 13:21:40'),
+(189, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:21:42', '2017-05-23 13:21:42'),
+(190, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:21:44', '2017-05-23 13:21:44'),
+(191, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"q\",\"answers\":{\"new_1\":{\"answer\":\"a\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"a\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:25:28', '2017-05-23 13:25:28'),
+(192, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:25:41', '2017-05-23 13:25:41'),
+(193, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:25:46', '2017-05-23 13:25:46'),
+(194, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"qqq\",\"answers\":{\"new_1\":{\"answer\":\"aaa\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:25:58', '2017-05-23 13:25:58'),
+(195, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:26:03', '2017-05-23 13:26:03'),
+(196, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:26:06', '2017-05-23 13:26:06'),
+(197, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"answer\":\"sdfasdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:26:11', '2017-05-23 13:26:11'),
+(198, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:26:29', '2017-05-23 13:26:29'),
+(199, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:26:33', '2017-05-23 13:26:33'),
+(200, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"djghjc\",\"answers\":{\"new_1\":{\"answer\":\"jndtn\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"dthysq jndtn\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:26:50', '2017-05-23 13:26:50'),
+(201, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:26:50', '2017-05-23 13:26:50'),
+(202, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:29:02', '2017-05-23 13:29:02'),
+(203, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"answer\":null,\"correct\":\"off\",\"id\":null,\"_remove_\":\"1\"},\"new_2\":{\"answer\":null,\"correct\":\"off\",\"id\":null,\"_remove_\":\"1\"},\"new_3\":{\"answer\":null,\"correct\":\"off\",\"id\":null,\"_remove_\":\"1\"},\"new_4\":{\"answer\":null,\"correct\":\"off\",\"id\":null,\"_remove_\":\"1\"},\"new_5\":{\"answer\":\"sfsdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:29:26', '2017-05-23 13:29:26'),
+(204, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:29:26', '2017-05-23 13:29:26'),
+(205, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:30:45', '2017-05-23 13:30:45'),
+(206, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:30:46', '2017-05-23 13:30:46'),
+(207, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"123\",\"answers\":{\"new_1\":{\"answer\":\"aaa\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:30:53', '2017-05-23 13:30:53'),
+(208, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:30:54', '2017-05-23 13:30:54'),
+(209, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:31:15', '2017-05-23 13:31:15'),
+(210, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdf\",\"answers\":{\"new_1\":{\"answer\":\"111\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"222\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:31:25', '2017-05-23 13:31:25'),
+(211, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:31:26', '2017-05-23 13:31:26'),
+(212, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:32:04', '2017-05-23 13:32:04'),
+(213, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"answer\":\"111\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"222\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:32:19', '2017-05-23 13:32:19'),
+(214, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:32:19', '2017-05-23 13:32:19'),
+(215, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:32:22', '2017-05-23 13:32:22'),
+(216, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:32:25', '2017-05-23 13:32:25'),
+(217, 1, 'cp/questions/27', 'PUT', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"3\":{\"answer\":\"111\",\"correct\":\"off\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"answer\":\"222\",\"correct\":\"off\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\\/27\"}', '2017-05-23 13:32:30', '2017-05-23 13:32:30'),
+(218, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:32:30', '2017-05-23 13:32:30'),
+(219, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:32:32', '2017-05-23 13:32:32'),
+(220, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:32:50', '2017-05-23 13:32:50'),
+(221, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:33:06', '2017-05-23 13:33:06'),
+(222, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:33:31', '2017-05-23 13:33:31'),
+(223, 1, 'cp/questions/27', 'PUT', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"3\":{\"answer\":\"111\",\"correct\":\"off\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"answer\":\"222\",\"correct\":\"off\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/27\\/edit?q=cp%2Fquestions%2F27%2Fedit\",\"q\":\"cp\\/questions\\/27\"}', '2017-05-23 13:33:36', '2017-05-23 13:33:36'),
+(224, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:33:36', '2017-05-23 13:33:36'),
+(225, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:34:00', '2017-05-23 13:34:00'),
+(226, 1, 'cp/questions/27', 'PUT', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"3\":{\"answer\":\"111\",\"correct\":\"off\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"answer\":\"222\",\"correct\":\"off\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/27\\/edit?q=cp%2Fquestions%2F27%2Fedit\",\"q\":\"cp\\/questions\\/27\"}', '2017-05-23 13:34:04', '2017-05-23 13:34:04'),
+(227, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:34:04', '2017-05-23 13:34:04'),
+(228, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:35:00', '2017-05-23 13:35:00'),
+(229, 1, 'cp/questions/27', 'PUT', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"3\":{\"title\":\"111\",\"correct\":\"off\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"title\":\"222\",\"correct\":\"off\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/27\\/edit?q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit\",\"q\":\"cp\\/questions\\/27\"}', '2017-05-23 13:35:03', '2017-05-23 13:35:03'),
+(230, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:35:04', '2017-05-23 13:35:04'),
+(231, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:35:17', '2017-05-23 13:35:17'),
+(232, 1, 'cp/questions/27', 'PUT', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"3\":{\"title\":\"111\",\"correct\":\"off\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"title\":\"222\",\"correct\":\"off\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/27\\/edit?q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit\",\"q\":\"cp\\/questions\\/27\"}', '2017-05-23 13:35:20', '2017-05-23 13:35:20'),
+(233, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:35:20', '2017-05-23 13:35:20'),
+(234, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:35:45', '2017-05-23 13:35:45'),
+(235, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:35:47', '2017-05-23 13:35:47'),
+(236, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:40:39', '2017-05-23 13:40:39'),
+(237, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:41:31', '2017-05-23 13:41:31'),
+(238, 1, 'cp/questions/27', 'PUT', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"3\":{\"title\":\"111\",\"correct\":\"off\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"title\":\"222\",\"correct\":\"off\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/27\\/edit?q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit\",\"q\":\"cp\\/questions\\/27\"}', '2017-05-23 13:41:35', '2017-05-23 13:41:35'),
+(239, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:41:35', '2017-05-23 13:41:35'),
+(240, 1, 'cp/auth/logs', 'GET', '127.0.0.1', '{\"q\":\"cp\\/auth\\/logs\"}', '2017-05-23 13:41:44', '2017-05-23 13:41:44'),
+(241, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:42:49', '2017-05-23 13:42:49'),
+(242, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:43:15', '2017-05-23 13:43:15'),
+(243, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:46:39', '2017-05-23 13:46:39'),
+(244, 1, 'cp/questions/27', 'PUT', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"3\":{\"title\":\"111\",\"correct\":\"off\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"title\":\"222\",\"correct\":\"off\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/27\\/edit?q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit\",\"q\":\"cp\\/questions\\/27\"}', '2017-05-23 13:46:45', '2017-05-23 13:46:45'),
+(245, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:46:45', '2017-05-23 13:46:45'),
+(246, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:46:55', '2017-05-23 13:46:55'),
+(247, 1, 'cp/questions/27', 'PUT', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"3\":{\"title\":\"111\",\"correct\":\"off\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"title\":\"222\",\"correct\":\"off\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/27\\/edit?q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit\",\"q\":\"cp\\/questions\\/27\"}', '2017-05-23 13:46:58', '2017-05-23 13:46:58'),
+(248, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:46:58', '2017-05-23 13:46:58'),
+(249, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:47:15', '2017-05-23 13:47:15'),
+(250, 1, 'cp/questions/27', 'PUT', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"3\":{\"title\":\"111\",\"correct\":\"off\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"title\":\"222\",\"correct\":\"off\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/27\\/edit?q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit\",\"q\":\"cp\\/questions\\/27\"}', '2017-05-23 13:47:18', '2017-05-23 13:47:18'),
+(251, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:47:19', '2017-05-23 13:47:19'),
+(252, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:47:20', '2017-05-23 13:47:20'),
+(253, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:47:21', '2017-05-23 13:47:21'),
+(254, 1, 'cp/questions/27', 'PUT', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"3\":{\"title\":\"111\",\"correct\":\"off\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"title\":\"222\",\"correct\":\"off\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/27\\/edit?q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit&q=cp%2Fquestions%2F27%2Fedit\",\"q\":\"cp\\/questions\\/27\"}', '2017-05-23 13:47:25', '2017-05-23 13:47:25'),
+(255, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:47:25', '2017-05-23 13:47:25'),
+(256, 1, 'cp/questions/27/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/27\\/edit\"}', '2017-05-23 13:47:26', '2017-05-23 13:47:26'),
+(257, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:47:31', '2017-05-23 13:47:31'),
+(258, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:47:33', '2017-05-23 13:47:33'),
+(259, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"\\u0444\\u044b\\u0432\\u0444\\u0432\\u0430\",\"answers\":{\"new_1\":{\"title\":\"\\u0444\\u0432\\u044b\\u0444\\u0432\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:47:37', '2017-05-23 13:47:37'),
+(260, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:47:37', '2017-05-23 13:47:37'),
+(261, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:51:13', '2017-05-23 13:51:13'),
+(262, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:51:29', '2017-05-23 13:51:29'),
+(263, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"title\":\"111\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:51:33', '2017-05-23 13:51:33'),
+(264, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:51:33', '2017-05-23 13:51:33'),
+(265, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 13:52:39', '2017-05-23 13:52:39'),
+(266, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"title\":\"asdasd\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:52:43', '2017-05-23 13:52:43'),
+(267, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:55:46', '2017-05-23 13:55:46'),
+(268, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:55:48', '2017-05-23 13:55:48'),
+(269, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"title\":\"adsfasdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:55:52', '2017-05-23 13:55:52');
+INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `input`, `created_at`, `updated_at`) VALUES
+(270, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:56:28', '2017-05-23 13:56:28'),
+(271, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:56:30', '2017-05-23 13:56:30'),
+(272, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"sdasd\",\"answers\":{\"new_1\":{\"title\":\"asdasd\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:56:36', '2017-05-23 13:56:36'),
+(273, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:57:13', '2017-05-23 13:57:13'),
+(274, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:57:15', '2017-05-23 13:57:15'),
+(275, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasd\",\"answers\":{\"new_1\":{\"title\":\"asdasd\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:57:19', '2017-05-23 13:57:19'),
+(276, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:58:38', '2017-05-23 13:58:38'),
+(277, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:58:40', '2017-05-23 13:58:40'),
+(278, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"title\":\"asdasd\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 13:58:44', '2017-05-23 13:58:44'),
+(279, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 13:59:54', '2017-05-23 13:59:54'),
+(280, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 13:59:58', '2017-05-23 13:59:58'),
+(281, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asadasd\",\"answers\":{\"new_1\":{\"title\":\"asdasd\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:00:01', '2017-05-23 14:00:01'),
+(282, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:00:51', '2017-05-23 14:00:51'),
+(283, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:00:53', '2017-05-23 14:00:53'),
+(284, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdadd\",\"answers\":{\"new_1\":{\"title\":\"addasd\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:00:56', '2017-05-23 14:00:56'),
+(285, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:01:14', '2017-05-23 14:01:14'),
+(286, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:01:19', '2017-05-23 14:01:19'),
+(287, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:01:20', '2017-05-23 14:01:20'),
+(288, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"title\":\"sdfsdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:01:23', '2017-05-23 14:01:23'),
+(289, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:01:33', '2017-05-23 14:01:33'),
+(290, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:01:34', '2017-05-23 14:01:34'),
+(291, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"title\":\"asdasd\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:01:38', '2017-05-23 14:01:38'),
+(292, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:02:03', '2017-05-23 14:02:03'),
+(293, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:02:06', '2017-05-23 14:02:06'),
+(294, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"title\":\"asdasd\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:02:08', '2017-05-23 14:02:08'),
+(295, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:03:07', '2017-05-23 14:03:07'),
+(296, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:03:14', '2017-05-23 14:03:14'),
+(297, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"111\",\"answers\":{\"new_1\":{\"title\":\"asdfasdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:03:19', '2017-05-23 14:03:19'),
+(298, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:05:03', '2017-05-23 14:05:03'),
+(299, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:05:05', '2017-05-23 14:05:05'),
+(300, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"title\":\"asdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:05:10', '2017-05-23 14:05:10'),
+(301, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:06:51', '2017-05-23 14:06:51'),
+(302, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:06:52', '2017-05-23 14:06:52'),
+(303, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfa\",\"answers\":{\"new_1\":{\"title\":\"1\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:06:56', '2017-05-23 14:06:56'),
+(304, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:08:13', '2017-05-23 14:08:13'),
+(305, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:08:15', '2017-05-23 14:08:15'),
+(306, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"12312\",\"answers\":{\"new_1\":{\"title\":\"12312\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:08:19', '2017-05-23 14:08:19'),
+(307, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:08:51', '2017-05-23 14:08:51'),
+(308, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:08:52', '2017-05-23 14:08:52'),
+(309, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"title\":\"aaa\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:08:55', '2017-05-23 14:08:55'),
+(310, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:09:58', '2017-05-23 14:09:58'),
+(311, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:10:05', '2017-05-23 14:10:05'),
+(312, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:10:06', '2017-05-23 14:10:06'),
+(313, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"title\":\"asdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:10:09', '2017-05-23 14:10:09'),
+(314, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:10:33', '2017-05-23 14:10:33'),
+(315, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:10:35', '2017-05-23 14:10:35'),
+(316, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfadsf\",\"answers\":{\"new_1\":{\"title\":\"aasdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:10:39', '2017-05-23 14:10:39'),
+(317, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:11:47', '2017-05-23 14:11:47'),
+(318, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:11:48', '2017-05-23 14:11:48'),
+(319, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdads\",\"answers\":{\"new_1\":{\"title\":\"qqq\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:11:52', '2017-05-23 14:11:52'),
+(320, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:13:49', '2017-05-23 14:13:49'),
+(321, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:13:52', '2017-05-23 14:13:52'),
+(322, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"title\":\"asdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:13:56', '2017-05-23 14:13:56'),
+(323, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:14:32', '2017-05-23 14:14:32'),
+(324, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:14:34', '2017-05-23 14:14:34'),
+(325, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasd\",\"answers\":{\"new_1\":{\"title\":\"asdfasdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:14:37', '2017-05-23 14:14:37'),
+(326, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:16:42', '2017-05-23 14:16:42'),
+(327, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:16:44', '2017-05-23 14:16:44'),
+(328, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:18:00', '2017-05-23 14:18:00'),
+(329, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfsdf\",\"answers\":{\"new_1\":{\"title\":\"asdfsdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:18:07', '2017-05-23 14:18:07'),
+(330, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:18:47', '2017-05-23 14:18:47'),
+(331, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:18:50', '2017-05-23 14:18:50'),
+(332, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:19:05', '2017-05-23 14:19:05'),
+(333, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:19:14', '2017-05-23 14:19:14'),
+(334, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:20:02', '2017-05-23 14:20:02'),
+(335, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"aaa\",\"answers\":{\"new_1\":{\"title\":\"asdasd\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:20:07', '2017-05-23 14:20:07'),
+(336, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:20:30', '2017-05-23 14:20:30'),
+(337, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:20:31', '2017-05-23 14:20:31'),
+(338, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"title\":\"dsfadsf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:20:36', '2017-05-23 14:20:36'),
+(339, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:20:44', '2017-05-23 14:20:44'),
+(340, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:20:45', '2017-05-23 14:20:45'),
+(341, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:21:03', '2017-05-23 14:21:03'),
+(342, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdasd\",\"answers\":{\"new_1\":{\"title\":\"asdfasdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:21:08', '2017-05-23 14:21:08'),
+(343, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:21:11', '2017-05-23 14:21:11'),
+(344, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:21:48', '2017-05-23 14:21:48'),
+(345, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:23:18', '2017-05-23 14:23:18'),
+(346, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:27:30', '2017-05-23 14:27:30'),
+(347, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:28:12', '2017-05-23 14:28:12'),
+(348, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:28:23', '2017-05-23 14:28:23'),
+(349, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:28:50', '2017-05-23 14:28:50'),
+(350, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:29:13', '2017-05-23 14:29:13'),
+(351, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:29:46', '2017-05-23 14:29:46'),
+(352, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:34:31', '2017-05-23 14:34:31'),
+(353, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"title\":\"adsfasdf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:34:38', '2017-05-23 14:34:38'),
+(354, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:34:58', '2017-05-23 14:34:58'),
+(355, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:35:00', '2017-05-23 14:35:00'),
+(356, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:35:01', '2017-05-23 14:35:01'),
+(357, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"title\":\"asdfadsf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:35:05', '2017-05-23 14:35:05'),
+(358, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:35:10', '2017-05-23 14:35:10'),
+(359, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:35:10', '2017-05-23 14:35:10'),
+(360, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:35:42', '2017-05-23 14:35:42'),
+(361, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:35:45', '2017-05-23 14:35:45'),
+(362, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:35:46', '2017-05-23 14:35:46'),
+(363, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:36:11', '2017-05-23 14:36:11'),
+(364, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:36:13', '2017-05-23 14:36:13'),
+(365, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asaasd\",\"answers\":{\"new_1\":{\"title\":\"asdasd\",\"correct\":\"on\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:36:20', '2017-05-23 14:36:20'),
+(366, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:36:35', '2017-05-23 14:36:35'),
+(367, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:37:08', '2017-05-23 14:37:08'),
+(368, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:37:10', '2017-05-23 14:37:10'),
+(369, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"answers\":{\"new_1\":{\"title\":\"asdfasdf\",\"correct\":\"on\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"title\":\"asdfasdfadfadsf\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:37:19', '2017-05-23 14:37:19'),
+(370, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:37:22', '2017-05-23 14:37:22'),
+(371, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:37:28', '2017-05-23 14:37:28'),
+(372, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:37:30', '2017-05-23 14:37:30'),
+(373, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:37:32', '2017-05-23 14:37:32'),
+(374, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"aaa\",\"answers\":{\"new_1\":{\"title\":\"bbb\",\"correct\":\"on\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"title\":\"ccc\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions?q=cp%2Fquestions\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:37:40', '2017-05-23 14:37:40'),
+(375, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:37:40', '2017-05-23 14:37:40'),
+(376, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:38:10', '2017-05-23 14:38:10'),
+(377, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"title\":\"aaa\",\"answers\":{\"new_1\":{\"title\":\"ccc\",\"correct\":\"off\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"title\":\"bbb\",\"correct\":\"on\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"ddRwRah9kHs5aaJWGclu6hyYNlbeHR9IYfCS9Sv9\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\\/create?q=cp%2Fquestions%2Fcreate\",\"q\":\"cp\\/questions\"}', '2017-05-23 14:38:19', '2017-05-23 14:38:19'),
+(378, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\"}', '2017-05-23 14:38:19', '2017-05-23 14:38:19'),
+(379, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-23 14:38:24', '2017-05-23 14:38:24'),
+(380, 1, 'cp/questions/59/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/59\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-23 14:38:28', '2017-05-23 14:38:28'),
+(381, 1, 'cp/questions/59/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/59\\/edit\"}', '2017-05-23 14:43:58', '2017-05-23 14:43:58');
 
 -- --------------------------------------------------------
 
@@ -281,6 +626,33 @@ CREATE TABLE `albums` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `answers`
+--
+
+CREATE TABLE `answers` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `correct` tinyint(1) NOT NULL DEFAULT '0',
+  `question_model_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `answers`
+--
+
+INSERT INTO `answers` (`id`, `title`, `correct`, `question_model_id`, `created_at`, `updated_at`) VALUES
+(1, 'a1', 0, 19, '2017-05-23 13:06:20', '2017-05-23 13:07:41'),
+(2, 'a2', 0, 19, '2017-05-23 13:06:20', '2017-05-23 13:07:41'),
+(3, '111', 0, 27, '2017-05-23 13:32:19', '2017-05-23 13:32:19'),
+(4, '222', 0, 27, '2017-05-23 13:32:19', '2017-05-23 13:32:19'),
+(6, 'ccc', 0, 59, '2017-05-23 14:38:19', '2017-05-23 14:38:19'),
+(7, 'bbb', 1, 59, '2017-05-23 14:38:19', '2017-05-23 14:38:19');
 
 -- --------------------------------------------------------
 
@@ -459,6 +831,28 @@ INSERT INTO `polls` (`id`, `title`, `content`, `url`, `active`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `questions`
+--
+
+CREATE TABLE `questions` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(19, 'q1', '2017-05-23 13:06:20', '2017-05-23 13:06:20'),
+(27, 'asdasd', '2017-05-23 13:32:19', '2017-05-23 13:32:19'),
+(59, 'aaa', '2017-05-23 14:38:19', '2017-05-23 14:38:19');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `statements`
 --
 
@@ -597,6 +991,12 @@ ALTER TABLE `albums`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `answers`
+--
+ALTER TABLE `answers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -647,6 +1047,12 @@ ALTER TABLE `polls`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `statements`
 --
 ALTER TABLE `statements`
@@ -678,7 +1084,7 @@ ALTER TABLE `admin_menu`
 -- AUTO_INCREMENT for table `admin_operation_log`
 --
 ALTER TABLE `admin_operation_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=382;
 --
 -- AUTO_INCREMENT for table `admin_permissions`
 --
@@ -699,6 +1105,11 @@ ALTER TABLE `admin_users`
 --
 ALTER TABLE `albums`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `answers`
+--
+ALTER TABLE `answers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `categories`
 --
@@ -734,6 +1145,11 @@ ALTER TABLE `new_images`
 --
 ALTER TABLE `polls`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT for table `statements`
 --
