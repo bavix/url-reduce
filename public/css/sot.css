@@ -13,6 +13,8 @@ html {
   html body {
     height: 100%;
     padding-top: 5.5rem; }
+  html .lg-backdrop {
+    background-color: #3d6277; }
   html header nav .navbar-brand img {
     width: 1.6rem; }
   html header nav a.zoom.disabled path {

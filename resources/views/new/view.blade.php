@@ -15,6 +15,7 @@
                         </p>
                     @endif
                     {!! $item->content !!}
+                    @include("gallery.view")
                 </div>
             </div>
         </div>

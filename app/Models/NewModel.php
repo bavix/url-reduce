@@ -21,12 +21,35 @@ class NewModel extends Model
         return $this->belongsTo(CategoryModel::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function images()
+    public function setImagesAttribute($pictures)
     {
-        return $this->hasMany(ImageModel::class);
+        if (is_array($pictures)) {
+            foreach ($pictures as $picture)
+            {
+                $model = new NewImageModel();
+                $model->src = $picture;
+                $model->new_model_id = $this->id;
+                $model->save();
+            }
+        }
+    }
+
+    public function getImagesAttribute()
+    {
+        return [1,2,3];
+    }
+
+    public function setContentAttribute($content)
+    {
+        $config = \HTMLPurifier_Config::createDefault();
+        $config->set('Cache.SerializerPath', base_path('storage/purifier'));
+
+        $this->attributes['content'] = (new \HTMLPurifier($config))->purify($content);
+    }
+
+    public function gallery()
+    {
+        return $this->hasMany(NewImageModel::class);
     }
 
     /**

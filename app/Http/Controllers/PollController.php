@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewModel;
+use App\Models\PollModel;
 use Illuminate\Http\Request;
 
-class NewController extends Controller
+class PollController extends Controller
 {
 
     /**
@@ -20,7 +21,7 @@ class NewController extends Controller
         /**
          * @var \Illuminate\Database\Eloquent\Builder $query
          */
-        $query = NewModel::with(['category']);
+        $query = PollModel::query();
         $query->orderBy('id', 'desc');
         $query->where('active', 1);
 
@@ -39,10 +40,10 @@ class NewController extends Controller
      */
     public function view(Request $request, $id)
     {
-        $model = NewModel::query()->find($id);
+        $model = PollModel::query()->find($id);
         \abort_if(!$model, 404);
 
-        return view('new.view', [
+        return view('poll.view', [
             'item' => $model
         ], $this->mergeData());
     }

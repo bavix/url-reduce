@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+    <link href="{{ asset('packages/admin/lightGallery/css/lightgallery.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
     <link href="{{ asset('css/sot.css')  }}" rel="stylesheet"/>
 
@@ -199,11 +200,18 @@
 </div>
 
 <!-- Scripts -->
-<script defer async src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}"></script>
-<script defer async src="{{ asset('node_modules/tether/dist/js/tether.min.js') }}"></script>
-<script defer async src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<script defer async src="{{ asset('js/watch.min.js') }}"></script>
-<script defer async src="{{ asset('js/bavix.js') }}"></script>
-<script defer async src="{{ asset('js/zoom.js') }}"></script>
+<script src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('node_modules/tether/dist/js/tether.min.js') }}"></script>
+<script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('packages/admin/lightGallery/js/lightgallery.min.js') }}"></script>
+<script src="{{ asset('js/watch.min.js') }}"></script>
+<script src="{{ asset('js/bavix.js') }}"></script>
+<script src="{{ asset('js/zoom.js') }}"></script>
+<script>
+    $(function () {
+        $('.lightGallery').lightGallery();
+    });
+</script>
+
 </body>
 </html>

@@ -113,6 +113,9 @@ class NewController extends Controller
                     ->all()
             );
 
+            $form->multipleImage('images', 'Галерея');
+            $form->lightGallery('pictures', '');
+
             $form->switch('active', 'Видимость');
             
             $form->ignore(['created_at', 'updated_at']);
