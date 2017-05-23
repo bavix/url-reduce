@@ -13,4 +13,12 @@ class CategoryModel extends Model
         return $this->hasMany(NewModel::class);
     }
 
+    public function url()
+    {
+        return route('new.category', [
+            'id' => $this->id,
+            'title' => $this->title
+        ]);
+    }
+
 }

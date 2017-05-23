@@ -42,7 +42,7 @@
 
             <div class="collapse navbar-collapse" id="navbarDefault">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item {{ activeClass(['new', 'new.view']) }}">
+                    <li class="nav-item {{ activeClass(['new', 'new.view', 'new.category']) }}">
                         <a class="nav-link" href="{{ route('new') }}">Новости <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item  {{ activeClass(['page', 'page.view']) }}">

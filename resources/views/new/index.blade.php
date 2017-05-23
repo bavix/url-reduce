@@ -19,7 +19,11 @@
                             <h4 class="card-title">{{ $item->title }}</h4>
                         </a>
                         @if(method_exists($item, 'category'))
-                            <h6 class="card-subtitle mb-2 text-muted">{{ $item->category->title }}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                Категория:
+                                <a href="{{ $item->category->url() }}"
+                                   title="{{ $item->category->title }}" >{{ $item->category->title }}</a>
+                            </h6>
                         @endif
                         <p class="card-text">{{ $item->description }}</p>
                         <a href="{{ $item->url() }}" class="card-link">Читать »</a>
