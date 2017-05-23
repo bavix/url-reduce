@@ -43,6 +43,12 @@ class NewController extends Controller
         $model = NewModel::query()->find($id);
         \abort_if(!$model, 404);
 
+        if ($request->url() !== $model->url())
+        {
+            // seo
+            return redirect($model->url(), 301);
+        }
+
         return view('new.view', [
             'item' => $model,
             'title' => $model->title . ' - Новости'
