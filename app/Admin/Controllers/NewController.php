@@ -127,10 +127,13 @@ class NewController extends Controller
 
             $form->multipleImage('images', 'Галерея');
             $form->lightGallery('pictures', '')->options([
-                'hello' => 'world' // todo
+                'column' => 'gallery'
             ]);
 
             $form->multipleFile('documents', 'Документы');
+            $form->documents('readable' , '')->options([
+                'column' => 'files'
+            ]);
 
             $form->switch('active', 'Видимость');
             

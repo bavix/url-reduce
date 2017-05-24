@@ -5,12 +5,12 @@ namespace App\Models;
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 
-class NewDocumentModel extends Model
+class DocumentModel extends Model
 {
 
     /**
      * @var string
      */
-    protected $table = 'new_documents';
+    protected $table = 'documents';
 
 }

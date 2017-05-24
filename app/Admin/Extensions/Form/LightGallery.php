@@ -39,7 +39,8 @@ class LightGallery extends Field
 
         $this->script = '$(\'.lightGallery\').lightGallery();';
 
-        $this->variables['model'] = $this->form->model();
+        $column = $this->options['column'];
+        $this->variables['_pictures'] = $this->form->model()->$column;
 
         return parent::render();
     }

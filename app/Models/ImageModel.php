@@ -5,12 +5,12 @@ namespace App\Models;
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 
-class NewImageModel extends Model
+class ImageModel extends Model
 {
 
     /**
      * @var string
      */
-    protected $table = 'new_images';
+    protected $table = 'images';
 
 }

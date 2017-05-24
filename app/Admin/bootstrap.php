@@ -23,3 +23,4 @@ Encore\Admin\Form::forget(['map', 'editor']);
 // extends
 \Encore\Admin\Form::extend('ckeditor', \App\Admin\Extensions\Form\CKEditor::class);
 \Encore\Admin\Form::extend('lightGallery', \App\Admin\Extensions\Form\LightGallery::class);
+\Encore\Admin\Form::extend('documents', \App\Admin\Extensions\Form\Documents::class);
