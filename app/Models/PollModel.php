@@ -16,7 +16,7 @@ class PollModel extends Model
 
     public function questions()
     {
-        return $this->hasMany(QuestionModel::class);
+        return $this->hasMany(QuestionModel::class, 'poll_id');
     }
 
     /**

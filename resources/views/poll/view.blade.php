@@ -10,7 +10,7 @@
 
                 <div class="panel-body">
 
-                    {{ $item->description }}
+                    {!! $item->content  !!}
 
                     <form id="poll" method="post" data-count="{{ $item->questions()->count() }}">
 

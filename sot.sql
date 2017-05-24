@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 24, 2017 at 04:48 PM
--- Server version: 5.7.18-0ubuntu0.17.04.1-log
--- PHP Version: 7.1.4-1+deb.sury.org~xenial+1
+-- Generation Time: May 24, 2017 at 10:42 PM
+-- Server version: 5.7.18-0ubuntu0.16.04.1
+-- PHP Version: 7.1.5-1+deb.sury.org~xenial+2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -297,7 +297,105 @@ INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `inp
 (199, 1, 'cp/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:49', '2017-05-24 10:29:49'),
 (200, 1, 'cp/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:50', '2017-05-24 10:29:50'),
 (201, 1, 'cp/auth/logs', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:51', '2017-05-24 10:29:51'),
-(202, 1, 'cp', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:55', '2017-05-24 10:29:55');
+(202, 1, 'cp', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:55', '2017-05-24 10:29:55'),
+(203, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\"}', '2017-05-24 19:13:55', '2017-05-24 19:13:55'),
+(204, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"q\":\"cp\\/albums\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:14:01', '2017-05-24 19:14:01'),
+(205, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:14:03', '2017-05-24 19:14:03'),
+(206, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:14:04', '2017-05-24 19:14:04'),
+(207, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:14:11', '2017-05-24 19:14:11'),
+(208, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:14:12', '2017-05-24 19:14:12'),
+(209, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:14:32', '2017-05-24 19:14:32'),
+(210, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:14:34', '2017-05-24 19:14:34'),
+(211, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:14:42', '2017-05-24 19:14:42'),
+(212, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:14:47', '2017-05-24 19:14:47'),
+(213, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:14:51', '2017-05-24 19:14:51'),
+(214, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:14:53', '2017-05-24 19:14:53'),
+(215, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:06', '2017-05-24 19:16:06'),
+(216, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\\/\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:08', '2017-05-24 19:16:08'),
+(217, 1, 'cp/links', 'GET', '127.0.0.1', '{\"q\":\"cp\\/links\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:09', '2017-05-24 19:16:09'),
+(218, 1, 'cp/statements', 'GET', '127.0.0.1', '{\"q\":\"cp\\/statements\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:12', '2017-05-24 19:16:12'),
+(219, 1, 'cp/statements/1/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/statements\\/1\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:18', '2017-05-24 19:16:18'),
+(220, 1, 'cp/types', 'GET', '127.0.0.1', '{\"q\":\"cp\\/types\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:28', '2017-05-24 19:16:28'),
+(221, 1, 'cp/news', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:30', '2017-05-24 19:16:30'),
+(222, 1, 'cp/news/6/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\\/6\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:34', '2017-05-24 19:16:34'),
+(223, 1, 'cp/categories', 'GET', '127.0.0.1', '{\"q\":\"cp\\/categories\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:37', '2017-05-24 19:16:37'),
+(224, 1, 'cp/pages', 'GET', '127.0.0.1', '{\"q\":\"cp\\/pages\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:41', '2017-05-24 19:16:41'),
+(225, 1, 'cp/pages/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/pages\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:16:49', '2017-05-24 19:16:49'),
+(226, 1, 'cp/pages', 'POST', '127.0.0.1', '{\"title\":\"asdfadfasdf\",\"description\":\"asdfasdfasdfas\",\"content\":\"<p>fasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdf&nbsp;fasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdf&nbsp;fasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdf&nbsp;fasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdf&nbsp;fasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdf&nbsp;fasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdf&nbsp;fasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdf&nbsp;fasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdffasdfasdf<\\/p>\",\"active\":\"on\",\"_token\":\"irNye0YBFpI8uk9PAJjuyrU3PvTeEmA06wwBhFon\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/pages\",\"q\":\"cp\\/pages\"}', '2017-05-24 19:17:04', '2017-05-24 19:17:04'),
+(227, 1, 'cp/pages/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/pages\\/create\"}', '2017-05-24 19:17:04', '2017-05-24 19:17:04'),
+(228, 1, 'cp/pages/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/pages\\/create\"}', '2017-05-24 19:17:40', '2017-05-24 19:17:40'),
+(229, 1, 'cp/pages', 'POST', '127.0.0.1', '{\"title\":\"asdfasdf\",\"description\":\"asdfasdf\",\"content\":\"<p>&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d&nbsp;&nbsp;asd as d asd as a d<\\/p>\",\"active\":\"on\",\"_token\":\"irNye0YBFpI8uk9PAJjuyrU3PvTeEmA06wwBhFon\",\"q\":\"cp\\/pages\"}', '2017-05-24 19:17:56', '2017-05-24 19:17:56'),
+(230, 1, 'cp/pages/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/pages\\/create\"}', '2017-05-24 19:17:56', '2017-05-24 19:17:56'),
+(231, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:18:16', '2017-05-24 19:18:16'),
+(232, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:18:17', '2017-05-24 19:18:17'),
+(233, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:18:18', '2017-05-24 19:18:18'),
+(234, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:22:19', '2017-05-24 19:22:19'),
+(235, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:23:01', '2017-05-24 19:23:01'),
+(236, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:23:23', '2017-05-24 19:23:23'),
+(237, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:23:25', '2017-05-24 19:23:25'),
+(238, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:23:52', '2017-05-24 19:23:52'),
+(239, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:23:53', '2017-05-24 19:23:53'),
+(240, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:24:01', '2017-05-24 19:24:01'),
+(241, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:24:02', '2017-05-24 19:24:02'),
+(242, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:24:03', '2017-05-24 19:24:03'),
+(243, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:24:12', '2017-05-24 19:24:12'),
+(244, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:24:13', '2017-05-24 19:24:13'),
+(245, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:24:21', '2017-05-24 19:24:21'),
+(246, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:25:57', '2017-05-24 19:25:57'),
+(247, 1, 'cp/questions/2/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/2\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:26:01', '2017-05-24 19:26:01'),
+(248, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:26:01', '2017-05-24 19:26:01'),
+(249, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:26:24', '2017-05-24 19:26:24'),
+(250, 1, 'cp/questions/create', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/create\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:26:26', '2017-05-24 19:26:26'),
+(251, 1, 'cp/questions', 'POST', '127.0.0.1', '{\"poll_id\":\"2\",\"question\":\"asdasd\",\"answers\":{\"new_1\":{\"answer\":\"asdfasdfasdf\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"answer\":\"aaaa\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"irNye0YBFpI8uk9PAJjuyrU3PvTeEmA06wwBhFon\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/questions\",\"q\":\"cp\\/questions\"}', '2017-05-24 19:26:32', '2017-05-24 19:26:32'),
+(252, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:26:32', '2017-05-24 19:26:32'),
+(253, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:26:34', '2017-05-24 19:26:34'),
+(254, 1, 'cp/questions/3/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/3\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:26:36', '2017-05-24 19:26:36'),
+(255, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:26:38', '2017-05-24 19:26:38'),
+(256, 1, 'cp/questions/2/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\\/2\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:26:40', '2017-05-24 19:26:40'),
+(257, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:26:42', '2017-05-24 19:26:42'),
+(258, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\"}', '2017-05-24 19:27:04', '2017-05-24 19:27:04'),
+(259, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_sort\":{\"column\":\"id\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:40', '2017-05-24 19:28:40'),
+(260, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_sort\":{\"column\":\"id\",\"type\":\"asc\"},\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:41', '2017-05-24 19:28:41'),
+(261, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_sort\":{\"column\":\"id\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:42', '2017-05-24 19:28:42'),
+(262, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_sort\":{\"column\":\"id\",\"type\":\"asc\"},\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:42', '2017-05-24 19:28:42'),
+(263, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_sort\":{\"column\":\"question\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:44', '2017-05-24 19:28:44'),
+(264, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_sort\":{\"column\":\"question\",\"type\":\"asc\"},\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:44', '2017-05-24 19:28:44'),
+(265, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\\/\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:47', '2017-05-24 19:28:47'),
+(266, 1, 'cp/links', 'GET', '127.0.0.1', '{\"q\":\"cp\\/links\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:48', '2017-05-24 19:28:48'),
+(267, 1, 'cp/statements', 'GET', '127.0.0.1', '{\"q\":\"cp\\/statements\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:49', '2017-05-24 19:28:49'),
+(268, 1, 'cp/types', 'GET', '127.0.0.1', '{\"q\":\"cp\\/types\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:50', '2017-05-24 19:28:50'),
+(269, 1, 'cp/statements', 'GET', '127.0.0.1', '{\"q\":\"cp\\/statements\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:51', '2017-05-24 19:28:51'),
+(270, 1, 'cp/news', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:54', '2017-05-24 19:28:54'),
+(271, 1, 'cp/categories', 'GET', '127.0.0.1', '{\"q\":\"cp\\/categories\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:28:59', '2017-05-24 19:28:59'),
+(272, 1, 'cp/pages', 'GET', '127.0.0.1', '{\"q\":\"cp\\/pages\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:01', '2017-05-24 19:29:01'),
+(273, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:04', '2017-05-24 19:29:04'),
+(274, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:05', '2017-05-24 19:29:05'),
+(275, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"q\":\"cp\\/albums\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:06', '2017-05-24 19:29:06'),
+(276, 1, 'cp/auth/users', 'GET', '127.0.0.1', '{\"q\":\"cp\\/auth\\/users\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:08', '2017-05-24 19:29:08'),
+(277, 1, 'cp/auth/roles', 'GET', '127.0.0.1', '{\"q\":\"cp\\/auth\\/roles\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:09', '2017-05-24 19:29:09'),
+(278, 1, 'cp/auth/permissions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/auth\\/permissions\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:09', '2017-05-24 19:29:09'),
+(279, 1, 'cp/auth/menu', 'GET', '127.0.0.1', '{\"q\":\"cp\\/auth\\/menu\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:10', '2017-05-24 19:29:10'),
+(280, 1, 'cp/auth/logs', 'GET', '127.0.0.1', '{\"q\":\"cp\\/auth\\/logs\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:11', '2017-05-24 19:29:11'),
+(281, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:15', '2017-05-24 19:29:15'),
+(282, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"q\":\"cp\\/questions\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:17', '2017-05-24 19:29:17'),
+(283, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:19', '2017-05-24 19:29:19'),
+(284, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:29:35', '2017-05-24 19:29:35'),
+(285, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:31:12', '2017-05-24 19:31:12'),
+(286, 1, 'cp/categories', 'GET', '127.0.0.1', '{\"q\":\"cp\\/categories\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:32:49', '2017-05-24 19:32:49'),
+(287, 1, 'cp/pages', 'GET', '127.0.0.1', '{\"q\":\"cp\\/pages\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:32:50', '2017-05-24 19:32:50'),
+(288, 1, 'cp/news', 'GET', '127.0.0.1', '{\"q\":\"cp\\/news\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:32:50', '2017-05-24 19:32:50'),
+(289, 1, 'cp/statements', 'GET', '127.0.0.1', '{\"q\":\"cp\\/statements\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:32:53', '2017-05-24 19:32:53'),
+(290, 1, 'cp/types', 'GET', '127.0.0.1', '{\"q\":\"cp\\/types\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:32:54', '2017-05-24 19:32:54'),
+(291, 1, 'cp/links', 'GET', '127.0.0.1', '{\"q\":\"cp\\/links\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:32:55', '2017-05-24 19:32:55'),
+(292, 1, 'cp', 'GET', '127.0.0.1', '{\"q\":\"cp\\/\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:32:58', '2017-05-24 19:32:58'),
+(293, 1, 'cp/links', 'GET', '127.0.0.1', '{\"q\":\"cp\\/links\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:33:17', '2017-05-24 19:33:17'),
+(294, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:33:19', '2017-05-24 19:33:19'),
+(295, 1, 'cp/polls/2/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\\/2\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:33:21', '2017-05-24 19:33:21'),
+(296, 1, 'cp/polls/2', 'PUT', '127.0.0.1', '{\"title\":\"hello world\",\"content\":\"<p>asdfasdf<\\/p>\\r\\n\\r\\n<p>adasd<\\/p>\\r\\n\\r\\n<p>as<\\/p>\\r\\n\\r\\n<p>d&nbsp;<\\/p>\\r\\n\\r\\n<p>a<\\/p>\\r\\n\\r\\n<p>&nbsp;das<\\/p>\\r\\n\\r\\n<p>&nbsp;<\\/p>\\r\\n\\r\\n<p>ad<\\/p>\\r\\n\\r\\n<p>f adfadf<\\/p>\",\"active\":\"on\",\"_token\":\"irNye0YBFpI8uk9PAJjuyrU3PvTeEmA06wwBhFon\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/polls\",\"q\":\"cp\\/polls\\/2\"}', '2017-05-24 19:33:27', '2017-05-24 19:33:27'),
+(297, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\"}', '2017-05-24 19:33:27', '2017-05-24 19:33:27'),
+(298, 1, 'cp/polls/2/edit', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\\/2\\/edit\",\"_pjax\":\"#pjax-container\"}', '2017-05-24 19:34:31', '2017-05-24 19:34:31'),
+(299, 1, 'cp/polls/2', 'PUT', '127.0.0.1', '{\"title\":\"hello world\",\"content\":\"<p>asdfasdf adasd f adfadf<\\/p>\",\"active\":\"on\",\"_token\":\"irNye0YBFpI8uk9PAJjuyrU3PvTeEmA06wwBhFon\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.dev\\/cp\\/polls\",\"q\":\"cp\\/polls\\/2\"}', '2017-05-24 19:34:40', '2017-05-24 19:34:40'),
+(300, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"q\":\"cp\\/polls\"}', '2017-05-24 19:34:40', '2017-05-24 19:34:40');
 
 -- --------------------------------------------------------
 
@@ -491,8 +589,9 @@ INSERT INTO `albums_images` (`id`, `album_model_id`, `image_model_id`) VALUES
 CREATE TABLE `answers` (
   `id` int(11) NOT NULL,
   `answer` varchar(255) NOT NULL,
+  `count` int(11) NOT NULL DEFAULT '0',
   `correct` tinyint(1) NOT NULL DEFAULT '0',
-  `question_model_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -501,11 +600,13 @@ CREATE TABLE `answers` (
 -- Dumping data for table `answers`
 --
 
-INSERT INTO `answers` (`id`, `answer`, `correct`, `question_model_id`, `created_at`, `updated_at`) VALUES
-(1, 'ответ 1', 0, 1, '2017-05-24 03:50:27', '2017-05-24 03:50:27'),
-(2, 'ответ 2', 0, 1, '2017-05-24 03:50:27', '2017-05-24 03:50:27'),
-(3, 'a1', 0, 2, '2017-05-24 04:23:39', '2017-05-24 04:23:39'),
-(4, 'a2', 0, 2, '2017-05-24 04:23:39', '2017-05-24 04:23:39');
+INSERT INTO `answers` (`id`, `answer`, `count`, `correct`, `question_id`, `created_at`, `updated_at`) VALUES
+(1, 'ответ 1', 0, 0, 1, '2017-05-24 03:50:27', '2017-05-24 03:50:27'),
+(2, 'ответ 2', 0, 0, 1, '2017-05-24 03:50:27', '2017-05-24 03:50:27'),
+(3, 'a1', 0, 0, 2, '2017-05-24 04:23:39', '2017-05-24 04:23:39'),
+(4, 'a2', 0, 0, 2, '2017-05-24 04:23:39', '2017-05-24 04:23:39'),
+(5, 'asdfasdfasdf', 0, 0, 3, '2017-05-24 19:26:32', '2017-05-24 19:26:32'),
+(6, 'aaaa', 0, 0, 3, '2017-05-24 19:26:32', '2017-05-24 19:26:32');
 
 -- --------------------------------------------------------
 
@@ -804,7 +905,7 @@ CREATE TABLE `polls` (
 --
 
 INSERT INTO `polls` (`id`, `title`, `content`, `active`, `created_at`, `updated_at`) VALUES
-(2, 'hello world', '<p>asdfasdf</p>', 1, '2017-05-24 04:21:11', '2017-05-24 04:47:23');
+(2, 'hello world', '<p>asdfasdf adasd f adfadf</p>', 1, '2017-05-24 04:21:11', '2017-05-24 19:34:40');
 
 -- --------------------------------------------------------
 
@@ -815,7 +916,8 @@ INSERT INTO `polls` (`id`, `title`, `content`, `active`, `created_at`, `updated_
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
   `question` varchar(255) NOT NULL,
-  `poll_model_id` int(11) NOT NULL DEFAULT '0',
+  `count` int(11) NOT NULL DEFAULT '0',
+  `poll_id` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -824,8 +926,9 @@ CREATE TABLE `questions` (
 -- Dumping data for table `questions`
 --
 
-INSERT INTO `questions` (`id`, `question`, `poll_model_id`, `created_at`, `updated_at`) VALUES
-(2, 'asdadasd', 2, '2017-05-24 04:23:39', '2017-05-24 04:23:39');
+INSERT INTO `questions` (`id`, `question`, `count`, `poll_id`, `created_at`, `updated_at`) VALUES
+(2, 'asdadasd', 0, 2, '2017-05-24 04:23:39', '2017-05-24 04:23:39'),
+(3, 'asdasd', 0, 2, '2017-05-24 19:26:32', '2017-05-24 19:26:32');
 
 -- --------------------------------------------------------
 
@@ -1097,7 +1200,7 @@ ALTER TABLE `admin_menu`
 -- AUTO_INCREMENT for table `admin_operation_log`
 --
 ALTER TABLE `admin_operation_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 --
 -- AUTO_INCREMENT for table `admin_permissions`
 --
@@ -1127,7 +1230,7 @@ ALTER TABLE `albums_images`
 -- AUTO_INCREMENT for table `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `categories`
 --
@@ -1192,7 +1295,7 @@ ALTER TABLE `polls`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `statements`
 --

@@ -19,7 +19,6 @@
                             <h4 class="card-title">{{ $item->title }}</h4>
                         </a>
 
-                        <p class="card-text">{{ $item->description }}</p>
                         <a href="{{ $item->url() }}" class="card-link">Читать »</a>
                     </div>
 

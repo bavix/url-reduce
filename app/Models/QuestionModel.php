@@ -22,7 +22,7 @@ class QuestionModel extends Model
      */
     public function answers()
     {
-        return $this->hasMany(AnswerModel::class);
+        return $this->hasMany(AnswerModel::class, 'question_id');
     }
 
     /**

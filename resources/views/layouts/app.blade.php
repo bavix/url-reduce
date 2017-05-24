@@ -164,28 +164,33 @@
                     <div class="col-md-4 col-sm-6">
                         <!--Column1-->
                         <div class="footer-pad">
-                            <h4>Popular Services</h4>
-                            <ul class="list-unstyled">
-                                <li><a href="#">Payment Center</a></li>
-                                <li><a href="#">Contact Directory</a></li>
-                                <li><a href="#">Forms</a></li>
-                                <li><a href="#">News and Updates</a></li>
-                                <li><a href="#">FAQs</a></li>
-                            </ul>
+                            @if(isset($pages))
+                                <h4>Последние страницы</h4>
+                                <ul class="list-unstyled">
+                                    @foreach($pages as $page)
+                                        <li>
+                                            <a href="{{ $page->url() }}"
+                                               title="{{ $page->title }}">{{ $page->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <!--Column1-->
                         <div class="footer-pad">
-                            <h4>Website Information</h4>
-                            <ul class="list-unstyled">
-                                <li><a href="#">Website Tutorial</a></li>
-                                <li><a href="#">Accessibility</a></li>
-                                <li><a href="#">Disclaimer</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">FAQs</a></li>
-                                <li><a href="#">Webmaster</a></li>
-                            </ul>
+                            @if(isset($polls))
+                                <h4>Последние опросы</h4>
+                                <ul class="list-unstyled">
+                                    @foreach($polls as $poll)
+                                        <li>
+                                            <a href="{{ $poll->url() }}"
+                                               title="{{ $poll->title }}">{{ $poll->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
