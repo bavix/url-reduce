@@ -236,7 +236,13 @@
 <script src="{{ asset('js/zoom.js') }}"></script>
 <script>
     $(function () {
+        var $poll = $('#poll');
+        var $polls = $poll.data('count');
         $('.lightGallery').lightGallery();
+
+        $poll.find('[type=radio]').change(function () {
+            $poll.find('button').prop('disabled', $poll.serializeArray().length !== ($polls + 1));
+        });
     });
 </script>
 

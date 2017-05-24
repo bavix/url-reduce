@@ -30,6 +30,9 @@ Route::get('/polls', 'PollController@index')
 Route::get('/poll/{id}-{title}.html', 'PollController@view')
     ->name('poll.view');
 
+Route::post('/poll/{id}-{title}.html', 'PollController@view')
+    ->name('poll.view');
+
 // albums
 Route::get('/albums', 'AlbumController@index')
     ->name('album');

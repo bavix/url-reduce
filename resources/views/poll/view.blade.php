@@ -12,17 +12,36 @@
 
                     {{ $item->description }}
 
-                    <form method="post">
+                    <form id="poll" method="post" data-count="{{ $item->questions()->count() }}">
+
+                        {{ csrf_field() }}
 
                         @foreach($item->questions as $index => $question)
-                            <p>{{ $index + 1 }}. {{ $question->question }}</p>
 
-                            @foreach($question->answers as $answer)
-                                <input type="radio" name="questions[{{ $question->id }}]" value="{{ $answer->id }}" /> {{ $answer->answer }} <br />
-                            @endforeach
+                            <div class="form-group">
+
+                                <div class="form-check">
+                                    <label>{{ $index + 1 }}. {{ $question->question }}</label>
+                                </div>
+
+                                @foreach($question->answers as $answer)
+                                    <div class="form-check col-lg-12">
+                                        <label class="form-check-label">
+                                            <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                name="questions[{{ $question->id }}]"
+                                                value="{{ $answer->id }}"
+                                            />
+                                            {{ $answer->answer }}
+                                        </label>
+                                    </div>
+                                @endforeach
+
+                            </div>
                         @endforeach
 
-                        <button type="submit">Отправить</button>
+                        <button type="submit" disabled class="btn btn-warning">Отправить</button>
 
                     </form>
                 </div>
