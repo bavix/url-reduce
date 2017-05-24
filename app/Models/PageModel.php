@@ -24,6 +24,8 @@ class PageModel extends Model
                 $model->src = $picture;
                 $model->save();
 
+                $this->id or $this->save();
+
                 $this->gallery()->save($model);
             }
         }
@@ -37,6 +39,8 @@ class PageModel extends Model
                 $model = new DocumentModel();
                 $model->src = $document;
                 $model->save();
+
+                $this->id or $this->save();
 
                 $this->files()->save($model);
             }
