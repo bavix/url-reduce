@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 24, 2017 at 01:10 PM
+-- Generation Time: May 24, 2017 at 04:48 PM
 -- Server version: 5.7.18-0ubuntu0.17.04.1-log
 -- PHP Version: 7.1.4-1+deb.sury.org~xenial+1
 
@@ -56,7 +56,7 @@ INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `c
 (10, 8, 20, 'Database terminal', 'fa-database', 'helpers/terminal/database', NULL, '2017-05-23 07:52:43'),
 (11, 8, 21, 'Laravel artisan', 'fa-terminal', 'helpers/terminal/artisan', NULL, '2017-05-23 07:52:43'),
 (12, 0, 6, 'Контент', 'fa-newspaper-o', '/news', '2017-04-24 05:48:35', '2017-05-23 07:52:43'),
-(13, 0, 10, 'Albums', 'fa-picture-o', '/albums', '2017-04-24 05:49:11', '2017-05-23 07:52:43'),
+(13, 0, 10, 'Альбомы', 'fa-picture-o', '/albums', '2017-04-24 05:49:11', '2017-05-24 10:25:00'),
 (15, 0, 9, 'Опросник', 'fa-question-circle', '/polls', '2017-04-24 05:50:46', '2017-05-24 05:00:59'),
 (17, 0, 3, 'Подача заявлений', 'fa-user-plus', '/statements', '2017-05-19 07:56:53', '2017-05-23 07:52:43'),
 (18, 12, 8, 'Категории', 'fa-hashtag', '/categories', '2017-05-22 04:21:35', '2017-05-23 07:52:43'),
@@ -241,7 +241,63 @@ INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `inp
 (143, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:09:05', '2017-05-24 10:09:05'),
 (144, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:09:06', '2017-05-24 10:09:06'),
 (145, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:09:09', '2017-05-24 10:09:09'),
-(146, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:09:11', '2017-05-24 10:09:11');
+(146, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:09:11', '2017-05-24 10:09:11'),
+(147, 1, 'cp', 'GET', '127.0.0.1', '[]', '2017-05-24 10:19:09', '2017-05-24 10:19:09'),
+(148, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:19:16', '2017-05-24 10:19:16'),
+(149, 1, 'cp', 'GET', '127.0.0.1', '[]', '2017-05-24 10:19:16', '2017-05-24 10:19:16'),
+(150, 1, 'cp', 'GET', '127.0.0.1', '[]', '2017-05-24 10:19:41', '2017-05-24 10:19:41'),
+(151, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:19:43', '2017-05-24 10:19:43'),
+(152, 1, 'cp/albums/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:19:45', '2017-05-24 10:19:45'),
+(153, 1, 'cp/albums', 'POST', '127.0.0.1', '{\"title\":\"\\u044b\\u0432\\u0430\\u044b\\u0444\\u0432\\u0430\\u0444\\u044b\\u0432\\u0430\",\"description\":\"\\u0444\\u044b\\u0432\\u0430\\u0444\\u044b\\u0432\\u0430\",\"active\":\"on\",\"_token\":\"jQr6UULpCEN0jXV4TnvcZE1aRmng8O1dtDZx1oCu\",\"_previous_\":\"http:\\/\\/sot.deimos\\/cp\\/albums\"}', '2017-05-24 10:20:15', '2017-05-24 10:20:15'),
+(154, 1, 'cp/albums/create', 'GET', '127.0.0.1', '[]', '2017-05-24 10:20:15', '2017-05-24 10:20:15'),
+(155, 1, 'cp/albums/create', 'GET', '127.0.0.1', '[]', '2017-05-24 10:20:43', '2017-05-24 10:20:43'),
+(156, 1, 'cp/albums', 'POST', '127.0.0.1', '{\"title\":\"\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\",\"description\":\"\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\",\"active\":\"on\",\"_token\":\"jQr6UULpCEN0jXV4TnvcZE1aRmng8O1dtDZx1oCu\"}', '2017-05-24 10:21:02', '2017-05-24 10:21:02'),
+(157, 1, 'cp/albums/create', 'GET', '127.0.0.1', '[]', '2017-05-24 10:21:03', '2017-05-24 10:21:03'),
+(158, 1, 'cp/albums', 'POST', '127.0.0.1', '{\"title\":\"\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\",\"description\":\"\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\",\"active\":\"on\",\"_token\":\"jQr6UULpCEN0jXV4TnvcZE1aRmng8O1dtDZx1oCu\"}', '2017-05-24 10:22:40', '2017-05-24 10:22:40'),
+(159, 1, 'cp/albums/create', 'GET', '127.0.0.1', '[]', '2017-05-24 10:22:41', '2017-05-24 10:22:41'),
+(160, 1, 'cp/albums', 'POST', '127.0.0.1', '{\"title\":\"\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\",\"description\":\"\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\",\"active\":\"on\",\"_token\":\"jQr6UULpCEN0jXV4TnvcZE1aRmng8O1dtDZx1oCu\"}', '2017-05-24 10:23:17', '2017-05-24 10:23:17'),
+(161, 1, 'cp/albums', 'GET', '127.0.0.1', '[]', '2017-05-24 10:23:17', '2017-05-24 10:23:17'),
+(162, 1, 'cp/albums/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:23:20', '2017-05-24 10:23:20'),
+(163, 1, 'cp/albums/1', 'PUT', '127.0.0.1', '{\"title\":\"\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\",\"description\":\"\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\\u0444\\u0432\\u0444\\u044b\\u0432\\u0444\\u044b\\u0432\",\"active\":\"on\",\"_token\":\"jQr6UULpCEN0jXV4TnvcZE1aRmng8O1dtDZx1oCu\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.deimos\\/cp\\/albums\"}', '2017-05-24 10:23:55', '2017-05-24 10:23:55'),
+(164, 1, 'cp/albums', 'GET', '127.0.0.1', '[]', '2017-05-24 10:23:56', '2017-05-24 10:23:56'),
+(165, 1, 'cp/albums/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:24:02', '2017-05-24 10:24:02'),
+(166, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:24:44', '2017-05-24 10:24:44'),
+(167, 1, 'cp/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:24:46', '2017-05-24 10:24:46'),
+(168, 1, 'cp/auth/menu/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:24:50', '2017-05-24 10:24:50'),
+(169, 1, 'cp/auth/menu/13', 'PUT', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u0410\\u043b\\u044c\\u0431\\u043e\\u043c\\u044b\",\"icon\":\"fa-picture-o\",\"uri\":\"\\/albums\",\"roles\":[\"1\",null],\"_token\":\"jQr6UULpCEN0jXV4TnvcZE1aRmng8O1dtDZx1oCu\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/sot.deimos\\/cp\\/auth\\/menu\"}', '2017-05-24 10:25:00', '2017-05-24 10:25:00'),
+(170, 1, 'cp/auth/menu', 'GET', '127.0.0.1', '[]', '2017-05-24 10:25:00', '2017-05-24 10:25:00'),
+(171, 1, 'cp/auth/logout', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:09', '2017-05-24 10:25:09'),
+(172, 1, 'cp/news', 'GET', '127.0.0.1', '[]', '2017-05-24 10:25:18', '2017-05-24 10:25:18'),
+(173, 1, 'cp/links', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:26', '2017-05-24 10:25:26'),
+(174, 1, 'cp/types', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:28', '2017-05-24 10:25:28'),
+(175, 1, 'cp/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:30', '2017-05-24 10:25:30'),
+(176, 1, 'cp/pages', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:30', '2017-05-24 10:25:30'),
+(177, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:33', '2017-05-24 10:25:33'),
+(178, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:34', '2017-05-24 10:25:34'),
+(179, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:35', '2017-05-24 10:25:35'),
+(180, 1, 'cp/albums/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:38', '2017-05-24 10:25:38'),
+(181, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:41', '2017-05-24 10:25:41'),
+(182, 1, 'cp/albums/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:25:43', '2017-05-24 10:25:43'),
+(183, 1, 'cp/albums/create', 'GET', '127.0.0.1', '[]', '2017-05-24 10:26:22', '2017-05-24 10:26:22'),
+(184, 1, 'cp/albums/create', 'GET', '127.0.0.1', '[]', '2017-05-24 10:28:32', '2017-05-24 10:28:32'),
+(185, 1, 'cp/albums', 'POST', '127.0.0.1', '{\"title\":\"asdasdasdasda\",\"description\":\"sdasdasdasdasd\",\"active\":\"on\",\"_token\":\"jQr6UULpCEN0jXV4TnvcZE1aRmng8O1dtDZx1oCu\"}', '2017-05-24 10:28:46', '2017-05-24 10:28:46'),
+(186, 1, 'cp/albums', 'GET', '127.0.0.1', '[]', '2017-05-24 10:28:47', '2017-05-24 10:28:47'),
+(187, 1, 'cp/albums/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:28:50', '2017-05-24 10:28:50'),
+(188, 1, 'cp/types', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:35', '2017-05-24 10:29:35'),
+(189, 1, 'cp/pages', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:37', '2017-05-24 10:29:37'),
+(190, 1, 'cp/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:37', '2017-05-24 10:29:37'),
+(191, 1, 'cp/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:39', '2017-05-24 10:29:39'),
+(192, 1, 'cp/news', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:39', '2017-05-24 10:29:39'),
+(193, 1, 'cp/polls', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:42', '2017-05-24 10:29:42'),
+(194, 1, 'cp/questions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:43', '2017-05-24 10:29:43'),
+(195, 1, 'cp/albums', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:45', '2017-05-24 10:29:45'),
+(196, 1, 'cp/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:47', '2017-05-24 10:29:47'),
+(197, 1, 'cp/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:48', '2017-05-24 10:29:48'),
+(198, 1, 'cp/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:48', '2017-05-24 10:29:48'),
+(199, 1, 'cp/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:49', '2017-05-24 10:29:49'),
+(200, 1, 'cp/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:50', '2017-05-24 10:29:50'),
+(201, 1, 'cp/auth/logs', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:51', '2017-05-24 10:29:51'),
+(202, 1, 'cp', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-05-24 10:29:55', '2017-05-24 10:29:55');
 
 -- --------------------------------------------------------
 
@@ -363,7 +419,7 @@ CREATE TABLE `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `username`, `password`, `name`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$fcOWUFQh5N5eR4iddb3piu6GCCZqiApQpHb7T6za2r/hTXSEkd2Iu', 'Администратор', 'image/775853.jpg', 'wtpbGnIXayBFpRHuTABaoTn3CCdkzsaQYiuCuJUYL1WlDDVJ4Xc7ylL1YqA3', '2017-04-24 03:45:01', '2017-05-23 08:55:24');
+(1, 'admin', '$2y$10$fcOWUFQh5N5eR4iddb3piu6GCCZqiApQpHb7T6za2r/hTXSEkd2Iu', 'Администратор', 'image/775853.jpg', 'HRNe2uuZdnZQC0fXYy18qDJBDI0dUbQHckk4EiuFQjoBQqm3HjzCVIECA2QC', '2017-04-24 03:45:01', '2017-05-23 08:55:24');
 
 -- --------------------------------------------------------
 
@@ -387,11 +443,44 @@ CREATE TABLE `admin_user_permissions` (
 CREATE TABLE `albums` (
   `id` int(11) NOT NULL,
   `title` varchar(160) NOT NULL,
-  `active` tinyint(1) NOT NULL,
   `description` varchar(600) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `albums`
+--
+
+INSERT INTO `albums` (`id`, `title`, `description`, `image`, `active`, `created_at`, `updated_at`) VALUES
+(1, 'фывфывфывфывфывфывфыв', 'фывфывфвфывфыв', NULL, 1, '2017-05-24 10:23:17', '2017-05-24 10:23:17'),
+(2, 'asdasdasdasda', 'sdasdasdasdasd', NULL, 1, '2017-05-24 10:28:46', '2017-05-24 10:28:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `albums_images`
+--
+
+CREATE TABLE `albums_images` (
+  `id` int(11) NOT NULL,
+  `album_model_id` int(11) NOT NULL,
+  `image_model_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `albums_images`
+--
+
+INSERT INTO `albums_images` (`id`, `album_model_id`, `image_model_id`) VALUES
+(7, 1, 18),
+(8, 1, 19),
+(9, 2, 20),
+(10, 2, 21),
+(11, 2, 22),
+(12, 2, 23);
 
 -- --------------------------------------------------------
 
@@ -498,7 +587,16 @@ INSERT INTO `images` (`id`, `src`, `created_at`, `updated_at`) VALUES
 (6, 'image/e80e62d5184a5e507dd7b86c2e1ae320.png', '2017-05-23 04:56:46', '2017-05-24 09:16:03'),
 (7, 'image/bf928c939efa6345d2ef0cc9660bdce4.png', '2017-05-23 04:56:46', '2017-05-24 09:16:03'),
 (9, 'image/8863b86944df02af46a983f97139382b.png', '2017-05-23 06:20:18', '2017-05-24 09:16:03'),
-(10, 'image/dPmXXq57aLs.jpg', '2017-05-23 06:59:02', '2017-05-24 09:16:03');
+(10, 'image/dPmXXq57aLs.jpg', '2017-05-23 06:59:02', '2017-05-24 09:16:03'),
+(15, 'image/a62dac94c375d2ff2de2dac52f6c33a8.jpeg', '2017-05-24 10:23:17', '2017-05-24 10:23:17'),
+(16, 'image/f50ffedb07e04b75cc6644c643477805.jpeg', '2017-05-24 10:23:17', '2017-05-24 10:23:17'),
+(17, 'image/0921d5015b7d454240c812506b3af250.png', '2017-05-24 10:23:17', '2017-05-24 10:23:17'),
+(18, 'image/c96d4e137e40e4f105c97f6989a9a948.jpeg', '2017-05-24 10:23:55', '2017-05-24 10:23:55'),
+(19, 'image/d6cffe14f42df60f2965abaa4f30f915.png', '2017-05-24 10:23:55', '2017-05-24 10:23:55'),
+(20, 'image/68d321880cf3c9d9467fca0a33fe131c.png', '2017-05-24 10:28:46', '2017-05-24 10:28:46'),
+(21, 'image/9a02de6bace26a24cb82f52f80d54a17.svg', '2017-05-24 10:28:46', '2017-05-24 10:28:46'),
+(22, 'image/1862ee7a040270861f7eee037e7059be.png', '2017-05-24 10:28:46', '2017-05-24 10:28:46'),
+(23, 'image/5601d10e7503d042db4ecd4c52a6fdc0.jpeg', '2017-05-24 10:28:46', '2017-05-24 10:28:46');
 
 -- --------------------------------------------------------
 
@@ -653,6 +751,30 @@ CREATE TABLE `pages` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pages_documents`
+--
+
+CREATE TABLE `pages_documents` (
+  `id` int(11) NOT NULL,
+  `page_model_id` int(11) NOT NULL,
+  `document_model_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages_images`
+--
+
+CREATE TABLE `pages_images` (
+  `id` int(11) NOT NULL,
+  `page_model_id` int(11) NOT NULL,
+  `image_model_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `password_resets`
 --
 
@@ -693,7 +815,7 @@ INSERT INTO `polls` (`id`, `title`, `content`, `active`, `created_at`, `updated_
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
   `question` varchar(255) NOT NULL,
-  `poll_id` int(11) NOT NULL DEFAULT '0',
+  `poll_model_id` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -702,7 +824,7 @@ CREATE TABLE `questions` (
 -- Dumping data for table `questions`
 --
 
-INSERT INTO `questions` (`id`, `question`, `poll_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `questions` (`id`, `question`, `poll_model_id`, `created_at`, `updated_at`) VALUES
 (2, 'asdadasd', 2, '2017-05-24 04:23:39', '2017-05-24 04:23:39');
 
 -- --------------------------------------------------------
@@ -846,6 +968,12 @@ ALTER TABLE `albums`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `albums_images`
+--
+ALTER TABLE `albums_images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `answers`
 --
 ALTER TABLE `answers`
@@ -908,6 +1036,18 @@ ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `pages_documents`
+--
+ALTER TABLE `pages_documents`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pages_images`
+--
+ALTER TABLE `pages_images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -957,7 +1097,7 @@ ALTER TABLE `admin_menu`
 -- AUTO_INCREMENT for table `admin_operation_log`
 --
 ALTER TABLE `admin_operation_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
 --
 -- AUTO_INCREMENT for table `admin_permissions`
 --
@@ -977,7 +1117,12 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `albums_images`
+--
+ALTER TABLE `albums_images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `answers`
 --
@@ -997,7 +1142,7 @@ ALTER TABLE `documents`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `links`
 --
@@ -1027,6 +1172,16 @@ ALTER TABLE `news_images`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pages_documents`
+--
+ALTER TABLE `pages_documents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pages_images`
+--
+ALTER TABLE `pages_images`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `polls`
