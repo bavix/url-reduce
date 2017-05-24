@@ -39,7 +39,7 @@ Route::group([
     // polls
     $router->resource('/polls', \App\Admin\Controllers\PollController::class);
 
-    // files
-    $router->resource('/documents', \App\Admin\Controllers\DocumentController::class);
+    // pages
+    $router->resource('/pages', \App\Admin\Controllers\PageController::class);
 
 });

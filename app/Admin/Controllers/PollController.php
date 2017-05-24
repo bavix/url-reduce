@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
 use App\Models\NewModel;
 use App\Models\PollModel;
+use App\Models\QuestionModel;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -76,7 +77,7 @@ class PollController extends Controller
 
             $grid->id('ID')->sortable();
 
-            $grid->column('title', 'Название')->sortable();
+            $grid->column('title', 'Заголовок')->sortable();
 
         });
     }
@@ -95,7 +96,8 @@ class PollController extends Controller
 
             $form->text('title', 'Заголовок');
             $form->ckeditor('content', 'Текст');
-            $form->url('url', 'Ссылка на опрос');
+
+            $form->switch('active', 'Видимость');
 
             $form->ignore(['created_at', 'updated_at']);
 

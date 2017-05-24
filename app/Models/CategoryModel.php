@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 
 class CategoryModel extends Model
@@ -16,8 +17,8 @@ class CategoryModel extends Model
     public function url()
     {
         return route('new.category', [
-            'id' => $this->id,
-            'title' => $this->title
+            'id'    => $this->id,
+            'title' => Str::friendlyUrl($this->title)
         ]);
     }
 

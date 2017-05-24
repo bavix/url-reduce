@@ -34,9 +34,17 @@ class NewModel extends Model
         }
     }
 
-    public function getImagesAttribute()
+    public function setDocumentsAttribute($documents)
     {
-        return [1,2,3];
+        if (is_array($documents)) {
+            foreach ($documents as $document)
+            {
+                $model = new NewDocumentModel();
+                $model->src = $document;
+                $model->new_model_id = $this->id;
+                $model->save();
+            }
+        }
     }
 
     public function setContentAttribute($content)
@@ -55,12 +63,9 @@ class NewModel extends Model
         return $this->hasMany(NewImageModel::class);
     }
 
-    /**
-     * @return string
-     */
-    public function friendly()
+    public function files()
     {
-        return  Str::friendlyUrl($this->title);
+        return $this->hasMany(NewDocumentModel::class);
     }
 
     /**
@@ -70,7 +75,7 @@ class NewModel extends Model
     {
         return route('new.view', [
             'id'    => $this->id,
-            'title' => $this->friendly(),
+            'title' => Str::friendlyUrl($this->title),
         ]);
     }
 

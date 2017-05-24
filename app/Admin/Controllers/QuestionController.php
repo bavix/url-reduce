@@ -78,7 +78,8 @@ class QuestionController extends Controller
 
             $grid->id('ID')->sortable();
 
-            $grid->column('title', 'Название')->sortable();
+            $grid->column('poll.title', 'Опрос')->sortable();
+            $grid->column('question', 'Название')->sortable();
 
         });
     }
@@ -95,11 +96,17 @@ class QuestionController extends Controller
 
             $form->display('id', 'ID');
 
-            $form->text('title', 'Вопрос');
+            $form->select('poll_id', 'Опрос')
+                ->options(
+                    PollModel::all(['id', 'title'])
+                        ->pluck('title', 'id')
+                        ->all()
+                );
+
+            $form->text('question', 'Вопрос');
 
             $form->hasMany('answers', 'Ответы', function (Form\NestedForm $form) {
-                $form->text('title', 'Ответ');
-                $form->switch('correct', 'Верный');
+                $form->text('answer', 'Ответ');
             });
 
             $form->ignore(['created_at', 'updated_at']);

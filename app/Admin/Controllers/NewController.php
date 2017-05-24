@@ -21,6 +21,10 @@ class NewController extends Controller
 {
     use ModelForm;
 
+    protected $category = true;
+    protected $title = 'Новости';
+    protected $model = NewModel::class;
+
     /**
      * Index interface.
      *
@@ -30,7 +34,7 @@ class NewController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('Новости');
+            $content->header($this->title);
 
             $content->body($this->grid());
         });
@@ -46,7 +50,7 @@ class NewController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('Новости');
+            $content->header($this->title);
 
             $content->body($this->form()->edit($id));
         });
@@ -61,7 +65,7 @@ class NewController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('Новости');
+            $content->header($this->title);
 
             $content->body($this->form());
         });
@@ -74,13 +78,18 @@ class NewController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(NewModel::class, function (Grid $grid) {
+        return Admin::grid($this->model, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
 
             $grid->column('title', 'Название')->sortable();
             $grid->column('description', 'Описание');
-            $grid->column('category.title','Категория')->sortable();
+
+            if ($this->category)
+            {
+                $grid->column('category.title','Категория')->sortable();
+            }
+
             $grid->column('active', 'Видимость')->display(function ($data) {
                 return $data ? 'Включена' : 'Выключена';
             })->sortable();
@@ -96,7 +105,7 @@ class NewController extends Controller
     protected function form()
     {
 
-        return Admin::form(NewModel::class, function (Form $form) {
+        return Admin::form($this->model, function (Form $form) {
 
             $form->display('id', 'ID');
 
@@ -107,14 +116,21 @@ class NewController extends Controller
 
             $form->image('image', 'Изображение');
 
-            $form->select('category_id', 'Категория')->options(
-                CategoryModel::all('id', 'title')
-                    ->pluck('title' , 'id')
-                    ->all()
-            );
+            if ($this->category)
+            {
+                $form->select('category_id', 'Категория')->options(
+                    CategoryModel::all('id', 'title')
+                        ->pluck('title', 'id')
+                        ->all()
+                );
+            }
 
             $form->multipleImage('images', 'Галерея');
-            $form->lightGallery('pictures', '');
+            $form->lightGallery('pictures', '')->options([
+                'hello' => 'world' // todo
+            ]);
+
+            $form->multipleFile('documents', 'Документы');
 
             $form->switch('active', 'Видимость');
             
