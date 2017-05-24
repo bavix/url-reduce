@@ -96,7 +96,7 @@ class QuestionController extends Controller
 
             $form->display('id', 'ID');
 
-            $form->select('poll_id', 'Опрос')
+            $form->select('poll_model_id', 'Опрос')
                 ->options(
                     PollModel::all(['id', 'title'])
                         ->pluck('title', 'id')

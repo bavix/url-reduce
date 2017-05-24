@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AlbumModel;
 use App\Models\CategoryModel;
 use App\Models\NewModel;
 use App\Models\PageModel;
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class AlbumController extends Controller
 {
 
     /**
@@ -23,13 +24,13 @@ class PageController extends Controller
         /**
          * @var \Illuminate\Database\Eloquent\Builder $query
          */
-        $query = PageModel::query();
+        $query = AlbumModel::query();
         $query->orderBy('id', 'desc');
         $query->where('active', 1);
 
-        return view('page.index', [
+        return view('album.index', [
             'items' => $query->paginate(10),
-            'title' => 'Страницы'
+            'title' => 'Альбомы'
         ], $this->mergeData());
     }
 
@@ -43,7 +44,7 @@ class PageController extends Controller
      */
     public function view(Request $request, $id)
     {
-        $model = PageModel::query()->find($id);
+        $model = AlbumModel::query()->find($id);
         \abort_if(!$model, 404);
 
         if ($request->url() !== $model->url())
@@ -52,9 +53,9 @@ class PageController extends Controller
             return redirect($model->url(), 301);
         }
 
-        return view('page.view', [
+        return view('album.view', [
             'item' => $model,
-            'title' => $model->title . ' - Страницы'
+            'title' => $model->title . ' - Альбомы'
         ], $this->mergeData());
     }
 
