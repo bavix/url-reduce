@@ -19,7 +19,7 @@
                             <h4 class="card-title">{{ $item->title }}</h4>
                         </a>
 
-                        <a href="{{ $item->url() }}" class="card-link">Читать »</a>
+                        <a href="{{ $item->url() }}" class="card-link">Подробнее »</a>
                     </div>
 
                 </div>

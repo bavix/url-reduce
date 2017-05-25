@@ -11,7 +11,7 @@
                 <div class="panel-body">
                     @if(!empty($item->image))
                         <p class="text-center">
-                            <img class="img-thumbnail" src="/upload/{{ $item->image }}" style="max-width:100%" />
+                            <img class="img-thumbnail" src="/upload/{{ $item->image->preview() }}" style="max-width:100%" />
                         </p>
                     @endif
                     {{ $item->description }}

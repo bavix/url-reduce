@@ -10,8 +10,8 @@
 
                 <div class="card">
 
-                    @if(!empty($item->image))
-                        <div class="card-img-top" style="height: 260px; background: url(/upload/{{ $item->image }}) center no-repeat"></div>
+                    @if($item->image_id)
+                        <div class="card-img-top" style="height: 260px; background: url(/upload/{{ $item->image->preview() }}) center no-repeat"></div>
                     @endif
 
                     <div class="card-block">
@@ -20,7 +20,7 @@
                         </a>
 
                         <p class="card-text">{{ $item->description }}</p>
-                        <a href="{{ $item->url() }}" class="card-link">Читать »</a>
+                        <a href="{{ $item->url() }}" class="card-link">Подробнее »</a>
                     </div>
 
                 </div>

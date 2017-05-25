@@ -4,18 +4,12 @@ namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
-use App\Models\ImageModel;
 use App\Models\NewModel;
-use Bavix\Helpers\Str;
-use Bavix\SDK\PathBuilder;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Facades\Admin;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Layout\Row;
-use Encore\Admin\Widgets\Box;
-use Encore\Admin\Widgets\Table;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
+use Encore\Admin\Layout\Content;
 
 class NewController extends Controller
 {
@@ -114,7 +108,9 @@ class NewController extends Controller
             $form->textarea('description', 'Описание')->rows(3);
             $form->ckeditor('content', 'Текст');
 
-            $form->image('image', 'Изображение');
+            $form->image('picture', 'Изображение')
+                ->uniqueName();
+            $form->logo('logo', '');
 
             if ($this->category)
             {
@@ -125,12 +121,14 @@ class NewController extends Controller
                 );
             }
 
-            $form->multipleImage('images', 'Галерея');
+            $form->multipleImage('images', 'Галерея')->uniqueName();
             $form->lightGallery('pictures', '')->options([
                 'column' => 'gallery'
             ]);
 
-            $form->multipleFile('documents', 'Документы');
+            $form->multipleFile('documents', 'Документы')
+                ->uniqueName();
+
             $form->documents('readable' , '')->options([
                 'column' => 'files'
             ]);

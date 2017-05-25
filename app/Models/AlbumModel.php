@@ -11,20 +11,39 @@ class AlbumModel extends Model
     protected $table = 'albums';
     protected $route = 'album.view';
 
+    public function setPictureAttribute($picture, $toModel = true)
+    {
+        $model      = new ImageModel();
+        $model->src = $picture;
+        $model->save();
+
+        $this->id or $this->save();
+
+        if (!$toModel)
+        {
+            $this->gallery()->save($model);
+
+            return;
+        }
+
+        $this->image_id = $model->id;
+        $this->save();
+    }
+
     public function setImagesAttribute($pictures)
     {
-        if (is_array($pictures)) {
+        if (is_array($pictures))
+        {
             foreach ($pictures as $picture)
             {
-                $model = new ImageModel();
-                $model->src = $picture;
-                $model->save();
-
-                $this->id or $this->save();
-
-                $this->gallery()->save($model);
+                $this->setPictureAttribute($picture, false);
             }
         }
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(ImageModel::class);
     }
 
     public function gallery()

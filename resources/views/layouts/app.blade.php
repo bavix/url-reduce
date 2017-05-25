@@ -108,37 +108,82 @@
 
         <div class="row">
 
-            @if(isset($infoBlock))
+            @if(isset($links))
                 <article class="col-lg-8">
                     @yield('content')
                 </article>
 
                 <aside class="blocks col-lg-4">
-                    <div class="card">
-                        <div class="card-block">
-                            <h5 class="card-title">Важная информация</h5>
-                            <ul class="menu nav bd-sidenav">
-                                @foreach($infoBlock as $info)
-                                    <li>
-                                        <a href="{{ $info->url }}" title="{{ $info->title }}">{{ $info->title }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
 
-                    <div class="card">
-                        <div class="card-block">
-                            <h5 class="card-title">Last news</h5>
-                            <p class="card-text">Java Script</p>
-                            <a href="#" class="btn btn-primary btn-sm btn-block">Self</a>
-                            <a href="#" class="btn btn-info btn-sm btn-block">Self</a>
-                            <a href="#" class="btn btn-warning btn-sm btn-block">Self</a>
-                            <a href="#" class="btn btn-danger btn-sm btn-block">Self</a>
-                            <a href="#" class="btn btn-success btn-sm btn-block">Self</a>
-                            <a href="#" class="btn btn-default btn-sm btn-block">Self</a>
+                    @if (!empty($polls) && $polls->count())
+                        <div class="card">
+                            <div class="card-block">
+                                <h5 class="card-title">
+                                    Опросы
+                                    <span class="badge badge-default float-right">{{ $polls->count() }}</span>
+                                </h5>
+
+                                <ul class="menu nav bd-sidenav">
+                                    @foreach($polls as $poll)
+                                        <li>
+                                            <a href="{{ $poll->url() }}" title="{{ $poll->title }}">{{ $poll->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    @endif
+
+                    @if (!empty($pages) && $pages->count())
+                        <div class="card">
+                            <div class="card-block">
+                                <h5 class="card-title">
+                                    Страницы
+                                    <span class="badge badge-default float-right">{{ $pages->count() }}</span>
+                                </h5>
+
+                                <ul class="menu nav bd-sidenav">
+                                    @foreach($pages as $page)
+                                        <li>
+                                            <a href="{{ $page->url() }}" title="{{ $page->title }}">{{ $page->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
+
+                    @if (!empty($links) && $links->count())
+                        <div class="card">
+                            <div class="card-block">
+                                <h5 class="card-title">
+                                    Ссылки
+                                    <span class="badge badge-default float-right">{{ $links->count() }}</span>
+                                </h5>
+
+                                <ul class="menu nav bd-sidenav">
+                                    @foreach($links as $link)
+                                        <li>
+                                            <a href="{{ $link->url }}" title="{{ $link->title }}">{{ $link->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
+
+                    {{--<div class="card">--}}
+                        {{--<div class="card-block">--}}
+                            {{--<h5 class="card-title">Last news</h5>--}}
+                            {{--<p class="card-text">Java Script</p>--}}
+                            {{--<a href="#" class="btn btn-primary btn-sm btn-block">Self</a>--}}
+                            {{--<a href="#" class="btn btn-info btn-sm btn-block">Self</a>--}}
+                            {{--<a href="#" class="btn btn-warning btn-sm btn-block">Self</a>--}}
+                            {{--<a href="#" class="btn btn-danger btn-sm btn-block">Self</a>--}}
+                            {{--<a href="#" class="btn btn-success btn-sm btn-block">Self</a>--}}
+                            {{--<a href="#" class="btn btn-default btn-sm btn-block">Self</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
                     <div class="clearfix"></div>
 

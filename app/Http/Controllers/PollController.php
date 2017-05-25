@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnswerModel;
 use App\Models\PollModel;
 use Illuminate\Http\Request;
 
 class PollController extends Controller
 {
-
-    protected $cookies = [];
 
     /**
      * Show the application dashboard.
@@ -36,7 +35,7 @@ class PollController extends Controller
      * Show the application dashboard.
      *
      * @param Request $request
-     * @param int $id
+     * @param int     $id
      *
      * @return \Illuminate\Http\Response
      */
@@ -51,46 +50,54 @@ class PollController extends Controller
             return redirect($model->url(), 301);
         }
 
+        $count  = $model->questions()->count();
+        $result = $request->cookie('poll_' . $id);
+
         if ($request->method() === 'POST')
         {
-            $count     = $model->questions()->count();
             $questions = $request->input()['questions'] ?? [];
 
             if (count($questions) === $count)
             {
-                $this->setCookie('poll_' . $id, \json_encode($questions));
+                $result = \json_encode($questions);
+                $this->setCookie('poll_' . $id, $result);
+
+                // todo : replace on raw query
+                foreach ($model->questions as $question)
+                {
+                    /**
+                     * @var $answer AnswerModel
+                     */
+                    $answer = $question->answers
+                        // if question not found
+                        ->where('id', $questions[$question->id] ?? -1)
+                        ->first();
+
+                    $answer->count++;
+                    $answer->save();
+
+                    $question->count++;
+                    $question->save();
+                }
             }
         }
 
-        $view = view('poll.view', [
-            'item' => $model,
-            'title' => $model->title . ' - Опрос'
+        if ($result)
+        {
+            $result = \json_decode($result, true);
+
+            if ($count !== count($result))
+            {
+                $result = null;
+            }
+        }
+
+        return $this->render($result ? 'poll.result' : 'poll.view', [
+            'item'   => $model,
+            'title'  => $model->title . ' - Опрос',
+            'result' => $result
         ], $this->mergeData());
 
-        $response = new \Illuminate\Http\Response($view);
-
-        if (!empty($this->cookies))
-        {
-            foreach ($this->cookies as $cookie)
-            {
-                $response->withCookie($cookie);
-            }
-        }
-
-        return $response;
-    }
-
-    /**
-     * @param array ...$arguments
-     */
-    public function setCookie(...$arguments)
-    {
-        if (!isset($arguments[2]))
-        {
-            $arguments[2] = 365 * (24) * 60;
-        }
-
-        $this->cookies[] = \cookie(...$arguments);
     }
 
 }

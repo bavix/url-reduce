@@ -97,9 +97,10 @@ class AlbumController extends Controller
 
             $form->textarea('description', 'Описание')->rows(3);
 
-            $form->image('image', 'Изображение');
+            $form->image('picture', 'Изображение')->uniqueName();
+            $form->logo('logo', '');
 
-            $form->multipleImage('images', 'Галерея');
+            $form->multipleImage('images', 'Галерея')->uniqueName();
             $form->lightGallery('pictures', '')->options([
                 'column' => 'gallery'
             ]);

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PageModel extends Model
 {
@@ -15,18 +14,32 @@ class PageModel extends Model
     protected $table = 'pages';
     protected $route = 'page.view';
 
+    public function setPictureAttribute($picture, $toModel = true)
+    {
+        $model      = new ImageModel();
+        $model->src = $picture;
+        $model->save();
+
+        $this->id or $this->save();
+
+        if (!$toModel)
+        {
+            $this->gallery()->save($model);
+
+            return;
+        }
+
+        $this->image_id = $model->id;
+        $this->save();
+    }
+
     public function setImagesAttribute($pictures)
     {
-        if (is_array($pictures)) {
+        if (is_array($pictures))
+        {
             foreach ($pictures as $picture)
             {
-                $model = new ImageModel();
-                $model->src = $picture;
-                $model->save();
-
-                $this->id or $this->save();
-
-                $this->gallery()->save($model);
+                $this->setPictureAttribute($picture, false);
             }
         }
     }
@@ -56,6 +69,11 @@ class PageModel extends Model
         $data = str_replace('<table>', '<table class="table">', $data);
 
         $this->attributes['content'] = $data;
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(ImageModel::class);
     }
 
     public function gallery()
