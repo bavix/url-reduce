@@ -10,16 +10,10 @@ html {
   height: 100%;
   /** header (navigation) */
   /** context */ }
-  html .visually-off {
+  html body.visually-image img:not(.visually), html body.visually-image .card-img-top:not(.visually) {
     display: none; }
-  html .visually-on {
-    display: block; }
   html body.visually-impaired {
     font-size: 1.3rem; }
-    html body.visually-impaired .visually-off {
-      display: block; }
-    html body.visually-impaired .visually-on {
-      display: none; }
     html body.visually-impaired .card {
       border-color: black;
       border-radius: 0; }
@@ -36,10 +30,15 @@ html {
       html body.visually-impaired nav.bg-inverse ul li:not(.active) {
         color: white;
         font-weight: normal; }
-    html body.visually-impaired a, html body.visually-impaired .wrapper main .blocks ul.menu li a {
-      color: #1f1f1f;
+    html body.visually-impaired a {
       text-decoration: underline; }
-    html body.visually-impaired a:hover, html body.visually-impaired a:focus, html body.visually-impaired :visited, html body.visually-impaired :active, html body.visually-impaired .card-text, html body.visually-impaired p {
+    html body.visually-impaired a .progress .bg-info, html body.visually-impaired .wrapper main .progress .bg-info {
+      background-color: darkgray !important; }
+    html body.visually-impaired a .progress .bg-success, html body.visually-impaired .wrapper main .progress .bg-success {
+      background-color: darkslategray !important; }
+    html body.visually-impaired a .blocks ul.menu li a, html body.visually-impaired .wrapper main .blocks ul.menu li a {
+      color: #1f1f1f; }
+    html body.visually-impaired a, html body.visually-impaired a:hover, html body.visually-impaired a:focus, html body.visually-impaired a:visited, html body.visually-impaired a:active, html body.visually-impaired .card-text, html body.visually-impaired p {
       color: black; }
     html body.visually-impaired h1.text-muted, html body.visually-impaired h2.text-muted, html body.visually-impaired h3.text-muted, html body.visually-impaired h4.text-muted, html body.visually-impaired h5.text-muted, html body.visually-impaired h6.text-muted {
       color: black !important; }
@@ -92,10 +91,18 @@ html {
         margin-top: 1rem; }
       html .wrapper main article {
         margin-bottom: 1rem; }
+        html .wrapper main article .card-img-top img {
+          display: block;
+          margin-right: auto;
+          margin-left: auto; }
         html .wrapper main article img {
           max-width: 100%; }
         html .wrapper main article .pagination {
           padding-top: 1rem; }
+        html .wrapper main article .lightGallery li:nth-child(2n) a img {
+          background-color: #e2e2e2; }
+        html .wrapper main article .lightGallery li:nth-child(2n-1) a img {
+          background-color: #9d9d9d; }
       html .wrapper main .blocks ul.menu {
         display: block; }
         html .wrapper main .blocks ul.menu li a {

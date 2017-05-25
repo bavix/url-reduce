@@ -43,3 +43,11 @@ Route::get('/album/{id}-{title}.html', 'AlbumController@view')
 // statement
 Route::get('/statement', 'StatementController@index')
     ->name('statement');
+
+// statement
+Route::get('/visually', 'VisuallyController@index')
+    ->name('visually');
+
+// statement
+Route::get('/visually/image', 'VisuallyController@image')
+    ->name('visually.image');

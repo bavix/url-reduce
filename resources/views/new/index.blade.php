@@ -11,7 +11,10 @@
                 <div class="card">
 
                     @if($item->image_id)
-                        <div class="card-img-top" style="height: 260px; background: url(/upload/{{ $item->image->preview() }}) center no-repeat"></div>
+                        <div class="card-img-top">
+                            <img src="/upload/{{ $item->image->preview() }}" title="{{ $item->title }}">
+                        </div>
+                        {{--<div class="card-img-top" style="height: 411px; background: url(/upload/{{ $item->image->preview() }}) center no-repeat"></div>--}}
                     @endif
 
                     <div class="card-block">

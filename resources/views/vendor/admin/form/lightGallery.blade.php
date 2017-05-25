@@ -10,7 +10,7 @@
             @foreach($_pictures as $_picture)
                 <li style="padding-right: 1px; padding-left: 0; padding-bottom: 1px" class="col-xs-6 col-sm-4 col-md-3" data-src="/upload/{{ $_picture->src }}">
                     <a href="">
-                        <div class="img-responsive" style="width: 100%; height: 150px; background: #9c3328 url(/upload/{{$_picture->src}}) center no-repeat" ></div>
+                        <img width="100%" height="100%" class="img-responsive" src="/upload/{{ $_picture->thumbs() }}" />
                     </a>
                 </li>
             @endforeach

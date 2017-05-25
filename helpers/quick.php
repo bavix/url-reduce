@@ -31,3 +31,29 @@ if (!function_exists('activeClass'))
     }
 
 }
+
+if (!function_exists('visually'))
+{
+
+    /**
+     * @return bool
+     */
+    function visually()
+    {
+        return request()->cookie(__FUNCTION__);
+    }
+
+}
+
+if (!function_exists('visuallyImage'))
+{
+
+    /**
+     * @return bool
+     */
+    function visuallyImage()
+    {
+        return request()->cookie(__FUNCTION__);
+    }
+
+}

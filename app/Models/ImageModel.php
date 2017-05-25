@@ -15,46 +15,41 @@ class ImageModel extends Model
     protected $table = 'images';
 
     /**
-     * @var bool
-     */
-    protected $grayScale = false;
-
-    /**
-     * @return $this
-     */
-    public function grayScale()
-    {
-        $this->grayScale = true;
-
-        return $this;
-    }
-
-    /**
      * @param int $width
      *
      * @return string
      */
     protected function resize($width)
     {
-        $path = 'thumbs/' . $width . '/' . $this->src;
+        $path = 'thumbs/' . $width . '/' . (int)visually() . '/' . $this->src;
         $real = public_path('upload/' . $path);
+        $org  = public_path('upload/' . $this->src);
+
+        // placeHoldIt
+        if (!realpath($real) && !realpath($org))
+        {
+            $path = 'default/' . $width . '/' . (int)visually() . '/placeholdit.png';
+            $real = public_path('upload/' . $path);
+            $org  = public_path('default/placeholdit.png');
+        }
 
         if (!realpath($real))
         {
-            $org = public_path('upload/' . $this->src);
             $dir = dirname($real);
 
             Dir::make($dir);
 
             $image = Image::make($org);
 
-            $image->fit($image->width() < $width ? $image->width() : $width);
+            $_width = $image->width() <= $width ? $image->width() : $width;
 
-            if ($this->grayScale)
+            $image->resize($_width, round($_width / 16 * 9), function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            if (visually())
             {
-                $image
-                    ->grayscale()
-                    ->contrast(65);
+                $image->greyscale();
             }
 
             $image->save($real);
@@ -71,6 +66,11 @@ class ImageModel extends Model
     public function preview()
     {
         return $this->resize(730);
+    }
+
+    public function fullHD()
+    {
+        return $this->resize(1920);
     }
 
 }
