@@ -76,27 +76,6 @@
                         <a class="nav-link" href="{{ route('statement') }}">Подать заявление</a>
                     </li>
                 </ul>
-
-                <ul class="navbar-nav pull-right">
-                    <li class="nav-item drop">
-                        <a href="#" class="zoom nav-link" data-type="0">
-                            <!-- search plus -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.8 511.8">
-                                <path d="M307.8 192h-84v-84c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v84h-84c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h84v84c0 6.6 5.4 12 12 12h8c6.6 0 12-5.4 12-12v-84h84c6.6 0 12-5.4 12-12v-8c0-6.6-5.4-12-12-12z"/>
-                                <path d="M508.3 480l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-8.5C395.7 310.6 416 261.7 416 208 416 93.8 324.9 1.5 210.7 0 93.7-1.5-1.5 93.7 0 210.7 1.5 324.9 93.8 416 208 416c53.7 0 102.6-20.3 139.5-53.7v8.5c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l11.3-11.3c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="nav-item drop">
-                        <a href="#" class="zoom nav-link" data-type="1">
-                            <!-- search minus -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.8 511.8">
-                                <path d="M307.8 223.8h-200c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12z"/>
-                                <path d="M508.3 480l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-8.5C395.7 310.6 416 261.7 416 208 416 93.8 324.9 1.5 210.7 0 93.7-1.5-1.5 93.7 0 210.7 1.5 324.9 93.8 416 208 416c53.7 0 102.6-20.3 139.5-53.7v8.5c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l11.3-11.3c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z"/>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>
@@ -108,91 +87,112 @@
 
         <div class="row">
 
-            @if(isset($links))
-                <article class="col-lg-8">
-                    @yield('content')
-                </article>
+            <article class="col-lg-8">
+                @yield('content')
+            </article>
 
-                <aside class="blocks col-lg-4">
+            <aside class="blocks col-lg-4">
 
-                    @if (!empty($polls) && $polls->count())
-                        <div class="card">
-                            <div class="card-block">
-                                <h5 class="card-title">
-                                    Опросы
-                                    <span class="badge badge-default float-right">{{ $polls->count() }}</span>
-                                </h5>
+                <div class="card">
+                    <div class="card-block">
 
-                                <ul class="menu nav bd-sidenav">
-                                    @foreach($polls as $poll)
-                                        <li>
-                                            <a href="{{ $poll->url() }}" title="{{ $poll->title }}">{{ $poll->title }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                        <ul class="menu nav bd-sidenav">
+                            <li class="visually-on">
+                                <svg height="18px" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z"/>
+                                </svg>
+
+                                <a class="visually" href="#">
+                                    Версия для слабовидящих
+                                </a>
+                            </li>
+                            <li class="visually-off">
+                                <svg height="18px" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z"/>
+                                </svg>
+
+                                <a class="visually" href="#">
+                                    Обычная версия
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                @if (!empty($polls) && $polls->count())
+                    <div class="card">
+                        <div class="card-block">
+                            <h5 class="card-title">
+                                Опросы
+                                <span class="badge badge-default float-right">{{ $polls->count() }}</span>
+                            </h5>
+
+                            <ul class="menu nav bd-sidenav">
+                                @foreach($polls as $poll)
+                                    <li>
+                                        <a href="{{ $poll->url() }}" title="{{ $poll->title }}">{{ $poll->title }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
-                    @endif
+                    </div>
+                @endif
 
-                    @if (!empty($pages) && $pages->count())
-                        <div class="card">
-                            <div class="card-block">
-                                <h5 class="card-title">
-                                    Страницы
-                                    <span class="badge badge-default float-right">{{ $pages->count() }}</span>
-                                </h5>
+                @if (!empty($pages) && $pages->count())
+                    <div class="card">
+                        <div class="card-block">
+                            <h5 class="card-title">
+                                Страницы
+                                <span class="badge badge-default float-right">{{ $pages->count() }}</span>
+                            </h5>
 
-                                <ul class="menu nav bd-sidenav">
-                                    @foreach($pages as $page)
-                                        <li>
-                                            <a href="{{ $page->url() }}" title="{{ $page->title }}">{{ $page->title }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                            <ul class="menu nav bd-sidenav">
+                                @foreach($pages as $page)
+                                    <li>
+                                        <a href="{{ $page->url() }}" title="{{ $page->title }}">{{ $page->title }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
-                    @endif
+                    </div>
+                @endif
 
-                    @if (!empty($links) && $links->count())
-                        <div class="card">
-                            <div class="card-block">
-                                <h5 class="card-title">
-                                    Ссылки
-                                    <span class="badge badge-default float-right">{{ $links->count() }}</span>
-                                </h5>
+                @if (!empty($links) && $links->count())
+                    <div class="card">
+                        <div class="card-block">
+                            <h5 class="card-title">
+                                Ссылки
+                                <span class="badge badge-default float-right">{{ $links->count() }}</span>
+                            </h5>
 
-                                <ul class="menu nav bd-sidenav">
-                                    @foreach($links as $link)
-                                        <li>
-                                            <a href="{{ $link->url }}" title="{{ $link->title }}">{{ $link->title }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                            <ul class="menu nav bd-sidenav">
+                                @foreach($links as $link)
+                                    <li>
+                                        <a href="{{ $link->url }}" title="{{ $link->title }}">{{ $link->title }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
-                    @endif
+                    </div>
+                @endif
 
-                    {{--<div class="card">--}}
-                        {{--<div class="card-block">--}}
-                            {{--<h5 class="card-title">Last news</h5>--}}
-                            {{--<p class="card-text">Java Script</p>--}}
-                            {{--<a href="#" class="btn btn-primary btn-sm btn-block">Self</a>--}}
-                            {{--<a href="#" class="btn btn-info btn-sm btn-block">Self</a>--}}
-                            {{--<a href="#" class="btn btn-warning btn-sm btn-block">Self</a>--}}
-                            {{--<a href="#" class="btn btn-danger btn-sm btn-block">Self</a>--}}
-                            {{--<a href="#" class="btn btn-success btn-sm btn-block">Self</a>--}}
-                            {{--<a href="#" class="btn btn-default btn-sm btn-block">Self</a>--}}
-                        {{--</div>--}}
+                {{--<div class="card">--}}
+                    {{--<div class="card-block">--}}
+                        {{--<h5 class="card-title">Last news</h5>--}}
+                        {{--<p class="card-text">Java Script</p>--}}
+                        {{--<a href="#" class="btn btn-primary btn-sm btn-block">Self</a>--}}
+                        {{--<a href="#" class="btn btn-info btn-sm btn-block">Self</a>--}}
+                        {{--<a href="#" class="btn btn-warning btn-sm btn-block">Self</a>--}}
+                        {{--<a href="#" class="btn btn-danger btn-sm btn-block">Self</a>--}}
+                        {{--<a href="#" class="btn btn-success btn-sm btn-block">Self</a>--}}
+                        {{--<a href="#" class="btn btn-default btn-sm btn-block">Self</a>--}}
                     {{--</div>--}}
+                {{--</div>--}}
 
-                    <div class="clearfix"></div>
+                <div class="clearfix"></div>
 
-                </aside>
-            @else
-                <article class="col-lg-12">
-                    @yield('content')
-                </article>
-            @endif
+            </aside>
 
         </div>
 
@@ -268,6 +268,8 @@
                         <img src="https://bavix.ru/images/bavix.svg"
                              alt="Разработка и техническая поддержка сайта - bavix"
                              title="Разработка и техническая поддержка сайта - bavix" />
+
+                        <span>Разработка и техническая поддержка сайта - bavix</span>
                     </a>
                 </div>
             </div>
@@ -281,9 +283,9 @@
 <script src="{{ asset('node_modules/tether/dist/js/tether.min.js') }}"></script>
 <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('packages/admin/lightGallery/js/lightgallery.min.js') }}"></script>
-<script src="{{ asset('js/watch.min.js') }}"></script>
+{{--<script src="{{ asset('js/watch.min.js') }}"></script>--}}
 <script src="{{ asset('js/bavix.js') }}"></script>
-<script src="{{ asset('js/zoom.js') }}"></script>
+<script src="{{ asset('js/visually.js') }}"></script>
 <script>
     $(function () {
         var $poll = $('#poll');

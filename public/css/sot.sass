@@ -10,9 +10,87 @@
 html
   height: 100% // footer down bottom
 
+  .visually-off
+    display: none
+
+  .visually-on
+    display: block
+
+  body.visually-impaired
+
+    .visually-off
+      display: block
+
+    .visually-on
+      display: none
+
+    .card
+      border-color: black
+      border-radius: 0
+
+    font-size: 1.3rem
+
+    .badge
+      display: none
+
+    nav.bg-inverse
+
+      background-color: black
+
+      ul li
+        .nav-link
+          color: white
+
+        &.active
+          font-weight: bold
+          a.nav-link
+            text-decoration: none
+
+        &:not(.active)
+          color: white
+          font-weight: normal
+
+    a, .wrapper main .blocks ul.menu li a
+      color: #1f1f1f
+      text-decoration: underline
+
+    a:hover, a:focus, :visited, :active, .card-text, p
+      color: black
+
+    h1, h2, h3, h4, h5, h6
+      &.text-muted
+        color: black !important
+
+    //img, .card-img-top
+    //  display: none
+
+    footer
+
+      h1, h2, h3, h4, h5, h6
+        &.text-muted
+          color: white
+
+      a:hover, a:focus, :visited, :active, .card-text
+        color: white
+
+      .footer-middle, .footer-bottom
+        background: black
+
+      .footer-bottom
+        .bavix
+          span
+            color: white
+            display: block
+          img
+            display: none
+
   body
     height: 100% // footer down bottom
     padding-top: 5.5rem
+
+  h1, h2, h3, h4, h5, h6
+    font-weight: bold
+    line-height: normal
 
   .lg-backdrop
     background-color: #3d6277
@@ -71,7 +149,7 @@ html
           li
             a
               color: #99979c
-              font-size: .9rem
+              word-wrap: break-word
 
     footer
       /** footer down bottom
@@ -86,6 +164,8 @@ html
           margin: auto
           img
             width: 7.5rem
+          span
+            display: none
 
       .btn-link
         color: white

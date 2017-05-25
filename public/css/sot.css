@@ -10,9 +10,56 @@ html {
   height: 100%;
   /** header (navigation) */
   /** context */ }
+  html .visually-off {
+    display: none; }
+  html .visually-on {
+    display: block; }
+  html body.visually-impaired {
+    font-size: 1.3rem; }
+    html body.visually-impaired .visually-off {
+      display: block; }
+    html body.visually-impaired .visually-on {
+      display: none; }
+    html body.visually-impaired .card {
+      border-color: black;
+      border-radius: 0; }
+    html body.visually-impaired .badge {
+      display: none; }
+    html body.visually-impaired nav.bg-inverse {
+      background-color: black; }
+      html body.visually-impaired nav.bg-inverse ul li .nav-link {
+        color: white; }
+      html body.visually-impaired nav.bg-inverse ul li.active {
+        font-weight: bold; }
+        html body.visually-impaired nav.bg-inverse ul li.active a.nav-link {
+          text-decoration: none; }
+      html body.visually-impaired nav.bg-inverse ul li:not(.active) {
+        color: white;
+        font-weight: normal; }
+    html body.visually-impaired a, html body.visually-impaired .wrapper main .blocks ul.menu li a {
+      color: #1f1f1f;
+      text-decoration: underline; }
+    html body.visually-impaired a:hover, html body.visually-impaired a:focus, html body.visually-impaired :visited, html body.visually-impaired :active, html body.visually-impaired .card-text, html body.visually-impaired p {
+      color: black; }
+    html body.visually-impaired h1.text-muted, html body.visually-impaired h2.text-muted, html body.visually-impaired h3.text-muted, html body.visually-impaired h4.text-muted, html body.visually-impaired h5.text-muted, html body.visually-impaired h6.text-muted {
+      color: black !important; }
+    html body.visually-impaired footer h1.text-muted, html body.visually-impaired footer h2.text-muted, html body.visually-impaired footer h3.text-muted, html body.visually-impaired footer h4.text-muted, html body.visually-impaired footer h5.text-muted, html body.visually-impaired footer h6.text-muted {
+      color: white; }
+    html body.visually-impaired footer a:hover, html body.visually-impaired footer a:focus, html body.visually-impaired footer :visited, html body.visually-impaired footer :active, html body.visually-impaired footer .card-text {
+      color: white; }
+    html body.visually-impaired footer .footer-middle, html body.visually-impaired footer .footer-bottom {
+      background: black; }
+    html body.visually-impaired footer .footer-bottom .bavix span {
+      color: white;
+      display: block; }
+    html body.visually-impaired footer .footer-bottom .bavix img {
+      display: none; }
   html body {
     height: 100%;
     padding-top: 5.5rem; }
+  html h1, html h2, html h3, html h4, html h5, html h6 {
+    font-weight: bold;
+    line-height: normal; }
   html .lg-backdrop {
     background-color: #3d6277; }
   html header nav .navbar-brand img {
@@ -53,7 +100,7 @@ html {
         display: block; }
         html .wrapper main .blocks ul.menu li a {
           color: #99979c;
-          font-size: 0.9rem; }
+          word-wrap: break-word; }
     html .wrapper footer {
       /** footer down bottom */
       flex: 0 0 auto;
@@ -66,6 +113,8 @@ html {
           margin: auto; }
           html .wrapper footer a.bavix img {
             width: 7.5rem; }
+          html .wrapper footer a.bavix span {
+            display: none; }
       html .wrapper footer .btn-link {
         color: white;
         font-size: 0.83rem; }

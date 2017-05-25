@@ -15,6 +15,21 @@ class ImageModel extends Model
     protected $table = 'images';
 
     /**
+     * @var bool
+     */
+    protected $grayScale = false;
+
+    /**
+     * @return $this
+     */
+    public function grayScale()
+    {
+        $this->grayScale = true;
+
+        return $this;
+    }
+
+    /**
      * @param int $width
      *
      * @return string
@@ -33,7 +48,16 @@ class ImageModel extends Model
 
             $image = Image::make($org);
 
-            $image->fit($image->width() < $width ? $image->width() : $width)->save($real);
+            $image->fit($image->width() < $width ? $image->width() : $width);
+
+            if ($this->grayScale)
+            {
+                $image
+                    ->grayscale()
+                    ->contrast(65);
+            }
+
+            $image->save($real);
         }
 
         return $path;
