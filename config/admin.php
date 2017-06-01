@@ -5,17 +5,17 @@ return [
     /*
      * Laravel-admin name.
      */
-    'name'      => 'Admin SOT',
+    'name'      => 'control panel',
 
     /*
      * Logo in admin panel header.
      */
-    'logo'      => '<b>SOT</b> admin',
+    'logo'      => '<img width="80px" src="//bavix.ru/images/bavix.svg" />',
 
     /*
      * Mini-logo in admin panel header.
      */
-    'logo-mini' => '<b>SOT</b>',
+    'logo-mini' => '<b>bavix</b>',
 
     /*
      * Laravel-admin url prefix.
@@ -103,7 +103,7 @@ return [
     |               | skin-green                              |
     |---------------------------------------------------------|
      */
-    'skin'    => 'skin-red',
+    'skin'    => 'skin-green',
 
     /*
     |---------------------------------------------------------|
