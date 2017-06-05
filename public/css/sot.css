@@ -94,7 +94,9 @@ html {
         html .wrapper main article .card-img-top img {
           display: block;
           margin-right: auto;
-          margin-left: auto; }
+          margin-left: auto;
+          border-top-left-radius: 0.25rem;
+          border-top-right-radius: 0.25rem; }
         html .wrapper main article img {
           max-width: 100%; }
         html .wrapper main article .pagination {
