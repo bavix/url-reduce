@@ -50,6 +50,7 @@ class PageModel extends Model
             foreach ($documents as $document)
             {
                 $model = new DocumentModel();
+                $model->title = basename( $document );
                 $model->src = $document;
                 $model->save();
 

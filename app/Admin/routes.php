@@ -45,4 +45,8 @@ Route::group([
     // pages
     $router->resource('/pages', \App\Admin\Controllers\PageController::class);
 
+    // lg.trash
+    $router->delete('/trash', 'App\Admin\Extensions\LG\Trash@index')
+        ->name('lg.trash');
+
 });

@@ -2,9 +2,10 @@
 
 namespace App\Admin\Extensions\LG;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-trait Trash
+class Trash extends Controller
 {
 
     /**
@@ -12,18 +13,18 @@ trait Trash
      *
      * @return array
      */
-    public function lgTrash(Request $request)
+    public function index(Request $request)
     {
+        $model   = $request->input('model', null);
         $itemId  = $request->input('itemId', null);
         $imageId = $request->input('imageId', null);
 
-        if (!$itemId || !$imageId)
+        if (!$itemId || !$imageId || !$model)
         {
             return ['result' => false];
         }
 
-        $class = $this->model;
-        $item  = $class::query()->findOrFail($itemId);
+        $item = $model::query()->findOrFail($itemId);
 
         return ['result' => (bool)$item->gallery()->detach($imageId)];
     }

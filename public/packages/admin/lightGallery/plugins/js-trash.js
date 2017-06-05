@@ -5,14 +5,12 @@
         define([], function () {
             return (factory());
         });
-    }
-    else if (typeof exports === 'object') {
+    } else if (typeof exports === 'object') {
         // Node. Does not work with strict CommonJS, but
         // only CommonJS-like environments that support module.exports,
         // like Node.
         module.exports = factory();
-    }
-    else {
+    } else {
         factory();
     }
 
@@ -22,9 +20,7 @@
 
         'use strict';
 
-        var defaults = {
-            trash: true
-        };
+        var defaults = { trash: true };
 
         var Trash = function (element) {
 
@@ -58,30 +54,24 @@
                 var $current = _this.core.$items.eq(_this.core.index);
 
                 $.ajax({
-                    url: $current.attr('data-trash'),
+                    url: $current.data('url'),
+                    data: {
+                        _token: LA.token,
+                        model: $current.data('model'),
+                        itemId: $current.data('item'),
+                        imageId: $current.data('image')
+                    },
                     method: 'DELETE',
                     success: function (response) {
                         if (response.result) {
                             $current.remove();
-                            swal(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            );
+                            toastr.success('Изображение удалено');
                         } else {
-                            swal(
-                                'Deleted!',
-                                'Your file has not been deleted.',
-                                'error'
-                            );
+                            toastr.error('Ошибка удаления изображения')
                         }
                     },
                     error: function () {
-                        swal(
-                            'Deleted!',
-                            'Your file has not been deleted.',
-                            'error'
-                        );
+                        toastr.error('Ошибка удаления изображения')
                     }
                 });
 

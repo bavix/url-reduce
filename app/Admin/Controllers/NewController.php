@@ -6,6 +6,7 @@ use App\Admin\Extensions\LG\Trash;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
 use App\Models\NewModel;
+use Bavix\Helpers\Str;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
@@ -14,7 +15,6 @@ use Encore\Admin\Layout\Content;
 
 class NewController extends AdminController
 {
-    use Trash;
 
     protected $category = true;
     protected $title = 'Новости';
@@ -82,7 +82,11 @@ class NewController extends AdminController
             ]);
 
             $form->multipleFile('documents', 'Документы')
-                ->uniqueName();
+                ->name(function (\Illuminate\Http\UploadedFile $upload) {
+                    $original = $upload->getClientOriginalName();
+
+                    return Str::random(8) . '/' . $original;
+                });
 
             $form->documents('readable' , '')->options([
                 'column' => 'files'

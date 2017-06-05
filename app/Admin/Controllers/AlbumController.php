@@ -14,8 +14,6 @@ use Encore\Admin\Layout\Content;
 class AlbumController extends AdminController
 {
 
-    use Trash;
-
     protected $title = 'Альбом';
     protected $model = AlbumModel::class;
 
