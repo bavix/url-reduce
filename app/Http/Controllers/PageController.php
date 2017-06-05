@@ -43,7 +43,10 @@ class PageController extends Controller
      */
     public function view(Request $request, $id)
     {
-        $model = PageModel::query()->find($id);
+        $model = PageModel::query()
+            ->where('active', 1)
+            ->find($id);
+
         \abort_if(!$model, 404);
 
         if ($request->url() !== $model->url())

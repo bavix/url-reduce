@@ -56,7 +56,10 @@ class NewController extends Controller
      */
     public function view(Request $request, $id)
     {
-        $model = NewModel::query()->find($id);
+        $model = NewModel::query()
+            ->where('active', 1)
+            ->find($id);
+
         \abort_if(!$model, 404);
 
         if ($request->url() !== $model->url())

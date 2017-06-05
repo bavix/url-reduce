@@ -44,7 +44,10 @@ class AlbumController extends Controller
      */
     public function view(Request $request, $id)
     {
-        $model = AlbumModel::query()->find($id);
+        $model = AlbumModel::query()
+            ->where('active', 1)
+            ->find($id);
+
         \abort_if(!$model, 404);
 
         if ($request->url() !== $model->url())

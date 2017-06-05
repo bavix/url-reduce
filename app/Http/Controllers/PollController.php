@@ -41,7 +41,10 @@ class PollController extends Controller
      */
     public function view(Request $request, $id)
     {
-        $model = PollModel::query()->find($id);
+        $model = PollModel::query()
+            ->where('active', 1)
+            ->find($id);
+
         \abort_if(!$model, 404);
 
         if ($request->url() !== $model->url())
