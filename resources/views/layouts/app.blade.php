@@ -19,6 +19,8 @@
     <link href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
     <link href="{{ asset('css/sot.css')  }}" rel="stylesheet"/>
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.css') }}">
+
     <!-- Scripts -->
     <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token()]) !!};</script>
 
@@ -78,6 +80,9 @@
                     </li>
                     <li class="nav-item {{ activeClass('statement') }}">
                         <a class="nav-link" href="{{ route('statement') }}">Подать заявление</a>
+                    </li>
+                    <li class="nav-item {{ activeClass('feedback') }}">
+                        <a class="nav-link" href="{{ route('feedback') }}">Обратная связь</a>
                     </li>
                 </ul>
             </div>
@@ -308,18 +313,69 @@
 <script src="{{ asset('node_modules/tether/dist/js/tether.min.js') }}"></script>
 <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('packages/admin/lightGallery/js/lightgallery.min.js') }}"></script>
+<script src="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 {{--<script src="{{ asset('js/watch.min.js') }}"></script>--}}
 <script src="{{ asset('js/bavix.js') }}"></script>
 {{--<script src="{{ asset('js/visually.js') }}"></script>--}}
 <script>
     $(function () {
+
         var $poll = $('#poll');
         var $polls = $poll.data('count');
+
         $('.lightGallery').lightGallery();
 
         $poll.find('[type=radio]').change(function () {
             $poll.find('button').prop('disabled', $poll.serializeArray().length !== ($polls + 1));
         });
+
+        // validate form
+        $('#personal-data').change(function () {
+
+            var checked = $(this).prop('checked');
+            var $fields = $(this).parents('form[method="POST"]').find('[required]');
+
+            $fields.each(function (_, field) {
+                var $field = $(field);
+                _ = $field.val();
+                if (!_ || _.trim().length === 0) {
+                    checked = false;
+                    $field.removeClass('form-control-success').addClass('form-control-danger');
+                    $field.parent('div').removeClass('has-success').addClass('has-danger');
+                } else {
+                    $field.removeClass('form-control-danger').addClass('form-control-success');
+                    $field.parent('div').removeClass('has-danger').addClass('has-success');
+                }
+            });
+
+            $(this).prop('checked', checked);
+            $('button[data-personal]').prop('disabled', !checked);
+        });
+
+        // send form
+        $('form[method="POST"]').submit(function (e) {
+            e.preventDefault();
+            if ($('#personal-data').prop('checked')) {
+                $.ajax({
+                    url: location.href,
+                    method: 'POST',
+                    data: $(this).serializeArray(),
+                    success: function (response) {
+                        if (response.result) {
+                            swal('Successful', 'Форма отправлена успешно!', 'success')
+                        } else {
+                            swal('Oops...', 'Произошла ошибка, попробуйте позже!', 'error');
+                        }
+                    },
+                    error: function () {
+                        swal('Oops...', 'Произошла ошибка, попробуйте позже!', 'error');
+                    }
+                })
+            }
+        });
+
     });
 </script>
 

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\StatementModel;
-use App\Models\TypeModel;
+use App\Models\FeedbackModel;
 use Illuminate\Http\Request;
 
-class StatementController extends Controller
+class FeedbackController extends Controller
 {
 
     /**
@@ -18,13 +17,8 @@ class StatementController extends Controller
      */
     public function index(Request $request)
     {
-        $types = TypeModel::query()
-            ->where('active', 1)
-            ->get();
-
-        return view('statement.index', [
-            'types' => $types,
-            'title' => 'Подать заявление'
+        return view('feedback.index', [
+            'title' => 'Обратная связь'
         ], $this->mergeData());
     }
 
@@ -37,18 +31,15 @@ class StatementController extends Controller
     {
         $data = $request->input();
 
-        $item = new StatementModel();
+        $item = new FeedbackModel();
 
-        if (empty($data['communication']) || empty($data['content']) || empty($data['type_id']))
+        if (empty($data['communication']) || empty($data['content']))
         {
             return ['result' => false];
         }
 
         $item->communication = $data['communication'];
         $item->content       = $data['content'];
-        $item->type_id       = $data['type_id'];
-        $item->last_name     = $data['last_name'];
-        $item->first_name    = $data['first_name'];
 
         return ['result' => $item->save()];
     }

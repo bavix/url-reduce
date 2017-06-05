@@ -24,6 +24,9 @@ Route::group([
     // links
     $router->resource('/links', \App\Admin\Controllers\LinkController::class);
 
+    // feedback
+    $router->resource('/feedback', \App\Admin\Controllers\FeedbackController::class);
+
     // statements
     $router->resource('/statements', \App\Admin\Controllers\StatementController::class);
 

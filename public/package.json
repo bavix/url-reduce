@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "author": "Babichev Maxim",
   "dependencies": {
+    "bootstrap": "4.0.0.alpha6",
     "jquery": "^3.2.1",
-    "bootstrap": "4.0.0.alpha6"
+    "sweetalert2": "^6.6.4"
   }
 }

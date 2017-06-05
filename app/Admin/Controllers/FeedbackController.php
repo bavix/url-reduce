@@ -16,7 +16,7 @@ use Encore\Admin\Widgets\Table;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 
-class StatementController extends Controller
+class FeedbackController extends Controller
 {
     use ModelForm;
 
@@ -29,7 +29,7 @@ class StatementController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('Подача заявлений');
+            $content->header('Обратная связь');
 
             $content->body($this->grid());
         });
@@ -45,7 +45,7 @@ class StatementController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('Подача заявлений');
+            $content->header('Обратная связь');
 
             $content->body($this->form()->edit($id));
         });
@@ -60,7 +60,7 @@ class StatementController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('Подача заявлений');
+            $content->header('Обратная связь');
 
             $content->body($this->form());
         });
@@ -77,9 +77,6 @@ class StatementController extends Controller
 
             $grid->id('ID')->sortable();
 
-            $grid->column('type.title', 'Кружок')->sortable();
-            $grid->column('last_name', 'Фамилия')->sortable();
-            $grid->column('first_name', 'Имя')->sortable();
             $grid->column('communication', 'Обратная связь')->sortable();
             $grid->column('created_at', 'Дата подачи')->sortable();
 
@@ -98,13 +95,6 @@ class StatementController extends Controller
 
             $form->display('id', 'ID');
 
-            $form->select('type_id', 'Кружок')->options(
-                TypeModel::all(['id', 'title'])->pluck('title', 'id')->all()
-            );
-
-            $form->text('last_name', 'Фамилия');
-            $form->text('first_name', 'Имя');
-
             $form->text('communication', 'Обратная связь');
 
             $form->textarea('content', 'Текст');
@@ -113,10 +103,6 @@ class StatementController extends Controller
                 'created_at',
                 'updated_at'
             ]);
-
-            $form->tools(function (Form\Tools $tools) {
-
-            });
 
         });
 

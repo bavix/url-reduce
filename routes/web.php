@@ -44,10 +44,22 @@ Route::get('/album/{id}-{title}.html', 'AlbumController@view')
 Route::get('/statement', 'StatementController@index')
     ->name('statement');
 
-// statement
+// statement store
+Route::post('/statement', 'StatementController@store')
+    ->name('statement.store');
+
+// feedback
+Route::get('/feedback', 'FeedbackController@index')
+    ->name('feedback');
+
+// feedback store
+Route::post('/feedback', 'FeedbackController@store')
+    ->name('feedback.store');
+
+// слабовидящих
 Route::get('/visually', 'VisuallyController@index')
     ->name('visually');
 
-// statement
+// слабовидящих (выкл. image)
 Route::get('/visually/image', 'VisuallyController@image')
     ->name('visually.image');

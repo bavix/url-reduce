@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\AlbumModel;
 use App\Models\CategoryModel;
+use App\Models\FeedbackModel;
 use App\Models\NewModel;
 use App\Models\PageModel;
 use App\Models\PollModel;
@@ -28,7 +29,7 @@ class DashboardController extends Controller
 
                 $row->column(2, new InfoBox('Новости', 'newspaper-o', 'yellow', '/cp/news', NewModel::query()->count()));
 
-                $row->column(2, new InfoBox('Категории', 'hashtag', 'red', '/cp/categories', CategoryModel::query()->count()));
+                $row->column(2, new InfoBox('Обратная связь', 'hashtag', 'red', '/cp/feedback', FeedbackModel::query()->count()));
 
                 $row->column(2, new InfoBox('Опросы', 'question-circle', 'gray', '/cp/polls', PollModel::query()->count()));
 
