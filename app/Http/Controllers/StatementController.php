@@ -44,8 +44,8 @@ class StatementController extends Controller
             return ['result' => false];
         }
 
-        $item->communication = $data['communication'];
-        $item->content       = $data['content'];
+        $item->communication =  $data['communication'];
+        $item->content       = \strip_tags($data['content']);
         $item->type_id       = $data['type_id'];
         $item->last_name     = $data['last_name'];
         $item->first_name    = $data['first_name'];

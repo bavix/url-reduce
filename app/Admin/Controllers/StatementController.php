@@ -16,55 +16,11 @@ use Encore\Admin\Widgets\Table;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 
-class StatementController extends Controller
+class StatementController extends AdminController
 {
-    use ModelForm;
 
-    /**
-     * Index interface.
-     *
-     * @return Content
-     */
-    public function index()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header('Подача заявлений');
-
-            $content->body($this->grid());
-        });
-    }
-
-    /**
-     * Edit interface.
-     *
-     * @param $id
-     * @return Content
-     */
-    public function edit($id)
-    {
-        return Admin::content(function (Content $content) use ($id) {
-
-            $content->header('Подача заявлений');
-
-            $content->body($this->form()->edit($id));
-        });
-    }
-
-    /**
-     * Create interface.
-     *
-     * @return Content
-     */
-    public function create()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header('Подача заявлений');
-
-            $content->body($this->form());
-        });
-    }
+    protected $title = 'Подача заявлений';
+    protected $model = StatementModel::class;
 
     /**
      * Make a grid builder.
@@ -73,7 +29,7 @@ class StatementController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(StatementModel::class, function (Grid $grid) {
+        return Admin::grid($this->model, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
 
@@ -94,7 +50,7 @@ class StatementController extends Controller
     protected function form()
     {
 
-        return Admin::form(StatementModel::class, function (Form $form) {
+        return Admin::form($this->model, function (Form $form) {
 
             $form->display('id', 'ID');
 
@@ -113,10 +69,6 @@ class StatementController extends Controller
                 'created_at',
                 'updated_at'
             ]);
-
-            $form->tools(function (Form\Tools $tools) {
-
-            });
 
         });
 

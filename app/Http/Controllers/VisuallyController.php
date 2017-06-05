@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AlbumModel;
-use App\Models\CategoryModel;
-use App\Models\NewModel;
-use App\Models\PageModel;
 use Illuminate\Http\Request;
 use Illuminate\Http\ResponseTrait;
 
@@ -20,7 +16,7 @@ class VisuallyController extends Controller
     protected function refer(Request $request)
     {
         $refer = $request->server('HTTP_REFERER');
-        $data = parse_url($refer);
+        $data = \parse_url($refer);
 
         return $data['path'] ?? '/';
     }
@@ -33,8 +29,8 @@ class VisuallyController extends Controller
     public function index(Request $request)
     {
         return redirect($this->refer($request))
-            ->withCookie('visually', !visually())
-            ->withCookie('visuallyImage', visually() ? false : visuallyImage());
+            ->withCookie('visually', !\visually())
+            ->withCookie('visuallyImage', \visually() ? false : \visuallyImage());
     }
 
     /**
@@ -45,7 +41,7 @@ class VisuallyController extends Controller
     public function image(Request $request)
     {
         return redirect($this->refer($request))
-            ->withCookie('visuallyImage', !visuallyImage());
+            ->withCookie('visuallyImage', !\visuallyImage());
     }
 
 }

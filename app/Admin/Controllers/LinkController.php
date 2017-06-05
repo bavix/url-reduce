@@ -15,55 +15,11 @@ use Encore\Admin\Widgets\Table;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 
-class LinkController extends Controller
+class LinkController extends AdminController
 {
-    use ModelForm;
 
-    /**
-     * Index interface.
-     *
-     * @return Content
-     */
-    public function index()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header('Ссылки');
-
-            $content->body($this->grid());
-        });
-    }
-
-    /**
-     * Edit interface.
-     *
-     * @param $id
-     * @return Content
-     */
-    public function edit($id)
-    {
-        return Admin::content(function (Content $content) use ($id) {
-
-            $content->header('Ссылки');
-
-            $content->body($this->form()->edit($id));
-        });
-    }
-
-    /**
-     * Create interface.
-     *
-     * @return Content
-     */
-    public function create()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header('Ссылки');
-
-            $content->body($this->form());
-        });
-    }
+    protected $title = 'Ссылки';
+    protected $model = LinkModel::class;
 
     /**
      * Make a grid builder.
@@ -72,7 +28,7 @@ class LinkController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(LinkModel::class, function (Grid $grid) {
+        return Admin::grid($this->model, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
 
@@ -89,7 +45,7 @@ class LinkController extends Controller
     protected function form()
     {
 
-        return Admin::form(LinkModel::class, function (Form $form) {
+        return Admin::form($this->model, function (Form $form) {
 
             $form->display('id', 'ID');
 

@@ -17,6 +17,7 @@ use Encore\Admin\Widgets\InfoBox;
 
 class DashboardController extends Controller
 {
+
     public function index()
     {
         return Admin::content(function (Content $content) {
@@ -41,4 +42,5 @@ class DashboardController extends Controller
 
         });
     }
+
 }

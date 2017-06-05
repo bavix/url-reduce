@@ -24,7 +24,8 @@ class LightGallery extends Field
      * @var array
      */
     public static $js = [
-        '/packages/admin/lightGallery/js/lightgallery.min.js'
+        '/packages/admin/lightGallery/js/lightgallery.min.js',
+        '/packages/admin/lightGallery/plugins/js-trash.js',
     ];
 
     /**

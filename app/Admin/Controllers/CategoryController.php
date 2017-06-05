@@ -14,55 +14,8 @@ use Encore\Admin\Widgets\Table;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 
-class CategoryController extends Controller
+class CategoryController extends AdminController
 {
-    use ModelForm;
-
-    /**
-     * Index interface.
-     *
-     * @return Content
-     */
-    public function index()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header('Категории');
-
-            $content->body($this->grid());
-        });
-    }
-
-    /**
-     * Edit interface.
-     *
-     * @param $id
-     * @return Content
-     */
-    public function edit($id)
-    {
-        return Admin::content(function (Content $content) use ($id) {
-
-            $content->header('Категории');
-
-            $content->body($this->form()->edit($id));
-        });
-    }
-
-    /**
-     * Create interface.
-     *
-     * @return Content
-     */
-    public function create()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header('Категории');
-
-            $content->body($this->form());
-        });
-    }
 
     /**
      * Make a grid builder.

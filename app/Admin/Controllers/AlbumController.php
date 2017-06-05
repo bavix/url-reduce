@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\LG\Trash;
 use App\Http\Controllers\Controller;
 use App\Models\AlbumModel;
 use Encore\Admin\Controllers\ModelForm;
@@ -10,55 +11,13 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 
-class AlbumController extends Controller
+class AlbumController extends AdminController
 {
-    use ModelForm;
 
-    /**
-     * Index interface.
-     *
-     * @return Content
-     */
-    public function index()
-    {
-        return Admin::content(function (Content $content) {
+    use Trash;
 
-            $content->header('Альбомы');
-
-            $content->body($this->grid());
-        });
-    }
-
-    /**
-     * Edit interface.
-     *
-     * @param $id
-     * @return Content
-     */
-    public function edit($id)
-    {
-        return Admin::content(function (Content $content) use ($id) {
-
-            $content->header('Альбомы');
-
-            $content->body($this->form()->edit($id));
-        });
-    }
-
-    /**
-     * Create interface.
-     *
-     * @return Content
-     */
-    public function create()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header('Альбомы');
-
-            $content->body($this->form());
-        });
-    }
+    protected $title = 'Альбом';
+    protected $model = AlbumModel::class;
 
     /**
      * Make a grid builder.
@@ -67,7 +26,7 @@ class AlbumController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(AlbumModel::class, function (Grid $grid) {
+        return Admin::grid($this->model, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
 
@@ -89,7 +48,7 @@ class AlbumController extends Controller
     protected function form()
     {
 
-        return Admin::form(AlbumModel::class, function (Form $form) {
+        return Admin::form($this->model, function (Form $form) {
 
             $form->display('id', 'ID');
 

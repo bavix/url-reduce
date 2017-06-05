@@ -39,7 +39,7 @@ class FeedbackController extends Controller
         }
 
         $item->communication = $data['communication'];
-        $item->content       = $data['content'];
+        $item->content       = \strip_tags($data['content']);
 
         return ['result' => $item->save()];
     }

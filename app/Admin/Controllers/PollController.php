@@ -16,55 +16,11 @@ use Encore\Admin\Widgets\Table;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 
-class PollController extends Controller
+class PollController extends AdminController
 {
-    use ModelForm;
 
-    /**
-     * Index interface.
-     *
-     * @return Content
-     */
-    public function index()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header('Опросы');
-
-            $content->body($this->grid());
-        });
-    }
-
-    /**
-     * Edit interface.
-     *
-     * @param $id
-     * @return Content
-     */
-    public function edit($id)
-    {
-        return Admin::content(function (Content $content) use ($id) {
-
-            $content->header('Опросы');
-
-            $content->body($this->form()->edit($id));
-        });
-    }
-
-    /**
-     * Create interface.
-     *
-     * @return Content
-     */
-    public function create()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header('Опросы');
-
-            $content->body($this->form());
-        });
-    }
+    protected $title = 'Опросы';
+    protected $model = PollModel::class;
 
     /**
      * Make a grid builder.
@@ -73,7 +29,7 @@ class PollController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(PollModel::class, function (Grid $grid) {
+        return Admin::grid($this->model, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
 
@@ -90,7 +46,7 @@ class PollController extends Controller
     protected function form()
     {
 
-        return Admin::form(PollModel::class, function (Form $form) {
+        return Admin::form($this->model, function (Form $form) {
 
             $form->display('id', 'ID');
 

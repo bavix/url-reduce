@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\LG\Trash;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
 use App\Models\NewModel;
@@ -11,59 +12,13 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 
-class NewController extends Controller
+class NewController extends AdminController
 {
-    use ModelForm;
+    use Trash;
 
     protected $category = true;
     protected $title = 'Новости';
     protected $model = NewModel::class;
-
-    /**
-     * Index interface.
-     *
-     * @return Content
-     */
-    public function index()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header($this->title);
-
-            $content->body($this->grid());
-        });
-    }
-
-    /**
-     * Edit interface.
-     *
-     * @param $id
-     * @return Content
-     */
-    public function edit($id)
-    {
-        return Admin::content(function (Content $content) use ($id) {
-
-            $content->header($this->title);
-
-            $content->body($this->form()->edit($id));
-        });
-    }
-
-    /**
-     * Create interface.
-     *
-     * @return Content
-     */
-    public function create()
-    {
-        return Admin::content(function (Content $content) {
-
-            $content->header($this->title);
-
-            $content->body($this->form());
-        });
-    }
 
     /**
      * Make a grid builder.
