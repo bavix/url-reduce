@@ -64,11 +64,9 @@ if (!function_exists('visuallyFont'))
     /**
      * @return bool
      */
-    function visuallyFont($type)
+    function visuallyFont()
     {
-        $data = request()->cookie(__FUNCTION__);
-
-        return $data === $type || ($data === null && $type === 20);
+        return request()->cookie(__FUNCTION__) ?: 20;
     }
 
 }
@@ -79,11 +77,9 @@ if (!function_exists('visuallyColor'))
     /**
      * @return bool
      */
-    function visuallyColor($type)
+    function visuallyColor()
     {
-        $data = request()->cookie(__FUNCTION__);
-
-        return $data === $type || ($data === null && $type === 'black-white');
+        return request()->cookie(__FUNCTION__) ?: 'black-white';
     }
 
 }
@@ -96,7 +92,9 @@ if (!function_exists('visuallyFontString'))
      */
     function visuallyFontString($type)
     {
-        return visuallyFont($type) ? 'active' : '';
+        $data = visuallyFont();
+
+        return (int)$data === $type ? 'active' : '';
     }
 
 }
@@ -109,7 +107,9 @@ if (!function_exists('visuallyColorString'))
      */
     function visuallyColorString($type)
     {
-        return visuallyColor($type) ? 'active' : '';
+        $data = visuallyColor();
+
+        return $data === $type ? 'active' : '';
     }
 
 }

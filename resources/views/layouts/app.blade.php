@@ -45,6 +45,8 @@
 </head>
 @php($visually = visually() ? 'visually-impaired' : '')
 @php($visually .= visuallyImage() ? ' visually-image' : '')
+@php($visually .=  ' f' . visuallyFont())
+@php($visually .=  ' visually-' . visuallyColor())
 <body @if(!empty($visually))class="{{ $visually }}"@endif>
 
 <header>
@@ -149,15 +151,15 @@
 
                             <div class="row visually-color visually-selected mx-auto">
                                 <a href="{{ route('visually.color', ['black-white']) }}"
-                                   class="col-md-2 clr-black-white {{ visuallyColorString('black-white') }}">C</a>
+                                   class="col-md-2 a-black-white {{ visuallyColorString('black-white') }}">C</a>
                                 <a href="{{ route('visually.color', ['white-black']) }}"
-                                   class="col-md-2 clr-white-black {{ visuallyColorString('white-black') }}">C</a>
+                                   class="col-md-2 a-white-black {{ visuallyColorString('white-black') }}">C</a>
                                 <a href="{{ route('visually.color', ['dark-blue-blue']) }}"
-                                   class="col-md-2 clr-dark-blue-blue {{ visuallyColorString('dark-blue-blue') }}">C</a>
+                                   class="col-md-2 a-dark-blue-blue {{ visuallyColorString('dark-blue-blue') }}">C</a>
                                 <a href="{{ route('visually.color', ['brown-beige']) }}"
-                                   class="col-md-2 clr-brown-beige {{ visuallyColorString('brown-beige') }}">C</a>
+                                   class="col-md-2 a-brown-beige {{ visuallyColorString('brown-beige') }}">C</a>
                                 <a href="{{ route('visually.color', ['green-dark-brown']) }}"
-                                   class="col-md-2 clr-green-dark-brown {{ visuallyColorString('green-dark-brown') }}">C</a>
+                                   class="col-md-2 a-green-dark-brown {{ visuallyColorString('green-dark-brown') }}">C</a>
                             </div>
                         @endif
 
