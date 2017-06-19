@@ -41,7 +41,7 @@
                             </div>
                         @endforeach
 
-                        <button type="submit" disabled class="btn btn-warning">Отправить</button>
+                        <button type="submit" disabled class="btn btn-secondary">Отправить</button>
 
                     </form>
                 </div>

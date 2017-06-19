@@ -25,7 +25,7 @@
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-success" disabled data-personal>Отправить</button>
+                <button type="submit" class="btn btn-secondary" disabled data-personal>Отправить</button>
 
             </form>
 

@@ -389,8 +389,17 @@
 
         // send form
         $('form[method="POST"]').submit(function (e) {
+
+            var $personal = $('#personal-data');
+
+            if (!$personal.length)
+            {
+                return true;
+            }
+
             e.preventDefault();
-            if ($('#personal-data').prop('checked')) {
+
+            if ($personal.prop('checked')) {
                 $.ajax({
                     url: location.href,
                     method: 'POST',
