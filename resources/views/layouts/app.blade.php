@@ -105,51 +105,62 @@
                 <div class="card">
                     <div class="card-block">
 
-                        <ul class="menu nav bd-sidenav">
-                            @if(visually())
-                                <li>
-                                    <img class="visually" src="/svg/eye.svg"
-                                         title="Обычная версия"
-                                         height="18px" />
+                        @if(visually())
+                            <img class="visually" src="/svg/eye.svg"
+                                 title="Обычная версия"
+                                 height="18px" />
 
-                                    <a href="{{ route('visually') }}" title="Специальная версия сайта">
-                                        Обычная версия
+                            <a href="{{ route('visually') }}" title="Специальная версия сайта">
+                                Обычная версия
+                            </a>
+                        @else
+                            <img class="visually" src="/svg/eye.svg"
+                                 title="Версия для слабовидящих"
+                                 height="18px" />
+
+                            <a href="{{ route('visually') }}" title="Специальная версия сайта">
+                                Версия для слабовидящих
+                            </a>
+                        @endif
+
+                        @if(visually())
+                            <div class="row">
+                                @if(visuallyImage())
+                                    <a class="mx-auto" href="{{ route('visually.image') }}" title="Показать изображения">
+                                        <img class="visually" src="/images/image.png"
+                                             title="Обычная версия" />
                                     </a>
-                                </li>
-                            @else
-                                <li>
-                                    <img class="visually" src="/svg/eye.svg"
-                                         title="Версия для слабовидящих"
-                                         height="18px" />
-
-                                    <a href="{{ route('visually') }}" title="Специальная версия сайта">
-                                        Версия для слабовидящих
+                                @elseif(visually())
+                                    <a class="mx-auto" href="{{ route('visually.image') }}" title="Убрать изображения">
+                                        <img class="visually" src="/images/no-image.png"
+                                             title="Обычная версия" />
                                     </a>
-                                </li>
-                            @endif
+                                @endif
+                            </div>
 
-                            @if(visuallyImage())
-                                <li>
-                                    <img class="visually" src="/svg/eye.svg"
-                                         title="Обычная версия"
-                                         height="18px" />
+                            <div class="row visually-font visually-selected mx-auto">
+                                <a href="{{ route('visually.font', [20]) }}"
+                                   class="col-md-4 f20 {{ visuallyFontString(20) }}">A</a>
+                                <a href="{{ route('visually.font', [24]) }}"
+                                   class="col-md-4 f24 {{ visuallyFontString(24) }}">A</a>
+                                <a href="{{ route('visually.font', [27]) }}"
+                                   class="col-md-4 f27 {{ visuallyFontString(27) }}">A</a>
+                            </div>
 
-                                    <a href="{{ route('visually.image') }}" title="Показать изображения">
-                                        Показать изображения
-                                    </a>
-                                </li>
-                            @elseif(visually())
-                                <li>
-                                    <img class="visually" src="/svg/eye.svg"
-                                         title="Обычная версия"
-                                         height="18px" />
+                            <div class="row visually-color visually-selected mx-auto">
+                                <a href="{{ route('visually.color', ['black-white']) }}"
+                                   class="col-md-2 clr-black-white {{ visuallyColorString('black-white') }}">C</a>
+                                <a href="{{ route('visually.color', ['white-black']) }}"
+                                   class="col-md-2 clr-white-black {{ visuallyColorString('white-black') }}">C</a>
+                                <a href="{{ route('visually.color', ['dark-blue-blue']) }}"
+                                   class="col-md-2 clr-dark-blue-blue {{ visuallyColorString('dark-blue-blue') }}">C</a>
+                                <a href="{{ route('visually.color', ['brown-beige']) }}"
+                                   class="col-md-2 clr-brown-beige {{ visuallyColorString('brown-beige') }}">C</a>
+                                <a href="{{ route('visually.color', ['green-dark-brown']) }}"
+                                   class="col-md-2 clr-green-dark-brown {{ visuallyColorString('green-dark-brown') }}">C</a>
+                            </div>
+                        @endif
 
-                                    <a href="{{ route('visually.image') }}" title="Убрать изображения">
-                                        Убрать изображения
-                                    </a>
-                                </li>
-                            @endif
-                        </ul>
                     </div>
                 </div>
 

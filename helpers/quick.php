@@ -57,3 +57,59 @@ if (!function_exists('visuallyImage'))
     }
 
 }
+
+if (!function_exists('visuallyFont'))
+{
+
+    /**
+     * @return bool
+     */
+    function visuallyFont($type)
+    {
+        $data = request()->cookie(__FUNCTION__);
+
+        return $data === $type || ($data === null && $type === 20);
+    }
+
+}
+
+if (!function_exists('visuallyColor'))
+{
+
+    /**
+     * @return bool
+     */
+    function visuallyColor($type)
+    {
+        $data = request()->cookie(__FUNCTION__);
+
+        return $data === $type || ($data === null && $type === 'black-white');
+    }
+
+}
+
+if (!function_exists('visuallyFontString'))
+{
+
+    /**
+     * @return bool
+     */
+    function visuallyFontString($type)
+    {
+        return visuallyFont($type) ? 'active' : '';
+    }
+
+}
+
+if (!function_exists('visuallyColorString'))
+{
+
+    /**
+     * @return bool
+     */
+    function visuallyColorString($type)
+    {
+        return visuallyColor($type) ? 'active' : '';
+    }
+
+}

@@ -63,3 +63,11 @@ Route::get('/visually', 'VisuallyController@index')
 // слабовидящих (выкл. image)
 Route::get('/visually/image', 'VisuallyController@image')
     ->name('visually.image');
+
+// слабовидящих (выкл. image)
+Route::get('/visually/font/{size}', 'VisuallyController@font')
+    ->name('visually.font');
+
+// слабовидящих (выкл. image)
+Route::get('/visually/color/{color}', 'VisuallyController@color')
+    ->name('visually.color');

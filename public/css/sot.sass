@@ -4,10 +4,71 @@
 
 /** all tags
 
-.visually-black-white
 .visually-white-black
+.visually-black-white
 .visually-dark-blue-blue
-.visually-green-brown
+.visually-brown-beige
+.visually-green-dark-brown
+
+.visually-selected
+  .active:after
+    background: white
+    border: solid black
+    border-width: 1px 1px 0 0
+    bottom: 0
+    content: ' '
+    display: block
+    height: 10px
+    left: calc(50% - 5px)
+    position: absolute
+    width: 10px
+    -webkit-transform: rotate(-45deg)
+    -webkit-transform-origin: 50% 50%
+  &.visually-color
+    .active:after
+      bottom: -20px
+
+.visually-color
+  a
+    text-decoration: none !important
+    margin: .25rem
+    padding: 0
+    border: .25rem solid black
+    text-align: center
+    &.clr-white-black
+      color: white !important
+      background: black !important
+    &.clr-black-white
+      color: black !important
+      background: white !important
+    &.clr-dark-blue-blue
+      color: #063462 !important
+      background: #9dd1ff !important
+      border: .25rem solid #063462 !important
+    &.clr-brown-beige
+      color: #54371f !important
+      background: #f7f3d6 !important
+      border: .25rem solid #54371f !important
+    &.clr-green-dark-brown
+      color: #a9d82c !important
+      background: #3b2716 !important
+      border: .25rem solid #a9d82c !important
+
+.visually-font
+
+  a
+    text-decoration: none !important
+    line-height: 3.5rem !important
+    text-align: center
+
+    &.f20
+      font-size: 1.3rem
+
+    &.f24
+      font-size: 2rem // 1.5rem
+
+    &.f27
+      font-size: 2.5rem // 1.7rem
 
 *
   margin: 0
