@@ -1,6 +1,10 @@
 /* @site    https://bavix.ru/ */
 /* @author  rez1dent3 */
 /* @version 1.1 */
+.grayscale, html body.visually-impaired img:not(.visually), html body.visually-impaired svg:not(.visually), html body.visually-impaired .card-img-top:not(.visually) {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); }
+
 .f14 {
   font-size: 0.875rem; }
 
@@ -138,7 +142,6 @@
 .clr-green-dark-brown2, html body.visually-impaired.visually-green-dark-brown .clr-global2, html body.visually-impaired.visually-green-dark-brown .form-control, html body.visually-impaired.visually-green-dark-brown nav.bg-inverse, html body.visually-impaired.visually-green-dark-brown nav.bg-inverse ul li .nav-link, html body.visually-impaired.visually-green-dark-brown nav.bg-inverse ul li:not(.active), html body.visually-impaired.visually-green-dark-brown footer h1.text-muted, html body.visually-impaired.visually-green-dark-brown footer h2.text-muted, html body.visually-impaired.visually-green-dark-brown footer h3.text-muted, html body.visually-impaired.visually-green-dark-brown footer h4.text-muted, html body.visually-impaired.visually-green-dark-brown footer h5.text-muted, html body.visually-impaired.visually-green-dark-brown footer h6.text-muted, html body.visually-impaired.visually-green-dark-brown footer a:hover, html body.visually-impaired.visually-green-dark-brown footer a:focus, html body.visually-impaired.visually-green-dark-brown footer :visited, html body.visually-impaired.visually-green-dark-brown footer :active, html body.visually-impaired.visually-green-dark-brown footer .card-text, html body.visually-impaired.visually-green-dark-brown footer .footer-middle, html body.visually-impaired.visually-green-dark-brown footer .footer-bottom, html body.visually-impaired.visually-green-dark-brown footer .footer-bottom .bavix span {
   color: #3b2716 !important; }
 
-/** end */
 * {
   margin: 0;
   padding: 0; }

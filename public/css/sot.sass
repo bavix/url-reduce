@@ -2,6 +2,10 @@
 /* @author  rez1dent3
 /* @version 1.1
 
+.grayscale
+  -webkit-filter: grayscale(100%) /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%)
+
 @for $i from 14 to 30
   .f#{$i}
     font-size: $i/16 * 1rem
@@ -95,8 +99,6 @@
 .clr-green-dark-brown2
   color: #3b2716 !important
 
-/** end
-
 *
   margin: 0
   padding: 0
@@ -110,6 +112,10 @@ html
       display: none
 
   body.visually-impaired
+
+    img, svg, .card-img-top
+      &:not(.visually)
+        @extend .grayscale
 
     &.visually-white-black
 

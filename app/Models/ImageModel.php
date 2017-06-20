@@ -21,14 +21,14 @@ class ImageModel extends Model
      */
     protected function resize($width)
     {
-        $path = 'thumbs/' . $width . '/' . (int)visually() . '/' . $this->src;
+        $path = 'thumbs/' . $width . '/' . $this->src;
         $real = public_path('upload/' . $path);
         $org  = public_path('upload/' . $this->src);
 
         // placeHoldIt
         if (!realpath($real) && !realpath($org))
         {
-            $path = 'default/' . $width . '/' . (int)visually() . '/placeholdit.png';
+            $path = 'default/' . $width . '/placeholdit.png';
             $real = public_path('upload/' . $path);
             $org  = public_path('default/placeholdit.png');
         }
@@ -46,11 +46,6 @@ class ImageModel extends Model
             $image->resize($_width, round($_width / 16 * 9), function ($constraint) {
                 $constraint->aspectRatio();
             });
-
-            if (visually())
-            {
-                $image->greyscale();
-            }
 
             $image->save($real);
         }
