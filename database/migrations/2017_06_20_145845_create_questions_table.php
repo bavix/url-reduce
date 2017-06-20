@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
 
             $table->string('question');
-            $table->integer('count');
+            $table->integer('count')->default(0);
 
             $table->integer('poll_id');
 

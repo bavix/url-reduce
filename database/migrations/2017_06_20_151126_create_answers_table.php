@@ -17,8 +17,8 @@ class CreateAnswersTable extends Migration
             $table->increments('id');
 
             $table->string('answer');
-            $table->integer('count');
-            $table->boolean('correct');
+            $table->integer('count')->default(0);
+//            $table->boolean('correct');
             $table->integer('question_id');
 
             $table->timestamp('created_at')
