@@ -125,17 +125,6 @@
         });
     });
 
-    $(function () {
-        // fixed laravel-admin
-        $('form').each(function (i, v) {
-            $(v).attr('action',
-                $(v).attr('action').replace(
-                    new RegExp(location.origin.replace('https', 'https?')), ''
-                )
-            );
-        });
-    });
-
 </script>
 
 </body>

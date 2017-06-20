@@ -6,8 +6,8 @@ use App\Admin\Extensions\LG\Trash;
 use App\Http\Controllers\Controller;
 use App\Models\AlbumModel;
 use Encore\Admin\Controllers\ModelForm;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
+use App\Facades\Admin;
+use App\Accessor\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 

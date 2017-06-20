@@ -8,8 +8,8 @@ use App\Models\CategoryModel;
 use App\Models\NewModel;
 use Bavix\Helpers\Str;
 use Encore\Admin\Controllers\ModelForm;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
+use App\Facades\Admin;
+use App\Accessor\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 

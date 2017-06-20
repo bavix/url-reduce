@@ -8,12 +8,12 @@ use App\Models\NewModel;
 use App\Models\PollModel;
 use App\Models\QuestionModel;
 use Encore\Admin\Controllers\ModelForm;
-use Encore\Admin\Facades\Admin;
+use App\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
 use Encore\Admin\Widgets\Box;
 use Encore\Admin\Widgets\Table;
-use Encore\Admin\Form;
+use App\Accessor\Form;
 use Encore\Admin\Grid;
 use Illuminate\Http\Request;
 

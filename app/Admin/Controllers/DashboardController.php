@@ -10,7 +10,7 @@ use App\Models\NewModel;
 use App\Models\PageModel;
 use App\Models\PollModel;
 use App\Models\StatementModel;
-use Encore\Admin\Facades\Admin;
+use App\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
 use Encore\Admin\Widgets\InfoBox;
