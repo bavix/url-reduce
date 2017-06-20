@@ -67,22 +67,22 @@
             <div class="collapse navbar-collapse" id="navbarDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {{ activeClass(['new', 'new.view', 'new.category']) }}">
-                        <a class="nav-link" href="{{ route('new') }}">Новости <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('new', [], false) }}">Новости <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item {{ activeClass(['page', 'page.view']) }}">
-                        <a class="nav-link" href="{{ route('page') }}">Страницы</a>
+                        <a class="nav-link" href="{{ route('page', [], false) }}">Страницы</a>
                     </li>
                     <li class="nav-item {{ activeClass(['album', 'album.view']) }}">
-                        <a class="nav-link" href="{{ route('album') }}">Альбомы</a>
+                        <a class="nav-link" href="{{ route('album', [], false) }}">Альбомы</a>
                     </li>
                     <li class="nav-item {{ activeClass(['poll', 'poll.view']) }}">
-                        <a class="nav-link" href="{{ route('poll') }}">Опросы</a>
+                        <a class="nav-link" href="{{ route('poll', [], false) }}">Опросы</a>
                     </li>
                     <li class="nav-item {{ activeClass('statement') }}">
-                        <a class="nav-link" href="{{ route('statement') }}">Подать заявление</a>
+                        <a class="nav-link" href="{{ route('statement', [], false) }}">Подать заявление</a>
                     </li>
                     <li class="nav-item {{ activeClass('feedback') }}">
-                        <a class="nav-link" href="{{ route('feedback') }}">Обратная связь</a>
+                        <a class="nav-link" href="{{ route('feedback', [], false) }}">Обратная связь</a>
                     </li>
                 </ul>
             </div>
@@ -106,11 +106,11 @@
                     <div class="card-block">
 
                         <div class="row visually-special mx-auto">
-                            <a href="{{ route('visually') }}" data-val="visually-impaired" data-sel="0"
+                            <a href="{{ route('visually', [], false) }}" data-val="visually-impaired" data-sel="0"
                                title="Специальная версия сайта" class="visually-eye {{ visually() ? 'active' : '' }}">
                                 <i></i><span>Обычная версия</span>
                             </a>
-                            <a href="{{ route('visually') }}" data-val="visually-impaired" data-sel="1"
+                            <a href="{{ route('visually', [], false) }}" data-val="visually-impaired" data-sel="1"
                                title="Специальная версия сайта" class="visually-eye {{ !visually() ? 'active' : '' }}">
                                 <i></i><span>Версия для слабовидящих</span>
                             </a>
@@ -119,36 +119,36 @@
                         <div class="row visually-special">
                             <a class="mx-auto {{ visuallyImage() ? 'active' : '' }}"
                                data-val="visually-image"
-                               href="{{ route('visually.image') }}"
+                               href="{{ route('visually.image', [], false) }}"
                                title="Показать изображения">
                                 <i class="visually-image"></i>
                             </a>
                             <a class="mx-auto {{ !visuallyImage() ? 'active' : '' }}"
                                data-val="visually-image"
-                               href="{{ route('visually.image') }}" title="Убрать изображения">
+                               href="{{ route('visually.image', [], false) }}" title="Убрать изображения">
                                 <i class="visually-no-image"></i>
                             </a>
                         </div>
 
                         <div class="row visually-font visually-selected mx-auto">
-                            <a href="{{ route('visually.font', [20]) }}" data-val="f20"
+                            <a href="{{ route('visually.font', [20], false) }}" data-val="f20"
                                class="col-md-4 f20 {{ visuallyFontString(20) }}">A</a>
-                            <a href="{{ route('visually.font', [24]) }}" data-val="f24"
+                            <a href="{{ route('visually.font', [24], false) }}" data-val="f24"
                                class="col-md-4 f24 {{ visuallyFontString(24) }}">A</a>
-                            <a href="{{ route('visually.font', [27]) }}" data-val="f27"
+                            <a href="{{ route('visually.font', [27], false) }}" data-val="f27"
                                class="col-md-4 f27 {{ visuallyFontString(27) }}">A</a>
                         </div>
 
                         <div class="row visually-color visually-selected mx-auto">
-                            <a href="{{ route('visually.color', ['black-white']) }}" data-val="visually-black-white"
+                            <a href="{{ route('visually.color', ['black-white'], false) }}" data-val="visually-black-white"
                                class="col-md-2 a-black-white {{ visuallyColorString('black-white') }}">C</a>
-                            <a href="{{ route('visually.color', ['white-black']) }}" data-val="visually-white-black"
+                            <a href="{{ route('visually.color', ['white-black'], false) }}" data-val="visually-white-black"
                                class="col-md-2 a-white-black {{ visuallyColorString('white-black') }}">C</a>
-                            <a href="{{ route('visually.color', ['dark-blue-blue']) }}" data-val="visually-dark-blue-blue"
+                            <a href="{{ route('visually.color', ['dark-blue-blue'], false) }}" data-val="visually-dark-blue-blue"
                                class="col-md-2 a-dark-blue-blue {{ visuallyColorString('dark-blue-blue') }}">C</a>
-                            <a href="{{ route('visually.color', ['brown-beige']) }}" data-val="visually-brown-beige"
+                            <a href="{{ route('visually.color', ['brown-beige'], false) }}" data-val="visually-brown-beige"
                                class="col-md-2 a-brown-beige {{ visuallyColorString('brown-beige') }}">C</a>
-                            <a href="{{ route('visually.color', ['green-dark-brown']) }}" data-val="visually-green-dark-brown"
+                            <a href="{{ route('visually.color', ['green-dark-brown'], false) }}" data-val="visually-green-dark-brown"
                                class="col-md-2 a-green-dark-brown {{ visuallyColorString('green-dark-brown') }}">C</a>
                         </div>
 
