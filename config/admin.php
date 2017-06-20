@@ -10,7 +10,7 @@ return [
     /*
      * Logo in admin panel header.
      */
-    'logo'      => '<img width="80px" src="//bavix.ru/images/bavix.svg" />',
+    'logo'      => '<img width="80px" src="//ds.bavix.ru/svg/logo.svg" />',
 
     /*
      * Mini-logo in admin panel header.

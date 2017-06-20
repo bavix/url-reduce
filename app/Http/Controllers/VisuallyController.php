@@ -68,11 +68,9 @@ class VisuallyController extends Controller
 
     public function font(Request $request, $size)
     {
-        switch ($size) {
-            case 24:
-            case 27:
-                break;
-            default: $size = 20;
+        if ($size <= 14 || $size >= 29)
+        {
+            $size = 20;
         }
 
         return $this->response($request)
