@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ConfigModel;
 use App\Models\LinkModel;
 use App\Models\PageModel;
 use App\Models\PollModel;
@@ -79,7 +80,9 @@ class Controller extends BaseController
                 ->where('active', 1)
                 ->orderBy('id', 'desc')
                 ->limit(5)
-                ->get()
+                ->get(),
+
+            'cfg' => [ConfigModel::class, 'getValue']
         ];
     }
 

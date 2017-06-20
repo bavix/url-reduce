@@ -306,14 +306,14 @@
                             <address>
                                 <ul class="list-unstyled">
                                     <li class="space">
-                                        <span>г. БЕЛОРЕЧЕНСК,</span>
-                                        <span>ул. 8 Марта, д. 57,</span>
-                                        <span>Краснодарский край,</span>
-                                        <span>352631</span>
+                                        <span>{{ $cfg('city', 'г. БЕЛОРЕЧЕНСК') }},</span>
+                                        <span>{{ $cfg('street', 'ул. 8 Марта, д. 57') }},</span>
+                                        <span>{{ $cfg('region', 'Краснодарский край') }},</span>
+                                        <span>{{ $cfg('index', '352631') }}</span>
                                     </li>
                                     <li>
-                                        Телефоны: <span>(86155) 33803</span><br/>
-                                        Электронная почта: <span>sut-belora@yandex.ru</span>
+                                        Телефоны: <span>{{ $cfg('phone', '(86155) 33803') }}</span><br/>
+                                        Электронная почта: <span>{{ $cfg('email', 'sut-belora@yandex.ru') }}</span>
                                     </li>
                                 </ul>
                             </address>
