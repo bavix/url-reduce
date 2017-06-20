@@ -107,61 +107,59 @@
                 <div class="card">
                     <div class="card-block">
 
-                        @if(visually())
-                            <img class="visually" src="/svg/eye.svg"
-                                 title="Обычная версия"
-                                 height="18px" />
-
-                            <a href="{{ route('visually') }}" title="Специальная версия сайта">
-                                Обычная версия
+                        <div class="row visually-special mx-auto">
+                            <a href="{{ route('visually') }}" data-val="visually-impaired" data-sel="0"
+                               title="Специальная версия сайта" class="visually-eye {{ visually() ? 'active' : '' }}">
+                                <i></i><span>Обычная версия</span>
                             </a>
-                        @else
-                            <img class="visually" src="/svg/eye.svg"
-                                 title="Версия для слабовидящих"
-                                 height="18px" />
-
-                            <a href="{{ route('visually') }}" title="Специальная версия сайта">
-                                Версия для слабовидящих
+                            <a href="{{ route('visually') }}" data-val="visually-impaired" data-sel="1"
+                               title="Специальная версия сайта" class="visually-eye {{ !visually() ? 'active' : '' }}">
+                                <i></i><span>Версия для слабовидящих</span>
                             </a>
-                        @endif
+                        </div>
 
-                        @if(visually())
-                            <div class="row">
-                                @if(visuallyImage())
-                                    <a class="mx-auto" href="{{ route('visually.image') }}" title="Показать изображения">
-                                        <img class="visually" src="/images/image.png"
-                                             title="Обычная версия" />
-                                    </a>
-                                @elseif(visually())
-                                    <a class="mx-auto" href="{{ route('visually.image') }}" title="Убрать изображения">
-                                        <img class="visually" src="/images/no-image.png"
-                                             title="Обычная версия" />
-                                    </a>
-                                @endif
-                            </div>
+                        <div class="row visually-special">
+                            <a class="mx-auto {{ visuallyImage() ? 'active' : '' }}"
+                               data-val="visually-image"
+                               href="{{ route('visually.image') }}"
+                               title="Показать изображения">
+                                <i class="visually-image"></i>
+                            </a>
+                            <a class="mx-auto {{ !visuallyImage() ? 'active' : '' }}"
+                               data-val="visually-image"
+                               href="{{ route('visually.image') }}" title="Убрать изображения">
+                                <i class="visually-no-image"></i>
+                            </a>
+                        </div>
 
-                            <div class="row visually-font visually-selected mx-auto">
-                                <a href="{{ route('visually.font', [20]) }}"
-                                   class="col-md-4 f20 {{ visuallyFontString(20) }}">A</a>
-                                <a href="{{ route('visually.font', [24]) }}"
-                                   class="col-md-4 f24 {{ visuallyFontString(24) }}">A</a>
-                                <a href="{{ route('visually.font', [27]) }}"
-                                   class="col-md-4 f27 {{ visuallyFontString(27) }}">A</a>
-                            </div>
+                        <div class="row visually-font visually-selected mx-auto">
+                            <a href="{{ route('visually.font', [20]) }}" data-val="f20"
+                               class="col-md-4 f20 {{ visuallyFontString(20) }}">A</a>
+                            <a href="{{ route('visually.font', [24]) }}" data-val="f24"
+                               class="col-md-4 f24 {{ visuallyFontString(24) }}">A</a>
+                            <a href="{{ route('visually.font', [27]) }}" data-val="f27"
+                               class="col-md-4 f27 {{ visuallyFontString(27) }}">A</a>
+                        </div>
 
-                            <div class="row visually-color visually-selected mx-auto">
-                                <a href="{{ route('visually.color', ['black-white']) }}"
-                                   class="col-md-2 a-black-white {{ visuallyColorString('black-white') }}">C</a>
-                                <a href="{{ route('visually.color', ['white-black']) }}"
-                                   class="col-md-2 a-white-black {{ visuallyColorString('white-black') }}">C</a>
-                                <a href="{{ route('visually.color', ['dark-blue-blue']) }}"
-                                   class="col-md-2 a-dark-blue-blue {{ visuallyColorString('dark-blue-blue') }}">C</a>
-                                <a href="{{ route('visually.color', ['brown-beige']) }}"
-                                   class="col-md-2 a-brown-beige {{ visuallyColorString('brown-beige') }}">C</a>
-                                <a href="{{ route('visually.color', ['green-dark-brown']) }}"
-                                   class="col-md-2 a-green-dark-brown {{ visuallyColorString('green-dark-brown') }}">C</a>
-                            </div>
-                        @endif
+                        <div class="row visually-color visually-selected mx-auto">
+                            <a href="{{ route('visually.color', ['black-white']) }}" data-val="visually-black-white"
+                               class="col-md-2 a-black-white {{ visuallyColorString('black-white') }}">C</a>
+                            <a href="{{ route('visually.color', ['white-black']) }}" data-val="visually-white-black"
+                               class="col-md-2 a-white-black {{ visuallyColorString('white-black') }}">C</a>
+                            <a href="{{ route('visually.color', ['dark-blue-blue']) }}" data-val="visually-dark-blue-blue"
+                               class="col-md-2 a-dark-blue-blue {{ visuallyColorString('dark-blue-blue') }}">C</a>
+                            <a href="{{ route('visually.color', ['brown-beige']) }}" data-val="visually-brown-beige"
+                               class="col-md-2 a-brown-beige {{ visuallyColorString('brown-beige') }}">C</a>
+                            <a href="{{ route('visually.color', ['green-dark-brown']) }}" data-val="visually-green-dark-brown"
+                               class="col-md-2 a-green-dark-brown {{ visuallyColorString('green-dark-brown') }}">C</a>
+                        </div>
+
+                        {{--<div class="row visually-letter">--}}
+                            {{--<p>Межбуквенный интервал</p>--}}
+                            {{--<a href="#" class="btn btn-default">Стандартный</a>--}}
+                            {{--<a href="#" class="btn btn-default">Средний</a>--}}
+                            {{--<a href="#" class="btn btn-default">Большой</a>--}}
+                        {{--</div>--}}
 
                     </div>
                 </div>
@@ -360,6 +358,9 @@
         var $poll = $('#poll');
         var $polls = $poll.data('count');
 
+        var color = 'visually-{{ visuallyColor() }}';
+        var font = 'f{{ visuallyFont() }}';
+
         $('.lightGallery').lightGallery();
 
         $poll.find('[type=radio]').change(function () {
@@ -417,6 +418,47 @@
                         swal('Oops...', 'Произошла ошибка, попробуйте позже!', 'error');
                     }
                 })
+            }
+        });
+
+        var halper = function (variable) {
+            return function (e) {
+                e.preventDefault();
+                var $body = $('body');
+                var $a = $(this);
+
+                if ($a.hasClass('active')) {
+                    return;
+                }
+
+                $body.removeClass(variable);
+                variable = $a.data('val');
+                $body.addClass(variable);
+                $a.parent().find('a').removeClass('active');
+                $a.addClass('active');
+                $.get($a.attr('href'));
+            };
+        };
+
+        $('.visually-font a').click(new halper(font));
+        $('.visually-color a').click(new halper(color));
+
+        $('.visually-special a').click(function (e) {
+            e.preventDefault();
+            var $body = $('body');
+            var $a = $(this);
+            $a.parent().find('a').toggleClass('active');
+            $body.toggleClass($a.data('val'));
+            $.get($a.attr('href'));
+
+            var $sel = $a.data('sel');
+
+            if (typeof $sel !== "undefined" && !$sel) {
+                $body.removeClass('visually-image');
+
+                // reset buttons
+                $('.visually-font a').removeClass('active').eq(0).click();
+                $('.visually-color a').removeClass('active').eq(0).click();
             }
         });
 

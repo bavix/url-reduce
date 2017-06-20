@@ -2,27 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use Bavix\Helpers\JSON;
 use Illuminate\Http\Request;
 use Illuminate\Http\ResponseTrait;
 
 class VisuallyController extends Controller
 {
 
-    protected $redirect;
+    protected $mixed;
 
     /**
      * @param Request $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    protected function redirect(Request $request)
+    protected function response(Request $request)
     {
-        if (!$this->redirect)
+        if (!$this->mixed)
         {
-            $this->redirect = redirect($this->refer($request));
+            $this->mixed = response(JSON::encode(['ok']));
         }
 
-        return $this->redirect;
+        return $this->mixed;
     }
 
     /**
@@ -49,7 +50,7 @@ class VisuallyController extends Controller
         $this->font($request, null);
         $this->color($request, null);
 
-        return $this->redirect($request)
+        return $this->response($request)
             ->withCookie('visually', !\visually())
             ->withCookie('visuallyImage', \visually() ? false : \visuallyImage());
     }
@@ -61,7 +62,7 @@ class VisuallyController extends Controller
      */
     public function image(Request $request)
     {
-        return $this->redirect($request)
+        return $this->response($request)
             ->withCookie('visuallyImage', !\visuallyImage());
     }
 
@@ -74,7 +75,7 @@ class VisuallyController extends Controller
             default: $size = 20;
         }
 
-        return $this->redirect($request)
+        return $this->response($request)
             ->withCookie('visuallyFont', $size);
     }
 
@@ -89,7 +90,7 @@ class VisuallyController extends Controller
             default: $color = 'black-white';
         }
 
-        return $this->redirect($request)
+        return $this->response($request)
             ->withCookie('visuallyColor', $color);
     }
 

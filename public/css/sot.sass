@@ -6,6 +6,15 @@
   .f#{$i}
     font-size: $i/16 * 1rem
 
+.letter-spacing-small *
+  letter-spacing: 0
+
+.letter-spacing-middle *
+  letter-spacing: 1px
+
+.letter-spacing-large *
+  letter-spacing: 2px
+
 /** gr1
 .bg-white-black
   background: black !important
@@ -107,6 +116,15 @@ html
       @extend .bg-white-black
       @extend .clr-white-black
 
+      .visually-eye i
+        background: url('/svg/eye-white-black.svg') no-repeat
+
+      .visually-image
+        background: url('/svg/image-white-black.svg') no-repeat
+
+      .visually-no-image
+        background: url('/svg/no-image-white-black.svg') no-repeat
+
       .bg-global
         @extend .bg-white-black
 
@@ -126,6 +144,12 @@ html
 
       @extend .bg-black-white
       @extend .clr-black-white
+
+      .visually-image
+        background: url('/svg/image-black-white.svg') no-repeat
+
+      .visually-no-image
+        background: url('/svg/no-image-black-white.svg') no-repeat
 
       .bg-global
         @extend .bg-black-white
@@ -147,6 +171,15 @@ html
       @extend .bg-dark-blue-blue
       @extend .clr-dark-blue-blue
 
+      .visually-eye i
+        background: url('/svg/eye-dark-blue-blue.svg') no-repeat
+
+      .visually-image
+        background: url('/svg/image-dark-blue-blue.svg') no-repeat
+
+      .visually-no-image
+        background: url('/svg/no-image-dark-blue-blue.svg') no-repeat
+
       .bg-global
         @extend .bg-dark-blue-blue
 
@@ -166,6 +199,15 @@ html
 
       @extend .bg-brown-beige
       @extend .clr-brown-beige
+
+      .visually-eye i
+        background: url('/svg/eye-brown-beige.svg') no-repeat
+
+      .visually-image
+        background: url('/svg/image-brown-beige.svg') no-repeat
+
+      .visually-no-image
+        background: url('/svg/no-image-brown-beige.svg') no-repeat
 
       .bg-global
         @extend .bg-brown-beige
@@ -187,6 +229,15 @@ html
       @extend .bg-green-dark-brown
       @extend .clr-green-dark-brown
 
+      .visually-eye i
+        background: url('/svg/eye-green-dark-brown.svg') no-repeat
+
+      .visually-image
+        background: url('/svg/image-green-dark-brown.svg') no-repeat
+
+      .visually-no-image
+        background: url('/svg/no-image-green-dark-brown.svg') no-repeat
+
       .bg-global
         @extend .bg-green-dark-brown
 
@@ -206,6 +257,11 @@ html
       @extend .bg-global
       @extend .bg-border
       border-radius: 0
+
+      .visually-image, .visually-no-image
+        display: block
+        width: 144px
+        height: 124px
 
       .visually-selected
 
@@ -264,6 +320,12 @@ html
             text-decoration: none !important
             line-height: 3.5rem !important
             text-align: center
+
+          .f24
+            font-size: 27px
+
+          .f27
+            font-size: 34px
 
     .badge
       display: none
@@ -338,6 +400,18 @@ html
   body
     height: 100% // footer down bottom
     padding-top: 5.5rem
+
+    .visually-special a:not(.active)
+      display: none
+
+    &:not(.visually-impaired) .visually-selected
+      display: none
+
+    .visually-eye i
+      background: url('/svg/eye-black-white.svg') no-repeat
+      height: 1.1rem
+      width: 1.4rem
+      display: inline-block
 
   h1, h2, h3, h4, h5, h6
     font-weight: bold

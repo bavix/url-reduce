@@ -49,6 +49,15 @@
 .f29 {
   font-size: 1.8125rem; }
 
+.letter-spacing-small * {
+  letter-spacing: 0; }
+
+.letter-spacing-middle * {
+  letter-spacing: 1px; }
+
+.letter-spacing-large * {
+  letter-spacing: 2px; }
+
 /** gr1 */
 .bg-white-black, html body.visually-impaired.visually-white-black, html body.visually-impaired.visually-white-black .bg-global, html body.visually-impaired.visually-white-black .card, html body.visually-impaired .card .visually-selected.visually-color a.a-white-black, html body.visually-impaired .card .visually-selected.visually-color a.a-white-black:hover, html body.visually-impaired .card .visually-selected.visually-color a.a-white-black:focus, html body.visually-impaired .card .visually-selected.visually-color a.a-white-black:active, html body.visually-impaired .card .visually-selected.visually-color a.a-white-black:visited {
   background: black !important; }
@@ -140,8 +149,40 @@ html {
   /** context */ }
   html body.visually-image img:not(.visually), html body.visually-image .card-img-top:not(.visually) {
     display: none; }
+  html body.visually-impaired.visually-white-black .visually-eye i {
+    background: url("/svg/eye-white-black.svg") no-repeat; }
+  html body.visually-impaired.visually-white-black .visually-image {
+    background: url("/svg/image-white-black.svg") no-repeat; }
+  html body.visually-impaired.visually-white-black .visually-no-image {
+    background: url("/svg/no-image-white-black.svg") no-repeat; }
+  html body.visually-impaired.visually-black-white .visually-image {
+    background: url("/svg/image-black-white.svg") no-repeat; }
+  html body.visually-impaired.visually-black-white .visually-no-image {
+    background: url("/svg/no-image-black-white.svg") no-repeat; }
+  html body.visually-impaired.visually-dark-blue-blue .visually-eye i {
+    background: url("/svg/eye-dark-blue-blue.svg") no-repeat; }
+  html body.visually-impaired.visually-dark-blue-blue .visually-image {
+    background: url("/svg/image-dark-blue-blue.svg") no-repeat; }
+  html body.visually-impaired.visually-dark-blue-blue .visually-no-image {
+    background: url("/svg/no-image-dark-blue-blue.svg") no-repeat; }
+  html body.visually-impaired.visually-brown-beige .visually-eye i {
+    background: url("/svg/eye-brown-beige.svg") no-repeat; }
+  html body.visually-impaired.visually-brown-beige .visually-image {
+    background: url("/svg/image-brown-beige.svg") no-repeat; }
+  html body.visually-impaired.visually-brown-beige .visually-no-image {
+    background: url("/svg/no-image-brown-beige.svg") no-repeat; }
+  html body.visually-impaired.visually-green-dark-brown .visually-eye i {
+    background: url("/svg/eye-green-dark-brown.svg") no-repeat; }
+  html body.visually-impaired.visually-green-dark-brown .visually-image {
+    background: url("/svg/image-green-dark-brown.svg") no-repeat; }
+  html body.visually-impaired.visually-green-dark-brown .visually-no-image {
+    background: url("/svg/no-image-green-dark-brown.svg") no-repeat; }
   html body.visually-impaired .card {
     border-radius: 0; }
+    html body.visually-impaired .card .visually-image, html body.visually-impaired .card .visually-no-image {
+      display: block;
+      width: 144px;
+      height: 124px; }
     html body.visually-impaired .card .visually-selected .active:after {
       border: solid;
       border-width: 1px 1px 0 0;
@@ -175,6 +216,10 @@ html {
       text-decoration: none !important;
       line-height: 3.5rem !important;
       text-align: center; }
+    html body.visually-impaired .card .visually-selected.visually-font .f24 {
+      font-size: 27px; }
+    html body.visually-impaired .card .visually-selected.visually-font .f27 {
+      font-size: 34px; }
   html body.visually-impaired .badge {
     display: none; }
   html body.visually-impaired nav.bg-inverse ul li.active {
@@ -196,6 +241,15 @@ html {
   html body {
     height: 100%;
     padding-top: 5.5rem; }
+    html body .visually-special a:not(.active) {
+      display: none; }
+    html body:not(.visually-impaired) .visually-selected {
+      display: none; }
+    html body .visually-eye i {
+      background: url("/svg/eye-black-white.svg") no-repeat;
+      height: 1.1rem;
+      width: 1.4rem;
+      display: inline-block; }
   html h1, html h2, html h3, html h4, html h5, html h6 {
     font-weight: bold;
     line-height: normal; }
