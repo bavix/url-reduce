@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Crypt;
+
 if (!function_exists('active'))
 {
 
@@ -32,6 +35,23 @@ if (!function_exists('activeClass'))
 
 }
 
+if (!function_exists('bx_cookie'))
+{
+    function bx_cookie($key, $default = null)
+    {
+        try 
+        {
+            return Crypt::decrypt(
+                Cookie::get($key, $default)
+            );
+        }
+        catch (\Throwable $throwable) 
+        {
+            return Cookie::get($key, $default);
+        }
+    }
+}
+
 if (!function_exists('visually'))
 {
 
@@ -40,7 +60,7 @@ if (!function_exists('visually'))
      */
     function visually()
     {
-        return request()->cookie(__FUNCTION__);
+        return bx_cookie(__FUNCTION__, false);
     }
 
 }
@@ -53,7 +73,7 @@ if (!function_exists('visuallyImage'))
      */
     function visuallyImage()
     {
-        return request()->cookie(__FUNCTION__);
+        return bx_cookie(__FUNCTION__, false);
     }
 
 }
@@ -66,7 +86,7 @@ if (!function_exists('visuallyFont'))
      */
     function visuallyFont()
     {
-        return request()->cookie(__FUNCTION__) ?: 20;
+        return bx_cookie(__FUNCTION__, 20);
     }
 
 }
@@ -79,7 +99,7 @@ if (!function_exists('visuallyColor'))
      */
     function visuallyColor()
     {
-        return request()->cookie(__FUNCTION__) ?: 'black-white';
+        return bx_cookie(__FUNCTION__, 'black-white');
     }
 
 }

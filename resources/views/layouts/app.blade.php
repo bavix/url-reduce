@@ -45,8 +45,8 @@
 </head>
 @php($visually = visually() ? 'visually-impaired' : '')
 @php($visually .= visuallyImage() ? ' visually-image' : '')
-@php($visually .=  ' f' . visuallyFont())
-@php($visually .=  ' visually-' . visuallyColor())
+@php($visually .= ' f' . visuallyFont())
+@php($visually .= ' visually-' . visuallyColor())
 <body @if(!empty($visually))class="{{ $visually }}"@endif>
 
 <header>
@@ -304,6 +304,10 @@
                         <div class="footer-pad">
                             <h4>Контакты</h4>
                             <address>
+                                @if(!isset($cfg))
+                                    @php($cfg = [\App\Models\ConfigModel::class, 'getValue'])
+                                @endif
+
                                 <ul class="list-unstyled">
                                     <li class="space">
                                         <span>{{ $cfg('city', 'г. БЕЛОРЕЧЕНСК') }},</span>

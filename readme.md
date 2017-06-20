@@ -4,6 +4,7 @@
 chmod 777 bootstrap
 chmod 777 bootstrap/cache
 chmod 777 storage/logs
+chmod a+x storage/logs/laravel.log
 chmod 777 storage/purifier
 chmod 777 storage/framework/cache
 chmod 777 storage/framework/sessions
