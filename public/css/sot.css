@@ -1,6 +1,6 @@
 /* @site    https://bavix.ru/ */
 /* @author  rez1dent3 */
-/* @version 1.1 */
+/* @version 1.2 */
 .grayscale, html body.visually-impaired img:not(.visually), html body.visually-impaired svg:not(.visually), html body.visually-impaired .card-img-top:not(.visually) {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%); }
