@@ -9,6 +9,7 @@ use App\Models\PollModel;
 use App\Models\QuestionModel;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
+use Encore\Admin\Form\NestedForm;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
 use Encore\Admin\Widgets\Box;
@@ -61,7 +62,7 @@ class QuestionController extends AdminController
 
             $form->text('question', 'Вопрос');
 
-            $form->hasMany('answers', 'Ответы', function (Form\NestedForm $form) {
+            $form->hasMany('answers', 'Ответы', function (NestedForm $form) {
                 $form->text('answer', 'Ответ');
             });
 
