@@ -198,7 +198,9 @@ html {
       position: absolute;
       width: 10px;
       -webkit-transform: rotate(-45deg);
-      -webkit-transform-origin: 50% 50%; }
+      -webkit-transform-origin: 50% 50%;
+      transform: rotate(-45%);
+      transform-origin: 50% 50%; }
     html body.visually-impaired .card .visually-selected.visually-color .active:after {
       bottom: -20px; }
     html body.visually-impaired .card .visually-selected.visually-color a, html body.visually-impaired .card .visually-selected.visually-color a:hover, html body.visually-impaired .card .visually-selected.visually-color a:focus, html body.visually-impaired .card .visually-selected.visually-color a:active, html body.visually-impaired .card .visually-selected.visually-color a:visited {
