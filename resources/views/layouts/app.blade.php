@@ -326,7 +326,7 @@
             <div class="container">
                 <div class="row">
                     <a class="bavix" title="Разработка и техническая поддержка сайта - bavix" href="https://bavix.ru/" target="_blank">
-                        <img src="https://bavix.ru/images/bavix.svg"
+                        <img src="https://ds.bavix.ru/svg/logo.svg"
                              alt="Разработка и техническая поддержка сайта - bavix"
                              title="Разработка и техническая поддержка сайта - bavix" />
 
