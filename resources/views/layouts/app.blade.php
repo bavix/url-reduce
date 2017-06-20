@@ -451,12 +451,21 @@
 
             var $sel = $a.data('sel');
 
-            if (typeof $sel !== "undefined" && !$sel) {
-                $body.removeClass('visually-image');
+            if (typeof $sel !== "undefined") {
+                if (!$sel) {
+                    $body.removeClass('visually-image');
 
-                // reset buttons
-                $('.visually-font a').removeClass('active').eq(0).click();
-                $('.visually-color a').removeClass('active').eq(0).click();
+                    // reset buttons
+                    $('.visually-font a').removeClass('active').eq(0).click();
+                    $('.visually-color a').removeClass('active').eq(0).click();
+                }
+
+                var regExp = new RegExp('(/upload/thumbs/\\d+/)' + (2 + ~$sel) + '(/image/)');
+
+                $('img').each(function (k, item) {
+                    item.src = item.src.replace(regExp, '$1' + $sel + '$2');
+                });
+
             }
         });
 
