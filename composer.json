@@ -5,17 +5,10 @@
     "license": "MIT",
     "type": "project",
 
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/rez1dent3/laravel-admin"
-        }
-    ],
-
     "require": {
         "php": ">=5.6.4",
         "bavix/sdk": "^1.0",
-        "encore/laravel-admin-temp": "1.4.*",
+        "encore/laravel-admin": "1.4.*",
         "ezyang/htmlpurifier": "^4.9",
         "intervention/image": "^2.3",
         "laravel/framework": "5.4.*",
