@@ -33,24 +33,34 @@ class ImageModel extends Model
             $org  = public_path('default/placeholdit.png');
         }
 
-        if (!realpath($real))
+        try
         {
-            $dir = dirname($real);
 
-            Dir::make($dir);
+            if (!realpath($real))
+            {
+                $dir = dirname($real);
 
-            $image = Image::make($org);
+                Dir::make($dir);
 
-            $_width = $image->width() <= $width ? $image->width() : $width;
+                $image = Image::make($org);
 
-            $image->resize($_width, round($_width / 16 * 9), function ($constraint) {
-                $constraint->aspectRatio();
-            });
+                $_width = $image->width() <= $width ? $image->width() : $width;
 
-            $image->save($real);
+                $image->resize($_width, round($_width / 16 * 9), function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+
+                $image->save($real);
+            }
+
+            return $path;
+
+        }
+        catch (\Throwable $throwable)
+        {
+            return $this->src;
         }
 
-        return $path;
     }
 
     public function thumbs()
