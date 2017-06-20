@@ -466,6 +466,10 @@
                     item.src = item.src.replace(regExp, '$1' + $sel + '$2');
                 });
 
+                $('.card-img-top').each(function (k, item) {
+                    $(item).attr('style', $(item).attr('style').replace(regExp, '$1' + $sel + '$2'));
+                });
+
             }
         });
 
