@@ -125,6 +125,13 @@
         });
     });
 
+    $(function () {
+        // fixed laravel-admin
+        $('form').each(function (i, v) {
+            $(v).attr('action', $(v).attr('action').replace(/(http)(:)/, '$1s$2'))
+        });
+    });
+
 </script>
 
 </body>
