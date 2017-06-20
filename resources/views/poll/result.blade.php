@@ -39,14 +39,21 @@
                                             aria-valuemin="0"
                                             aria-valuemax="100">
                                         </div>
-                                        <span style="position: absolute; left: 0; right: 0;">
-                                            @if($question->count && $answer->count)
-                                                Проголосовало {{ $answer->count }} из {{ $question->count }} ({{ $progress }}%)
-                                            @else
-                                                {{ $progress }}%
-                                            @endif
-                                        </span>
+                                        {{--<span style="position: absolute; left: 0; right: 0;">--}}
+                                            {{--@if($question->count && $answer->count)--}}
+                                                {{--Проголосовало {{ $answer->count }} из {{ $question->count }} ({{ $progress }}%)--}}
+                                            {{--@else--}}
+                                                {{--{{ $progress }}%--}}
+                                            {{--@endif--}}
+                                        {{--</span>--}}
                                     </div>
+                                    <span class="float-right f14">
+                                        @if($question->count && $answer->count)
+                                            Проголосовало {{ $answer->count }} из {{ $question->count }} ({{ $progress }}%)
+                                        @else
+                                            {{ $progress }}%
+                                        @endif
+                                    </span>
                                 </div>
                             @endforeach
 

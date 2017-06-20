@@ -72,11 +72,9 @@
                     <li class="nav-item {{ activeClass(['page', 'page.view']) }}">
                         <a class="nav-link" href="{{ route('page') }}">Страницы</a>
                     </li>
-                    @if(!visuallyImage())
-                        <li class="nav-item {{ activeClass(['album', 'album.view']) }}">
-                            <a class="nav-link" href="{{ route('album') }}">Альбомы</a>
-                        </li>
-                    @endif
+                    <li class="nav-item {{ activeClass(['album', 'album.view']) }}">
+                        <a class="nav-link" href="{{ route('album') }}">Альбомы</a>
+                    </li>
                     <li class="nav-item {{ activeClass(['poll', 'poll.view']) }}">
                         <a class="nav-link" href="{{ route('poll') }}">Опросы</a>
                     </li>

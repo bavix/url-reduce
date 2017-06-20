@@ -253,6 +253,14 @@ html
       .clr-global2
         @extend .clr-green-dark-brown2
 
+    .form-control
+      @extend .bg-global2
+      @extend .clr-global2
+      border-width: 5px
+
+    .form-group select.form-control:not([size]):not([multiple])
+      height: 50px
+
     .card
       @extend .bg-global
       @extend .bg-border
