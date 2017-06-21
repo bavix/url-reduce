@@ -10,14 +10,24 @@ $(function () {
     var $poll = $('#poll');
     var $polls = $poll.data('count');
 
+    var personal = false;
+
     $('.lightGallery').lightGallery();
 
     $poll.find('[type=radio]').change(function () {
         $poll.find('button').prop('disabled', $poll.serializeArray().length !== ($polls + 1));
     });
 
+    $('form[method="POST"] [required]').change(function () {
+        if (personal) {
+            $('#personal-data').trigger('change');
+        }
+    });
+
     // validate form
     $('#personal-data').change(function () {
+
+        personal = true;
 
         var checked = $(this).prop('checked');
         var $fields = $(this).parents('form[method="POST"]').find('[required]');
@@ -43,6 +53,7 @@ $(function () {
     $('form[method="POST"]').submit(function (e) {
 
         var $personal = $('#personal-data');
+        var $form = $(this);
 
         if (!$personal.length)
         {
@@ -58,7 +69,13 @@ $(function () {
                 data: $(this).serializeArray(),
                 success: function (response) {
                     if (response.result) {
-                        swal('Successful', 'Форма отправлена успешно!', 'success')
+                        swal('Successful', 'Форма отправлена успешно!', 'success');
+                        $personal.prop('checked', false);
+                        $form.find('.form-control-success').removeClass('form-control-success');
+                        $form.find('.has-success').removeClass('has-success');
+                        $form.trigger('reset');
+
+                        personal = false;
                     } else {
                         swal('Oops...', 'Произошла ошибка, попробуйте позже!', 'error');
                     }
