@@ -52,4 +52,8 @@ Route::group([
     $router->delete('/trash', 'App\Admin\Extensions\LG\Trash@index')
         ->name('lg.trash');
 
+    // doc.trash
+    $router->delete('/doc-trash', 'App\Admin\Extensions\Doc\Trash@index')
+        ->name('doc.trash');
+
 });
