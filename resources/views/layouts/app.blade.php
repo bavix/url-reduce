@@ -102,6 +102,28 @@
 
             <aside class="blocks col-lg-4">
 
+                @if (!empty($item->files) && $item->files->count())
+                    <div class="card">
+                        <div class="card-block">
+                            <h5 class="card-title">
+                                Документы
+                                <span class="badge badge-default float-right">{{ $item->files->count() }}</span>
+                            </h5>
+
+                            <ul class="menu nav bd-sidenav">
+                                @foreach($item->files as $document)
+                                    <li>
+                                        @php( $docTitle = empty($document->title) ? 'Undefined' : $document->title  )
+                                        <a href="/upload/{{ $document->src }}"
+                                           download="{{ $docTitle }}"
+                                           title="{{ $docTitle }}">{{ $docTitle }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                @endif
+
                 <div class="card">
                     <div class="card-block">
 
@@ -212,28 +234,6 @@
                                 @foreach($links as $link)
                                     <li>
                                         <a href="{{ $link->url }}" title="{{ $link->title }}">{{ $link->title }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                @endif
-
-                @if (!empty($item->files) && $item->files->count())
-                    <div class="card">
-                        <div class="card-block">
-                            <h5 class="card-title">
-                                Документы
-                                <span class="badge badge-default float-right">{{ $item->files->count() }}</span>
-                            </h5>
-
-                            <ul class="menu nav bd-sidenav">
-                                @foreach($item->files as $document)
-                                    <li>
-                                        @php( $docTitle = empty($document->title) ? 'Undefined' : $document->title  )
-                                        <a href="/upload/{{ $document->src }}"
-                                           download="{{ $docTitle }}"
-                                           title="{{ $docTitle }}">{{ $docTitle }}</a>
                                     </li>
                                 @endforeach
                             </ul>

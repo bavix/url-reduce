@@ -8,7 +8,7 @@
 
             @foreach($items as $item)
 
-                <div class="card">
+                <section class="card">
 
                     @if($item->image_id)
                         <div class="card-img-top" style="height: 411px; background: url(/upload/{{ $item->image->preview() }}) center no-repeat"></div>
@@ -23,7 +23,7 @@
                         <a href="{{ $item->url() }}" class="card-link">Подробнее »</a>
                     </div>
 
-                </div>
+                </section>
 
             @endforeach
 
