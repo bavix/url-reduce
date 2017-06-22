@@ -290,7 +290,7 @@ html {
         padding-bottom: 1rem; }
       html .wrapper main .panel-body {
         padding-bottom: 1.5rem; }
-      html .wrapper main div.card + div.card {
+      html .wrapper main .card + .card {
         margin-top: 1rem; }
       html .wrapper main article {
         margin-bottom: 1rem; }
