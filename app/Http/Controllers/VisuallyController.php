@@ -16,11 +16,18 @@ class VisuallyController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    protected function response(Request $request)
+    protected function data(Request $request)
     {
         if (!$this->mixed)
         {
-            $this->mixed = response(JSON::encode(['ok']));
+            if ($request->ajax())
+            {
+                $this->mixed = response(JSON::encode(['ok']));
+            }
+            else
+            {
+                $this->mixed = redirect($this->refer($request));
+            }
         }
 
         return $this->mixed;
@@ -50,7 +57,7 @@ class VisuallyController extends Controller
         $this->font($request, null);
         $this->color($request, null);
 
-        return $this->response($request)
+        return $this->data($request)
             ->withCookie('visually', !\visually())
             ->withCookie('visuallyImage', \visually() ? false : \visuallyImage());
     }
@@ -62,7 +69,7 @@ class VisuallyController extends Controller
      */
     public function image(Request $request)
     {
-        return $this->response($request)
+        return $this->data($request)
             ->withCookie('visuallyImage', !\visuallyImage());
     }
 
@@ -73,7 +80,7 @@ class VisuallyController extends Controller
             $size = 20;
         }
 
-        return $this->response($request)
+        return $this->data($request)
             ->withCookie('visuallyFont', $size);
     }
 
@@ -88,7 +95,7 @@ class VisuallyController extends Controller
             default: $color = 'black-white';
         }
 
-        return $this->response($request)
+        return $this->data($request)
             ->withCookie('visuallyColor', $color);
     }
 
