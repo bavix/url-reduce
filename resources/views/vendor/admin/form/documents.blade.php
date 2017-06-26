@@ -9,14 +9,15 @@
         <ul id="{{ $id }}" class="list-unstyled row">
             @foreach($_documents as $_document)
                 <li>
-                    <!-- edit name & remove from cms -->
                     <a href="/upload/{{ $_document->src }}" download="{{ $_document->title ? : basename($_document->src) }}">
                         {{ $_document->name ? : basename($_document->src) }}
                     </a>
 
-                    <a class="pull-right" href="#" data-id="{{ $_document->id }}">
+                    <a class="pull-right" href="#"
+                       data-id="{{ $_document->id }}"
+                       data-model="{{  \get_class($_document->pivot->parent) }}">
                         <i class="fa fa-trash"></i>
-                        <span>trash</span>
+                        <span>удалить</span>
                     </a>
                 </li>
             @endforeach
@@ -26,3 +27,26 @@
 
     </div>
 </div>
+
+@if (isset($_document))
+    <script>
+        $('#{{ $id }} a[data-id]').click(function (e) {
+            e.preventDefault();
+            var $button = $(this);
+
+            $.ajax({
+                url: '{{ route('doc.trash') }}'
+                , data: {
+                    model: $button.data('model')
+                    , itemId: '{{ $_document->pivot->parent->id }}'
+                    , documentId: $button.data('id')
+                    , _token: '{{ csrf_token() }}'
+                }
+                , method: 'delete'
+                , success: function () {
+                    $button.parent().remove();
+                }
+            });
+        });
+    </script>
+@endif

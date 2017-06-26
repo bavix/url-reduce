@@ -20,10 +20,9 @@ class Documents extends Field
 //        $class        = implode('.', $this->getElementClass());
 //        $this->script = "$('textarea.{$class}').ckeditor();";
 
-        // todo добавить кнопку уделения
-
         $column = $this->options['column'];
         $this->variables['_documents'] = $this->form->model()->$column;
+        $this->variables['itemId'] = $this->form->model()->id;
 
         return parent::render();
     }
