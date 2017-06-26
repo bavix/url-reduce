@@ -6,6 +6,21 @@ Route::get('/', function () {
     return redirect(route('new'));
 });
 
+$url = preg_replace(
+    '~(\w+://)~',
+    'special.',
+    env('APP_URL')
+);
+
+Route::domain($url)->group(function () {
+    if (!visually()) {
+        Route::get(
+            request()->server('REQUEST_URI'),
+            'VisuallyController@index'
+        );
+    }
+});
+
 // news
 Route::get('/news', 'NewController@index')
     ->name('new');
@@ -64,10 +79,10 @@ Route::get('/visually', 'VisuallyController@index')
 Route::get('/visually/image', 'VisuallyController@image')
     ->name('visually.image');
 
-// слабовидящих (выкл. image)
+// слабовидящих (выкл. font)
 Route::get('/visually/font/{size}', 'VisuallyController@font')
     ->name('visually.font');
 
-// слабовидящих (выкл. image)
+// слабовидящих (выкл. color)
 Route::get('/visually/color/{color}', 'VisuallyController@color')
     ->name('visually.color');

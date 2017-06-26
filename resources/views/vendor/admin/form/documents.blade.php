@@ -13,6 +13,11 @@
                     <a href="/upload/{{ $_document->src }}" download="{{ $_document->title ? : basename($_document->src) }}">
                         {{ $_document->name ? : basename($_document->src) }}
                     </a>
+
+                    <a class="pull-right" href="#" data-id="{{ $_document->id }}">
+                        <i class="fa fa-trash"></i>
+                        <span>trash</span>
+                    </a>
                 </li>
             @endforeach
         </ul>
