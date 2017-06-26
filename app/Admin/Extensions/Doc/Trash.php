@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Admin\Extensions\LG;
+namespace App\Admin\Extensions\Doc;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
