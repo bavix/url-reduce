@@ -106,24 +106,24 @@ class TestSeeder extends Seeder
 
         /* `sot1`.`answers` */
         $answers = array(
-            array('id' => '1','answer' => 'ответ 1','count' => '0','correct' => '0','question_id' => '1','created_at' => '2017-05-24 06:50:27','updated_at' => '2017-05-24 06:50:27'),
-            array('id' => '2','answer' => 'ответ 2','count' => '0','correct' => '0','question_id' => '1','created_at' => '2017-05-24 06:50:27','updated_at' => '2017-05-24 06:50:27'),
-            array('id' => '3','answer' => 'Современная перьевая ручка','count' => '13','correct' => '0','question_id' => '2','created_at' => '2017-05-24 07:23:39','updated_at' => '2017-06-19 16:50:50'),
-            array('id' => '4','answer' => 'Шариковая ручка','count' => '5','correct' => '0','question_id' => '2','created_at' => '2017-05-24 07:23:39','updated_at' => '2017-05-25 10:33:43'),
-            array('id' => '5','answer' => 'Parker','count' => '9','correct' => '0','question_id' => '3','created_at' => '2017-05-24 22:26:32','updated_at' => '2017-05-25 13:19:59'),
-            array('id' => '6','answer' => 'Waterman','count' => '11','correct' => '0','question_id' => '3','created_at' => '2017-05-24 22:26:32','updated_at' => '2017-05-25 10:37:21'),
-            array('id' => '7','answer' => 'Капиллярная ручка','count' => '1','correct' => '0','question_id' => '2','created_at' => '2017-05-25 09:53:56','updated_at' => '2017-05-25 10:33:43'),
-            array('id' => '8','answer' => 'Роллерная ручка','count' => '0','correct' => '0','question_id' => '2','created_at' => '2017-05-25 10:33:43','updated_at' => '2017-05-25 10:33:43'),
-            array('id' => '9','answer' => 'Гелевая ручка','count' => '0','correct' => '0','question_id' => '2','created_at' => '2017-05-25 10:33:43','updated_at' => '2017-05-25 10:33:43'),
-            array('id' => '10','answer' => 'Знаю все типы ручек','count' => '3','correct' => '0','question_id' => '2','created_at' => '2017-05-25 10:34:56','updated_at' => '2017-05-25 13:48:58'),
-            array('id' => '11','answer' => 'Caran d\'Ache','count' => '0','correct' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
-            array('id' => '12','answer' => 'Graf von Faber-Castell','count' => '0','correct' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
-            array('id' => '13','answer' => 'Cross','count' => '0','correct' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
-            array('id' => '14','answer' => 'Aurora','count' => '0','correct' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
-            array('id' => '15','answer' => 'Visconti','count' => '0','correct' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
-            array('id' => '16','answer' => 'Ancora','count' => '0','correct' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
-            array('id' => '17','answer' => 'Pierre Cardin','count' => '0','correct' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
-            array('id' => '18','answer' => 'другой','count' => '2','correct' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-06-19 16:50:50')
+            array('id' => '1','answer' => 'ответ 1','count' => '0','question_id' => '1','created_at' => '2017-05-24 06:50:27','updated_at' => '2017-05-24 06:50:27'),
+            array('id' => '2','answer' => 'ответ 2','count' => '0','question_id' => '1','created_at' => '2017-05-24 06:50:27','updated_at' => '2017-05-24 06:50:27'),
+            array('id' => '3','answer' => 'Современная перьевая ручка','count' => '13','question_id' => '2','created_at' => '2017-05-24 07:23:39','updated_at' => '2017-06-19 16:50:50'),
+            array('id' => '4','answer' => 'Шариковая ручка','count' => '5','question_id' => '2','created_at' => '2017-05-24 07:23:39','updated_at' => '2017-05-25 10:33:43'),
+            array('id' => '5','answer' => 'Parker','count' => '9','question_id' => '3','created_at' => '2017-05-24 22:26:32','updated_at' => '2017-05-25 13:19:59'),
+            array('id' => '6','answer' => 'Waterman','count' => '11','question_id' => '3','created_at' => '2017-05-24 22:26:32','updated_at' => '2017-05-25 10:37:21'),
+            array('id' => '7','answer' => 'Капиллярная ручка','count' => '1','question_id' => '2','created_at' => '2017-05-25 09:53:56','updated_at' => '2017-05-25 10:33:43'),
+            array('id' => '8','answer' => 'Роллерная ручка','count' => '0','question_id' => '2','created_at' => '2017-05-25 10:33:43','updated_at' => '2017-05-25 10:33:43'),
+            array('id' => '9','answer' => 'Гелевая ручка','count' => '0','question_id' => '2','created_at' => '2017-05-25 10:33:43','updated_at' => '2017-05-25 10:33:43'),
+            array('id' => '10','answer' => 'Знаю все типы ручек','count' => '3','question_id' => '2','created_at' => '2017-05-25 10:34:56','updated_at' => '2017-05-25 13:48:58'),
+            array('id' => '11','answer' => 'Caran d\'Ache','count' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
+            array('id' => '12','answer' => 'Graf von Faber-Castell','count' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
+            array('id' => '13','answer' => 'Cross','count' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
+            array('id' => '14','answer' => 'Aurora','count' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
+            array('id' => '15','answer' => 'Visconti','count' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
+            array('id' => '16','answer' => 'Ancora','count' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
+            array('id' => '17','answer' => 'Pierre Cardin','count' => '0','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-05-25 10:37:21'),
+            array('id' => '18','answer' => 'другой','count' => '2','question_id' => '3','created_at' => '2017-05-25 10:37:21','updated_at' => '2017-06-19 16:50:50')
         );
 
         $this->seed('answers', $answers);
