@@ -133,3 +133,20 @@ if (!function_exists('visuallyColorString'))
     }
 
 }
+
+if (!function_exists('keywords'))
+{
+    /**
+     * @param string $content
+     *
+     * @return string
+     */
+    function keywords($content) {
+        $trim = trim($content);
+        $data = preg_replace('~[^а-яё\w\\/]+~ui', ',', $trim);
+        $mixed = explode(',', $data);
+        $data = array_unique($mixed);
+
+        return implode(', ', $data);
+    }
+}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ConfigModel;
+use App\Models\CounterModel;
 use App\Models\LinkModel;
 use App\Models\PageModel;
 use App\Models\PollModel;
@@ -64,6 +65,7 @@ class Controller extends BaseController
     public function mergeData()
     {
         return [
+
             'links' => LinkModel::query()
                 ->where('active', 1)
                 ->orderBy('id', 'desc')
@@ -82,7 +84,12 @@ class Controller extends BaseController
                 ->limit(5)
                 ->get(),
 
-            'cfg' => [ConfigModel::class, 'getValue']
+            'cfg' => [ConfigModel::class, 'getValue'],
+
+            'counters' => CounterModel::query()
+                ->where('active', 1)
+                ->get()
+
         ];
     }
 

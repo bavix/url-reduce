@@ -27,7 +27,8 @@ class PollController extends Controller
 
         return view('new.index', [
             'items' => $query->paginate(10),
-            'title' => 'Опросы'
+            'title' => 'Опросы',
+            'description' => 'Список опросов'
         ], $this->mergeData());
     }
 
@@ -98,7 +99,8 @@ class PollController extends Controller
         return $this->render($result ? 'poll.result' : 'poll.view', [
             'item'   => $model,
             'title'  => $model->title . ' - Опрос',
-            'result' => $result
+            'result' => $result,
+            'description' => 'Опрос #' . $model->id
         ], $this->mergeData());
 
     }

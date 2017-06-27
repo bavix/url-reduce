@@ -1,3 +1,7 @@
+var $script = $(document.currentScript);
+var color = 'visually-' + $script.data('color');
+var font = 'f' + $script.data('font');
+
 /**
  * @author rez1dent3
  * @year 2017

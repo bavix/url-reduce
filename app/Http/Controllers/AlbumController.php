@@ -30,7 +30,8 @@ class AlbumController extends Controller
 
         return view('album.index', [
             'items' => $query->paginate(10),
-            'title' => 'Альбомы'
+            'title' => 'Альбомы',
+            'description' => 'Список альбомов'
         ], $this->mergeData());
     }
 
@@ -58,7 +59,8 @@ class AlbumController extends Controller
 
         return view('album.view', [
             'item' => $model,
-            'title' => $model->title . ' - Альбомы'
+            'title' => $model->title . ' - Альбомы',
+            'description' => $model->description
         ], $this->mergeData());
     }
 

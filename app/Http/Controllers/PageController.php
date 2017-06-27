@@ -29,7 +29,8 @@ class PageController extends Controller
 
         return view('page.index', [
             'items' => $query->paginate(10),
-            'title' => 'Страницы'
+            'title' => 'Страницы',
+            'description' => 'Список страниц'
         ], $this->mergeData());
     }
 
@@ -57,7 +58,8 @@ class PageController extends Controller
 
         return view('page.view', [
             'item' => $model,
-            'title' => $model->title . ' - Страницы'
+            'title' => $model->title . ' - Страницы',
+            'description' => $model->description
         ], $this->mergeData());
     }
 

@@ -42,6 +42,14 @@
     <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    @if (!empty($description))
+        <meta name="description" content="{{ $description }}" />
+    @endif
+
+    @if(!empty($title))
+        <meta name="keywords" content="{{ keywords($title) }}" />
+    @endif
+
 </head>
 @php($visually = visually() ? 'visually-impaired' : '')
 @php($visually .= visuallyImage() ? ' visually-image' : '')
@@ -351,14 +359,20 @@
 <script src="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-{{--<script src="{{ asset('js/watch.min.js') }}"></script>--}}
-{{--<script src="{{ asset('js/bavix.js') }}"></script>--}}
-{{--<script src="{{ asset('js/visually.js') }}"></script>--}}
-<script>
-    var color = 'visually-{{ visuallyColor() }}';
-    var font = 'f{{ visuallyFont() }}';
-</script>
-<script src="{{ asset('js/sot.js') }}"></script>
+
+<script src="{{ asset('js/sot.js') }}"
+        data-color="{{ visuallyColor() }}"
+        data-font="{{ visuallyFont() }}"></script>
+
+@if (isset($counters) && $counters->count())
+    <noindex style="display: none">
+        @foreach ($counters as $counter)
+            <!-- begin {{ $counter->title }} -->
+            {!! $counter->code !!}
+            <!-- end {{ $counter->title }} -->
+        @endforeach
+    </noindex>
+@endif
 
 </body>
 </html>
