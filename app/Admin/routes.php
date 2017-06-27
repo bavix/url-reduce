@@ -21,6 +21,9 @@ Route::group([
     // counters
     $router->resource('/counters', \App\Admin\Controllers\CounterController::class);
 
+    // trackers
+    $router->resource('/trackers', \App\Admin\Controllers\TrackerController::class);
+
     // configs
     $router->resource('/config', \App\Admin\Controllers\ConfigController::class);
 

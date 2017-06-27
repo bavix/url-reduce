@@ -7,6 +7,7 @@ use App\Models\CounterModel;
 use App\Models\LinkModel;
 use App\Models\PageModel;
 use App\Models\PollModel;
+use App\Models\TrackerModel;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -64,6 +65,9 @@ class Controller extends BaseController
      */
     public function mergeData()
     {
+
+        TrackerModel::hit();
+
         return [
 
             'links' => LinkModel::query()

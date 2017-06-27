@@ -39,7 +39,8 @@ class AdminMenuTableSeeder extends Seeder
             array('id' => '23','parent_id' => '12','order' => '10','title' => 'Страницы','icon' => 'fa-file-text','uri' => '/pages','created_at' => null,'updated_at' => null),
             array('id' => '24','parent_id' => '0','order' => '6','title' => 'Обратная связь','icon' => 'fa-feed','uri' => '/feedback','created_at' => null,'updated_at' => null),
             array('id' => '25','parent_id' => '2','order' => '25','title' => 'Конфигурации','icon' => 'fa-sliders','uri' => '/config','created_at' => null,'updated_at' => null),
-            array('id' => '26','parent_id' => '2','order' => '26','title' => 'Счётчики','icon' => 'fa-area-chart','uri' => '/counters','created_at' => null,'updated_at' => null)
+            array('id' => '26','parent_id' => '2','order' => '26','title' => 'Счётчики','icon' => 'fa-area-chart','uri' => '/counters','created_at' => null,'updated_at' => null),
+            array('id' => '27','parent_id' => '2','order' => '27','title' => 'Трекер','icon' => 'fa-bar-chart','uri' => '/trackers','created_at' => null,'updated_at' => null)
         );
 
         /**
