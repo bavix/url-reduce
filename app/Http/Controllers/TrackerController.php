@@ -2,12 +2,52 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AlbumModel;
+use App\Models\FeedbackModel;
+use App\Models\LinkModel;
+use App\Models\NewModel;
+use App\Models\PageModel;
+use App\Models\PollModel;
+use App\Models\StatementModel;
 use App\Models\TrackerModel;
 use Intervention\Image\Facades\Image;
 use Intervention\Image\Imagick\Font;
 
 class TrackerController extends Controller
 {
+
+    public function statistics()
+    {
+        return $this->render('tracker/statistics', [
+
+            'title' => 'Статистика сайта',
+
+            'description' => 'На данной странице содержится вся статистика сайта',
+
+            'newCount' => NewModel::query()
+                ->where('active', 1)
+                ->count(),
+
+            'pageCount' => PageModel::query()
+                ->where('active', 1)
+                ->count(),
+
+            'albumCount' => AlbumModel::query()
+                ->where('active', 1)
+                ->count(),
+
+            'linkCount' => LinkModel::query()
+                ->where('active', 1)
+                ->count(),
+
+            'pollCount' => PollModel::query()
+                ->where('active', 1)
+                ->count(),
+
+            'statementCount' => StatementModel::query()->count(),
+
+        ], $this->mergeData());
+    }
 
     public function index()
     {

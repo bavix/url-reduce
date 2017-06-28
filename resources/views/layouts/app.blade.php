@@ -265,10 +265,14 @@
 
                         <div class="card-text">
 
-                            <img class="img-thumbnail"
-                                 title="Счётчик посещений"
-                                 alt="Счётчик посещений"
-                                 src="{{ route('tracker', [], false) }}" />
+                            <a href="{{ route('statistics', [], false) }}"
+                               title="Статистика"
+                               alt="Статистика">
+                                <img class="img-thumbnail"
+                                     title="Счётчик посещений"
+                                     alt="Счётчик посещений"
+                                     src="{{ route('tracker', [], false) }}" />
+                            </a>
 
                             @if (isset($counters) && $counters->count())
                                 @foreach ($counters as $counter)

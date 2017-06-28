@@ -89,3 +89,6 @@ Route::get('/visually/color/{color}', 'VisuallyController@color')
 
 Route::get('/tracker.png', 'TrackerController@index')
     ->name('tracker');
+
+Route::get('/statistics.html', 'TrackerController@statistics')
+    ->name('statistics');
