@@ -86,3 +86,6 @@ Route::get('/visually/font/{size}', 'VisuallyController@font')
 // слабовидящих (выкл. color)
 Route::get('/visually/color/{color}', 'VisuallyController@color')
     ->name('visually.color');
+
+Route::get('/tracker.png', 'TrackerController@index')
+    ->name('tracker');

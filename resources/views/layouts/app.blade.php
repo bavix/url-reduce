@@ -259,6 +259,28 @@
                     </div>
                 @endif
 
+                <div class="card">
+                    <div class="card-block">
+                        <h5 class="card-title">Счётчик посещений</h5>
+
+                        <div class="card-text">
+
+                            <img class="img-thumbnail"
+                                 title="Счётчик посещений"
+                                 alt="Счётчик посещений"
+                                 src="/tracker.png" />
+
+                            <div>
+                                Дата: {{ date('d-m-Y') }}<br/>
+                                Пользователей: {{ \App\Models\TrackerModel::hostCount() }}<br />
+                                Визитов: {{ \App\Models\TrackerModel::hitCount() }}<br />
+                                Онлайн: {{ \App\Models\TrackerModel::onlineCount() }}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
                 {{--<div class="card">--}}
                     {{--<div class="card-block">--}}
                         {{--<h5 class="card-title">Last news</h5>--}}

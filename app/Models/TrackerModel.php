@@ -49,4 +49,19 @@ class TrackerModel extends Model
             ->count();
     }
 
+
+    public static function onlineCount()
+    {
+        return static::query()
+            ->select('ip')
+            ->groupBy('ip')
+            ->where(
+                'created_at',
+                '>',
+                DB::raw('UNIX_TIMESTAMP(INTERVAL -15 MINUTE + CURRENT_DATE())')
+            )
+            ->get()
+            ->count();
+    }
+
 }
