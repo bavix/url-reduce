@@ -236,7 +236,7 @@ html {
   height: 100%;
   /** header (navigation) */
   /** context */ }
-  html body.visually-image img:not(.visually), html body.visually-image .card-img-top:not(.visually) {
+  html body.visually-image img:not(.visually), html body.visually-image .card-img-top:not(.visually), html body.visually-image .no-visually {
     display: none; }
   html body.visually-impaired.visually-white-black .visually-eye i {
     background: url("/svg/eye-white-black.svg") no-repeat; }

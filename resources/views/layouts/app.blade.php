@@ -206,7 +206,7 @@
                 </div>
 
                 @if ($qr)
-                    <div class="card">
+                    <div class="card no-visually">
                         <div class="card-block">
                             <h5 class="card-title">QR-код текущей страницы</h5>
 
