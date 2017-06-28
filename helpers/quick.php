@@ -141,12 +141,33 @@ if (!function_exists('keywords'))
      *
      * @return string
      */
-    function keywords($content) {
+    function keywords($content)
+    {
         $trim = trim($content);
         $data = preg_replace('~[^а-яё\w\\/]+~ui', ',', $trim);
         $mixed = explode(',', $data);
         $data = array_unique($mixed);
 
         return implode(', ', $data);
+    }
+}
+
+if (!function_exists('phone'))
+{
+    /**
+     * @param string $string
+     *
+     * @return string
+     */
+    function phone($string)
+    {
+        $string = preg_replace('~\D+~', '', $string);
+
+        if (strlen($string) === 10)
+        {
+            $string = '7' . $string;
+        }
+
+        return '+' . $string;
     }
 }

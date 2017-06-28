@@ -368,8 +368,18 @@
                                     </address>
                                 </li>
                                 <li>
-                                    Телефон: <span itemprop="telephone">{{ $cfg('phone', '(86155) 33803') }}</span><br/>
-                                    Электронная почта: <span itemprop="email">{{ $cfg('email', 'sut-belora@yandex.ru') }}</span>
+                                    Телефон: <span itemprop="telephone">
+                                        <a href="tel:{{ phone($cfg('phone', '+7 (86155) 33803')) }}"
+                                           title="Телефон"
+                                           alt="Телефон">{{ $cfg('phone') }}
+                                        </a>
+                                    </span><br/>
+                                    Электронная почта: <span itemprop="email">
+                                        <a href="mailto:{{ $cfg('email', 'sut-belora@yandex.ru') }}"
+                                           title="Электронная почта"
+                                           alt="Электронная почта">{{ $cfg('email') }}
+                                        </a>
+                                    </span>
                                 </li>
                             </ul>
                         </div>
