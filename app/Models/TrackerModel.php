@@ -11,6 +11,10 @@ class TrackerModel extends Model
     protected $table = 'trackers';
     public $timestamps = false;
 
+    protected static $_hit;
+    protected static $_host;
+    protected static $_online;
+
     public static function hit()
     {
         $req = request();
@@ -37,31 +41,46 @@ class TrackerModel extends Model
 
     public static function hitCount()
     {
-        return static::buildQuery()->count();
+        if (!static::$_hit)
+        {
+            static::$_hit = static::buildQuery()->count();
+        }
+
+        return static::$_hit;
     }
 
     public static function hostCount()
     {
-        return static::buildQuery()
-            ->select('ip')
-            ->groupBy('ip')
-            ->get()
-            ->count();
+        if (!static::$_host)
+        {
+            static::$_host = static::buildQuery()
+                ->select('ip')
+                ->groupBy('ip')
+                ->get()
+                ->count();
+        }
+
+        return static::$_host;
     }
 
 
     public static function onlineCount()
     {
-        return static::query()
-            ->select('ip')
-            ->groupBy('ip')
-            ->where(
-                'created_at',
-                '>',
-                DB::raw('DATE_SUB(NOW(), INTERVAL 15 MINUTE)')
-            )
-            ->get()
-            ->count();
+        if (!static::$_online)
+        {
+            static::$_online = static::query()
+                ->select('ip')
+                ->groupBy('ip')
+                ->where(
+                    'created_at',
+                    '>',
+                    DB::raw('DATE_SUB(NOW(), INTERVAL 15 MINUTE)')
+                )
+                ->get()
+                ->count();
+        }
+
+        return static::$_online;
     }
 
 }
