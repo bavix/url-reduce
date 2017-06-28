@@ -16,13 +16,29 @@ class TrackerModel extends Model
     protected static $_host;
     protected static $_online;
 
+    protected static function isHit()
+    {
+        $time = microtime(true);
+        $newTime = $time + 0.6; // remove n-e hits
+
+        $save = $time > session('time', 0);
+
+        request()->session()->put(
+            'time',
+            $newTime
+        );
+
+        return $save;
+    }
+
     /**
      * add hit
      */
     public static function hit()
     {
         $req = request();
-        if (!$req->ajax() && $req->isMethod('GET'))
+
+        if (!$req->ajax() && $req->isMethod('GET') && static::isHit())
         {
             $model           = new static();
             $model->ip       = $req->ip();
