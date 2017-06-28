@@ -58,7 +58,7 @@ class TrackerModel extends Model
             ->where(
                 'created_at',
                 '>',
-                DB::raw('DATE_SUB(NOW(), INTERVAL -15 MINUTE)')
+                DB::raw('DATE_SUB(NOW(), INTERVAL 15 MINUTE)')
             )
             ->get()
             ->count();
