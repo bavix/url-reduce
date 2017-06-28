@@ -2,18 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AlbumModel;
-use App\Models\FeedbackModel;
-use App\Models\LinkModel;
-use App\Models\NewModel;
-use App\Models\PageModel;
-use App\Models\PollModel;
 use App\Models\QrModel;
-use App\Models\StatementModel;
-use App\Models\TrackerModel;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
-use Intervention\Image\Imagick\Font;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class QRController extends Controller
@@ -38,7 +28,8 @@ class QRController extends Controller
             ->generate($model->url);
 
         return response($png, 200, [
-            'Content-Type' => 'image/png'
+            'Content-Type' => 'image/png',
+            'Expires'      => gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * (24) * 365))
         ]);
     }
 
