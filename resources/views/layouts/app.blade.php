@@ -10,12 +10,12 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    @php($fullTitle = $title)
     @if(isset($title))
-        <title>{{ $title }} - {{ $cfg('name', config('app.name', 'bavix')) }}</title>
-    @else
-        <title>{{ $cfg('name', config('app.name', 'bavix')) }}</title>
+        @php($fullTitle .= ' - ' . $cfg('name', config('app.name', 'bavix')))
     @endif
+
+    <title>{{ $fullTitle }}</title>
 
     <!-- Styles -->
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
@@ -45,6 +45,12 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:title" content="{{ $fullTitle }}"/>
+    <meta property="og:description" content="{{ $description ?? '' }}"/>
+    {{--<meta property="og:image" content="">--}}
+    <meta property="og:url" content= "{{ request()->url() }}" />
+    <meta property="og:type" content="website"/>
 
     @if (!empty($description))
         <meta name="description" content="{{ $description }}" />
