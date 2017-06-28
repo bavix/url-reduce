@@ -47,7 +47,7 @@ class TrackerModel extends Model
     }
 
     /**
-     * @return string
+     * @return int
      */
     public static function hostAllCount()
     {

@@ -10,9 +10,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @php($fullTitle = $title)
+    @php($fullTitle = $cfg('name', config('app.name', 'bavix')))
     @if(isset($title))
-        @php($fullTitle .= ' - ' . $cfg('name', config('app.name', 'bavix')))
+        @php($fullTitle = $title . ' - ' . $fullTitle)
     @endif
 
     <title>{{ $fullTitle }}</title>
