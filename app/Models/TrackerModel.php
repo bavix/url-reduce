@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 
 class TrackerModel extends Model
@@ -15,6 +16,9 @@ class TrackerModel extends Model
     protected static $_host;
     protected static $_online;
 
+    /**
+     * add hit
+     */
     public static function hit()
     {
         $req = request();
@@ -30,6 +34,9 @@ class TrackerModel extends Model
         }
     }
 
+    /**
+     * @return Builder
+     */
     protected static function buildQuery()
     {
         return static::query()
@@ -39,9 +46,12 @@ class TrackerModel extends Model
         );
     }
 
+    /**
+     * @return int
+     */
     public static function hitCount()
     {
-        if (!static::$_hit)
+        if (static::$_hit === null)
         {
             static::$_hit = static::buildQuery()->count();
         }
@@ -49,9 +59,12 @@ class TrackerModel extends Model
         return static::$_hit;
     }
 
+    /**
+     * @return int
+     */
     public static function hostCount()
     {
-        if (!static::$_host)
+        if (static::$_host === null)
         {
             static::$_host = static::buildQuery()
                 ->select('ip')
@@ -63,10 +76,12 @@ class TrackerModel extends Model
         return static::$_host;
     }
 
-
+    /**
+     * @return int
+     */
     public static function onlineCount()
     {
-        if (!static::$_online)
+        if (static::$_online === null)
         {
             static::$_online = static::query()
                 ->select('ip')
