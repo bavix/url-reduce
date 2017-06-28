@@ -92,3 +92,6 @@ Route::get('/tracker.png', 'TrackerController@index')
 
 Route::get('/statistics.html', 'TrackerController@statistics')
     ->name('statistics');
+
+Route::get('/qr/{hash}', 'QRController@index')
+    ->name('qr');

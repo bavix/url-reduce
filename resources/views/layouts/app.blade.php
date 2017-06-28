@@ -48,9 +48,12 @@
 
     <meta property="og:title" content="{{ $fullTitle }}"/>
     <meta property="og:description" content="{{ $description ?? '' }}"/>
-    {{--<meta property="og:image" content="">--}}
     <meta property="og:url" content= "{{ request()->url() }}" />
     <meta property="og:type" content="website"/>
+    @php($qr = qrUrl())
+    @if($qr)
+        <meta property="og:image" content="{{ $qr }}">
+    @endif
 
     @if (!empty($description))
         <meta name="description" content="{{ $description }}" />
@@ -201,6 +204,18 @@
 
                     </div>
                 </div>
+
+                @if ($qr)
+                    <div class="card">
+                        <div class="card-block">
+                            <h5 class="card-title">QR-код текущей страницы</h5>
+
+                            <img width="100%" src="{{ $qr }}"
+                                 title="QR-код текущей страницы"
+                                 alt="QR-код текущей страницы" />
+                        </div>
+                    </div>
+                @endif
 
                 @if (!empty($polls) && $polls->count())
                     <div class="card">

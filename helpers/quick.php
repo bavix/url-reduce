@@ -171,3 +171,23 @@ if (!function_exists('phone'))
         return '+' . $string;
     }
 }
+
+if (!function_exists('qrUrl'))
+{
+    function qrUrl()
+    {
+        if (!request()->route())
+        {
+            return false;
+        }
+
+        $url = request()->url();
+
+        $model = \App\Models\QrModel::findByUrl($url);
+
+        return route(
+            'qr',
+            ['hash' => $model->hash]
+        );
+    }
+}
