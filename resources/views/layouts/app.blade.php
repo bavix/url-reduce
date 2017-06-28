@@ -261,7 +261,7 @@
 
                 <div class="card">
                     <div class="card-block">
-                        <h5 class="card-title">Счётчик посещений</h5>
+                        <h5 class="card-title">Счётчики посещений</h5>
 
                         <div class="card-text">
 
@@ -279,10 +279,9 @@
                             @endif
                             
                             <div>
-                                Дата: {{ date('d-m-Y') }}<br/>
-                                Пользователей: {{ \App\Models\TrackerModel::hostCount() }}<br />
+                                Гостей: {{ \App\Models\TrackerModel::hostCount() }}<br />
                                 Визитов: {{ \App\Models\TrackerModel::hitCount() }}<br />
-                                Онлайн: {{ \App\Models\TrackerModel::onlineCount() }}
+                                Онлайн всего: {{ \App\Models\TrackerModel::onlineCount() }}
                             </div>
 
                         </div>
