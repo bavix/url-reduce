@@ -16,25 +16,25 @@
                         <tbody>
                         <tr>
                             <td>Всего посещений</td>
-                            <td>{{ \App\Models\TrackerModel::hostAllCount() }}</td>
+                            <td class="text-right">{{ \App\Models\TrackerModel::hostAllCount() }}</td>
                         </tr>
                         <tr>
                             <td>Посещений сегодня</td>
-                            <td>{{ \App\Models\TrackerModel::hostCount() }}</td>
+                            <td class="text-right">{{ \App\Models\TrackerModel::hostCount() }}</td>
                         </tr>
 
                         <tr>
                             <td>Всего визитов</td>
-                            <td>{{ \App\Models\TrackerModel::hitAllCount() }}</td>
+                            <td class="text-right">{{ \App\Models\TrackerModel::hitAllCount() }}</td>
                         </tr>
                         <tr>
                             <td>Визитов сегодня</td>
-                            <td>{{ \App\Models\TrackerModel::hitCount() }}</td>
+                            <td class="text-right">{{ \App\Models\TrackerModel::hitCount() }}</td>
                         </tr>
 
                         <tr>
                             <td>Сейчас онлайн</td>
-                            <td>{{ \App\Models\TrackerModel::onlineCount() }}</td>
+                            <td class="text-right">{{ \App\Models\TrackerModel::onlineCount() }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -49,27 +49,27 @@
                         <tbody>
                             <tr>
                                 <td>Всего новостей</td>
-                                <td>{{ $newCount }}</td>
+                                <td class="text-right">{{ $newCount }}</td>
                             </tr>
                             <tr>
                                 <td>Всего страниц</td>
-                                <td>{{ $pageCount }}</td>
+                                <td class="text-right">{{ $pageCount }}</td>
                             </tr>
                             <tr>
                                 <td>Всего альбомов</td>
-                                <td>{{ $albumCount }}</td>
+                                <td class="text-right">{{ $albumCount }}</td>
                             </tr>
                             <tr>
                                 <td>Всего опросов</td>
-                                <td>{{ $pollCount }}</td>
+                                <td class="text-right">{{ $pollCount }}</td>
                             </tr>
                             <tr>
                                 <td>Всего ссылок</td>
-                                <td>{{ $linkCount }}</td>
+                                <td class="text-right">{{ $linkCount }}</td>
                             </tr>
                             <tr>
                                 <td>Всего заявлений</td>
-                                <td>{{ $statementCount }}</td>
+                                <td class="text-right">{{ $statementCount }}</td>
                             </tr>
                         </tbody>
                     </table>
