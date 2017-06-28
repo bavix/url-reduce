@@ -268,8 +268,16 @@
                             <img class="img-thumbnail"
                                  title="Счётчик посещений"
                                  alt="Счётчик посещений"
-                                 src="/tracker.png" />
+                                 src="{{ route('tracker', [], false) }}" />
 
+                            @if (isset($counters) && $counters->count())
+                                @foreach ($counters as $counter)
+                                    <!-- begin {{ $counter->title }} -->
+                                    {!! $counter->code !!}
+                                    <!-- end {{ $counter->title }} -->
+                                @endforeach
+                            @endif
+                            
                             <div>
                                 Дата: {{ date('d-m-Y') }}<br/>
                                 Пользователей: {{ \App\Models\TrackerModel::hostCount() }}<br />
@@ -395,16 +403,6 @@
 <script src="{{ asset('js/sot.js') }}"
         data-color="{{ visuallyColor() }}"
         data-font="{{ visuallyFont() }}"></script>
-
-@if (isset($counters) && $counters->count())
-    <noindex style="display: none">
-        @foreach ($counters as $counter)
-            <!-- begin {{ $counter->title }} -->
-            {!! $counter->code !!}
-            <!-- end {{ $counter->title }} -->
-        @endforeach
-    </noindex>
-@endif
 
 </body>
 </html>

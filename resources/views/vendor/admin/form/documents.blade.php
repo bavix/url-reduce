@@ -35,7 +35,7 @@
             var $button = $(this);
 
             $.ajax({
-                url: '{{ route('doc.trash') }}'
+                url: '{{ route('doc.trash', [], false) }}'
                 , data: {
                     model: $button.data('model')
                     , itemId: '{{ $_document->pivot->parent->id }}'

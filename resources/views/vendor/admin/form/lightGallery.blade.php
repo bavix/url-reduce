@@ -11,7 +11,7 @@
                 <li style="padding-right: 1px; padding-left: 0; padding-bottom: 1px"
                     class="col-xs-6 col-sm-4 col-md-3"
                     data-token="{{ csrf_token() }}"
-                    data-url="{{ route('lg.trash') }}"
+                    data-url="{{ route('lg.trash', [], false) }}"
                     data-src="/upload/{{ $_picture->src }}"
                     data-model="{{ \get_class($_picture->pivot->parent) }}"
                     data-item="{{ $_picture->pivot->parent->id }}"
