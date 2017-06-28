@@ -4,13 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    @if(!isset($cfg))
+        @php($cfg = [\App\Models\ConfigModel::class, 'getValue'])
+    @endif
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @if(isset($title))
-        <title>{{ $title }} - {{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title }} - {{ $cfg('name', config('app.name', 'bavix')) }}</title>
     @else
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $cfg('name', config('app.name', 'bavix')) }}</title>
     @endif
 
     <!-- Styles -->
@@ -311,24 +315,24 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="footer-pad">
                             <h4>Контакты</h4>
-                            <address>
-                                @if(!isset($cfg))
-                                    @php($cfg = [\App\Models\ConfigModel::class, 'getValue'])
-                                @endif
-
-                                <ul class="list-unstyled">
-                                    <li class="space">
-                                        <span>{{ $cfg('city', 'г. БЕЛОРЕЧЕНСК') }},</span>
-                                        <span>{{ $cfg('street', 'ул. 8 Марта, д. 57') }},</span>
-                                        <span>{{ $cfg('region', 'Краснодарский край') }},</span>
-                                        <span>{{ $cfg('index', '352631') }}</span>
-                                    </li>
-                                    <li>
-                                        Телефон: <span>{{ $cfg('phone', '(86155) 33803') }}</span><br/>
-                                        Электронная почта: <span>{{ $cfg('email', 'sut-belora@yandex.ru') }}</span>
-                                    </li>
-                                </ul>
-                            </address>
+                            <ul class="list-unstyled" itemscope itemtype="http://schema.org/Organization">
+                                <li class="space">
+                                    <address>
+                                        <span itemprop="name">{{ $cfg('name', config('app.name', 'bavix')) }}</span>,
+                                        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                            <span itemprop="streetAddress">{{ $cfg('street', 'ул. 8 Марта, д. 57') }}</span>,
+                                            <span itemprop="addressLocality">
+                                                {{ $cfg('city', 'г. БЕЛОРЕЧЕНСК') }},
+                                                {{ $cfg('region', 'Краснодарский край') }}</span>,
+                                            <span itemprop="postalCode">{{ $cfg('index', '352631') }}</span>
+                                        </div>
+                                    </address>
+                                </li>
+                                <li>
+                                    Телефон: <span itemprop="telephone">{{ $cfg('phone', '(86155) 33803') }}</span><br/>
+                                    Электронная почта: <span itemprop="email">{{ $cfg('email', 'sut-belora@yandex.ru') }}</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
