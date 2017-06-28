@@ -34,6 +34,8 @@ class TrackerController extends AdminController
             $grid->column('url', 'Куда');
             $grid->column('language', 'Язык');
 
+            $grid->column('created_at', 'Время визита');
+
         });
     }
 
