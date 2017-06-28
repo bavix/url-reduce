@@ -12,3 +12,4 @@ npm-debug.log
 /public/node_modules
 web
 composer.lock
+yarn.lock
