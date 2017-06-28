@@ -32,7 +32,7 @@ class QRController extends Controller
 
         $png = $qr
             ->size(400)
-            ->margin(1)
+            ->margin(0)
             ->color(61, 98, 119)
             ->merge(config('qr.logo'), .3, true)
             ->generate($model->url);
