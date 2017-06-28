@@ -47,6 +47,28 @@ class TrackerModel extends Model
     }
 
     /**
+     * @return string
+     */
+    public static function hostAllCount()
+    {
+        return static::query()
+            ->from(
+                DB::raw('(' . static::query()
+                ->select(DB::raw('`ip`'))
+                ->groupBy(DB::raw('DATE(`created_at`)'), 'ip')
+                ->toSql() . ') a')
+            )->count();
+    }
+
+    /**
+     * @return int
+     */
+    public static function hitAllCount()
+    {
+        return static::query()->count();
+    }
+
+    /**
      * @return int
      */
     public static function hitCount()

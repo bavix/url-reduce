@@ -16,20 +16,20 @@ class TrackerController extends Controller
          */
         $img = Image::canvas(88, 31, '#3d6277');
 
-        $img->text('host: ' . TrackerModel::hostCount(), 2, 10, function (Font $font) {
-            $font->file( config('tracker.font') );
+        $img->text('host: ' . TrackerModel::hostAllCount(), 2, 10, function (Font $font) {
+            $font->file(config('tracker.font'));
             $font->size(9);
             $font->color('#fff');
         });
 
-        $img->text('hit: ' . TrackerModel::hitCount(), 2, 21, function (Font $font) {
-            $font->file( config('tracker.font') );
+        $img->text('hit: ' . TrackerModel::hitAllCount(), 2, 21, function (Font $font) {
+            $font->file(config('tracker.font'));
             $font->size(9);
             $font->color('#fff');
         });
 
         $img->text('bavix.ru', 49, 28, function (Font $font) {
-            $font->file( config('tracker.font') );
+            $font->file(config('tracker.font'));
             $font->size(9);
             $font->color('#ccc');
         });
