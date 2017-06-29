@@ -23,11 +23,11 @@ class PageController extends Controller
         /**
          * @var \Illuminate\Database\Eloquent\Builder $query
          */
-        $query = PageModel::query();
+        $query = PageModel::with('image');
         $query->orderBy('id', 'desc');
         $query->where('active', 1);
 
-        return view('page.index', [
+        return view('new.index', [
             'items' => $query->paginate(10),
             'title' => 'Страницы',
             'description' => 'Список страниц'
@@ -56,7 +56,7 @@ class PageController extends Controller
             return redirect($model->url(), 301);
         }
 
-        return view('page.view', [
+        return view('new.view', [
             'item' => $model,
             'title' => $model->title . ' - Страницы',
             'description' => $model->description

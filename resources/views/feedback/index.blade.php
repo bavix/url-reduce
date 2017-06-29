@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
+    <article class="row">
         <div class="col-md-12">
+
+            <h1>Обратная связь</h1>
 
             <form method="POST">
 
@@ -30,5 +32,5 @@
             </form>
 
         </div>
-    </div>
+    </article>
 @endsection

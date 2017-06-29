@@ -22,7 +22,8 @@ class NewController extends Controller
         /**
          * @var \Illuminate\Database\Eloquent\Builder $query
          */
-        $query = NewModel::with(['category']);
+        $query = NewModel::with(['image', 'category']);
+
         $query->orderBy('id', 'desc');
         $query->where('active', 1);
 

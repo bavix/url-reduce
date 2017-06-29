@@ -12,6 +12,18 @@ class QrModel extends Model
 
     public $timestamps = false;
 
+    public function shorter($func = __FUNCTION__)
+    {
+        return route($func, [
+            'hash' => $this->hash
+        ]);
+    }
+
+    public function qr()
+    {
+        return $this->shorter(__FUNCTION__);
+    }
+
     public static function findByUrl($url)
     {
         $model = static::query()

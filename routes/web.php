@@ -96,6 +96,9 @@ Route::get('/statistics.html', 'TrackerController@statistics')
 Route::get('/qr/{hash}', 'QRController@index')
     ->name('qr');
 
+Route::get('/s/{hash}', 'ShorterController@index')
+    ->name('shorter');
+
 Route::get('/contact.html', 'ContactController@index')
     ->name('contact');
 

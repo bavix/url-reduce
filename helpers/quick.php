@@ -172,9 +172,9 @@ if (!function_exists('phone'))
     }
 }
 
-if (!function_exists('qrUrl'))
+if (!function_exists('qrModel'))
 {
-    function qrUrl()
+    function qrModel()
     {
         if (!request()->route())
         {
@@ -183,12 +183,7 @@ if (!function_exists('qrUrl'))
 
         $url = request()->url();
 
-        $model = \App\Models\QrModel::findByUrl($url);
-
-        return route(
-            'qr',
-            ['hash' => $model->hash]
-        );
+        return \App\Models\QrModel::findByUrl($url);
     }
 }
 

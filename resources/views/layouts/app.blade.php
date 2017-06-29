@@ -49,9 +49,9 @@
     <meta property="og:description" content="{{ $description ?? '' }}"/>
     <meta property="og:url" content= "{{ request()->url() }}" />
     <meta property="og:type" content="website"/>
-    @php($qr = qrUrl())
-    @if($qr)
-        <meta property="og:image" content="{{ $qr }}">
+    @php($qrModel = qrModel())
+    @if($qrModel)
+        <meta property="og:image" content="{{ $qrModel->qr() }}">
     @endif
 
     @if (!empty($description))
@@ -116,9 +116,9 @@
 
         <div class="row">
 
-            <article class="col-lg-8">
+            <div class="col-lg-8">
                 @yield('content')
-            </article>
+            </div>
 
             <aside class="blocks col-lg-4">
 
@@ -204,14 +204,34 @@
                     </div>
                 </div>
 
-                @if ($qr)
+                @if ($qrModel)
                     <div class="card no-visually">
                         <div class="card-block">
                             <h5 class="card-title">QR-код текущей страницы</h5>
 
-                            <img width="100%" src="{{ $qr }}"
+                            <p>
+                                <img width="100%" src="{{ $qrModel->qr() }}"
                                  title="QR-код текущей страницы"
                                  alt="QR-код текущей страницы" />
+                            </p>
+
+                            <label class="input-group">
+                                <input id="shorter" type="text" class="form-control" readonly
+                                    value="{{ $qrModel->shorter() }}" />
+
+                                <span class="input-group-btn">
+                                    <button class="clipboard btn btn-secondary"
+                                            data-clipboard-target="#shorter"
+                                            data-toggle="tooltip"
+                                            data-placement="bottom"
+                                            title="Copied!" >
+                                        <img style="height: 1rem" src="{{ asset2('svg/clipboard.svg') }}"
+                                             title="Копировать короткую ссылку"
+                                             alt="Копировать короткую ссылку" />
+                                    </button>
+                                </span>
+                            </label>
+
                         </div>
                     </div>
                 @endif
@@ -427,6 +447,7 @@
 <script src="{{ asset2('node_modules/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset2('node_modules/tether/dist/js/tether.min.js') }}"></script>
 <script src="{{ asset2('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset2('node_modules/clipboard/dist/clipboard.min.js') }}"></script>
 <script src="{{ asset2('packages/admin/lightGallery/js/lightgallery.min.js') }}"></script>
 <script src="{{ asset2('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->

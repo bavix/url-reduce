@@ -134,4 +134,17 @@ $(function () {
         }
     });
 
+    var clipboard = new Clipboard('button.clipboard');
+
+    clipboard.on('success', function(e) {
+        var $button = $(e.trigger);
+        $button.tooltip('show');
+
+        setTimeout(function () {
+            $button.tooltip('dispose');
+        }, 2300);
+
+        e.clearSelection();
+    });
+
 });

@@ -24,11 +24,12 @@ class AlbumController extends Controller
         /**
          * @var \Illuminate\Database\Eloquent\Builder $query
          */
-        $query = AlbumModel::query();
+        $query = AlbumModel::with('image');
+
         $query->orderBy('id', 'desc');
         $query->where('active', 1);
 
-        return view('album.index', [
+        return view('new.index', [
             'items' => $query->paginate(10),
             'title' => 'Альбомы',
             'description' => 'Список альбомов'
@@ -57,7 +58,7 @@ class AlbumController extends Controller
             return redirect($model->url(), 301);
         }
 
-        return view('album.view', [
+        return view('new.view', [
             'item' => $model,
             'title' => $model->title . ' - Альбомы',
             'description' => $model->description
