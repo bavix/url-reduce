@@ -13,7 +13,10 @@ class ShorterController extends Controller
         $model = QrModel::findByHash($hash);
         abort_if($model === null, 404);
 
-        return redirect($model->url, 301);
+        header('Location: ' . $model->url, true, 301);
+        die;
+
+//        return redirect($model->url, 301);
     }
 
 }
