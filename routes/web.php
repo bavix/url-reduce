@@ -98,3 +98,6 @@ Route::get('/qr/{hash}', 'QRController@index')
 
 Route::get('/contact.html', 'ContactController@index')
     ->name('contact');
+
+Route::get('/debug', 'DebugController@index')
+    ->name('debug');
