@@ -12,7 +12,7 @@
 
                     <h2>Посещаемость сайта</h2>
 
-                    <canvas class="no-visually" style="width: 100%; height: 28.13rem" id="chart"></canvas>
+                    <canvas class="no-visually" style="width: 100%; height: 400px" id="chart"></canvas>
 
                     <table class="table table-striped">
                         <tbody>
