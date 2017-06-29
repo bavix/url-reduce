@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}" prefix="og: http://ogp.me/ns#">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     @if(!isset($cfg))
         @php($cfg = [\App\Models\ConfigModel::class, 'getValue'])
@@ -41,22 +41,27 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
     <link rel="manifest" href="/favicons/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
 
-    <meta property="og:title" content="{{ $fullTitle }}"/>
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta property="og:title" content="{{ $fullTitle }}" />
     <meta property="og:description" content="{{ $description ?? '' }}"/>
     <meta property="og:url" content= "{{ request()->url() }}" />
-    <meta property="og:type" content="website"/>
+    <meta property="og:type" content="website" />
     @php($qrModel = qrModel())
     @if($qrModel)
-        <meta property="og:image" content="{{ $qrModel->qr() }}">
+        <meta property="og:image" content="{{ $qrModel->qr() }}" />
+        <meta name="twitter:image:src" content="{{ $qrModel->qr() }}" />
     @endif
 
-    @if (!empty($description))
-        <meta name="description" content="{{ $description }}" />
-    @endif
+    <meta name="twitter:site" content="{{ $cfg('name', config('app.name', 'bavix')) }}" />
+    <meta name="twitter:title" content="{{ $fullTitle }}" />
+    <meta name="twitter:description" content="{{ $description ?? '' }}" />
+    <meta name="twitter:domain" content="{{ request()->getHost() }}" />
+
+    <meta name="description" content="{{ $description ?? '' }}" />
 
     @if(!empty($title))
         <meta name="keywords" content="{{ keywords($title) }}" />
