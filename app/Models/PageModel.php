@@ -65,6 +65,7 @@ class PageModel extends Model
     {
         $config = \HTMLPurifier_Config::createDefault();
         $config->set('Cache.SerializerPath', base_path('storage/purifier'));
+        $config->set('HTML.Trusted', true);
 
         $data = (new \HTMLPurifier($config))->purify($content);
         $data = str_replace('<table>', '<table class="table">', $data);

@@ -17,7 +17,7 @@ class CKEditor extends Field
      */
     public static $js = [
         '/packages/admin/ckeditor/ckeditor.js',
-        '/packages/admin/ckeditor/adapters/jquery.js',
+        '/packages/admin/ckeditor/adapters/jquery.js'
     ];
 
     /**
