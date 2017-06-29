@@ -10,6 +10,7 @@ use App\Models\PageModel;
 use App\Models\PollModel;
 use App\Models\StatementModel;
 use App\Models\TrackerModel;
+use Bavix\Helpers\JSON;
 use Intervention\Image\Facades\Image;
 use Intervention\Image\Imagick\Font;
 
@@ -18,11 +19,21 @@ class TrackerController extends Controller
 
     public function statistics()
     {
+        $graphHost = TrackerModel::graphHost()->pluck('res', 'month')
+            ->toArray();
+
+        $graphHit = TrackerModel::graphHit()->pluck('res', 'month')
+            ->toArray();
+
         return $this->render('tracker/statistics', [
 
             'title' => 'Статистика сайта',
 
             'description' => 'На данной странице содержится вся статистика сайта',
+
+            'chartLabels' => JSON::encode(array_keys($graphHost)),
+            'chartDataHost' => JSON::encode(array_values($graphHost)),
+            'chartDataHit' => JSON::encode(array_values($graphHit)),
 
             'newCount' => NewModel::query()
                 ->where('active', 1)

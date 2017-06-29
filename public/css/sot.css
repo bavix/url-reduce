@@ -87,7 +87,7 @@ iPad 3
   /* Styles */
   main.container {
     width: 100%; } }
-.grayscale, html body.visually-impaired #map, html body.visually-impaired img:not(.visually), html body.visually-impaired svg:not(.visually), html body.visually-impaired .card-img-top:not(.visually) {
+.grayscale, html body.visually-impaired #map, html body.visually-impaired img:not(.visually), html body.visually-impaired svg:not(.visually), html body.visually-impaired canvas:not(.visually), html body.visually-impaired .card-img-top:not(.visually) {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%); }
 
@@ -241,8 +241,10 @@ html {
     height: 37.5rem;
     margin: 0;
     padding: 0; }
-  html body.visually-image img:not(.visually), html body.visually-image .card-img-top:not(.visually), html body.visually-image .no-visually {
+  html body.visually-image img:not(.visually), html body.visually-image .card-img-top:not(.visually), html body.visually-image canvas {
     display: none; }
+  html body.visually-image .no-visually {
+    display: none !important; }
   html body.visually-impaired.visually-white-black .visually-eye i {
     background: url("/svg/eye-white-black.svg") no-repeat; }
   html body.visually-impaired.visually-white-black .visually-image {

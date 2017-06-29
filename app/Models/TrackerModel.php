@@ -31,6 +31,49 @@ class TrackerModel extends Model
         return $save;
     }
 
+    public static function graphHost()
+    {
+        return static::query()
+            ->select(
+                DB::raw('sum(1) `res`'),
+                DB::raw('DATE_FORMAT(`fdate`, "%m.%Y") `month`')
+            )
+            ->from(
+                DB::raw('(' . static::query()
+                    ->select(
+                        'ip',
+                        DB::raw('DATE_FORMAT(`created_at`, "%Y-%m-%d") `fdate`')
+                    )
+                    ->where(
+                        DB::raw('DATE(created_at)'),
+                        '>',
+                        DB::raw('DATE_SUB(CURDATE(), INTERVAL 6 MONTH)')
+                    )
+                    ->groupBy('fdate', 'ip')
+                    ->toSql() . ') a')
+            )
+            ->groupBy('month')
+            ->orderBy('month', 'asc')
+            ->get();
+    }
+
+    public static function graphHit()
+    {
+        return static::query()
+            ->select(
+                DB::raw('sum(1) `res`'),
+                DB::raw('DATE_FORMAT(`created_at`, "%m.%Y") `month`')
+            )
+            ->where(
+                DB::raw('DATE(created_at)'),
+                '>',
+                DB::raw('DATE_SUB(CURDATE(), INTERVAL 6 MONTH)')
+            )
+            ->groupBy('month')
+            ->orderBy('month', 'asc')
+            ->get();
+    }
+
     /**
      * add hit
      */

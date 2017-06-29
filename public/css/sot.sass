@@ -116,15 +116,18 @@ html
 
   body.visually-image
 
-    img:not(.visually), .card-img-top:not(.visually), .no-visually
+    img:not(.visually), .card-img-top:not(.visually), canvas
       display: none
+
+    .no-visually
+      display: none !important
 
   body.visually-impaired
 
     #map
       @extend .grayscale
 
-    img, svg, .card-img-top
+    img, svg, canvas, .card-img-top
       &:not(.visually)
         @extend .grayscale
 

@@ -12,6 +12,8 @@
 
                     <h2>Посещаемость сайта</h2>
 
+                    <canvas class="no-visually" style="width: 100%; height: 450px" id="chart"></canvas>
+
                     <table class="table table-striped">
                         <tbody>
                         <tr>
@@ -79,4 +81,26 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script>
+        var chart = new Chart(document.getElementById('chart').getContext('2d'), {
+            type: 'line'
+            , data: {
+                labels: {{ $chartLabels }}
+                , datasets: [{
+                    label: "Хостов"
+                    , backgroundColor: 'rgba(255, 206, 86, 0.5)'
+                    , borderColor: 'rgb(61, 98, 119)'
+                    , data: {{ $chartDataHost }}
+                }, {
+                    label: "Хитов"
+                    , backgroundColor: 'rgba(54, 162, 235, 0.5)'
+                    , borderColor: 'rgb(61, 98, 119)'
+                    , data: {{ $chartDataHit }}
+                }]
+            }
+        });
+    </script>
+
 @endsection
