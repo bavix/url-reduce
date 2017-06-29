@@ -180,7 +180,9 @@ $(function () {
 
         this.twitter = function() {
             var _url  = 'http://twitter.com/share?';
-            _url += 'text='      + encodeURIComponent(desc);
+            _url += 'text='      + encodeURIComponent(
+                desc.length > 100 ? desc.substr(0, 100) + '..' : desc
+            );
             _url += '&url='      + encodeURIComponent(url);
             _url += '&counturl=' + encodeURIComponent(url);
 
