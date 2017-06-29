@@ -281,8 +281,7 @@
                         <div class="card-text">
 
                             <a href="{{ route('statistics', [], false) }}"
-                               title="Статистика"
-                               alt="Статистика">
+                               title="Статистика">
                                 <img class="img-thumbnail"
                                      title="Счётчик посещений"
                                      alt="Счётчик посещений"
@@ -368,31 +367,38 @@
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="footer-pad">
-                            <h4>Контакты</h4>
+                            <h4>
+                                <a href="{{ route('contact', [], false) }}" title="Контакты">Контакты</a>
+                            </h4>
                             <ul class="list-unstyled" itemscope itemtype="http://schema.org/Organization">
                                 <li class="space">
                                     <address>
-                                        <span itemprop="name">{{ $cfg('name', config('app.name', 'bavix')) }}</span>,
+                                        <span itemprop="name">
+                                            <a href="{{ route('contact', [], false) }}"
+                                               title="Наш адрес">
+                                                {{ $cfg('name', config('app.name', 'bavix')) }}</a></span>,
+
                                         <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                            <span itemprop="streetAddress">{{ $cfg('street', 'ул. 8 Марта, д. 57') }}</span>,
-                                            <span itemprop="addressLocality">
-                                                {{ $cfg('city', 'г. БЕЛОРЕЧЕНСК') }},
-                                                {{ $cfg('region', 'Краснодарский край') }}</span>,
-                                            <span itemprop="postalCode">{{ $cfg('index', '352631') }}</span>
+                                            <a href="{{ route('contact', [], false) }}"
+                                               title="Наш адрес">
+                                                <span itemprop="streetAddress">{{ $cfg('street', 'ул. 8 Марта, д. 57') }}</span>,
+                                                <span itemprop="addressLocality">
+                                                    {{ $cfg('city', 'г. БЕЛОРЕЧЕНСК') }},
+                                                    {{ $cfg('region', 'Краснодарский край') }}</span>,
+                                                <span itemprop="postalCode">{{ $cfg('index', '352631') }}</span>
+                                            </a>
                                         </div>
                                     </address>
                                 </li>
                                 <li>
                                     Телефон: <span itemprop="telephone">
                                         <a href="tel:{{ phone($cfg('phone', '+7 (86155) 33803')) }}"
-                                           title="Телефон"
-                                           alt="Телефон">{{ $cfg('phone') }}
+                                           title="Телефон">{{ $cfg('phone') }}
                                         </a>
                                     </span><br/>
                                     Электронная почта: <span itemprop="email">
                                         <a href="mailto:{{ $cfg('email', 'sut-belora@yandex.ru') }}"
-                                           title="Электронная почта"
-                                           alt="Электронная почта">{{ $cfg('email') }}
+                                           title="Электронная почта">{{ $cfg('email') }}
                                         </a>
                                     </span>
                                 </li>

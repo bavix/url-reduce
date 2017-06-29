@@ -236,6 +236,11 @@ html {
   height: 100%;
   /** header (navigation) */
   /** context */ }
+  html #map {
+    width: 100%;
+    height: 37.5rem;
+    margin: 0;
+    padding: 0; }
   html body.visually-image img:not(.visually), html body.visually-image .card-img-top:not(.visually), html body.visually-image .no-visually {
     display: none; }
   html body.visually-impaired.visually-white-black .visually-eye i {
