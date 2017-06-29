@@ -18,12 +18,11 @@
     <title>{{ $fullTitle }}</title>
 
     <!-- Styles -->
-    {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
-    <link href="{{ asset('packages/admin/lightGallery/css/lightgallery.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
-    <link href="{{ asset('css/sot.css')  }}" rel="stylesheet"/>
+    <link href="{{ asset2('packages/admin/lightGallery/css/lightgallery.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset2('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
+    <link href="{{ asset2('css/sot.css')  }}" rel="stylesheet"/>
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset2('node_modules/sweetalert2/dist/sweetalert2.min.css') }}">
 
     <!-- Scripts -->
     <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token()]) !!};</script>
@@ -425,15 +424,15 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ asset('node_modules/tether/dist/js/tether.min.js') }}"></script>
-<script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('packages/admin/lightGallery/js/lightgallery.min.js') }}"></script>
-<script src="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+<script src="{{ asset2('node_modules/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset2('node_modules/tether/dist/js/tether.min.js') }}"></script>
+<script src="{{ asset2('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset2('packages/admin/lightGallery/js/lightgallery.min.js') }}"></script>
+<script src="{{ asset2('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
-<script src="{{ asset('js/sot.js') }}"
+<script src="{{ asset2('js/sot.js') }}"
         data-color="{{ visuallyColor() }}"
         data-font="{{ visuallyFont() }}"></script>
 
