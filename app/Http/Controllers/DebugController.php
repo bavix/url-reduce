@@ -9,7 +9,8 @@ class DebugController extends Controller
 
     public function index(Request $request)
     {
-        return $request->toArray();
+        dump( $request );
+        die;
     }
 
 }
