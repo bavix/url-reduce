@@ -26,8 +26,8 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about' }
 	];
 
-    config.extraPlugins = 'embed,embedbase,widget';
-    config.embed_provider = '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}';
+    // config.extraPlugins = 'embed,embedbase,widget';
+    // config.embed_provider = '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}';
 
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.
