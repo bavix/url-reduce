@@ -12,32 +12,32 @@
 
                     <h2>Посещаемость сайта</h2>
 
-                    <canvas class="no-visually" style="width: 100%; height: 450px" id="chart"></canvas>
+                    <canvas class="no-visually" style="width: 100%; height: 28.13rem" id="chart"></canvas>
 
                     <table class="table table-striped">
                         <tbody>
-                        <tr>
-                            <td>Всего посещений</td>
-                            <td class="text-right">{{ \App\Models\TrackerModel::hostAllCount() }}</td>
-                        </tr>
-                        <tr>
-                            <td>Посещений сегодня</td>
-                            <td class="text-right">{{ \App\Models\TrackerModel::hostCount() }}</td>
-                        </tr>
+                            <tr>
+                                <td>Всего посещений</td>
+                                <td class="text-right">{{ \App\Models\TrackerModel::hostAllCount() }}</td>
+                            </tr>
+                            <tr>
+                                <td>Посещений сегодня</td>
+                                <td class="text-right">{{ \App\Models\TrackerModel::hostCount() }}</td>
+                            </tr>
 
-                        <tr>
-                            <td>Всего визитов</td>
-                            <td class="text-right">{{ \App\Models\TrackerModel::hitAllCount() }}</td>
-                        </tr>
-                        <tr>
-                            <td>Визитов сегодня</td>
-                            <td class="text-right">{{ \App\Models\TrackerModel::hitCount() }}</td>
-                        </tr>
+                            <tr>
+                                <td>Всего визитов</td>
+                                <td class="text-right">{{ \App\Models\TrackerModel::hitAllCount() }}</td>
+                            </tr>
+                            <tr>
+                                <td>Визитов сегодня</td>
+                                <td class="text-right">{{ \App\Models\TrackerModel::hitCount() }}</td>
+                            </tr>
 
-                        <tr>
-                            <td>Сейчас онлайн</td>
-                            <td class="text-right">{{ \App\Models\TrackerModel::onlineCount() }}</td>
-                        </tr>
+                            <tr>
+                                <td>Сейчас онлайн</td>
+                                <td class="text-right">{{ \App\Models\TrackerModel::onlineCount() }}</td>
+                            </tr>
                         </tbody>
                     </table>
 
