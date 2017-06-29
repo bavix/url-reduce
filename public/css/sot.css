@@ -241,6 +241,8 @@ html {
     height: 37.5rem;
     margin: 0;
     padding: 0; }
+  html #chart {
+    margin-bottom: 2rem; }
   html body.visually-image img:not(.visually), html body.visually-image .card-img-top:not(.visually), html body.visually-image canvas {
     display: none; }
   html body.visually-image .no-visually {
