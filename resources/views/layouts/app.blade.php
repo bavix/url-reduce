@@ -207,10 +207,10 @@
                 @if ($qrModel)
                     <div class="card no-visually">
                         <div class="card-block">
-                            <h5 class="card-title">QR-код текущей страницы</h5>
+                            <h5 class="card-title">Поделись страницей</h5>
 
                             <p>
-                                <img width="100%" src="{{ $qrModel->qr() }}"
+                                <img id="qr-image" width="100%" src="{{ $qrModel->qr() }}"
                                  title="QR-код текущей страницы"
                                  alt="QR-код текущей страницы" />
                             </p>
@@ -231,6 +231,20 @@
                                     </button>
                                 </span>
                             </label>
+
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <a class="btn if-grayscale" href="#" title="Вконтакте" data-vk>
+                                        <img title="VK" alt="VK" src="/svg/socials/vk.svg" />
+                                    </a>
+                                    <a class="btn if-grayscale" href="#" title="Facebook" data-facebook>
+                                        <img title="Facebook" alt="Facebook" src="/svg/socials/facebook.svg" />
+                                    </a>
+                                    <a class="btn if-grayscale" href="#" title="Twitter" data-twitter>
+                                        <img title="Twitter" alt="Twitter" src="/svg/socials/twitter.svg" />
+                                    </a>
+                                </div>
+                            </div>
 
                         </div>
                     </div>

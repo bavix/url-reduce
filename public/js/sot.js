@@ -134,6 +134,7 @@ $(function () {
         }
     });
 
+    // clipboard
     var clipboard = new Clipboard('button.clipboard');
 
     clipboard.on('success', function(e) {
@@ -146,5 +147,54 @@ $(function () {
 
         e.clearSelection();
     });
+
+    // share
+    var Share = new (function () {
+
+        var self = this;
+        var title = $('title').text();
+        var desc = $('meta[name="description"]').attr('content');
+        var url = $('#shorter').val();
+        var img = $('#qr-image').attr('src');
+
+        this.vk = function() {
+            var _url  = 'http://vk.com/share.php?';
+            _url += 'url='          + encodeURIComponent(url);
+            _url += '&title='       + encodeURIComponent(title);
+            _url += '&description=' + encodeURIComponent(desc);
+            _url += '&image='       + encodeURIComponent(img);
+            _url += '&noparse=true';
+
+            self.popup(_url);
+        };
+
+        this.facebook = function() {
+            var _url  = 'http://www.facebook.com/sharer.php?s=100';
+            _url += '&p[url]='       + encodeURIComponent(url);
+            _url += '&p[title]='     + encodeURIComponent(title);
+            _url += '&p[summary]='   + encodeURIComponent(desc);
+            _url += '&p[images][0]=' + encodeURIComponent(img);
+
+            self.popup(_url);
+        };
+
+        this.twitter = function() {
+            var _url  = 'http://twitter.com/share?';
+            _url += 'text='      + encodeURIComponent(desc);
+            _url += '&url='      + encodeURIComponent(url);
+            _url += '&counturl=' + encodeURIComponent(url);
+
+            self.popup(_url);
+        };
+
+        this.popup = function(url) {
+            window.open(url,'','toolbar=0,status=0,width=626,height=436');
+        }
+
+    })();
+
+    $('[data-vk]').click(Share.vk);
+    $('[data-facebook]').click(Share.facebook);
+    $('[data-twitter]').click(Share.twitter);
 
 });

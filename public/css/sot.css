@@ -87,7 +87,19 @@ iPad 3
   /* Styles */
   main.container {
     width: 100%; } }
-.grayscale, html body.visually-impaired #map, html body.visually-impaired img:not(.visually), html body.visually-impaired svg:not(.visually), html body.visually-impaired canvas:not(.visually), html body.visually-impaired .card-img-top:not(.visually) {
+.btn[data-vk] img, .btn[data-facebook] img, .btn[data-twitter] img {
+  height: 40px; }
+.btn[data-vk] {
+  background-color: #587ea3;
+  border-color: #587ea3; }
+.btn[data-facebook] {
+  background-color: #3b5998;
+  border-color: #3b5998; }
+.btn[data-twitter] {
+  background-color: #55acee;
+  border-color: #55acee; }
+
+.grayscale, html body.visually-impaired .if-grayscale, html body.visually-impaired #map, html body.visually-impaired img:not(.visually), html body.visually-impaired svg:not(.visually), html body.visually-impaired canvas:not(.visually), html body.visually-impaired .card-img-top:not(.visually) {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%); }
 
@@ -388,6 +400,7 @@ html {
       html .wrapper main .card + .card {
         margin-top: 1rem; }
       html .wrapper main article {
+        word-wrap: break-word;
         margin-bottom: 1rem; }
         html .wrapper main article .card-img-top img {
           display: block;
