@@ -38,6 +38,8 @@ class QuestionController extends AdminController
             $grid->column('poll.title', 'Опрос')->sortable();
             $grid->column('question', 'Название')->sortable();
 
+            $grid->exporter(new \App\Accessor\CsvExporter());
+
         });
     }
 

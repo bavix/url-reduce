@@ -35,6 +35,8 @@ class AlbumController extends AdminController
                 return $data ? 'Включена' : 'Выключена';
             })->sortable();
 
+            $grid->exporter(new \App\Accessor\CsvExporter());
+
         });
     }
 

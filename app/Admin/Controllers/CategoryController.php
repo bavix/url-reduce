@@ -30,6 +30,8 @@ class CategoryController extends AdminController
 
             $grid->column('title', 'Название')->sortable();
 
+            $grid->exporter(new \App\Accessor\CsvExporter());
+
         });
     }
 

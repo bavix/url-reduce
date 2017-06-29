@@ -33,6 +33,8 @@ class ConfigController extends AdminController
             $grid->column('name', 'Ключ')->sortable();
             $grid->column('value', 'Значение')->sortable();
 
+            $grid->exporter(new \App\Accessor\CsvExporter());
+
         });
     }
 

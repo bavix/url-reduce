@@ -35,6 +35,8 @@ class PollController extends AdminController
 
             $grid->column('title', 'Заголовок')->sortable();
 
+            $grid->exporter(new \App\Accessor\CsvExporter());
+
         });
     }
 

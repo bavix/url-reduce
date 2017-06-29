@@ -36,6 +36,8 @@ class TrackerController extends AdminController
 
             $grid->column('created_at', 'Время визита');
 
+            $grid->exporter(new \App\Accessor\CsvExporter());
+
         });
     }
 

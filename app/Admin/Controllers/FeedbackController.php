@@ -37,6 +37,8 @@ class FeedbackController extends AdminController
             $grid->column('communication', 'Обратная связь')->sortable();
             $grid->column('created_at', 'Дата подачи')->sortable();
 
+            $grid->exporter(new \App\Accessor\CsvExporter());
+
         });
     }
 
