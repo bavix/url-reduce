@@ -282,8 +282,7 @@
 
                             <a href="{{ route('statistics', [], false) }}"
                                title="Статистика">
-                                <img class="img-thumbnail"
-                                     title="Счётчик посещений"
+                                <img title="Счётчик посещений"
                                      alt="Счётчик посещений"
                                      src="{{ route('tracker', [], false) }}" />
                             </a>
