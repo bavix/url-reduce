@@ -56,7 +56,6 @@ class ImageModel extends Model
 
                 Dir::make($dir);
 
-                $this->optimize($org); // todo optimize original
                 $image = Image::make($org);
 
                 $_width = $image->width() <= $width ? $image->width() : $width;
