@@ -124,12 +124,14 @@
             <div class="col-lg-8">
 
                 @if (config('bavix.cookie.permission', false) && !bx_cookie('cookiePermission', false))
-                    <div id="cookiePermission" class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        {!! config('bavix.cookie.message') !!}
-                    </div>
+                    <noindex>
+                        <div id="cookiePermission" class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            {!! config('bavix.cookie.message') !!}
+                        </div>
+                    </noindex>
                 @endif
 
                 @yield('content')
