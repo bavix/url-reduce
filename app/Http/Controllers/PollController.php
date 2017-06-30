@@ -6,31 +6,14 @@ use App\Models\AnswerModel;
 use App\Models\PollModel;
 use Illuminate\Http\Request;
 
-class PollController extends Controller
+class PollController extends AlbumController
 {
 
-    /**
-     * Show the application dashboard.
-     *
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        /**
-         * @var \Illuminate\Database\Eloquent\Builder $query
-         */
-        $query = PollModel::query();
-        $query->orderBy('id', 'desc');
-        $query->where('active', 1);
-
-        return view('new.index', [
-            'items' => $query->paginate(10),
-            'title' => 'Опросы',
-            'description' => 'Список опросов'
-        ], $this->mergeData());
-    }
+    protected $model       = PollModel::class;
+    protected $withModel   = [];
+    protected $route       = 'poll';
+    protected $title       = 'Опросы';
+    protected $description = 'Список опросов';
 
     /**
      * Show the application dashboard.
