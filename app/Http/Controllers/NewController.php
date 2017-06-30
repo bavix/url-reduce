@@ -53,7 +53,7 @@ class NewController extends Controller
         }
 
         $paginate = $query->paginate(10);
-        abort_if($paginate->lastPage() && !$paginate->total(), 404);
+        abort_if($paginate->lastPage() && $paginate->isEmpty(), 404);
 
         $view = 'new.index';
 
