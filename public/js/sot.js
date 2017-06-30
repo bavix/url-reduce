@@ -16,7 +16,9 @@ $(function () {
 
     var personal = false;
 
-    $('.lightGallery').lightGallery();
+    $('.lightGallery').lightGallery({
+        thumbnail:true
+    });
 
     $poll.find('[type=radio]').change(function () {
         $poll.find('button').prop('disabled', $poll.serializeArray().length !== ($polls + 1));

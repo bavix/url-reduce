@@ -478,6 +478,9 @@
 <script src="{{ asset2('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset2('node_modules/clipboard/dist/clipboard.min.js') }}"></script>
 <script src="{{ asset2('packages/admin/lightGallery/js/lightgallery.min.js') }}"></script>
+<script src="{{ asset2('packages/admin/lightGallery/plugins/lg-fullscreen.min.js') }}"></script>
+<script src="{{ asset2('packages/admin/lightGallery/plugins/lg-thumbnail.min.js') }}"></script>
+<script src="{{ asset2('packages/admin/lightGallery/plugins/lg-zoom.min.js') }}"></script>
 <script src="{{ asset2('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
