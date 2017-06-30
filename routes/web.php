@@ -87,6 +87,9 @@ Route::get('/visually/font/{size}', 'VisuallyController@font')
 Route::get('/visually/color/{color}', 'VisuallyController@color')
     ->name('visually.color');
 
+Route::get('/cookie-permission.json', 'VisuallyController@cookiePermission')
+    ->name('cookie.permission');
+
 Route::get('/tracker.png', 'TrackerController@index')
     ->name('tracker');
 

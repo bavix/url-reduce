@@ -99,4 +99,10 @@ class VisuallyController extends Controller
             ->withCookie('visuallyColor', $color);
     }
 
+    public function cookiePermission(Request $request)
+    {
+        return $this->data($request)
+            ->withCookie(__FUNCTION__, !bx_cookie(__FUNCTION__, false));
+    }
+
 }

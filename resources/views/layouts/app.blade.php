@@ -122,6 +122,16 @@
         <div class="row">
 
             <div class="col-lg-8">
+
+                @if (config('bavix.cookie.permission', false) && !bx_cookie('cookiePermission', false))
+                    <div id="cookiePermission" class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        {!! config('bavix.cookie.message') !!}
+                    </div>
+                @endif
+
                 @yield('content')
             </div>
 
@@ -475,6 +485,17 @@
 <script src="{{ asset2('js/sot.js') }}"
         data-color="{{ visuallyColor() }}"
         data-font="{{ visuallyFont() }}"></script>
+
+@if (config('bavix.cookie.permission', false) && !bx_cookie('cookiePermission', false))
+    <script>
+        $(function () {
+            var $cookiePermission = $('#cookiePermission');
+            $cookiePermission.alert().on('close.bs.alert', function () {
+                $.get('{{ route('cookie.permission') }}');
+            });
+        });
+    </script>
+@endif
 
 </body>
 </html>
