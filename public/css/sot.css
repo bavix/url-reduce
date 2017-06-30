@@ -364,6 +364,10 @@ html {
     padding-top: 5.5rem; }
     html body .visually-special a:not(.active) {
       display: none; }
+    html body .alert-warning {
+      background-color: #3d6277;
+      color: white;
+      border-color: inherit; }
     html body:not(.visually-impaired) .visually-selected {
       display: none; }
     html body .visually-eye i {
