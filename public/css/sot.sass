@@ -305,6 +305,11 @@ html
       @extend .clr-global2
       border-width: 5px
 
+    .alert-warning
+      @extend .bg-global2
+      @extend .clr-global2
+      border-color: inherit
+
     .form-group select.form-control:not([size]):not([multiple])
       height: 50px
 
@@ -422,6 +427,11 @@ html
       .blocks ul.menu li a
         @extend .clr-global
         //color: #1f1f1f
+
+      article
+        .card-img-top img
+          border-top-left-radius: 0
+          border-top-right-radius: 0
 
     a, a:hover, a:focus, a:visited, a:active, .card-text, p
       @extend .clr-global

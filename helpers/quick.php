@@ -197,7 +197,7 @@ if (!function_exists('asset2'))
         {
             if (file_exists($root . $path))
             {
-                $path .= '?t' . filemtime($root . $path);
+                $path .= '?' . filemtime($root . $path);
             }
         }
 
