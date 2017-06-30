@@ -22,7 +22,7 @@ Route::domain($url)->group(function () {
 });
 
 // news
-Route::get('/news', 'NewController@index')
+Route::paginate('/news', 'NewController@index')
     ->name('new');
 
 Route::get('/new/category/{id}-{title}', 'NewController@index')
@@ -32,14 +32,14 @@ Route::get('/new/{id}-{title}.html', 'NewController@view')
     ->name('new.view');
 
 // pages
-Route::get('/pages', 'PageController@index')
+Route::paginate('/pages', 'PageController@index')
     ->name('page');
 
 Route::get('/page/{id}-{title}.html', 'PageController@view')
     ->name('page.view');
 
 // polls
-Route::get('/polls', 'PollController@index')
+Route::paginate('/polls', 'PollController@index')
     ->name('poll');
 
 Route::get('/poll/{id}-{title}.html', 'PollController@view')
@@ -49,7 +49,7 @@ Route::post('/poll/{id}-{title}.html', 'PollController@view')
     ->name('poll.view');
 
 // albums
-Route::get('/albums', 'AlbumController@index')
+Route::paginate('/albums', 'AlbumController@index')
     ->name('album');
 
 Route::get('/album/{id}-{title}.html', 'AlbumController@view')

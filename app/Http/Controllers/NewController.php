@@ -19,6 +19,9 @@ class NewController extends Controller
      */
     public function index(Request $request, $id = null)
     {
+
+        $name = $request->route()->getName();
+
         /**
          * @var \Illuminate\Database\Eloquent\Builder $query
          */
@@ -27,7 +30,7 @@ class NewController extends Controller
         $query->orderBy('id', 'desc');
         $query->where('active', 1);
 
-        if (is_numeric($id))
+        if ($name === 'new.category' && is_numeric($id))
         {
             $category = CategoryModel::query()->find($id);
             \abort_if( $category === null, 404);

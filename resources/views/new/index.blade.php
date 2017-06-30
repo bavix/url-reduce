@@ -41,6 +41,10 @@
 
             @endforeach
 
+            @if (isset($item))
+                @unset($item)
+            @endif
+
         </div>
 
         <div class="col-md-12">
