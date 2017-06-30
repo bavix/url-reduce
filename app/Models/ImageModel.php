@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Bavix\Helpers\Dir;
 use Illuminate\Database\Eloquent\Model;
+use ImageOptimizer\OptimizerFactory;
 use Intervention\Image\Facades\Image;
 
 class ImageModel extends Model
@@ -13,6 +14,19 @@ class ImageModel extends Model
      * @var string
      */
     protected $table = 'images';
+
+    /**
+     * @param $path
+     */
+    protected function optimize($path)
+    {
+        if (class_exists(OptimizerFactory::class))
+        {
+            $factory = new OptimizerFactory();
+            $optimizer = $factory->get();
+            $optimizer->optimize($path);
+        }
+    }
 
     /**
      * @param int $width
@@ -42,6 +56,7 @@ class ImageModel extends Model
 
                 Dir::make($dir);
 
+                $this->optimize($org); // todo optimize original
                 $image = Image::make($org);
 
                 $_width = $image->width() <= $width ? $image->width() : $width;
@@ -51,6 +66,8 @@ class ImageModel extends Model
                 });
 
                 $image->save($real);
+                $this->optimize($real);
+
             }
 
             return $path;
