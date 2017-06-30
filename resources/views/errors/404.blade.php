@@ -1,3 +1,4 @@
 @include('new.empty', [
-    'message' => 'Страница не найдена'
+    'message' => 'Страница не найдена',
+    'hasError' => true
 ])

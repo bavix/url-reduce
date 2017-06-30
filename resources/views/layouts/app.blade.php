@@ -50,7 +50,7 @@
     <meta property="og:description" content="{{ $description ?? '' }}"/>
     <meta property="og:url" content= "{{ request()->url() }}" />
     <meta property="og:type" content="website" />
-    @php($qrModel = qrModel())
+    @php($qrModel = empty($hasError) ? qrModel() : null)
     @if($qrModel)
         <meta property="og:image" content="{{ $qrModel->qr() }}" />
         <meta name="twitter:image:src" content="{{ $qrModel->qr() }}" />
