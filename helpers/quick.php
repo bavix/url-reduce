@@ -39,15 +39,15 @@ if (!function_exists('bx_cookie'))
 {
     function bx_cookie($key, $default = null)
     {
+        $data = Cookie::get($key, $default);
+
         try 
         {
-            return Crypt::decrypt(
-                Cookie::get($key, $default)
-            );
+            return Crypt::decrypt($data);
         }
         catch (\Throwable $throwable) 
         {
-            return Cookie::get($key, $default);
+            return $data;
         }
     }
 }
