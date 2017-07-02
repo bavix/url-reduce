@@ -201,4 +201,26 @@ $(function () {
     $('[data-facebook]').click(Share.facebook);
     $('[data-twitter]').click(Share.twitter);
 
+    var $datePicker = $('.datepicker');
+
+    if ($datePicker.length) {
+        $datePicker.datepicker().datepicker( "option", "dateFormat", "dd.mm.yy" );
+    }
+
+    $('#autoAddress').click(function () {
+        var $res = $('#residentialAddress');
+        if ($(this).prop('checked')) {
+            $res.val($('#registrationAddress').val()).parent().hide();
+        } else {
+            $res.val('').parent().show();
+        }
+    });
+
+    $('#passportSerial').mask("99 99");
+    $('#passportNumber').mask("999999");
+    $('#passportDivision').mask("999-999");
+
+    $('#phone').mask("+7 (999) 999-99-99");
+
+
 });

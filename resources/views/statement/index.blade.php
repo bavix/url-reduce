@@ -10,22 +10,32 @@
 
                 {{ csrf_field() }}
 
+                <h5>Заявление от</h5>
+
+                <div class="form-group">
+                    <label for="parentName">Фамилия Имя Отчество <small>(родитель, в род. падеже)</small></label>
+                    <input required type="text" class="form-control" id="parentName" name="parent_name"
+                           placeholder="Иванова Ивана Ивановича" />
+                </div>
+
                 <div class="row">
 
-                    <div class="col-md-6">
+                    <div class="col-md-5">
 
                         <div class="form-group">
-                            <label for="last_name">Фамилия</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Введите фамилию">
+                            <label for="passportSerial">Серия паспорта <small>(родителя)</small></label>
+                            <input required type="text" class="form-control" id="passportSerial" name="passport_serial"
+                                   placeholder="03 09">
                         </div>
 
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-7">
 
                         <div class="form-group">
-                            <label for="first_name">Имя</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Введите имя">
+                            <label for="passportNumber">Номер паспорта</label>
+                            <input required type="text" class="form-control" id="passportNumber" name="passport_number"
+                                   placeholder="123456" />
                         </div>
 
                     </div>
@@ -33,8 +43,118 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="communication">Электронный адрес / Телефон / Адрес проживания</label>
-                    <input required type="text" class="form-control" id="communication" name="communication" placeholder="Поле обратной связи">
+                    <label for="passportFrom">Кем выдан</label>
+                    <input required type="text" class="form-control" id="passportFrom" name="passport_from"
+                           placeholder="ОУФМС России по Краснодарскому краю в Белореченском районе" />
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <!-- datepicker -->
+                            <label for="passportDate">Дата выдачи</label>
+                            <input required type="text" class="form-control datepicker" id="passportDate" name="passport_date"
+                                placeholder="01.01.2001" />
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="passportDivision">Код подразделения</label>
+                            <input required type="text" class="form-control" id="passportDivision" name="passport_division" placeholder="123-456" />
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <!-- jquery mask -->
+                    <label for="phone">Номер телефона <small>(мобильный)</small></label>
+                    <input required type="text" class="form-control col-md-4" id="phone" name="phone" placeholder="+7 (918) 123-45-67" />
+                </div>
+
+                <div class="form-group">
+                    <label for="registrationAddress">Адрес регистрации <small>(по паспорту)</small></label>
+                    <input required type="text" class="form-control" id="registrationAddress" name="registration_address"
+                       placeholder="г. Москва, ул. Красная 44" />
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input id="autoAddress" type="checkbox" class="form-check-input" />
+                        Адрес проживания совподает с адресом регистрации
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="residentialAddress">Адрес проживания</label>
+                    <input required type="text" class="form-control" id="residentialAddress" name="residential_address"
+                       placeholder="г. Москва, ул. Пушнина 1" />
+                </div>
+
+                <div class="form-group">
+                    <label for="childrenName">Фамилия Имя Отчество <small>(ребенок, в род. падеже)</small></label>
+                    <input required type="text" class="form-control" id="childrenName" name="children_name"
+                           placeholder="Иванова Василия Ивановича" />
+                </div>
+
+                <div class="form-group">
+                    <label for="childrenDocType">Документ</label>
+                    <input required type="text" class="form-control" id="childrenDocType" name="children_doc_type"
+                        placeholder="свидетельство о рождении" />
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-5">
+
+                        <div class="form-group">
+                            <label for="childrenDocSerial">Серия</label>
+                            <input required type="text" class="form-control" id="childrenDocSerial" name="children_doc_serial"
+                                placeholder="1-ДН" />
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-7">
+
+                        <div class="form-group">
+                            <label for="childrenDocNumber">Номер</label>
+                            <input required type="text" class="form-control" id="childrenDocNumber" name="children_doc_number"
+                               placeholder="123456" />
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="row">
+
+                        <div class="col-md-7">
+
+                            <label for="childrenSchool">Школа</label>
+                            <input required type="text" class="form-control" id="childrenSchool" name="children_school"
+                                   placeholder="МБОУ СОШ №123" />
+
+                        </div>
+
+                        <div class="col-md-5">
+
+                            <label for="childrenClass">Класс</label>
+                            <input required type="text" class="form-control" id="childrenClass" name="children_сlass"
+                                   placeholder="3Б" />
+
+                        </div>
+
+                    </div>
+
                 </div>
 
                 <div class="form-group">
@@ -45,11 +165,6 @@
                             <option value="{{ $type->id }}">{{ $type->title }}</option>
                         @endforeach
                     </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="content">Текст</label>
-                    <textarea required class="form-control" id="content" rows="9" name="content" placeholder="Ваш текст"></textarea>
                 </div>
 
                 <div class="form-check">
