@@ -281,6 +281,8 @@ html {
     display: none !important; }
   html body.visually-impaired #return-to-top {
     display: none !important; }
+  html body.visually-impaired .if-visually {
+    display: none !important; }
   html body.visually-impaired .breadcrumb {
     display: none; }
   html body.visually-impaired.visually-white-black .visually-eye i {

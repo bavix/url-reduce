@@ -16,6 +16,13 @@ class TrackerModel extends Model
     protected static $_host;
     protected static $_online;
 
+    public static function visits()
+    {
+        return static::query()
+            ->where('url', request()->getPathInfo())
+            ->count();
+    }
+
     protected static function isHit()
     {
         $time = microtime(true);
