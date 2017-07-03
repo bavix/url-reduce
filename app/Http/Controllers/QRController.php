@@ -18,7 +18,7 @@ class QRController extends Controller
         /**
          * @var $qr \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator
          */
-        $qr = QrCode::format('jpg');
+        $qr = QrCode::format('png');
 
         $png = $qr
             ->size(400)
@@ -28,7 +28,7 @@ class QRController extends Controller
             ->generate($model->url);
 
         return response($png, 200, [
-            'Content-Type' => 'image/jpg',
+            'Content-Type' => 'image/png',
             'Expires'      => gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * (24) * 365))
         ]);
     }

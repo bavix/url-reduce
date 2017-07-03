@@ -90,7 +90,7 @@ Route::get('/visually/color/{color}', 'VisuallyController@color')
 Route::get('/cookie-permission.json', 'VisuallyController@cookiePermission')
     ->name('cookie.permission');
 
-Route::get('/tracker.jpg', 'TrackerController@index')
+Route::get('/tracker.png', 'TrackerController@index')
     ->name('tracker');
 
 Route::get('/statistics.html', 'TrackerController@statistics')
