@@ -13,17 +13,24 @@
                 <h5>Заявление от</h5>
 
                 <div class="form-group">
-                    <label for="parentName">Фамилия Имя Отчество <small>(родитель, в род. падеже)</small></label>
+                    <label for="parentName">Фамилия Имя Отчество <small>(родитель; в род. падеже)</small></label>
                     <input required type="text" class="form-control" id="parentName" name="parent_name"
                            placeholder="Иванова Ивана Ивановича" />
                 </div>
+
+                <div class="form-group">
+                    <label for="phone">Номер телефона <small>(мобильный)</small></label>
+                    <input required type="text" class="form-control col-md-4" id="phone" name="phone" placeholder="+7 (918) 123-45-67" />
+                </div>
+
+                <h5>Паспортные данные <small>(родителя)</small></h5>
 
                 <div class="row">
 
                     <div class="col-md-5">
 
                         <div class="form-group">
-                            <label for="passportSerial">Серия паспорта <small>(родителя)</small></label>
+                            <label for="passportSerial">Серия</label>
                             <input required type="text" class="form-control" id="passportSerial" name="passport_serial"
                                    placeholder="03 09">
                         </div>
@@ -33,7 +40,7 @@
                     <div class="col-md-7">
 
                         <div class="form-group">
-                            <label for="passportNumber">Номер паспорта</label>
+                            <label for="passportNumber">Номер</label>
                             <input required type="text" class="form-control" id="passportNumber" name="passport_number"
                                    placeholder="123456" />
                         </div>
@@ -73,12 +80,6 @@
                 </div>
 
                 <div class="form-group">
-                    <!-- jquery mask -->
-                    <label for="phone">Номер телефона <small>(мобильный)</small></label>
-                    <input required type="text" class="form-control col-md-4" id="phone" name="phone" placeholder="+7 (918) 123-45-67" />
-                </div>
-
-                <div class="form-group">
                     <label for="registrationAddress">Адрес регистрации <small>(по паспорту)</small></label>
                     <input required type="text" class="form-control" id="registrationAddress" name="registration_address"
                        placeholder="г. Москва, ул. Красная 44" />
@@ -97,8 +98,10 @@
                        placeholder="г. Москва, ул. Пушнина 1" />
                 </div>
 
+                <h5>Прошу зачислить моего ребенка</h5>
+
                 <div class="form-group">
-                    <label for="childrenName">Фамилия Имя Отчество <small>(ребенок, в род. падеже)</small></label>
+                    <label for="childrenName">Фамилия Имя Отчество <small>(ребенок; в род. падеже)</small></label>
                     <input required type="text" class="form-control" id="childrenName" name="children_name"
                            placeholder="Иванова Василия Ивановича" />
                 </div>

@@ -38,6 +38,8 @@ Route::group([
 
     // statements
     $router->resource('/statements', \App\Admin\Controllers\StatementController::class);
+    $router->get('/statements/doc/{id}', \App\Admin\Controllers\StatementController::class . '@doc')
+        ->name('statement.doc');
 
     // categories
     $router->resource('/categories', \App\Admin\Controllers\CategoryController::class);

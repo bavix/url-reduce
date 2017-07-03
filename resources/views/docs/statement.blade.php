@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Заявление от {{ $parentName }}</title>
+        <title>Заявление от {{ $parent_name }}</title>
         <meta charset="utf-8" />
 
         <link href="{{ asset2('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
@@ -31,25 +31,25 @@
                                 <span>родителя (законного представителя)</span>
                             </div>
                             <div class="row">
-                                <span><strong>{{ $parentName }}</strong></span>
+                                <span><strong>{{ $parent_name }}</strong></span>
                             </div>
                             <div class="row">
-                                <span>проживающего по адресу: <strong>{{ $residentialAddress }}</strong></span>
+                                <span>проживающего по адресу: <strong>{{ $residential_address }}</strong></span>
                             </div>
                             <div class="row">
-                                <span>зарегистрированного по адресу: <strong>{{ $registrationAddress }}</strong></span>
+                                <span>зарегистрированного по адресу: <strong>{{ $registration_address }}</strong></span>
                             </div>
                             <div class="row">
-                                <span>паспорт серия <strong>{{ $passportSerial }}</strong> № <strong>{{ $passportNumber }}</strong></span>
+                                <span>паспорт серия <strong>{{ $passport_serial }}</strong> № <strong>{{ $passport_number }}</strong></span>
                             </div>
                             <div class="row">
-                                <span>дата выдачи: <strong>{{ $passportDate }}</strong></span>
+                                <span>дата выдачи: <strong>{{ $passport_date }}</strong></span>
                             </div>
                             <div class="row">
-                                <span>кем выдан: <strong>{{ $passportFrom }}</strong></span>
+                                <span>кем выдан: <strong>{{ $passport_from }}</strong></span>
                             </div>
                             <div class="row">
-                                <span>код подразделения: <strong>{{ $passportDivision }}</strong></span>
+                                <span>код подразделения: <strong>{{ $passport_division }}</strong></span>
                             </div>
                             <div class="row">
                                 <span>телефон: <strong>{{ $phone }}</strong></span>
@@ -67,12 +67,12 @@
                             <br/>
                         </div>
                         <p class="col-12">
-                            <span>Прошу зачислить моего ребенка <strong>{{ $childrenName }}</strong>
-                            документ <strong>{{ $childrenDocType }}</strong> серия <strong>{{ $childrenDocSerial }}</strong>
-                            № <strong>{{ $childrenDocNumber }}</strong>
-                            обучающегося школы <strong>{{ $childrenSchool }}</strong>
-                            класса <strong>{{ $childrenClass }}</strong>
-                            в объединение «<strong>{{ $type }}</strong>» МБУ&nbsp;ДО&nbsp;СЮТ.</span>
+                            <span>Прошу зачислить моего ребенка <strong>{{ $children_name }}</strong>
+                            документ <strong>{{ $children_doc_type }}</strong> серия <strong>{{ $children_doc_serial }}</strong>
+                            № <strong>{{ $children_doc_number }}</strong>
+                            обучающегося школы <strong>{{ $children_school }}</strong>
+                            класса <strong>{{ $children_сlass }}</strong>
+                            в объединение «<strong>{{ $type['title'] }}</strong>» МБУ&nbsp;ДО&nbsp;СЮТ.</span>
                         </p>
                         <p class="col-12">
                             <span>Обязуюсь контролировать посещение моим ребенком объединения МБУ ДО СЮТ.</span>
@@ -86,13 +86,16 @@
                     <br/>
                     <br/>
 
+                    @php($carbon = \Laravelrus\LocalizedCarbon\LocalizedCarbon::createFromFormat('Y-m-d H:i:s', $created_at))
+                    @php($local = \Laravelrus\LocalizedCarbon\LocalizedCarbon::instance($carbon))
+
                     <footer class="row">
                         <div class="col-9">
-                            «_____» ______________ г.
+                            «{{ $local->formatLocalized('%d') }}» {{ $local->formatLocalized('%f %Y') }} г.
                         </div>
                         <div class="col-3 float-right">
                             _____________________
-                            (подпись)
+                            <small>(подпись)</small>
                         </div>
                     </footer>
 
@@ -100,5 +103,7 @@
             </div>
 
         </div>
+
+        <script defer async>window.print();</script>
     </body>
 </html>

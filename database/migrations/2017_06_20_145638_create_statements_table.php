@@ -18,12 +18,23 @@ class CreateStatementsTable extends Migration
 
             $table->integer('type_id');
 
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('parent_name');
+            $table->string('phone');
+            $table->string('passport_serial');
+            $table->string('passport_number');
+            $table->string('passport_from');
+            $table->string('passport_division');
+            $table->date('passport_date');
 
-            $table->string('communication', 600);
+            $table->string('registration_address');
+            $table->string('residential_address');
 
-            $table->text('content');
+            $table->string('children_name');
+            $table->string('children_doc_type');
+            $table->string('children_doc_serial');
+            $table->string('children_doc_number');
+            $table->string('children_school');
+            $table->string('children_сlass');
 
             $table->timestamp('created_at')
                 ->default(DB::raw('CURRENT_TIMESTAMP'));

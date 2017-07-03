@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\Statement;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
 use App\Models\NewModel;
@@ -15,12 +16,18 @@ use Encore\Admin\Widgets\Box;
 use Encore\Admin\Widgets\Table;
 use App\Accessor\Form;
 use Encore\Admin\Grid;
+use Illuminate\Http\Request;
 
 class StatementController extends AdminController
 {
 
     protected $title = 'Подача заявлений';
     protected $model = StatementModel::class;
+
+    protected function doc(Request $request, $id)
+    {
+        return view('docs.statement', StatementModel::with(['type'])->findOrFail($id));
+    }
 
     /**
      * Make a grid builder.
@@ -34,12 +41,17 @@ class StatementController extends AdminController
             $grid->id('ID')->sortable();
 
             $grid->column('type.title', 'Кружок')->sortable();
-            $grid->column('last_name', 'Фамилия')->sortable();
-            $grid->column('first_name', 'Имя')->sortable();
-            $grid->column('communication', 'Обратная связь')->sortable();
+            $grid->column('parent_name', 'ФИО (родитель)')->sortable();
+            $grid->column('children_name', 'ФИО (ребенок)')->sortable();
+            $grid->column('phone', 'Телефон')->sortable();
+
             $grid->column('created_at', 'Дата подачи')->sortable();
 
             $grid->exporter(new \App\Accessor\CsvExporter());
+
+            $grid->actions(function (Grid\Displayers\Actions $actions) {
+                $actions->append(new Statement($actions->getKey()));
+            });
 
         });
     }
@@ -60,12 +72,24 @@ class StatementController extends AdminController
                 TypeModel::all(['id', 'title'])->pluck('title', 'id')->all()
             );
 
-            $form->text('last_name', 'Фамилия');
-            $form->text('first_name', 'Имя');
+            $form->text('parent_name', 'ФИО (родитель)');
+            $form->text('phone', 'Телефон');
 
-            $form->text('communication', 'Обратная связь');
+            $form->text('passport_serial', 'Серия паспорта');
+            $form->text('passport_number', 'Номер паспорта');
+            $form->text('passport_from', 'Кем выдан');
+            $form->text('passport_division', 'Код подразделения');
+            $form->date('passport_date', 'Дата выдачи');
 
-            $form->textarea('content', 'Текст');
+            $form->text('registration_address', 'Адрес регистрации');
+            $form->text('residential_address', 'Адрес проживания');
+
+            $form->text('children_name', 'ФИО (ребенок)');
+            $form->text('children_doc_type', 'Документ');
+            $form->text('children_doc_serial', 'Серия');
+            $form->text('children_doc_number', 'Номер');
+            $form->text('children_school', 'Школа');
+            $form->text('children_сlass', 'Класс');
 
             $form->ignore([
                 'created_at',

@@ -189,6 +189,7 @@ return [
         // paginate
         Spatie\PaginateRoute\PaginateRouteServiceProvider::class,
 
+        Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
     ],
 
     /*
@@ -240,6 +241,9 @@ return [
         'Image'         => Intervention\Image\Facades\Image::class,
         'QrCode'        => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'PaginateRoute' => Spatie\PaginateRoute\PaginateRouteFacade::class,
+
+        'LocalizedCarbon' => Laravelrus\LocalizedCarbon\LocalizedCarbon::class,
+        'DiffFormatter'   => Laravelrus\LocalizedCarbon\DiffFactoryFacade::class,
 
     ],
 
