@@ -63,7 +63,9 @@ class StatementController extends Controller
         $item->passport_division = $data['passport_division'];
 
         $item->registration_address = $data['registration_address'];
-        $item->residential_address = $data['residential_address'];
+        $item->residential_address = isset($data['auto_address']) ?
+            $data['registration_address'] :
+            $data['residential_address'];
 
         $item->children_name = $data['children_name'];
         $item->children_doc_type = $data['children_doc_type'];

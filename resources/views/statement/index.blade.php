@@ -87,7 +87,7 @@
 
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input id="autoAddress" type="checkbox" class="form-check-input" />
+                        <input id="autoAddress" type="checkbox" class="form-check-input" name="auto_address" />
                         Адрес проживания совподает с адресом регистрации
                     </label>
                 </div>
