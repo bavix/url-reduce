@@ -475,6 +475,10 @@
         </div>
     </footer>
 
+    <a href="javascript:" class="btn" id="return-to-top">
+        <img width="17px" height="19px" src="/svg/chevron-up.svg" title="Вверх" alt="Вверх" />
+    </a>
+
 </div>
 
 <!-- Scripts -->
