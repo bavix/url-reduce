@@ -8,7 +8,7 @@
 
         <ul id="{{ $id }}" class="lightGallery list-unstyled row">
             @foreach($_pictures as $_picture)
-                <li style="padding-right: 1px; padding-left: 0; padding-bottom: 1px"
+                <li style="height: 110px; padding-right: 1px; padding-left: 0; padding-bottom: 1px"
                     class="col-xs-4 col-sm-3 col-md-2"
                     data-token="{{ csrf_token() }}"
                     data-url="{{ route('lg.trash', [], false) }}"
@@ -18,9 +18,15 @@
                     data-image="{{ $_picture->id }}">
 
                     <a href="#">
-                        <img class="img-responsive" src="/upload/{{ $_picture->thumbs() }}"
-                             style="vertical-align: middle; background-color: #9d9d9d; max-width: 100%;
-                             object-position: center; object-fit: none" width="100%" height="100%" />
+                        <div style="vertical-align: middle;
+                             background-color: #9d9d9d;
+                             width: 100%;
+                             height: 100%;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                             background-image: url('/upload/{{ $_picture->thumbs() }}');
+                             object-position: center;
+                             object-fit: none"></div>
                     </a>
                 </li>
             @endforeach
