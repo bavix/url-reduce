@@ -1,9 +1,10 @@
-@php($route = request()->route()->getName())
+@php($route = request()->route())
 
 @if ($route)
+    @php($name = $route->getName())
     @if (isset( $item ))
-        {!! Breadcrumbs::render( $route, $item ) !!}
+        {!! Breadcrumbs::render( $name, $item ) !!}
     @else
-        {!! Breadcrumbs::render( $route ) !!}
+        {!! Breadcrumbs::render( $name ) !!}
     @endif
 @endif
