@@ -26,5 +26,6 @@
     <p style="margin-bottom: 0.14in"><strong>КОНТАКТНЫЕ ДАННЫЕ:</strong> {{ $communication }}</p>
     <p style="margin-bottom: 0.14in"><strong>ТЕКСТ ОБРАЩЕНИЯ:</strong></p>
     <p style="margin-bottom: 0.14in">{{ $content }}</p>
+    <script>window.print()</script>
 </body>
 </html>
