@@ -87,17 +87,17 @@
         var chart = new Chart(document.getElementById('chart').getContext('2d'), {
             type: 'line'
             , data: {
-                labels: {{ $chartLabels }}
+                labels: {!! $chartLabels !!}
                 , datasets: [{
                     label: "Хостов"
                     , backgroundColor: 'rgba(255, 206, 86, 0.5)'
                     , borderColor: 'rgb(61, 98, 119)'
-                    , data: {{ $chartDataHost }}
+                    , data: {!! $chartDataHost !!}
                 }, {
                     label: "Хитов"
                     , backgroundColor: 'rgba(54, 162, 235, 0.5)'
                     , borderColor: 'rgb(61, 98, 119)'
-                    , data: {{ $chartDataHit }}
+                    , data: {!! $chartDataHit !!}
                 }]
             }
         });
