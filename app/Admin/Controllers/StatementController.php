@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Admin\Extensions\Statement;
+use App\Admin\Extensions\BtnPrint;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
 use App\Models\NewModel;
@@ -52,7 +52,7 @@ class StatementController extends AdminController
 
             $grid->actions(function (Grid\Displayers\Actions $actions)
             {
-                $actions->append(new Statement($actions->getKey()));
+                $actions->append(new BtnPrint($actions->getKey(), 'statement.doc'));
             });
 
         });

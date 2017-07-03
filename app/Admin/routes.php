@@ -36,6 +36,8 @@ Route::group([
 
     // feedback
     $router->resource('/feedback', \App\Admin\Controllers\FeedbackController::class);
+    $router->get('/feedback/doc/{id}', \App\Admin\Controllers\FeedbackController::class . '@doc')
+        ->name('feedback.doc');
 
     // statements
     $router->resource('/statements', \App\Admin\Controllers\StatementController::class);

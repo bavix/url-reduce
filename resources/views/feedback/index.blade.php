@@ -11,6 +11,11 @@
                 {{ csrf_field() }}
 
                 <div class="form-group">
+                    <label for="name">Фамилия Имя Отчество</label>
+                    <input required type="text" class="form-control" id="name" name="name" placeholder="Иванов Иван Иванович">
+                </div>
+
+                <div class="form-group">
                     <label for="communication">Электронный адрес / Телефон / Адрес проживания</label>
                     <input required type="text" class="form-control" id="communication" name="communication" placeholder="Поле обратной связи">
                 </div>

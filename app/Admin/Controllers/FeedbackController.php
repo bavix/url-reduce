@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\BtnPrint;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
 use App\Models\FeedbackModel;
@@ -16,12 +17,18 @@ use Encore\Admin\Widgets\Box;
 use Encore\Admin\Widgets\Table;
 use App\Accessor\Form;
 use Encore\Admin\Grid;
+use Illuminate\Http\Request;
 
 class FeedbackController extends AdminController
 {
 
     protected $title = 'Обратная связь';
     protected $model = FeedbackModel::class;
+
+    protected function doc(Request $request, $id)
+    {
+        return view('docs.feedback', FeedbackModel::query()->findOrFail($id));
+    }
 
     /**
      * Make a grid builder.
@@ -39,6 +46,11 @@ class FeedbackController extends AdminController
             $grid->column('created_at', 'Дата подачи')->sortable();
 
             $grid->exporter(new \App\Accessor\CsvExporter());
+
+            $grid->actions(function (Grid\Displayers\Actions $actions)
+            {
+                $actions->append(new BtnPrint($actions->getKey(), 'feedback.doc'));
+            });
 
         });
     }

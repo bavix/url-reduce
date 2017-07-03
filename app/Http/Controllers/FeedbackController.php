@@ -34,11 +34,12 @@ class FeedbackController extends Controller
 
         $item = new FeedbackModel();
 
-        if (empty($data['communication']) || empty($data['content']))
+        if (empty($data['communication']) || empty($data['content']) || empty($data['name']))
         {
             return ['result' => false];
         }
 
+        $item->name          = $data['name'];
         $item->communication = $data['communication'];
         $item->content       = \strip_tags($data['content']);
 
