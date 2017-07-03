@@ -19,7 +19,8 @@
 
                     <a href="#">
                         <img class="img-responsive" src="/upload/{{ $_picture->thumbs() }}"
-                             style="object-position: center; object-fit: none" width="100%" height="100%" />
+                             style="vertical-align: middle; background-color: #9d9d9d; max-width: 100%;
+                             object-position: center; object-fit: none" width="100%" height="100%" />
                     </a>
                 </li>
             @endforeach
