@@ -135,6 +135,8 @@
                     </noindex>
                 @endif
 
+                @include('_partials.breadcrumbs')
+
                 @yield('content')
             </div>
 

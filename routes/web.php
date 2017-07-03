@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect(route('new'));
-});
+})->name('home');
 
 $url = preg_replace(
     '~(\w+://)~',
@@ -48,7 +48,7 @@ Route::get('/poll/{id}-{title}.html', 'PollController@view')
 Route::post('/poll/{id}-{title}.html', 'PollController@view')
     ->name('poll.view');
 
-// albums
+// albumsHome
 Route::paginate('/albums', 'AlbumController@index')
     ->name('album');
 
