@@ -41,7 +41,7 @@ class VisuallyController extends Controller
     protected function refer(Request $request)
     {
         $refer = $request->server('HTTP_REFERER');
-        $data = \parse_url($refer);
+        $data  = \parse_url($refer);
 
         return $data['path'] ?? '/';
     }
@@ -86,13 +86,15 @@ class VisuallyController extends Controller
 
     public function color(Request $request, $color)
     {
-        switch ($color) {
+        switch ($color)
+        {
             case 'white-black':
             case 'dark-blue-blue':
             case 'brown-beige':
             case 'green-dark-brown':
                 break;
-            default: $color = 'black-white';
+            default:
+                $color = 'black-white';
         }
 
         return $this->data($request)

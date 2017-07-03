@@ -7,10 +7,11 @@ Admin::registerHelpersRoutes();
 
 // dashboard
 Route::group([
-    'prefix'        => config('admin.prefix'),
-//    'namespace'     => Admin::controllerNamespace(),
-    'middleware'    => ['web', 'admin'],
-], function (Router $router) {
+    'prefix'     => config('admin.prefix'),
+    //    'namespace'     => Admin::controllerNamespace(),
+    'middleware' => ['web', 'admin'],
+], function (Router $router)
+{
 
     // dashboard
     $router->resource('/', \App\Admin\Controllers\DashboardController::class);

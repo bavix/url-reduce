@@ -25,7 +25,8 @@ abstract class AdminController extends Controller
      */
     public function index()
     {
-        return Admin::content(function (Content $content) {
+        return Admin::content(function (Content $content)
+        {
 
             $content->header($this->title);
 
@@ -37,11 +38,13 @@ abstract class AdminController extends Controller
      * Edit interface.
      *
      * @param $id
+     *
      * @return Content
      */
     public function edit($id)
     {
-        return Admin::content(function (Content $content) use ($id) {
+        return Admin::content(function (Content $content) use ($id)
+        {
 
             $content->header($this->title);
 
@@ -56,7 +59,8 @@ abstract class AdminController extends Controller
      */
     public function create()
     {
-        return Admin::content(function (Content $content) {
+        return Admin::content(function (Content $content)
+        {
 
             $content->header($this->title);
 

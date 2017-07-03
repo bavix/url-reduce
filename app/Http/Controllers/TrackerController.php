@@ -31,9 +31,9 @@ class TrackerController extends Controller
 
             'description' => 'На данной странице содержится вся статистика сайта',
 
-            'chartLabels' => JSON::encode(array_keys($graphHost)),
+            'chartLabels'   => JSON::encode(array_keys($graphHost)),
             'chartDataHost' => JSON::encode(array_values($graphHost)),
-            'chartDataHit' => JSON::encode(array_values($graphHit)),
+            'chartDataHit'  => JSON::encode(array_values($graphHit)),
 
             'newCount' => NewModel::query()
                 ->where('active', 1)
@@ -67,25 +67,29 @@ class TrackerController extends Controller
          */
         $img = Image::canvas(88, 31, '#3d6277');
 
-        $img->text('hosts: ' . TrackerModel::hostAllCount(), 2, 9, function (Font $font) {
+        $img->text('hosts: ' . TrackerModel::hostAllCount(), 2, 9, function (Font $font)
+        {
             $font->file(config('tracker.font'));
             $font->size(9);
             $font->color('#fff');
         });
 
-        $img->text('hits: ' . TrackerModel::hitAllCount(), 2, 19, function (Font $font) {
+        $img->text('hits: ' . TrackerModel::hitAllCount(), 2, 19, function (Font $font)
+        {
             $font->file(config('tracker.font'));
             $font->size(9);
             $font->color('#fff');
         });
 
-        $img->text('online: ' . TrackerModel::onlineCount(), 2, 28, function (Font $font) {
+        $img->text('online: ' . TrackerModel::onlineCount(), 2, 28, function (Font $font)
+        {
             $font->file(config('tracker.font'));
             $font->size(9);
             $font->color('#fff');
         });
 
-        $img->text('bavix.ru', 49, 28, function (Font $font) {
+        $img->text('bavix.ru', 49, 28, function (Font $font)
+        {
             $font->file(config('tracker.font'));
             $font->size(9);
             $font->color('#ccc');

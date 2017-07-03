@@ -80,9 +80,9 @@ class PollController extends AlbumController
         }
 
         return $this->render($result ? 'poll.result' : 'poll.view', [
-            'item'   => $model,
-            'title'  => $model->title . ' - Опрос',
-            'result' => $result,
+            'item'        => $model,
+            'title'       => $model->title . ' - Опрос',
+            'result'      => $result,
             'description' => 'Опрос #' . $model->id
         ], $this->mergeData());
 

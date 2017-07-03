@@ -31,7 +31,8 @@ class QuestionController extends AdminController
      */
     protected function grid()
     {
-        return Admin::grid($this->model, function (Grid $grid) {
+        return Admin::grid($this->model, function (Grid $grid)
+        {
 
             $grid->id('ID')->sortable();
 
@@ -51,7 +52,8 @@ class QuestionController extends AdminController
     protected function form()
     {
 
-        return Admin::form($this->model, function (Form $form) {
+        return Admin::form($this->model, function (Form $form)
+        {
 
             $form->display('id', 'ID');
 
@@ -64,7 +66,8 @@ class QuestionController extends AdminController
 
             $form->text('question', 'Вопрос');
 
-            $form->hasMany('answers', 'Ответы', function (NestedForm $form) {
+            $form->hasMany('answers', 'Ответы', function (NestedForm $form)
+            {
                 $form->text('answer', 'Ответ');
             });
 

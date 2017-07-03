@@ -36,7 +36,8 @@ class StatementController extends AdminController
      */
     protected function grid()
     {
-        return Admin::grid($this->model, function (Grid $grid) {
+        return Admin::grid($this->model, function (Grid $grid)
+        {
 
             $grid->id('ID')->sortable();
 
@@ -49,7 +50,8 @@ class StatementController extends AdminController
 
             $grid->exporter(new \App\Accessor\CsvExporter());
 
-            $grid->actions(function (Grid\Displayers\Actions $actions) {
+            $grid->actions(function (Grid\Displayers\Actions $actions)
+            {
                 $actions->append(new Statement($actions->getKey()));
             });
 
@@ -64,7 +66,8 @@ class StatementController extends AdminController
     protected function form()
     {
 
-        return Admin::form($this->model, function (Form $form) {
+        return Admin::form($this->model, function (Form $form)
+        {
 
             $form->display('id', 'ID');
 

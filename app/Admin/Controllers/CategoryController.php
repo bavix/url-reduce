@@ -24,7 +24,8 @@ class CategoryController extends AdminController
      */
     protected function grid()
     {
-        return Admin::grid(CategoryModel::class, function (Grid $grid) {
+        return Admin::grid(CategoryModel::class, function (Grid $grid)
+        {
 
             $grid->id('ID')->sortable();
 
@@ -43,7 +44,8 @@ class CategoryController extends AdminController
     protected function form()
     {
 
-        return Admin::form(CategoryModel::class, function (Form $form) {
+        return Admin::form(CategoryModel::class, function (Form $form)
+        {
 
             $form->display('id', 'ID');
 

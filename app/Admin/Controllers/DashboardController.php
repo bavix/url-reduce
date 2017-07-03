@@ -20,11 +20,13 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return Admin::content(function (Content $content) {
+        return Admin::content(function (Content $content)
+        {
 
             $content->header('Приборная панель');
 
-            $content->row(function (Row $row) {
+            $content->row(function (Row $row)
+            {
 
                 $row->column(2, new InfoBox('Подача заявлений', 'users', 'aqua', '/cp/statements', StatementModel::query()->count()));
 

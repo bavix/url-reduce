@@ -26,7 +26,8 @@ class ConfigController extends AdminController
      */
     protected function grid()
     {
-        return Admin::grid($this->model, function (Grid $grid) {
+        return Admin::grid($this->model, function (Grid $grid)
+        {
 
             $grid->id('ID')->sortable();
 
@@ -46,7 +47,8 @@ class ConfigController extends AdminController
     protected function form()
     {
 
-        return Admin::form($this->model, function (Form $form) {
+        return Admin::form($this->model, function (Form $form)
+        {
 
             $form->display('id', 'ID');
 

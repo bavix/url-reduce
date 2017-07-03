@@ -15,8 +15,8 @@ class Trash extends Controller
      */
     public function index(Request $request)
     {
-        $model   = $request->input('model', null);
-        $itemId  = $request->input('itemId', null);
+        $model      = $request->input('model', null);
+        $itemId     = $request->input('itemId', null);
         $documentId = $request->input('documentId', null);
 
         if (!$itemId || !$documentId || !$model)

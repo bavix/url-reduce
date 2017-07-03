@@ -17,8 +17,8 @@ class NewController extends AdminController
 {
 
     protected $category = true;
-    protected $title = 'Новости';
-    protected $model = NewModel::class;
+    protected $title    = 'Новости';
+    protected $model    = NewModel::class;
 
     /**
      * Make a grid builder.
@@ -27,7 +27,8 @@ class NewController extends AdminController
      */
     protected function grid()
     {
-        return Admin::grid($this->model, function (Grid $grid) {
+        return Admin::grid($this->model, function (Grid $grid)
+        {
 
             $grid->id('ID')->sortable();
 
@@ -36,10 +37,11 @@ class NewController extends AdminController
 
             if ($this->category)
             {
-                $grid->column('category.title','Категория')->sortable();
+                $grid->column('category.title', 'Категория')->sortable();
             }
 
-            $grid->column('active', 'Видимость')->display(function ($data) {
+            $grid->column('active', 'Видимость')->display(function ($data)
+            {
                 return $data ? 'Включена' : 'Выключена';
             })->sortable();
 
@@ -56,7 +58,8 @@ class NewController extends AdminController
     protected function form()
     {
 
-        return Admin::form($this->model, function (Form $form) {
+        return Admin::form($this->model, function (Form $form)
+        {
 
             $form->display('id', 'ID');
 
@@ -84,18 +87,19 @@ class NewController extends AdminController
             ]);
 
             $form->multipleFile('documents', 'Документы')
-                ->name(function (\Illuminate\Http\UploadedFile $upload) {
+                ->name(function (\Illuminate\Http\UploadedFile $upload)
+                {
                     $original = $upload->getClientOriginalName();
 
                     return Str::random(8) . '/' . $original;
                 });
 
-            $form->documents('readable' , '')->options([
+            $form->documents('readable', '')->options([
                 'column' => 'files'
             ]);
 
             $form->switch('active', 'Видимость');
-            
+
             $form->ignore(['created_at', 'updated_at']);
 
         });
