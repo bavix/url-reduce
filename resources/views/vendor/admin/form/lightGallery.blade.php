@@ -18,9 +18,8 @@
                     data-image="{{ $_picture->id }}">
 
                     <a href="#">
-                        <img width="100%" height="100%"
-                             style="object-position: center; object-fit: none"
-                             class="img-responsive" src="/upload/{{ $_picture->thumbs() }}" />
+                        <img class="img-responsive" src="/upload/{{ $_picture->thumbs() }}"
+                             style="object-position: center; object-fit: none" width="100%" height="100%" />
                     </a>
                 </li>
             @endforeach
