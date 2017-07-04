@@ -255,7 +255,7 @@
                                  alt="QR-код текущей страницы" />
                             </p>
 
-                            <label class="input-group">
+                            <label class="input-group" style="z-index: 0;">
                                 <input id="shorter" type="text" class="form-control" readonly
                                     value="{{ $qrModel->shorter() }}" />
 
