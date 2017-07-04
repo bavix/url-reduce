@@ -29,12 +29,24 @@ class ImageModel extends Model
      */
     protected function optimize($path)
     {
-        if (class_exists(OptimizerFactory::class))
+
+        if (class_exists(\GearmanClient::class))
         {
-            $factory = new OptimizerFactory();
-            $optimizer = $factory->get();
-            $optimizer->optimize($path);
+            try
+            {
+                $client = new \GearmanClient();
+                $client->addServer(
+                    config('gearman.host'),
+                    config('gearman.port')
+                );
+
+                $client->doBackground('optimize', $path);
+            }
+            catch (\Throwable $throwable)
+            {
+            }
         }
+
     }
 
     /**

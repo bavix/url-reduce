@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\ImageModel;
 use Illuminate\Console\Command;
+use ImageOptimizer\OptimizerFactory;
 
 class GearmanCommand extends Command
 {
@@ -38,6 +39,9 @@ class GearmanCommand extends Command
     {
         $console = $this;
 
+        $factory = new OptimizerFactory();
+        $optimizer = $factory->get();
+
         $worker  = new \GearmanWorker();
         $worker->addServer(
             config('gearman.host'),
@@ -58,6 +62,18 @@ class GearmanCommand extends Command
                 $console->info('processing task:' . $item . '...');
                 $model->{$item}();
             }
+        });
+
+        $worker->addFunction('optimize', function (\GearmanJob $job) use ($console, $optimizer) {
+
+            if (class_exists(OptimizerFactory::class))
+            {
+                $path = $job->workload();
+
+                $console->info('processing task:optimize ' . $path);
+                $optimizer->optimize($path);
+            }
+
         });
 
         while ($worker->work()) {}
