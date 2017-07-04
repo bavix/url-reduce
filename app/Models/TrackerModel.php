@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Bavix\Helpers\JSON;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
@@ -9,8 +10,8 @@ use Illuminate\Support\Facades\DB;
 class TrackerModel extends Model
 {
 
-    protected $table = 'trackers';
-    public $timestamps = false;
+    protected $table      = 'trackers';
+    public    $timestamps = false;
 
     protected static $_hit;
     protected static $_host;
@@ -25,7 +26,7 @@ class TrackerModel extends Model
 
     protected static function isHit()
     {
-        $time = microtime(true);
+        $time    = microtime(true);
         $newTime = $time + 0.6; // remove n-e hits
 
         $save = $time > session('time', 0);
@@ -47,17 +48,17 @@ class TrackerModel extends Model
             )
             ->from(
                 DB::raw('(' . static::query()
-                    ->select(
-                        'ip',
-                        DB::raw('DATE_FORMAT(`created_at`, "%Y-%m-01") `fdate`')
-                    )
-                    ->where(
-                        DB::raw('DATE(created_at)'),
-                        '>',
-                        DB::raw('DATE_SUB(CURDATE(), INTERVAL 6 MONTH)')
-                    )
-                    ->groupBy('fdate', 'ip')
-                    ->toSql() . ') a')
+                        ->select(
+                            'ip',
+                            DB::raw('DATE_FORMAT(`created_at`, "%Y-%m-01") `fdate`')
+                        )
+                        ->where(
+                            DB::raw('DATE(created_at)'),
+                            '>',
+                            DB::raw('DATE_SUB(CURDATE(), INTERVAL 6 MONTH)')
+                        )
+                        ->groupBy('fdate', 'ip')
+                        ->toSql() . ') a')
             )
             ->groupBy('month')
             ->orderBy('month', 'asc')
@@ -92,11 +93,18 @@ class TrackerModel extends Model
         {
             if ($req->headers->has('User-Agent'))
             {
-                $model           = new static();
-                $model->ip       = $req->ip();
-                $model->url      = $req->getPathInfo();
-                $model->referer = $req->headers->get('referer');
-                $model->language = $req->getPreferredLanguage();
+                $route = $req->route();
+
+                $parameters              = $route->parameters();
+                $parameters['userAgent'] = $req->headers->get('User-Agent');
+
+                $model             = new static();
+                $model->ip         = $req->ip();
+                $model->url        = $req->getPathInfo();
+                $model->referer    = $req->headers->get('referer');
+                $model->language   = $req->getPreferredLanguage();
+                $model->route      = $route->getName();
+                $model->parameters = JSON::encode($parameters);
 
                 $model->save();
             }
@@ -109,10 +117,10 @@ class TrackerModel extends Model
     protected static function buildQuery()
     {
         return static::query()
-        ->where(
-            DB::raw('DATE(`created_at`)'),
-            DB::raw('CURRENT_DATE')
-        );
+            ->where(
+                DB::raw('DATE(`created_at`)'),
+                DB::raw('CURRENT_DATE')
+            );
     }
 
     /**
@@ -123,9 +131,9 @@ class TrackerModel extends Model
         return static::query()
             ->from(
                 DB::raw('(' . static::query()
-                ->select(DB::raw('`ip`'))
-                ->groupBy(DB::raw('DATE(`created_at`)'), 'ip')
-                ->toSql() . ') a')
+                        ->select(DB::raw('`ip`'))
+                        ->groupBy(DB::raw('DATE(`created_at`)'), 'ip')
+                        ->toSql() . ') a')
             )->count();
     }
 
