@@ -16,6 +16,15 @@ class ImageModel extends Model
     protected $table = 'images';
 
     /**
+     * @var array
+     */
+    public $cropList = [
+        'thumbs',
+        'preview',
+        'fullHD'
+    ];
+
+    /**
      * @param $path
      */
     protected function optimize($path)

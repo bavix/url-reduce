@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Bavix\Helpers\JSON;
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,6 +19,23 @@ class AlbumModel extends Model
         $model->save();
 
         $this->id or $this->save();
+
+        if (class_exists(\GearmanClient::class))
+        {
+            try
+            {
+                $client = new \GearmanClient();
+                $client->addServer(
+                    config('gearman.host'),
+                    config('gearman.port')
+                );
+
+                $client->doBackground('crop', serialize($model));
+            }
+            catch (\Throwable $throwable)
+            {
+            }
+        }
 
         if (!$toModel)
         {
