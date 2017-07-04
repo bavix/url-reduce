@@ -26,6 +26,9 @@ Route::paginate('/news', 'NewController@index')
 Route::get('/new/category/{id}-{title}', 'NewController@index')
     ->name('new.category');
 
+Route::get('/new/preview/{id}-{title}.html', 'NewController@preview')
+    ->name('new.preview');
+
 Route::get('/new/{id}-{title}.html', 'NewController@view')
     ->name('new.view');
 
@@ -33,12 +36,18 @@ Route::get('/new/{id}-{title}.html', 'NewController@view')
 Route::paginate('/pages', 'PageController@index')
     ->name('page');
 
+Route::get('/page/preview/{id}-{title}.html', 'PageController@preview')
+    ->name('page.preview');
+
 Route::get('/page/{id}-{title}.html', 'PageController@view')
     ->name('page.view');
 
 // polls
 Route::paginate('/polls', 'PollController@index')
     ->name('poll');
+
+Route::get('/poll/preview/{id}-{title}.html', 'PollController@preview')
+    ->name('poll.preview');
 
 Route::get('/poll/{id}-{title}.html', 'PollController@view')
     ->name('poll.view');
@@ -49,6 +58,9 @@ Route::post('/poll/{id}-{title}.html', 'PollController@view')
 // albumsHome
 Route::paginate('/albums', 'AlbumController@index')
     ->name('album');
+
+Route::get('/album/preview/{id}-{title}.html', 'AlbumController@preview')
+    ->name('album.preview');
 
 Route::get('/album/{id}-{title}.html', 'AlbumController@view')
     ->name('album.view');
@@ -103,5 +115,3 @@ Route::get('/s/{hash}', 'ShorterController@index')
 Route::get('/contact.html', 'ContactController@index')
     ->name('contact');
 
-Route::get('/debug', 'DebugController@index')
-    ->name('debug');

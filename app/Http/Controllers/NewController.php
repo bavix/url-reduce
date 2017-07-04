@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\CategoryModel;
 use App\Models\NewModel;
+use Encore\Admin\Auth\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NewController extends Controller
 {
@@ -17,6 +19,7 @@ class NewController extends Controller
     protected $description = 'Список новостей';
 
     protected $mainPage = false;
+    protected $preview  = false;
 
     /**
      * Show the application dashboard.
@@ -77,6 +80,15 @@ class NewController extends Controller
         ], $this->mergeData());
     }
 
+    public function preview(Request $request, $id)
+    {
+        abort_if(!Auth::guard('admin')->user(), 404);
+
+        $this->preview = true;
+
+        return $this->view($request, $id);
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -88,13 +100,18 @@ class NewController extends Controller
     public function view(Request $request, $id)
     {
         $modelName = $this->model;
-        $model     = $modelName::query()
-            ->where('active', 1)
-            ->find($id);
+        $model     = $modelName::query();
+
+        if (!$this->preview)
+        {
+            $model->where('active', 1);
+        }
+
+        $model = $model->find($id);
 
         \abort_if(!$model, 404);
 
-        if ($request->getPathInfo() !== '/' && $request->url() !== $model->url())
+        if (!$this->preview && $request->getPathInfo() !== '/' && $request->url() !== $model->url())
         {
             // seo
             return redirect($model->url(), 301);

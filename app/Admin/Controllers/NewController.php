@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\BtnPreview;
 use App\Admin\Extensions\LG\Trash;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
@@ -54,6 +55,21 @@ class NewController extends AdminController
                     return $data ? 'Включена' : 'Выключена';
                 })->sortable();
             }
+
+            $self = $this;
+
+            $grid->actions(function (Grid\Displayers\Actions $actions) use ($self) {
+
+                if ($self->category)
+                {
+                    $actions->append(new BtnPreview($actions->getKey(), 'new.preview'));
+                }
+                else
+                {
+                    $actions->append(new BtnPreview($actions->getKey(), 'page.preview'));
+                }
+
+            });
 
             $grid->exporter(new \App\Accessor\CsvExporter());
 

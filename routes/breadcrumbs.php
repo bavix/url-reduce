@@ -36,6 +36,15 @@ Breadcrumbs::register('new.view', function ($breadcrumbs, $item)
     ]));
 });
 
+Breadcrumbs::register('new.preview', function ($breadcrumbs, $item)
+{
+    $breadcrumbs->parent('new.category', $item->category_id);
+    $breadcrumbs->push('Черновик', route('new.preview', [
+        $item->id,
+        $item->title
+    ]));
+});
+
 // pages
 Breadcrumbs::register('page', function ($breadcrumbs)
 {
@@ -48,6 +57,15 @@ Breadcrumbs::register('page.view', function ($breadcrumbs, $item)
 {
     $breadcrumbs->parent('page');
     $breadcrumbs->push($item->title, route('page.view', [
+        $item->id,
+        $item->title
+    ]));
+});
+
+Breadcrumbs::register('page.preview', function ($breadcrumbs, $item)
+{
+    $breadcrumbs->parent('page', $item->category_id);
+    $breadcrumbs->push('Черновик', route('page.preview', [
         $item->id,
         $item->title
     ]));
@@ -70,6 +88,15 @@ Breadcrumbs::register('album.view', function ($breadcrumbs, $item)
     ]));
 });
 
+Breadcrumbs::register('album.preview', function ($breadcrumbs, $item)
+{
+    $breadcrumbs->parent('album', $item->category_id);
+    $breadcrumbs->push('Черновик', route('album.preview', [
+        $item->id,
+        $item->title
+    ]));
+});
+
 // polls
 Breadcrumbs::register('poll', function ($breadcrumbs)
 {
@@ -82,6 +109,15 @@ Breadcrumbs::register('poll.view', function ($breadcrumbs, $item)
 {
     $breadcrumbs->parent('poll');
     $breadcrumbs->push($item->title, route('poll.view', [
+        $item->id,
+        $item->title
+    ]));
+});
+
+Breadcrumbs::register('poll.preview', function ($breadcrumbs, $item)
+{
+    $breadcrumbs->parent('poll', $item->category_id);
+    $breadcrumbs->push('Черновик', route('poll.preview', [
         $item->id,
         $item->title
     ]));

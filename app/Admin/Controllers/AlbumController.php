@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\BtnPreview;
 use App\Admin\Extensions\LG\Trash;
 use App\Http\Controllers\Controller;
 use App\Models\AlbumModel;
@@ -36,6 +37,10 @@ class AlbumController extends AdminController
             {
                 return $data ? 'Включена' : 'Выключена';
             })->sortable();
+
+            $grid->actions(function (Grid\Displayers\Actions $actions) {
+                $actions->append(new BtnPreview($actions->getKey(), 'album.preview'));
+            });
 
             $grid->exporter(new \App\Accessor\CsvExporter());
 
