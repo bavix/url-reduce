@@ -60,7 +60,7 @@ class ImageModel extends Model
 
                 $_width = $image->width() <= $width ? $image->width() : $width;
 
-                $image->resize($_width, round($_width / 16 * 9), function ($constraint) {
+                $image->resize($_width, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
 
