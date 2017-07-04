@@ -413,7 +413,7 @@ html {
   html .lg-backdrop {
     background-color: #3d6277; }
   html header {
-    padding-bottom: 1rem; }
+    padding-bottom: 2rem; }
     html header nav .navbar-brand img {
       width: 1.6rem; }
     html header nav a.zoom.disabled path {

@@ -49,7 +49,7 @@ class TrackerModel extends Model
                 DB::raw('(' . static::query()
                     ->select(
                         'ip',
-                        DB::raw('DATE_FORMAT(`created_at`, "%Y-%m-%d") `fdate`')
+                        DB::raw('DATE_FORMAT(`created_at`, "%Y-%m-01") `fdate`')
                     )
                     ->where(
                         DB::raw('DATE(created_at)'),
