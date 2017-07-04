@@ -392,12 +392,12 @@ html {
     html body .bx-header {
       width: 100%;
       height: 8rem;
-      background: #3d6277;
+      background: #773d3d;
       color: white; }
     html body .visually-special a:not(.active) {
       display: none; }
     html body .alert-warning {
-      background-color: #3d6277;
+      background-color: #773d3d;
       color: white;
       border-color: inherit; }
     html body:not(.visually-impaired) .visually-selected {
@@ -411,7 +411,7 @@ html {
     font-weight: bold;
     line-height: normal; }
   html .lg-backdrop {
-    background-color: #3d6277; }
+    background-color: #773d3d; }
   html header {
     padding-bottom: 2rem; }
     html header nav .navbar-brand img {
@@ -486,13 +486,13 @@ html {
       html .wrapper footer .list-unstyled li.space {
         padding-bottom: 1rem; }
       html .wrapper footer .footer-bottom {
-        background: #3d6277;
+        background: #773d3d;
         padding-bottom: 1rem; }
       html .wrapper footer .footer-top {
         background: #2d4958; }
       html .wrapper footer .footer-middle {
-        background: #3d6277;
+        background: #773d3d;
         padding-top: 2rem;
         color: white; }
 
-/*# sourceMappingURL=sot.css.map */
+/*# sourceMappingURL=pool.css.map */
