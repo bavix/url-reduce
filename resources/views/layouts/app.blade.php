@@ -76,7 +76,27 @@
 <body @if(!empty($visually))class="{{ $visually }}"@endif>
 
 <header>
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+    <div class="bx-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="text-center">
+                        <img style="max-width: 100%" height="128px" src="http://via.placeholder.com/255x128"
+                             title="{{ $cfg('name', config('app.name', 'bavix')) }}"
+                             alt="{{ $cfg('name', config('app.name', 'bavix')) }}"/>
+                    </div>
+                </div>
+                <div class="col-md-9 hidden-sm">
+                    <div class="d-flex bd-highlight" style="height: 100%">
+                        <span class="align-self-center">
+                            {{ $cfg('header_title', 'Муниципальное бюджетное учреждение дополнительного образования Станция юных техников города Белореченска') }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse bx-z-index">
         <div class="container">
 
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -495,6 +515,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
 
 <script src="{{ asset2('js/sot.js') }}"
         data-color="{{ visuallyColor() }}"

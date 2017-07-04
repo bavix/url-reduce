@@ -495,7 +495,18 @@ html
 
   body
     height: 100% // footer down bottom
-    padding-top: 5.5rem
+    //padding-top: 5.5rem
+
+    .bx-z-index
+      z-index: 1 !important
+
+    .bx-header
+      width: 100%
+      height: 8rem
+      background: #3d6277
+      color: white
+      @extend .bg-global2
+      @extend .clr-global2
 
     .visually-special a:not(.active)
       display: none
@@ -523,6 +534,8 @@ html
 
   /** header (navigation)
   header
+
+    padding-bottom: 1rem
 
     nav
       .navbar-brand img

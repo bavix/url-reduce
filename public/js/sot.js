@@ -237,4 +237,8 @@ $(function () {
         }, 500);
     });
 
+    $("nav.navbar").sticky({
+        topSpacing: 0
+    });
+
 });
