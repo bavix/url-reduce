@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset2('packages/admin/lightGallery/css/lightgallery.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset2('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
-    <link href="{{ asset2('css/sot.css')  }}" rel="stylesheet"/>
+    <link href="{{ asset2('css/' . $cfg('style', 'sot') . '.css')  }}" rel="stylesheet"/>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="{{ asset2('node_modules/sweetalert2/dist/sweetalert2.min.css') }}">
