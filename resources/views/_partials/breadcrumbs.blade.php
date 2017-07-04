@@ -1,6 +1,6 @@
 @php($route = request()->route())
 
-@if (!$hasError && $route)
+@if (empty($hasError) && $route)
     @php($name = $route->getName())
     @if (isset( $item ))
         {!! Breadcrumbs::render( $name, $item ) !!}
