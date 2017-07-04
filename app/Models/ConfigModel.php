@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Encore\Admin\Auth\Database\Administrator;
 use Illuminate\Database\Eloquent\Model;
 
 class ConfigModel extends Model
@@ -19,16 +20,28 @@ class ConfigModel extends Model
 
     /**
      * @param string $name
-     * @param mixed $value
+     * @param mixed  $value
      *
      * @return mixed
      */
-    protected static function register( $name, $value )
+    protected static function register($name, $value)
     {
+        if ($name === 'logo')
+        {
+            $logo = Administrator::query()->first()->avatar;
+
+            if ($logo)
+            {
+                return $logo;
+            }
+
+            return $value ?: 'https://via.placeholder.com/255x128';
+        }
+
         if (!isset(static::$data[$name]))
         {
-            $model = new static();
-            $model->name = $name;
+            $model        = new static();
+            $model->name  = $name;
             $model->value = $value;
 
             $model->save();
@@ -40,8 +53,8 @@ class ConfigModel extends Model
     }
 
     /**
-     * @param string    $name
-     * @param mixed     $default
+     * @param string $name
+     * @param mixed  $default
      *
      * @return mixed|null
      */
