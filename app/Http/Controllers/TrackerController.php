@@ -25,7 +25,7 @@ class TrackerController extends Controller
         $graphHit = TrackerModel::graphHit()->pluck('res', 'month')
             ->toArray();
 
-        return $this->render('tracker/statistics', [
+        return $this->render('tracker.statistics', [
 
             'title' => 'Статистика сайта',
 
@@ -41,6 +41,7 @@ class TrackerController extends Controller
 
             'pageCount' => PageModel::query()
                 ->where('active', 1)
+                ->where('main_page', 0)
                 ->count(),
 
             'albumCount' => AlbumModel::query()

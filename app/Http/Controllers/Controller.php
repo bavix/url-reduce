@@ -78,6 +78,7 @@ class Controller extends BaseController
 
             'pages' => PageModel::query()
                 ->where('active', 1)
+                ->where('main_page', 0)
                 ->orderBy('id', 'desc')
                 ->limit(5)
                 ->get(),
