@@ -81,7 +81,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="text-center">
-                        <img style="max-width: 100%" height="128px" src="{{ $cfg('logo') }}"
+                        <img class="visually if-grayscale" style="max-width: 100%" height="128px" src="{{ $cfg('logo') }}"
                              title="{{ $cfg('name', config('app.name', 'bavix')) }}"
                              alt="{{ $cfg('name', config('app.name', 'bavix')) }}"/>
                     </div>
