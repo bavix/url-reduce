@@ -20,6 +20,8 @@ class NewController extends AdminController
     protected $title    = 'Новости';
     protected $model    = NewModel::class;
 
+    protected $mainPage = false;
+
     /**
      * Make a grid builder.
      *
@@ -44,6 +46,14 @@ class NewController extends AdminController
             {
                 return $data ? 'Включена' : 'Выключена';
             })->sortable();
+
+            if ($this->mainPage)
+            {
+                $grid->column('main_page', 'Главная страница')->display(function ($data)
+                {
+                    return $data ? 'Включена' : 'Выключена';
+                })->sortable();
+            }
 
             $grid->exporter(new \App\Accessor\CsvExporter());
 
@@ -97,6 +107,11 @@ class NewController extends AdminController
             $form->documents('readable', '')->options([
                 'column' => 'files'
             ]);
+
+            if ($this->mainPage)
+            {
+                $form->switch('main_page', 'Главная Страница');
+            }
 
             $form->switch('active', 'Видимость');
 

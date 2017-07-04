@@ -16,6 +16,8 @@ class NewController extends Controller
     protected $title       = 'Новости';
     protected $description = 'Список новостей';
 
+    protected $mainPage = false;
+
     /**
      * Show the application dashboard.
      *
@@ -50,6 +52,11 @@ class NewController extends Controller
                 // seo
                 return redirect($category->url(), 301);
             }
+        }
+
+        if ($this->mainPage)
+        {
+            $query->where('main_page', 0);
         }
 
         $paginate = $query->paginate(10);
@@ -87,7 +94,7 @@ class NewController extends Controller
 
         \abort_if(!$model, 404);
 
-        if ($request->url() !== $model->url())
+        if ($request->getPathInfo() !== '/' && $request->url() !== $model->url())
         {
             // seo
             return redirect($model->url(), 301);

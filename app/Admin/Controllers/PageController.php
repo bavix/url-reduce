@@ -11,4 +11,6 @@ class PageController extends NewController
     protected $title    = 'Страницы';
     protected $model    = PageModel::class;
 
+    protected $mainPage = true;
+
 }

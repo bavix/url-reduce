@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect(route('new'));
-})->name('home');
+Route::get('/', 'PageController@main')->name('home');
 
 $url = preg_replace(
     '~(\w+://)~',
