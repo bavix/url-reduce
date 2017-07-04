@@ -90,13 +90,16 @@ class TrackerModel extends Model
 
         if (!$req->ajax() && $req->isMethod('GET') && static::isHit())
         {
-            $model           = new static();
-            $model->ip       = $req->ip();
-            $model->url      = $req->getPathInfo();
-            $model->referer = $req->headers->get('referer');
-            $model->language = $req->getPreferredLanguage();
+            if ($req->headers->has('User-Agent'))
+            {
+                $model           = new static();
+                $model->ip       = $req->ip();
+                $model->url      = $req->getPathInfo();
+                $model->referer = $req->headers->get('referer');
+                $model->language = $req->getPreferredLanguage();
 
-            $model->save();
+                $model->save();
+            }
         }
     }
 
