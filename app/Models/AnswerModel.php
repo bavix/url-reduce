@@ -8,7 +8,7 @@ class AnswerModel extends Model
 {
     protected $table = 'answers';
 
-    protected $fillable = ['answer'];
+    protected $fillable = ['answer', 'count'];
 
     public function question()
     {

@@ -65,10 +65,12 @@ class QuestionController extends AdminController
                 );
 
             $form->text('question', 'Вопрос');
+            $form->number('count', 'Всего ответов');
 
             $form->hasMany('answers', 'Ответы', function (NestedForm $form)
             {
                 $form->text('answer', 'Ответ');
+                $form->number('count', 'Ответили');
             });
 
             $form->ignore(['created_at', 'updated_at']);
