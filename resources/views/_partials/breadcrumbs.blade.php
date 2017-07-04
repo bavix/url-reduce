@@ -5,6 +5,6 @@
     @if (isset( $item ))
         {!! Breadcrumbs::render( $name, $item ) !!}
     @else
-        {!! Breadcrumbs::render( $name ) !!}
+        {!! @Breadcrumbs::render( $name ) !!}
     @endif
 @endif

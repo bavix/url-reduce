@@ -461,6 +461,9 @@
                                             </a>
                                         </div>
                                     </address>
+                                    <div>
+                                        <span>Регистрационный номер организации: {{ $cfg('rkn_number', '23-16-005481') }}</span>
+                                    </div>
                                 </li>
                                 <li>
                                     Телефон: <span itemprop="telephone">
