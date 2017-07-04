@@ -81,7 +81,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="text-center">
-                        <img style="max-width: 100%" height="128px" src="http://via.placeholder.com/255x128"
+                        <img style="max-width: 100%" height="128px" src="https://via.placeholder.com/255x128"
                              title="{{ $cfg('name', config('app.name', 'bavix')) }}"
                              alt="{{ $cfg('name', config('app.name', 'bavix')) }}"/>
                     </div>
