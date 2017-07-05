@@ -150,7 +150,7 @@
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            {!! config('bavix.cookie.message') !!}
+                            {!! __('bavix.cookie.message') !!}
                         </div>
                     </noindex>
                 @endif
@@ -486,12 +486,12 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <a class="bavix" title="Разработка и техническая поддержка сайта - bavix" href="https://bavix.ru/" target="_blank">
+                    <a class="bavix" title="{{ __('bavix.description') }}" href="https://bavix.ru/" target="_blank">
                         <img src="https://ds.bavix.ru/svg/logo.svg"
-                             alt="Разработка и техническая поддержка сайта - bavix"
-                             title="Разработка и техническая поддержка сайта - bavix" />
+                             alt="{{ __('bavix.description') }}"
+                             title="{{ __('bavix.description') }}" />
 
-                        <span>Разработка и техническая поддержка сайта - bavix</span>
+                        <span>{{ __('bavix.description') }}</span>
                     </a>
                 </div>
             </div>

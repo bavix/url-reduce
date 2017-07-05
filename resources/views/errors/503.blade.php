@@ -1,4 +1,4 @@
 @include('_partials.error', [
-    'title' => 'Be right back',
-    'description' => 'Updating...',
+    'title' => __('bavix.http.503.title'),
+    'description' => __('bavix.http.503.description'),
 ])

@@ -1,4 +1,4 @@
 @include('new.empty', [
-    'message' => 'Страница не найдена',
+    'message' => __('bavix.http.404'),
     'hasError' => true
 ])

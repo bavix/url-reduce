@@ -21,9 +21,9 @@
 <body>
 <div class="d-flex" style="height: 100%; width: 100%;">
     <div id="be-right-back" class="mx-auto align-self-center">
-        <a href="https://bavix.ru/" title="Development and technical support of the website - bavix">
-            <img alt="Development and technical support of the website - bavix"
-                 title="Development and technical support of the website - bavix"
+        <a href="https://bavix.ru/" title="{{ __('bavix.description') }}">
+            <img alt="{{ __('bavix.description') }}"
+                 title="{{ __('bavix.description') }}"
                  width="100%" height="100%"
                  src="https://ds.bavix.ru/svg/logo.svg" />
         </a>

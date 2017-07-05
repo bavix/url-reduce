@@ -1,4 +1,4 @@
 @include('_partials.error', [
-    'title' => 'Forbidden',
+    'title' => __('bavix.http.403'),
     'description' => 'bavix.ru',
 ])
