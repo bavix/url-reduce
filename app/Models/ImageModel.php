@@ -24,6 +24,28 @@ class ImageModel extends Model
         'fullHD'
     ];
 
+    public function doBackground()
+    {
+
+        if (class_exists(\GearmanClient::class))
+        {
+            try
+            {
+                $client = new \GearmanClient();
+                $client->addServer(
+                    config('gearman.host'),
+                    config('gearman.port')
+                );
+
+                $client->doBackground('resize', serialize($this));
+            }
+            catch (\Throwable $throwable)
+            {
+            }
+        }
+
+    }
+
     /**
      * @param $path
      */

@@ -20,22 +20,7 @@ class AlbumModel extends Model
 
         $this->id or $this->save();
 
-        if (class_exists(\GearmanClient::class))
-        {
-            try
-            {
-                $client = new \GearmanClient();
-                $client->addServer(
-                    config('gearman.host'),
-                    config('gearman.port')
-                );
-
-                $client->doBackground('resize', serialize($model));
-            }
-            catch (\Throwable $throwable)
-            {
-            }
-        }
+        $model->doBackground();
 
         if (!$toModel)
         {
