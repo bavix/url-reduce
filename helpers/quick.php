@@ -204,3 +204,21 @@ if (!function_exists('asset2'))
         return asset($path, $secure);
     }
 }
+
+if (!function_exists('notifies'))
+{
+    function notifies()
+    {
+        static $data;
+
+        if (!$data)
+        {
+            $data = \App\Models\NotifyModel::query()
+                ->where('active', 1)
+                ->whereNotIn('id', bx_cookie('notify', []))
+                ->get();
+        }
+
+        return $data;
+    }
+}

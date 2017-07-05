@@ -1,9 +1,7 @@
 <?php
 
 return [
-    'cookie' => [
-        'permission' => true
-    ],
+    'notify' => true,
     'style' => [
         'sot' => [
             'default' => '#3d6277'

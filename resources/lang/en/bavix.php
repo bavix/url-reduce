@@ -12,9 +12,5 @@ return [
             'title'       => 'Be right back',
             'description' => 'Updating...',
         ]
-    ],
-    'cookie' => [
-        'message' => 'This website uses <strong>cookie</strong>-files, and also collects data on the <strong>IP</strong> address. 
-        Continuing to use this resource, you automatically agree with use of these technologies.'
     ]
 ];

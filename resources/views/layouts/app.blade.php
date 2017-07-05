@@ -146,15 +146,23 @@
 
             <div class="col-lg-8">
 
-                @if (config('bavix.cookie.permission', false) && !bx_cookie('cookiePermission', false))
-                    <noindex>
-                        <div id="cookiePermission" class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            {!! __('bavix.cookie.message') !!}
-                        </div>
-                    </noindex>
+                @if (config('bavix.notify', false))
+
+                    @if (notifies()->count())
+                        <noindex>
+                            @foreach (notifies() as $notify)
+                                <div class="alert bx-automatic alert-warning alert-dismissible fade show"
+                                     data-route="{{ route('notify', [$notify->id]) }}"
+                                     role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    {!! $notify->content !!}
+                                </div>
+                            @endforeach
+                        </noindex>
+                    @endif
+
                 @endif
 
                 @include('_partials.breadcrumbs')
@@ -526,12 +534,18 @@
         data-color="{{ visuallyColor() }}"
         data-font="{{ visuallyFont() }}"></script>
 
-@if (config('bavix.cookie.permission', false) && !bx_cookie('cookiePermission', false))
+@if (config('bavix.notify', false))
     <script>
         $(function () {
-            var $cookiePermission = $('#cookiePermission');
-            $cookiePermission.alert().on('close.bs.alert', function () {
-                $.get('{{ route('cookie.permission') }}');
+            var $automatic = $('.alert.bx-automatic');
+            $automatic.alert().on('close.bs.alert', function () {
+                $.ajax({
+                    url: $(this).data('route'),
+                    method: 'POST',
+                    data: {
+                        _token: Laravel.csrfToken
+                    }
+                });
             });
         });
     </script>
