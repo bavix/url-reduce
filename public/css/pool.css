@@ -462,6 +462,14 @@ html {
           background-color: #e2e2e2; }
         html .wrapper main article .lightGallery li:nth-child(2n-1) a img {
           background-color: #9d9d9d; }
+        html .wrapper main article .lightGallery li img {
+          transition: transform 0.7s;
+          image-rendering: pixelated; }
+        html .wrapper main article .lightGallery li:hover {
+          z-index: 1; }
+          html .wrapper main article .lightGallery li:hover img {
+            transform: scale(1.03) translateZ(0);
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.5); }
       html .wrapper main .blocks ul.menu {
         display: block; }
         html .wrapper main .blocks ul.menu li a {

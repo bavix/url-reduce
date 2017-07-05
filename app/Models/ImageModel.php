@@ -54,16 +54,16 @@ class ImageModel extends Model
      *
      * @return string
      */
-    protected function resize($width)
+    protected function resize($width, $height = null)
     {
-        $path = 'thumbs/' . $width . '/' . $this->src;
+        $path = 'thumbs/' . ($width ?: 'h' . $height) . '/' . $this->src;
         $real = public_path('upload/' . $path);
         $org  = public_path('upload/' . $this->src);
 
         // placeHoldIt
         if (!realpath($real) && !realpath($org))
         {
-            $path = 'default/' . $width . '/placeholdit.png';
+            $path = 'default/' . ($width ?: 'h' . $height) . '/placeholdit.png';
             $real = public_path('upload/' . $path);
             $org  = public_path('default/placeholdit.png');
         }
@@ -79,9 +79,19 @@ class ImageModel extends Model
 
                 $image = Image::make($org);
 
-                $_width = $image->width() <= $width ? $image->width() : $width;
+                $_width  = null;
+                $_height = null;
 
-                $image->resize($_width, null, function ($constraint)
+                if (!$height)
+                {
+                    $_width = $image->width() <= $width ? $image->width() : $width;
+                }
+                else
+                {
+                    $_height = $image->height() <= $height ? $image->height() : $height;
+                }
+
+                $image->resize($_width, $_height, function ($constraint)
                 {
                     $constraint->aspectRatio();
                 });
@@ -103,7 +113,7 @@ class ImageModel extends Model
 
     public function thumbs()
     {
-        return $this->resize(200);
+        return $this->resize(null, 123);
     }
 
     public function preview()
