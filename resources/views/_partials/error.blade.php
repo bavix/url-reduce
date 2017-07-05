@@ -7,21 +7,15 @@
     <link href="{{ asset2('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
 
     <style>
-        html, body {
-            height: 100%;
-            width: 100%;
-        }
-
-        #be-right-back {
-            height: 200px;
-            width: 260px;
-        }
+        html, body {height: 100%;width: 100%}
+        #be-right-back {height: 200px;width: 260px}
+        a.bavix:hover[href] {filter: contrast(150%)}
     </style>
 </head>
 <body>
 <div class="d-flex" style="height: 100%; width: 100%;">
     <div id="be-right-back" class="mx-auto align-self-center">
-        <a href="https://bavix.ru/" title="{{ __('bavix.description') }}">
+        <a class="bavix" href="https://bavix.ru/" title="{{ __('bavix.description') }}">
             <img alt="{{ __('bavix.description') }}"
                  title="{{ __('bavix.description') }}"
                  width="100%" height="100%"
