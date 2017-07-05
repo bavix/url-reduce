@@ -186,6 +186,7 @@
                                         @php( $docTitle = empty($document->title) ? 'Undefined' : $document->title  )
                                         <a href="/upload/{{ $document->src }}"
                                            download="{{ $docTitle }}"
+                                           rel="nofollow"
                                            title="{{ $docTitle }}">{{ $docTitle }}</a>
                                     </li>
                                 @endforeach
@@ -349,7 +350,7 @@
                             <ul class="menu nav bd-sidenav">
                                 @foreach($links as $link)
                                     <li>
-                                        <a href="{{ $link->url }}" title="{{ $link->title }}" target="_blank">{{ $link->title }}</a>
+                                        <a href="{{ $link->url }}" title="{{ $link->title }}" target="_blank" rel="nofollow">{{ $link->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>

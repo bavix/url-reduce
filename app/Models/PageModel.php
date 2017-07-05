@@ -18,7 +18,9 @@ class PageModel extends AlbumModel
     {
         $config = \HTMLPurifier_Config::createDefault();
         $config->set('Cache.SerializerPath', base_path('storage/purifier'));
+        $config->set('HTML.Nofollow', true);
         $config->set('HTML.Trusted', true);
+        $config->set('Attr.AllowedRel', ['nofollow']);
 
         $data = (new \HTMLPurifier($config))->purify($content);
         $data = str_replace('<table>', '<table class="table">', $data);
