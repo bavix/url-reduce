@@ -5,7 +5,7 @@
                 <a href="#">
                     <img class="img-responsive" src="/upload/{{ $_picture->thumbs() }}"
                         style="object-position: center; object-fit: none"
-                        width="100%" height="100%" />
+                        width="100%" height="110px" />
                 </a>
             </li>
         @endforeach
