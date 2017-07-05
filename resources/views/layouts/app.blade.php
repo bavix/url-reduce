@@ -339,7 +339,7 @@
                             <ul class="menu nav bd-sidenav">
                                 @foreach($links as $link)
                                     <li>
-                                        <a href="{{ $link->url }}" title="{{ $link->title }}">{{ $link->title }}</a>
+                                        <a href="{{ $link->url }}" title="{{ $link->title }}" target="_blank">{{ $link->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>
