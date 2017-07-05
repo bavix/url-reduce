@@ -5,6 +5,8 @@
                 <a href="#">
                     <img class="img-responsive" src="/upload/{{ $_picture->thumbs() }}"
                         style="object-position: center; object-fit: none"
+                         title="Изображение #{{ $_picture->id }}"
+                         alt="Изображение #{{ $_picture->id }}"
                         width="100%" height="110px" />
                 </a>
             </li>
