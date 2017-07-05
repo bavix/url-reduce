@@ -216,6 +216,7 @@ if (!function_exists('notifies'))
             $data = \App\Models\NotifyModel::query()
                 ->where('active', 1)
                 ->whereNotIn('id', bx_cookie('notify', []))
+                ->orderBy('id', 'desc')
                 ->get();
         }
 
