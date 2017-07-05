@@ -18,7 +18,7 @@ class ImageModel extends Model
     /**
      * @var array
      */
-    public $cropList = [
+    public $resizeList = [
         'thumbs',
         'preview',
         'fullHD'

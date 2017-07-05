@@ -3,7 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Models\ImageModel;
+use Bavix\Helpers\JSON;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
 use ImageOptimizer\OptimizerFactory;
 
 class GearmanCommand extends Command
@@ -39,16 +41,16 @@ class GearmanCommand extends Command
     {
         $console = $this;
 
-        $factory = new OptimizerFactory();
+        $factory   = new OptimizerFactory();
         $optimizer = $factory->get();
 
-        $worker  = new \GearmanWorker();
+        $worker = new \GearmanWorker();
         $worker->addServer(
             config('gearman.host'),
             config('gearman.port')
         );
 
-        $worker->addFunction('crop', function (\GearmanJob $job) use ($console)
+        $worker->addFunction('resize', function (\GearmanJob $job) use ($console)
         {
             /**
              * @var ImageModel $model
@@ -57,14 +59,15 @@ class GearmanCommand extends Command
 
             $console->info('image #' . $model->id . ' is loaded');
 
-            foreach ($model->cropList as $item)
+            foreach ($model->resizeList as $item)
             {
                 $console->info('processing task:' . $item . '...');
                 $model->{$item}();
             }
         });
 
-        $worker->addFunction('optimize', function (\GearmanJob $job) use ($console, $optimizer) {
+        $worker->addFunction('optimize', function (\GearmanJob $job) use ($console, $optimizer)
+        {
 
             if (class_exists(OptimizerFactory::class))
             {
@@ -76,7 +79,10 @@ class GearmanCommand extends Command
 
         });
 
-        while ($worker->work()) {}
+        while ($worker->work())
+        {
+        }
+
         return;
     }
 

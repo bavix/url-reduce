@@ -30,7 +30,7 @@ class AlbumModel extends Model
                     config('gearman.port')
                 );
 
-                $client->doBackground('crop', serialize($model));
+                $client->doBackground('resize', serialize($model));
             }
             catch (\Throwable $throwable)
             {
