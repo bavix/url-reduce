@@ -32,8 +32,8 @@ class QrModel extends Model
 
         if (null === $model)
         {
-            $model = new static();
-            $model->url = $url;
+            $model       = new static();
+            $model->url  = $url;
             $model->hash = Str::random(8);
             $model->save();
         }

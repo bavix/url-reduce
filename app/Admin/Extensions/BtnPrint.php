@@ -10,7 +10,7 @@ class BtnPrint
 
     public function __construct($id, $route)
     {
-        $this->id = $id;
+        $this->id    = $id;
         $this->route = $route;
     }
 

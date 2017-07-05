@@ -16,7 +16,8 @@ class Form extends \Encore\Admin\Form
     {
         $segments = explode('/', rtrim(request()->getRequestUri(), '/'));
 
-        if ($slice != 0) {
+        if ($slice != 0)
+        {
             $segments = array_slice($segments, 0, $slice);
         }
 

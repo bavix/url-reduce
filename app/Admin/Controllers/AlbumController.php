@@ -38,7 +38,8 @@ class AlbumController extends AdminController
                 return $data ? 'Включена' : 'Выключена';
             })->sortable();
 
-            $grid->actions(function (Grid\Displayers\Actions $actions) {
+            $grid->actions(function (Grid\Displayers\Actions $actions)
+            {
                 $actions->append(new BtnPreview($actions->getKey(), 'album.preview'));
             });
 

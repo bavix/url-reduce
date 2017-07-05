@@ -12,26 +12,28 @@ class CsvExporter extends \Encore\Admin\Grid\Exporters\CsvExporter
     {
         $titles = [];
 
-        $filename = $this->getTable().'.csv';
+        $filename = $this->getTable() . '.csv';
 
         $data = $this->getData();
 
-        if (!empty($data)) {
+        if (!empty($data))
+        {
             $columns = array_dot($this->sanitize($data[0]));
 
             $titles = array_keys($columns);
         }
 
-        $output = implode(',', $titles)."\n";
+        $output = implode(',', $titles) . "\n";
 
-        foreach ($data as $_row) {
+        foreach ($data as $_row)
+        {
             $row = [];
             foreach ($titles as $title)
             {
                 $row[$title] = array_get($_row, $title);
             }
 
-            $output .= implode(',', array_dot($row))."\n";
+            $output .= implode(',', array_dot($row)) . "\n";
         }
 
         $headers = [

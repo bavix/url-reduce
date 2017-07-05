@@ -58,7 +58,8 @@ class NewController extends AdminController
 
             $self = $this;
 
-            $grid->actions(function (Grid\Displayers\Actions $actions) use ($self) {
+            $grid->actions(function (Grid\Displayers\Actions $actions) use ($self)
+            {
 
                 if ($self->category)
                 {
