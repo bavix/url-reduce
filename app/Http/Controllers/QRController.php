@@ -2,12 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ConfigModel;
 use App\Models\QrModel;
+use Bavix\Helpers\Arr;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class QRController extends Controller
 {
+
+    public function rgb($hex)
+    {
+
+        if (is_array($hex))
+        {
+            return $hex;
+        }
+
+        if ($hex{0} === '#')
+        {
+            $hex = substr($hex, 1);
+        }
+
+        $data = str_split($hex, (strlen($hex) === 6) + 1);
+
+        return Arr::map($data, function ($hex) {
+            return hexdec($hex);
+        });
+
+    }
+
+    protected function hex()
+    {
+        return config(
+            'bavix.style.' . ConfigModel::getValue('style', 'sot') . '.default',
+            config('bavix.style.sot.default')
+        );
+    }
 
     public function index(Request $request, $hash)
     {
@@ -20,10 +51,13 @@ class QRController extends Controller
          */
         $qr = QrCode::format('png');
 
+        $hex = $this->hex();
+        $hex = $this->rgb($hex);
+
         $png = $qr
             ->size(400)
             ->margin(0)
-            ->color(61, 98, 119)
+            ->color(...$hex)
             ->merge(config('qr.logo'), .3, true)
             ->generate($model->url);
 
