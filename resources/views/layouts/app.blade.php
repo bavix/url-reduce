@@ -81,9 +81,11 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="text-center">
-                        <img class="visually if-grayscale" style="max-width: 100%" height="128px" src="{{ $cfg('logo') }}"
+                        <a href="{{ route('home') }}" title="{{ $cfg('name', config('app.name', 'bavix')) }}">
+                            <img class="visually if-grayscale" style="max-width: 100%" height="128px" src="{{ $cfg('logo') }}"
                              title="{{ $cfg('name', config('app.name', 'bavix')) }}"
                              alt="{{ $cfg('name', config('app.name', 'bavix')) }}"/>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-9 hidden-sm">
