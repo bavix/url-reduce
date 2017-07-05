@@ -469,7 +469,7 @@ html {
           z-index: 1; }
           html .wrapper main article .lightGallery li:hover img {
             transform: scale(1.03) translateZ(0);
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.5); }
+            box-shadow: 0 0 4px black; }
       html .wrapper main .blocks ul.menu {
         display: block; }
         html .wrapper main .blocks ul.menu li a {
