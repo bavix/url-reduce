@@ -389,7 +389,7 @@ html {
     height: 100%; }
     html body .bx-z-index {
       z-index: 1 !important; }
-    html body a.navbar-brand:hover[href] {
+    html body a.bavix:hover[href], html body a.navbar-brand:hover[href] {
       filter: contrast(150%); }
     html body .bx-header {
       width: 100%;
