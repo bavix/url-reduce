@@ -66,7 +66,7 @@ class TrackerController extends Controller
         /**
          * @var $img \Intervention\Image\Image
          */
-        $img = Image::canvas(88, 31, '#3d6277');
+        $img = Image::canvas(88, 31, QRController::hex());
 
         $img->text('hosts: ' . TrackerModel::hostAllCount(), 2, 9, function (Font $font)
         {

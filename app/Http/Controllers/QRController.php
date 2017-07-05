@@ -32,7 +32,7 @@ class QRController extends Controller
 
     }
 
-    protected function hex()
+    public static function hex()
     {
         return config(
             'bavix.style.' . ConfigModel::getValue('style', 'sot') . '.default',
@@ -51,8 +51,7 @@ class QRController extends Controller
          */
         $qr = QrCode::format('png');
 
-        $hex = $this->hex();
-        $hex = $this->rgb($hex);
+        $hex = $this->rgb(static::hex());
 
         $png = $qr
             ->size(400)
