@@ -26,6 +26,8 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about' }
 	];
 
+	// config.extraPlugins = 'bxembed';
+
     // config.extraPlugins = 'embed,embedbase,widget';
     // config.embed_provider = '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}';
 
