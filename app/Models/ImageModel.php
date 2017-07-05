@@ -135,7 +135,7 @@ class ImageModel extends Model
 
     public function thumbs()
     {
-        return $this->resize(null, 123);
+        return $this->resize(null, 130);
     }
 
     public function preview()
