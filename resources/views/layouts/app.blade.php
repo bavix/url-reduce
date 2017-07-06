@@ -269,7 +269,7 @@
                     </div>
                 </div>
 
-                @if ($qrModel)
+                @if (empty($query) && $qrModel)
                     <div class="card no-visually">
                         <div class="card-block">
                             <h5 class="card-title">Поделись страницей</h5>
