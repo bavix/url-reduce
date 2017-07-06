@@ -95,16 +95,16 @@ class TrackerModel extends Model
             {
                 $route = $req->route();
 
-                $parameters              = $route->parameters();
-                $parameters['userAgent'] = $req->headers->get('User-Agent');
-
                 $model             = new static();
                 $model->ip         = $req->ip();
                 $model->url        = $req->getPathInfo();
-                $model->referer    = $req->headers->get('referer');
-                $model->language   = $req->getPreferredLanguage();
-                $model->route      = $route->getName();
-                $model->parameters = JSON::encode($parameters);
+                $model->parameters = JSON::encode([
+                    'attributes' => $route->parameters(),
+                    'userAgent'  => $req->headers->get('User-Agent'),
+                    'language'   => $req->getPreferredLanguage(),
+                    'referer'    => $req->headers->get('referer'),
+                    'route'      => $route->getName(),
+                ]);
 
                 $model->save();
             }
