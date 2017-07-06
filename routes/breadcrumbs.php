@@ -14,6 +14,12 @@ Breadcrumbs::register('new', function ($breadcrumbs)
     $breadcrumbs->push('Новости', route('new'));
 });
 
+Breadcrumbs::register('new.search', function ($breadcrumbs)
+{
+    $breadcrumbs->parent('new');
+    $breadcrumbs->push('Результаты поиска', route('new.search'));
+});
+
 Breadcrumbs::register('new.category', function ($breadcrumbs, $id = null)
 {
     $breadcrumbs->parent('new');
@@ -53,6 +59,12 @@ Breadcrumbs::register('page', function ($breadcrumbs)
     $breadcrumbs->push('Страницы', route('page'));
 });
 
+Breadcrumbs::register('page.search', function ($breadcrumbs)
+{
+    $breadcrumbs->parent('page');
+    $breadcrumbs->push('Результаты поиска', route('page.search'));
+});
+
 Breadcrumbs::register('page.view', function ($breadcrumbs, $item)
 {
     $breadcrumbs->parent('page');
@@ -79,6 +91,12 @@ Breadcrumbs::register('album', function ($breadcrumbs)
     $breadcrumbs->push('Альбомы', route('album'));
 });
 
+Breadcrumbs::register('album.search', function ($breadcrumbs)
+{
+    $breadcrumbs->parent('album');
+    $breadcrumbs->push('Результаты поиска', route('album.search'));
+});
+
 Breadcrumbs::register('album.view', function ($breadcrumbs, $item)
 {
     $breadcrumbs->parent('album');
@@ -103,6 +121,12 @@ Breadcrumbs::register('poll', function ($breadcrumbs)
     $breadcrumbs->parent('home');
 
     $breadcrumbs->push('Опросы', route('poll'));
+});
+
+Breadcrumbs::register('poll.search', function ($breadcrumbs)
+{
+    $breadcrumbs->parent('poll');
+    $breadcrumbs->push('Результаты поиска', route('poll.search'));
 });
 
 Breadcrumbs::register('poll.view', function ($breadcrumbs, $item)

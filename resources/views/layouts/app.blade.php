@@ -114,16 +114,16 @@
 
             <div class="collapse navbar-collapse" id="navbarDefault">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item {{ activeClass(['new', 'new.view', 'new.category']) }}">
+                    <li class="nav-item {{ activeClass(['new', 'new.view', 'new.category', 'new.search']) }}">
                         <a class="nav-link" href="{{ route('new', [], false) }}">Новости <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item {{ activeClass(['page', 'page.view']) }}">
+                    <li class="nav-item {{ activeClass(['page', 'page.view', 'page.search']) }}">
                         <a class="nav-link" href="{{ route('page', [], false) }}">Страницы</a>
                     </li>
-                    <li class="nav-item {{ activeClass(['album', 'album.view']) }}">
+                    <li class="nav-item {{ activeClass(['album', 'album.view', 'album.search']) }}">
                         <a class="nav-link" href="{{ route('album', [], false) }}">Альбомы</a>
                     </li>
-                    <li class="nav-item {{ activeClass(['poll', 'poll.view']) }}">
+                    <li class="nav-item {{ activeClass(['poll', 'poll.view', 'poll.search']) }}">
                         <a class="nav-link" href="{{ route('poll', [], false) }}">Опросы</a>
                     </li>
                     <li class="nav-item {{ activeClass('statement') }}">
@@ -173,12 +173,12 @@
             <aside class="blocks col-lg-4">
 
                 @if (!empty($searchBar))
-                    <form class="card" method="GET">
+                    <form id="search" class="card" method="GET" action="{{ route($selfRoute . '.search') }}">
                         <div class="input-group">
                             <input type="text" name="query"
                                    class="form-control"
                                    placeholder="Поиск..."
-                                   value="{{ request()->query('query') }}" />
+                                   value="{{ $query ?? null }}" />
                             <span class="input-group-btn">
                             <button class="btn btn-secondary" type="submit">Найти</button>
                           </span>

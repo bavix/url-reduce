@@ -1,4 +1,4 @@
-@include('_partials.error', [
-    'title' => __('bavix.http.400'),
-    'description' => 'bavix.ru',
+@include('new.empty', [
+    'message' => __('bavix.http.400'),
+    'hasError' => true
 ])

@@ -252,4 +252,16 @@ $(function () {
         }, 500);
     });
 
+    // form search
+    $('#search').submit(function (e) {
+        var validator = (this.query.value || '').trim().length > 0;
+
+        if (!validator) {
+            var $field = $(this.query);
+            $field.addClass('form-control-danger').parent('div').addClass('has-danger');
+        }
+
+        return validator;
+    });
+
 });

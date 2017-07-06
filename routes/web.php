@@ -23,6 +23,9 @@ Route::domain($url)->group(function () {
 Route::paginate('/news', 'NewController@index')
     ->name('new');
 
+Route::paginate('/new/search/{query?}', 'NewController@search')
+    ->name('new.search');
+
 Route::get('/new/category/{id}-{title}', 'NewController@index')
     ->name('new.category');
 
@@ -36,6 +39,9 @@ Route::get('/new/{id}-{title}.html', 'NewController@view')
 Route::paginate('/pages', 'PageController@index')
     ->name('page');
 
+Route::paginate('/page/search/{query?}', 'PageController@search')
+    ->name('page.search');
+
 Route::get('/page/preview/{id}-{title}.html', 'PageController@preview')
     ->name('page.preview');
 
@@ -45,6 +51,9 @@ Route::get('/page/{id}-{title}.html', 'PageController@view')
 // polls
 Route::paginate('/polls', 'PollController@index')
     ->name('poll');
+
+Route::paginate('/poll/search/{query?}', 'PollController@search')
+    ->name('poll.search');
 
 Route::get('/poll/preview/{id}-{title}.html', 'PollController@preview')
     ->name('poll.preview');
@@ -58,6 +67,9 @@ Route::post('/poll/{id}-{title}.html', 'PollController@view')
 // albumsHome
 Route::paginate('/albums', 'AlbumController@index')
     ->name('album');
+
+Route::paginate('/album/search/{query?}', 'AlbumController@search')
+    ->name('album.search');
 
 Route::get('/album/preview/{id}-{title}.html', 'AlbumController@preview')
     ->name('album.preview');

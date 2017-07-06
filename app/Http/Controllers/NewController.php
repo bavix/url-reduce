@@ -21,6 +21,26 @@ class NewController extends Controller
     protected $mainPage = false;
     protected $preview  = false;
 
+    protected $query;
+
+    public function search(Request $request, $query = null)
+    {
+        if ($query === null)
+        {
+            $query = $request->query('query');
+
+            abort_if($query === null, 400);
+
+            return redirect(route($request->route()->getName(), [
+                'query' => urlencode($request->query('query'))
+            ]));
+        }
+
+        $this->query = urldecode($query);
+
+        return $this->index($request);
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -38,7 +58,7 @@ class NewController extends Controller
         /**
          * @var \Illuminate\Database\Eloquent\Builder $query
          */
-        $query = $model::search($request->query('query'));
+        $query = $model::search($this->query);
 
         $query->orderBy('id', 'desc');
         $query->where('active', 1);
@@ -73,6 +93,8 @@ class NewController extends Controller
             'description' => $this->description,
             'message'     => 'В разделе "' . $this->title . '" ничего не найдено!',
             'searchBar'   => true,
+            'selfRoute'   => $this->route,
+            'query'       => $this->query
         ], $this->mergeData());
     }
 
