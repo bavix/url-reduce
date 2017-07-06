@@ -38,7 +38,7 @@ class NewController extends Controller
         /**
          * @var \Illuminate\Database\Eloquent\Builder $query
          */
-        $query = $model::with($this->withModel);
+        $query = $model::search($request->query('query'));
 
         $query->orderBy('id', 'desc');
         $query->where('active', 1);
@@ -63,13 +63,16 @@ class NewController extends Controller
         }
 
         $paginate = $query->paginate(10);
+        $paginate->load($this->withModel);
+
         abort_if($paginate->lastPage() && $paginate->isEmpty(), 404);
 
         return view('new.index', [
             'items'       => $paginate,
             'title'       => $this->title,
             'description' => $this->description,
-            'message'     => 'Раздел "' . $this->title . '" пуст!'
+            'message'     => 'В разделе "' . $this->title . '" ничего не найдено!',
+            'searchBar'   => true,
         ], $this->mergeData());
     }
 

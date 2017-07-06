@@ -8,6 +8,7 @@
     "require": {
         "php": ">=5.6.4",
         "bavix/sdk": "^1.0",
+        "damiantw/laravel-scout-mysql-driver": "^1.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "doctrine/dbal": "^2.5",
         "embed/embed": "^3.0",

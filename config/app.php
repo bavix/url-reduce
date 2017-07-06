@@ -196,6 +196,7 @@ return [
         // scout
         Laravel\Scout\ScoutServiceProvider::class,
         ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
+        DamianTW\MySQLScout\Providers\MySQLScoutServiceProvider::class,
 
     ],
 

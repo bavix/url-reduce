@@ -5,12 +5,25 @@ namespace App\Models;
 use Bavix\Helpers\JSON;
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class AlbumModel extends Model
 {
 
+    use Searchable;
+
     protected $table = 'albums';
     protected $route = 'album.view';
+
+    /**
+     * Получить имя индекса для модели.
+     *
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return $this->table . '_index';
+    }
 
     public function setPictureAttribute($picture, $toModel = true)
     {
