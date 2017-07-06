@@ -80,7 +80,7 @@ class TrackerController extends AdminController
 
             $form->ip('ip', 'IP');
             $form->text('url', 'Куда');
-            $form->text('parameters', 'Параметры');
+            $form->textarea('parameters', 'Параметры')->readOnly();
 
             $form->ignore(['created_at', 'updated_at']);
 
