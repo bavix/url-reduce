@@ -172,6 +172,20 @@
 
             <aside class="blocks col-lg-4">
 
+                @if (!empty($searchBar))
+                    <form class="card" method="GET">
+                        <div class="input-group">
+                            <input type="text" name="query"
+                                   class="form-control"
+                                   placeholder="Поиск..."
+                                   value="{{ request()->query('query') }}" />
+                            <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="button">Найти</button>
+                          </span>
+                        </div>
+                    </form>
+                @endif
+
                 @if (!empty($item->files) && $item->files->count())
                     <div class="card">
                         <div class="card-block">

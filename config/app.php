@@ -192,6 +192,12 @@ return [
         Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
 
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+
+        // scout
+        Laravel\Scout\ScoutServiceProvider::class,
+        ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
+        DamianTW\MySQLScout\Providers\MySQLScoutServiceProvider::class,
+
     ],
 
     /*

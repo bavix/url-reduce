@@ -17,6 +17,18 @@ composer upd
 ./artisan migrate
 ./artisan db:seed
 
+# elsaticsearch
+./artisan scout:import "App\Models\AlbumModel"
+./artisan scout:import "App\Models\PageModel"
+./artisan scout:import "App\Models\PollModel"
+./artisan scout:import "App\Models\NewModel"
+
+# mysql
+./artisan scout:mysql-index "App\Models\AlbumModel"
+./artisan scout:mysql-index "App\Models\PageModel"
+./artisan scout:mysql-index "App\Models\PollModel"
+./artisan scout:mysql-index "App\Models\NewModel"
+
 cd public
 npm i
 ```
