@@ -31,7 +31,7 @@
                         <small>Просмотров: {{ \App\Models\TrackerModel::visits() }}</small>
                     </span>
 
-                    <span class="if-visually badge badge-primary">
+                    <span class="if-visually float-left badge badge-primary">
                         @php($carbon = \Laravelrus\LocalizedCarbon\LocalizedCarbon::createFromFormat('Y-m-d H:i:s', $item->updated_at))
                         @php($local = \Laravelrus\LocalizedCarbon\LocalizedCarbon::instance($carbon))
                         <small>Обновлено: {{ $local->diffForHumans() }}</small>
