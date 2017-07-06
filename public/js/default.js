@@ -30,6 +30,21 @@ $(function () {
         }
     });
 
+    var $navBar = $('nav.navbar');
+
+    function stickyInit() {
+        var width = $(window).width(); // Change width to new width
+        if (width >= 960) {
+            $navBar.sticky({ topSpacing: 0 });
+        } else {
+            $navBar.unstick();
+        }
+    }
+
+    // On Page Resize...
+    $(window).resize(stickyInit);
+    stickyInit();
+
     // validate form
     $('#personal-data').change(function () {
 
@@ -235,10 +250,6 @@ $(function () {
         $('body,html').animate({
             scrollTop : 0                       // Scroll to top of body
         }, 500);
-    });
-
-    $("nav.navbar").sticky({
-        topSpacing: 0
     });
 
 });
