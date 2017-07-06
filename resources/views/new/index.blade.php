@@ -6,7 +6,7 @@
 
         <div class="col-md-12">
 
-            @foreach($items as $item)
+            @forelse ($items as $item)
 
                 <article class="card">
 
@@ -39,7 +39,9 @@
 
                 </article>
 
-            @endforeach
+            @empty
+                @include('new.empty')
+            @endforelse
 
             @if (isset($item))
                 @unset($item)

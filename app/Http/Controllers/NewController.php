@@ -65,14 +65,7 @@ class NewController extends Controller
         $paginate = $query->paginate(10);
         abort_if($paginate->lastPage() && $paginate->isEmpty(), 404);
 
-        $view = 'new.index';
-
-        if (!$paginate->total())
-        {
-            $view = 'new.empty';
-        }
-
-        return view($view, [
+        return view('new.index', [
             'items'       => $paginate,
             'title'       => $this->title,
             'description' => $this->description,

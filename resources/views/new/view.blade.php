@@ -13,7 +13,7 @@
 
                     @if(!empty($item->image))
                         <p class="text-center">
-                            <img class="img-thumbnail" src="/upload/{{ $item->image->preview() }}" style="max-width:100%" />
+                            <img src="/upload/{{ $item->image->preview() }}" style="max-width:100%" />
                         </p>
                     @endif
 
