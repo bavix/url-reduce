@@ -180,7 +180,7 @@
                                    placeholder="Поиск..."
                                    value="{{ request()->query('query') }}" />
                             <span class="input-group-btn">
-                            <button class="btn btn-secondary" type="button">Найти</button>
+                            <button class="btn btn-secondary" type="submit">Найти</button>
                           </span>
                         </div>
                     </form>
