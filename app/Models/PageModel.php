@@ -23,7 +23,7 @@ class PageModel extends AlbumModel
         $config->set('Attr.AllowedRel', ['nofollow']);
 
         $data = (new \HTMLPurifier($config))->purify($content);
-        $data = str_replace('<table>', '<table class="table">', $data);
+        $data = str_replace('<table>', '<table class="table table-responsive">', $data);
 
         $this->attributes['content'] = $data;
     }
