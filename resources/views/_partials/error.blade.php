@@ -5,6 +5,9 @@
     <meta charset="utf-8" />
 
     <link href="{{ asset2('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
+    @if (isset($reload))
+        <link href="{{ asset2('css/css-loader/index.css') }}" rel="stylesheet" />
+    @endif
 
     <style>
         html, body {height: 100%;width: 100%}
@@ -21,11 +24,38 @@
                  width="100%" height="100%"
                  src="https://ds.bavix.ru/svg/logo.svg" />
         </a>
+        @if (isset($reload))
+            <div id="loaders">
+                <div class="loader-container mx-auto arc-rotate-double">
+                    <div class="loader">
+                        <div class="arc-1"></div>
+                        <div class="arc-2"></div>
+                    </div>
+                </div>
+            </div>
+        @endif
         @if (isset($description))
             <h4 class="text-center">{{ $description }}</h4>
         @endif
         <h6 class="text-center">{{ $title }}</h6>
     </div>
 </div>
+
+@if (isset($reload))
+    <script src="{{ asset2('node_modules/jquery/dist/jquery.min.js') }}"></script>
+    <script defer async>
+        setInterval(function () {
+            $.ajax({
+                type: 'HEAD',
+                url: '/',
+                complete: function(xhr) {
+                    if (xhr.status === 200) {
+                        location.reload();
+                    }
+                }
+            });
+        }, 2000);
+    </script>
+@endif
 </body>
 </html>
