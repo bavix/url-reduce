@@ -17,7 +17,7 @@ Breadcrumbs::register('new', function ($breadcrumbs)
 Breadcrumbs::register('new.search', function ($breadcrumbs)
 {
     $breadcrumbs->parent('new');
-    $breadcrumbs->push('Результаты поиска', route('new.search'));
+    $breadcrumbs->push('Результат поиска', route('new.search'));
 });
 
 Breadcrumbs::register('new.category', function ($breadcrumbs, $id = null)
@@ -62,7 +62,7 @@ Breadcrumbs::register('page', function ($breadcrumbs)
 Breadcrumbs::register('page.search', function ($breadcrumbs)
 {
     $breadcrumbs->parent('page');
-    $breadcrumbs->push('Результаты поиска', route('page.search'));
+    $breadcrumbs->push('Результат поиска', route('page.search'));
 });
 
 Breadcrumbs::register('page.view', function ($breadcrumbs, $item)
@@ -94,7 +94,7 @@ Breadcrumbs::register('album', function ($breadcrumbs)
 Breadcrumbs::register('album.search', function ($breadcrumbs)
 {
     $breadcrumbs->parent('album');
-    $breadcrumbs->push('Результаты поиска', route('album.search'));
+    $breadcrumbs->push('Результат поиска', route('album.search'));
 });
 
 Breadcrumbs::register('album.view', function ($breadcrumbs, $item)
@@ -126,7 +126,7 @@ Breadcrumbs::register('poll', function ($breadcrumbs)
 Breadcrumbs::register('poll.search', function ($breadcrumbs)
 {
     $breadcrumbs->parent('poll');
-    $breadcrumbs->push('Результаты поиска', route('poll.search'));
+    $breadcrumbs->push('Результат поиска', route('poll.search'));
 });
 
 Breadcrumbs::register('poll.view', function ($breadcrumbs, $item)
