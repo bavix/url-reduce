@@ -33,6 +33,12 @@ class VisuallyController extends Controller
         return $this->mixed;
     }
 
+    protected function cookie($key, $value)
+    {
+        // 30 days 
+        return cookie($key, $value, 43200);
+    }
+
     /**
      * @param Request $request
      *
@@ -58,8 +64,8 @@ class VisuallyController extends Controller
         $this->color($request, null);
 
         return $this->data($request)
-            ->withCookie('visually', !\visually())
-            ->withCookie('visuallyImage', \visually() ? false : \visuallyImage());
+            ->withCookie($this->cookie('visually', !\visually()))
+            ->withCookie($this->cookie('visuallyImage', \visually() ? false : \visuallyImage()));
     }
 
     /**
@@ -70,7 +76,7 @@ class VisuallyController extends Controller
     public function image(Request $request)
     {
         return $this->data($request)
-            ->withCookie('visuallyImage', !\visuallyImage());
+            ->withCookie($this->cookie('visuallyImage', !\visuallyImage()));
     }
 
     public function font(Request $request, $size)
@@ -81,7 +87,7 @@ class VisuallyController extends Controller
         }
 
         return $this->data($request)
-            ->withCookie('visuallyFont', $size);
+            ->withCookie($this->cookie('visuallyFont', $size));
     }
 
     public function color(Request $request, $color)
@@ -98,13 +104,13 @@ class VisuallyController extends Controller
         }
 
         return $this->data($request)
-            ->withCookie('visuallyColor', $color);
+            ->withCookie($this->cookie('visuallyColor', $color));
     }
 
     public function notify(Request $request, $id)
     {
         return $this->data($request)
-            ->withCookie(__FUNCTION__ . '[' . $id . ']', $id);
+            ->withCookie($this->cookie(__FUNCTION__ . '[' . $id . ']', $id));
     }
 
 }
