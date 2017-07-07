@@ -12,7 +12,9 @@
 
                     @if ($item->image_id)
                         <div class="card-img-top">
-                            <img src="/upload/{{ $item->image->preview() }}" title="{{ $item->title }}">
+                            <a href="{{ $item->url() }}" title="{{ $item->title }}">
+                                <img src="/upload/{{ $item->image->preview() }}" title="{{ $item->title }}">
+                            </a>
                         </div>
                     @endif
 
