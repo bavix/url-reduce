@@ -13,10 +13,11 @@ class VisuallyController extends Controller
 
     /**
      * @param Request $request
+     * @param array   $cookie
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    protected function data(Request $request)
+    protected function data(Request $request, array $cookie = [])
     {
         if (!$this->mixed)
         {
@@ -30,12 +31,19 @@ class VisuallyController extends Controller
             }
         }
 
+        foreach ($cookie as $key => $value)
+        {
+            $this->mixed->withCookie(
+                $this->cookie($key, $value)
+            );
+        }
+
         return $this->mixed;
     }
 
     protected function cookie($key, $value)
     {
-        // 30 days 
+        // 30 days
         return cookie($key, $value, 43200);
     }
 
@@ -63,9 +71,10 @@ class VisuallyController extends Controller
         $this->font($request, null);
         $this->color($request, null);
 
-        return $this->data($request)
-            ->withCookie($this->cookie('visually', !\visually()))
-            ->withCookie($this->cookie('visuallyImage', \visually() ? false : \visuallyImage()));
+        return $this->data($request, [
+            'visually' => !\visually(),
+            'visuallyImage' => \visually() ? false : \visuallyImage(),
+        ]);
     }
 
     /**
@@ -75,8 +84,9 @@ class VisuallyController extends Controller
      */
     public function image(Request $request)
     {
-        return $this->data($request)
-            ->withCookie($this->cookie('visuallyImage', !\visuallyImage()));
+        return $this->data($request, [
+            'visuallyImage' => !\visuallyImage()
+        ]);
     }
 
     public function font(Request $request, $size)
@@ -103,14 +113,16 @@ class VisuallyController extends Controller
                 $color = 'black-white';
         }
 
-        return $this->data($request)
-            ->withCookie($this->cookie('visuallyColor', $color));
+        return $this->data($request, [
+            'visuallyColor' => $color
+        ]);
     }
 
     public function notify(Request $request, $id)
     {
-        return $this->data($request)
-            ->withCookie($this->cookie(__FUNCTION__ . '[' . $id . ']', $id));
+        return $this->data($request, [
+            __FUNCTION__ . '[' . $id . ']' => $id,
+        ]);
     }
 
 }
