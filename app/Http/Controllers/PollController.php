@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AnswerModel;
-use App\Models\PollModel;
+use App\Models\Answer;
+use App\Models\Poll;
 use Illuminate\Http\Request;
 
 class PollController extends AlbumController
 {
 
-    protected $model       = PollModel::class;
+    protected $model       = Poll::class;
     protected $withModel   = [];
     protected $route       = 'poll';
     protected $title       = 'Опросы';
@@ -25,7 +25,7 @@ class PollController extends AlbumController
      */
     public function view(Request $request, $id)
     {
-        $model = PollModel::query()
+        $model = Poll::query()
             ->where('active', 1)
             ->find($id);
 
@@ -53,7 +53,7 @@ class PollController extends AlbumController
                 foreach ($model->questions as $question)
                 {
                     /**
-                     * @var $answer AnswerModel
+                     * @var $answer Answer
                      */
                     $answer = $question->answers
                         // if question not found

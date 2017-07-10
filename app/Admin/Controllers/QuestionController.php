@@ -3,10 +3,10 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\CategoryModel;
-use App\Models\NewModel;
-use App\Models\PollModel;
-use App\Models\QuestionModel;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\Poll;
+use App\Models\Question;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
 use Encore\Admin\Form\NestedForm;
@@ -22,7 +22,7 @@ class QuestionController extends AdminController
 {
 
     protected $title = 'Вопросы';
-    protected $model = QuestionModel::class;
+    protected $model = Question::class;
 
     /**
      * Make a grid builder.
@@ -59,7 +59,7 @@ class QuestionController extends AdminController
 
             $form->select('poll_id', 'Опрос')
                 ->options(
-                    PollModel::all(['id', 'title'])
+                    Poll::all(['id', 'title'])
                         ->pluck('title', 'id')
                         ->all()
                 );

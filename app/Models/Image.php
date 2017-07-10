@@ -5,9 +5,8 @@ namespace App\Models;
 use Bavix\Helpers\Dir;
 use Illuminate\Database\Eloquent\Model;
 use ImageOptimizer\OptimizerFactory;
-use Intervention\Image\Facades\Image;
 
-class ImageModel extends Model
+class Image extends Model
 {
 
     /**
@@ -99,7 +98,7 @@ class ImageModel extends Model
 
                 Dir::make($dir);
 
-                $image = Image::make($org);
+                $image = \Intervention\Image\Facades\Image::make($org);
 
                 $_width  = null;
                 $_height = null;

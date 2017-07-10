@@ -18,25 +18,25 @@
                         <tbody>
                             <tr>
                                 <td>Всего посещений</td>
-                                <td class="text-right">{{ \App\Models\TrackerModel::hostAllCount() }}</td>
+                                <td class="text-right">{{ \App\Models\Tracker::hostAllCount() }}</td>
                             </tr>
                             <tr>
                                 <td>Посещений сегодня</td>
-                                <td class="text-right">{{ \App\Models\TrackerModel::hostCount() }}</td>
+                                <td class="text-right">{{ \App\Models\Tracker::hostCount() }}</td>
                             </tr>
 
                             <tr>
                                 <td>Всего визитов</td>
-                                <td class="text-right">{{ \App\Models\TrackerModel::hitAllCount() }}</td>
+                                <td class="text-right">{{ \App\Models\Tracker::hitAllCount() }}</td>
                             </tr>
                             <tr>
                                 <td>Визитов сегодня</td>
-                                <td class="text-right">{{ \App\Models\TrackerModel::hitCount() }}</td>
+                                <td class="text-right">{{ \App\Models\Tracker::hitCount() }}</td>
                             </tr>
 
                             <tr>
                                 <td>Сейчас онлайн</td>
-                                <td class="text-right">{{ \App\Models\TrackerModel::onlineCount() }}</td>
+                                <td class="text-right">{{ \App\Models\Tracker::onlineCount() }}</td>
                             </tr>
                         </tbody>
                     </table>

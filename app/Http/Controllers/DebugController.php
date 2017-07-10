@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ImageModel;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class DebugController extends Controller
@@ -12,7 +12,7 @@ class DebugController extends Controller
     {
         if ($request->query->has('image'))
         {
-            foreach (ImageModel::all() as $image)
+            foreach (Image::all() as $image)
             {
                 $image->doBackground();
             }

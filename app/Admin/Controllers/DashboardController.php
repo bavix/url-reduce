@@ -3,13 +3,13 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\AlbumModel;
-use App\Models\CategoryModel;
-use App\Models\FeedbackModel;
-use App\Models\NewModel;
-use App\Models\PageModel;
-use App\Models\PollModel;
-use App\Models\StatementModel;
+use App\Models\Album;
+use App\Models\Category;
+use App\Models\Feedback;
+use App\Models\Post;
+use App\Models\Page;
+use App\Models\Poll;
+use App\Models\Statement;
 use App\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
@@ -28,17 +28,17 @@ class DashboardController extends Controller
             $content->row(function (Row $row)
             {
 
-                $row->column(2, new InfoBox('Подача заявлений', 'users', 'aqua', '/cp/statements', StatementModel::query()->count()));
+                $row->column(2, new InfoBox('Подача заявлений', 'users', 'aqua', '/cp/statements', Statement::query()->count()));
 
-                $row->column(2, new InfoBox('Новости', 'newspaper-o', 'yellow', '/cp/news', NewModel::query()->count()));
+                $row->column(2, new InfoBox('Новости', 'newspaper-o', 'yellow', '/cp/posts', Post::query()->count()));
 
-                $row->column(2, new InfoBox('Обратная связь', 'hashtag', 'red', '/cp/feedback', FeedbackModel::query()->count()));
+                $row->column(2, new InfoBox('Обратная связь', 'hashtag', 'red', '/cp/feedback', Feedback::query()->count()));
 
-                $row->column(2, new InfoBox('Опросы', 'question-circle', 'gray', '/cp/polls', PollModel::query()->count()));
+                $row->column(2, new InfoBox('Опросы', 'question-circle', 'gray', '/cp/polls', Poll::query()->count()));
 
-                $row->column(2, new InfoBox('Страницы', 'file-text', 'blue', '/cp/pages', PageModel::query()->count()));
+                $row->column(2, new InfoBox('Страницы', 'file-text', 'blue', '/cp/pages', Page::query()->count()));
 
-                $row->column(2, new InfoBox('Альбомы', 'picture-o', 'green', '/cp/albums', AlbumModel::query()->count()));
+                $row->column(2, new InfoBox('Альбомы', 'picture-o', 'green', '/cp/albums', Album::query()->count()));
 
             });
 

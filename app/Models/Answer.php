@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AnswerModel extends Model
+class Answer extends Model
 {
     protected $table = 'answers';
 
@@ -12,6 +12,6 @@ class AnswerModel extends Model
 
     public function question()
     {
-        return $this->belongsTo(QuestionModel::class, 'question_id');
+        return $this->belongsTo(Question::class, 'question_id');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FeedbackModel;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
@@ -32,7 +32,7 @@ class FeedbackController extends Controller
     {
         $data = $request->input();
 
-        $item = new FeedbackModel();
+        $item = new Feedback();
 
         if (empty($data['communication']) || empty($data['content']) || empty($data['name']))
         {

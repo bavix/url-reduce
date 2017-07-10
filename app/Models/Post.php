@@ -5,21 +5,21 @@ namespace App\Models;
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 
-class NewModel extends PageModel
+class Post extends Page
 {
 
     /**
      * @var string
      */
-    protected $table = 'news';
-    protected $route = 'new.view';
+    protected $table = 'posts';
+    protected $route = 'post.view';
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function category()
     {
-        return $this->belongsTo(CategoryModel::class);
+        return $this->belongsTo(Category::class);
     }
 
 }

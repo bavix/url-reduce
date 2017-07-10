@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PageModel;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class PageController extends AlbumController
 {
 
-    protected $model       = PageModel::class;
+    protected $model       = Page::class;
     protected $route       = 'page';
     protected $title       = 'Страницы';
     protected $description = 'Список страниц';
@@ -17,7 +17,7 @@ class PageController extends AlbumController
 
     public function main(Request $request)
     {
-        $model = PageModel::query()
+        $model = Page::query()
             ->where('main_page', 1)
             ->where('active', 1)
             ->first();

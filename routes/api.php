@@ -32,7 +32,7 @@ Route::get('v1/{model}', function (Request $request, $model)
     $sort    = $request->query('sort', ['id' => 'desc']);
 
     $model = strtolower($model);
-    $model = '\\App\\Models\\' . ucfirst($model) . 'Model';
+    $model = '\\App\\Models\\' . ucfirst($model);
 
     if ($search && method_exists($model, 'search'))
     {

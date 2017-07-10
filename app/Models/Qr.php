@@ -5,7 +5,7 @@ namespace App\Models;
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 
-class QrModel extends Model
+class Qr extends Model
 {
 
     protected $table = 'qr';

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class QuestionModel extends Model
+class Question extends Model
 {
 
     /**
@@ -22,7 +22,7 @@ class QuestionModel extends Model
      */
     public function answers()
     {
-        return $this->hasMany(AnswerModel::class, 'question_id');
+        return $this->hasMany(Answer::class, 'question_id');
     }
 
     /**
@@ -30,7 +30,7 @@ class QuestionModel extends Model
      */
     public function poll()
     {
-        return $this->belongsTo(PollModel::class);
+        return $this->belongsTo(Poll::class);
     }
 
 }

@@ -3,8 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\CategoryModel;
-use App\Models\NewModel;
+use App\Models\Category;
+use App\Models\Post;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -24,7 +24,7 @@ class CategoryController extends AdminController
      */
     protected function grid()
     {
-        return Admin::grid(CategoryModel::class, function (Grid $grid)
+        return Admin::grid(Category::class, function (Grid $grid)
         {
 
             $grid->id('ID')->sortable();
@@ -44,7 +44,7 @@ class CategoryController extends AdminController
     protected function form()
     {
 
-        return Admin::form(CategoryModel::class, function (Form $form)
+        return Admin::form(Category::class, function (Form $form)
         {
 
             $form->display('id', 'ID');

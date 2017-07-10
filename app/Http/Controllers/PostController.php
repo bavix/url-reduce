@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CategoryModel;
-use App\Models\NewModel;
+use App\Models\Category;
+use App\Models\Post;
 use Encore\Admin\Auth\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class NewController extends Controller
+class PostController extends Controller
 {
 
-    protected $model       = NewModel::class;
+    protected $model       = Post::class;
     protected $withModel   = ['image', 'category'];
     protected $isCategory  = true;
-    protected $route       = 'new';
+    protected $route       = 'post';
     protected $title       = 'Новости';
     protected $description = 'Список новостей';
 
@@ -65,7 +65,7 @@ class NewController extends Controller
 
         if ($this->isCategory && $name === $this->route . '.category' && is_numeric($id))
         {
-            $category = CategoryModel::query()->find($id);
+            $category = Category::query()->find($id);
             \abort_if($category === null, 404);
 
             $query->where('category_id', $id);
@@ -87,7 +87,7 @@ class NewController extends Controller
 
         abort_if($paginate->lastPage() && $paginate->isEmpty(), 404);
 
-        return view('new.index', [
+        return view('post.index', [
             'items'       => $paginate,
             'title'       => $this->title,
             'description' => $this->description,
@@ -135,7 +135,7 @@ class NewController extends Controller
             return redirect($model->url(), 301);
         }
 
-        return view('new.view', [
+        return view('post.view', [
             'item'        => $model,
             'title'       => $model->title . ' - ' . $this->title,
             'description' => $model->description ?? ''

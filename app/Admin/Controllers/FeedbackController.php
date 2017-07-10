@@ -4,11 +4,11 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Extensions\BtnPrint;
 use App\Http\Controllers\Controller;
-use App\Models\CategoryModel;
-use App\Models\FeedbackModel;
-use App\Models\NewModel;
-use App\Models\StatementModel;
-use App\Models\TypeModel;
+use App\Models\Category;
+use App\Models\Feedback;
+use App\Models\Post;
+use App\Models\Statement;
+use App\Models\Type;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -23,11 +23,11 @@ class FeedbackController extends AdminController
 {
 
     protected $title = 'Обратная связь';
-    protected $model = FeedbackModel::class;
+    protected $model = Feedback::class;
 
     protected function doc(Request $request, $id)
     {
-        return view('docs.feedback', FeedbackModel::query()->findOrFail($id));
+        return view('docs.feedback', Feedback::query()->findOrFail($id));
     }
 
     /**

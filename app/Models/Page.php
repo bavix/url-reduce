@@ -5,7 +5,7 @@ namespace App\Models;
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 
-class PageModel extends AlbumModel
+class Page extends Album
 {
 
     /**
@@ -30,7 +30,7 @@ class PageModel extends AlbumModel
 
     public function files()
     {
-        return $this->belongsToMany(DocumentModel::class, $this->table . '_documents');
+        return $this->belongsToMany(Document::class, $this->table . '_documents');
     }
 
 }

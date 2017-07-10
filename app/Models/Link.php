@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FeedbackModel extends Model
+class Link extends Model
 {
-    protected $table = 'feedback';
+    protected $table = 'links';
 }

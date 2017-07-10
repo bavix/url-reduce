@@ -5,18 +5,18 @@ namespace App\Models;
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryModel extends Model
+class Category extends Model
 {
     protected $table = 'categories';
 
-    public function news()
+    public function posts()
     {
-        return $this->hasMany(NewModel::class);
+        return $this->hasMany(Post::class);
     }
 
     public function url()
     {
-        return route('new.category', [
+        return route('post.category', [
             'id'    => $this->id,
             'title' => Str::friendlyUrl($this->title)
         ]);

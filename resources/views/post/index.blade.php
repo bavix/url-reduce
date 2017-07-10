@@ -42,7 +42,7 @@
                 </article>
 
             @empty
-                @include('new.empty')
+                @include('post.empty')
             @endforelse
 
             @if (isset($item))

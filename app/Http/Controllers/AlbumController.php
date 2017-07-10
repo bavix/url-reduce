@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AlbumModel;
+use App\Models\Album;
 use Illuminate\Http\Request;
 
-class AlbumController extends NewController
+class AlbumController extends PostController
 {
 
-    protected $model       = AlbumModel::class;
+    protected $model       = Album::class;
     protected $withModel   = ['image'];
     protected $isCategory  = false;
     protected $route       = 'album';
