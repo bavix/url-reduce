@@ -156,17 +156,6 @@ class TestSeeder extends Seeder
 
         $this->seed('documents', $documents);
 
-        /* `sot1`.`feedback` */
-        $feedback = array(
-            array('id' => '1','communication' => 'dsfsdfsdf','content' => 'sdfsdfsdf','created_at' => '2017-06-05 10:50:38','updated_at' => '2017-06-05 10:50:38'),
-            array('id' => '2','communication' => 'sdfsdf','content' => 'sfdfsd','created_at' => '2017-06-05 10:52:38','updated_at' => '2017-06-05 10:52:38'),
-            array('id' => '3','communication' => 'sdfsdfsdf','content' => 'sdfsdfsdf','created_at' => '2017-06-05 10:53:49','updated_at' => '2017-06-05 10:53:49'),
-            array('id' => '4','communication' => 'sdfsdfsdf','content' => 'sdfsdfsdf','created_at' => '2017-06-05 10:53:53','updated_at' => '2017-06-05 10:53:53'),
-            array('id' => '5','communication' => 'asdasdasd','content' => 'asdasdasdas','created_at' => '2017-06-20 13:58:36','updated_at' => '2017-06-20 13:58:36')
-        );
-
-        $this->seed('feedback', $feedback);
-
         /* `sot1`.`images` */
         $images = array(
             array('id' => '1','src' => 'image/6f8f85e72bbbd145556d64e8cc23dbc6.jpeg','created_at' => '2017-05-23 07:51:22','updated_at' => '2017-05-24 12:16:03'),
@@ -1356,14 +1345,6 @@ out.println("...");
         );
 
         $this->seed('questions', $questions);
-
-        /* `sot1`.`statements` */
-        $statements = array(
-            array('id' => '1','type_id' => '2','first_name' => NULL,'last_name' => 'Бабичев','communication' => 'info@babichev.net','content' => 'Привет мир!','created_at' => '2017-06-05 10:56:36','updated_at' => '2017-06-05 10:56:36'),
-            array('id' => '2','type_id' => '2','first_name' => 'asd','last_name' => 'df','communication' => 'asdfsdf','content' => 'asdfasdfasdf','created_at' => '2017-06-20 13:58:04','updated_at' => '2017-06-20 13:58:04')
-        );
-
-        $this->seed('statements', $statements);
 
         /* `sot1`.`types` */
         $types = array(

@@ -89,8 +89,6 @@ class Controller extends BaseController
                 ->limit(5)
                 ->get(),
 
-            'cfg' => [ConfigModel::class, 'getValue'],
-
             'counters' => CounterModel::query()
                 ->where('active', 1)
                 ->get()

@@ -41,11 +41,11 @@ if (!function_exists('bx_cookie'))
     {
         $data = Cookie::get($key, $default);
 
-        try 
+        try
         {
             return Crypt::decrypt($data);
         }
-        catch (\Throwable $throwable) 
+        catch (\Throwable $throwable)
         {
             return $data;
         }
@@ -143,10 +143,10 @@ if (!function_exists('keywords'))
      */
     function keywords($content)
     {
-        $trim = trim($content);
-        $data = preg_replace('~[^а-яё\w\\/]+~ui', ',', $trim);
+        $trim  = trim($content);
+        $data  = preg_replace('~[^а-яё\w\\/]+~ui', ',', $trim);
         $mixed = explode(',', $data);
-        $data = array_unique($mixed);
+        $data  = array_unique($mixed);
 
         return implode(', ', $data);
     }
@@ -221,5 +221,15 @@ if (!function_exists('notifies'))
         }
 
         return $data;
+    }
+}
+
+if (!function_exists('bxCfg'))
+{
+    function bxCfg($name, $default = null)
+    {
+        $cfg = [\App\Models\ConfigModel::class, 'getValue'];
+
+        return $cfg($name, config($name, $default));
     }
 }

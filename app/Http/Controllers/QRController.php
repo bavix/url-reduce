@@ -35,8 +35,8 @@ class QRController extends Controller
     public static function hex()
     {
         return config(
-            'bavix.style.' . ConfigModel::getValue('style', 'sot') . '.default',
-            config('bavix.style.sot.default')
+            'bx.css.' . bxCfg('bx.style') . '.default',
+            config('bx.css.sot.default')
         );
     }
 

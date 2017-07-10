@@ -13,25 +13,25 @@
                     <ul class="list-unstyled" itemscope itemtype="http://schema.org/Organization">
                         <li class="space">
                             <address>
-                                <span itemprop="name">{{ $cfg('name', config('app.name', 'bavix')) }}</span>,
+                                <span itemprop="name">{{ bxCfg('app.name') }}</span>,
                                 <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                    <span itemprop="streetAddress">{{ $cfg('street', 'ул. 8 Марта, д. 57') }}</span>,
+                                    <span itemprop="streetAddress">{{ bxCfg('bx.street') }}</span>,
                                     <span itemprop="addressLocality">
-                                                {{ $cfg('city', 'г. БЕЛОРЕЧЕНСК') }},
-                                        {{ $cfg('region', 'Краснодарский край') }}</span>,
-                                    <span itemprop="postalCode">{{ $cfg('index', '352631') }}</span>
+                                                {{ bxCfg('bx.city') }},
+                                        {{ bxCfg('bx.region') }}</span>,
+                                    <span itemprop="postalCode">{{ bxCfg('bx.index') }}</span>
                                 </div>
                             </address>
                         </li>
                         <li>
                             Телефон: <span itemprop="telephone">
-                                <a href="tel:{{ phone($cfg('phone', '+7 (86155) 33803')) }}"
-                                   title="Телефон">{{ $cfg('phone') }}
+                                <a href="tel:{{ phone(bxCfg('bx.phone')) }}"
+                                   title="Телефон">{{ bxCfg('bx.phone') }}
                                 </a>
                             </span><br/>
                             Электронная почта: <span itemprop="email">
-                                <a href="mailto:{{ $cfg('email', 'sut-belora@yandex.ru') }}"
-                                   title="Электронная почта">{{ $cfg('email') }}
+                                <a href="mailto:{{ bxCfg('bx.email') }}"
+                                   title="Электронная почта">{{ bxCfg('bx.email') }}
                                 </a>
                             </span>
                         </li>
@@ -52,10 +52,10 @@
             });
 
             ymaps.geocode(
-                '{{ $cfg('street', 'ул. 8 Марта, д. 57') }}, ' +
-                '{{ $cfg('city', 'г. БЕЛОРЕЧЕНСК') }}, ' +
-                '{{ $cfg('region', 'Краснодарский край') }}, ' +
-                '{{ $cfg('index', '352631') }}', {
+                '{{ bxCfg('bx.street') }}, ' +
+                '{{ bxCfg('bx.city') }}, ' +
+                '{{ bxCfg('bx.region') }}, ' +
+                '{{ bxCfg('bx.index') }}', {
 
                 results: 1
 
@@ -72,7 +72,7 @@
 
                 // Создает метку в центре Москвы
                 var placemark = new ymaps.Placemark(coords,  {
-                    balloonContent: '{{ $cfg('name', config('app.name', 'bavix')) }}'
+                    balloonContent: '{{ bxCfg('app.name') }}'
                 }, {
                     preset: 'islands#governmentCircleIcon',
                     iconColor: '#3d6277',

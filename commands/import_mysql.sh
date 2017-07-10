@@ -4,4 +4,3 @@ cd ..
 ./artisan scout:mysql-index "App\Models\PageModel"
 ./artisan scout:mysql-index "App\Models\PollModel"
 ./artisan scout:mysql-index "App\Models\NewModel"
-cd -
