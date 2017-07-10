@@ -40,66 +40,66 @@ class TestSeeder extends Seeder
 
         /* `sot1`.`albums_images` */
         $albums_images = array(
-            array('id' => '1','album_model_id' => '2','image_model_id' => '24'),
-            array('id' => '2','album_model_id' => '2','image_model_id' => '25'),
-            array('id' => '3','album_model_id' => '2','image_model_id' => '26'),
-            array('id' => '4','album_model_id' => '2','image_model_id' => '27'),
-            array('id' => '5','album_model_id' => '2','image_model_id' => '28'),
-            array('id' => '6','album_model_id' => '2','image_model_id' => '29'),
-            array('id' => '7','album_model_id' => '2','image_model_id' => '30'),
-            array('id' => '8','album_model_id' => '2','image_model_id' => '31'),
-            array('id' => '9','album_model_id' => '2','image_model_id' => '32'),
-            array('id' => '10','album_model_id' => '2','image_model_id' => '33'),
-            array('id' => '11','album_model_id' => '2','image_model_id' => '34'),
-            array('id' => '12','album_model_id' => '2','image_model_id' => '35'),
-            array('id' => '13','album_model_id' => '2','image_model_id' => '36'),
-            array('id' => '14','album_model_id' => '2','image_model_id' => '37'),
-            array('id' => '15','album_model_id' => '2','image_model_id' => '38'),
-            array('id' => '16','album_model_id' => '2','image_model_id' => '39'),
-            array('id' => '17','album_model_id' => '2','image_model_id' => '40'),
-            array('id' => '18','album_model_id' => '2','image_model_id' => '41'),
-            array('id' => '19','album_model_id' => '2','image_model_id' => '42'),
-            array('id' => '20','album_model_id' => '2','image_model_id' => '43'),
-            array('id' => '21','album_model_id' => '2','image_model_id' => '44'),
-            array('id' => '22','album_model_id' => '2','image_model_id' => '45'),
-            array('id' => '23','album_model_id' => '2','image_model_id' => '46'),
-            array('id' => '24','album_model_id' => '2','image_model_id' => '47'),
-            array('id' => '25','album_model_id' => '2','image_model_id' => '48'),
-            array('id' => '26','album_model_id' => '2','image_model_id' => '49'),
-            array('id' => '27','album_model_id' => '2','image_model_id' => '50'),
-            array('id' => '28','album_model_id' => '2','image_model_id' => '51'),
-            array('id' => '29','album_model_id' => '2','image_model_id' => '52'),
-            array('id' => '30','album_model_id' => '2','image_model_id' => '53'),
-            array('id' => '31','album_model_id' => '2','image_model_id' => '54'),
-            array('id' => '32','album_model_id' => '2','image_model_id' => '55'),
-            array('id' => '33','album_model_id' => '2','image_model_id' => '56'),
-            array('id' => '34','album_model_id' => '2','image_model_id' => '57'),
-            array('id' => '35','album_model_id' => '2','image_model_id' => '58'),
-            array('id' => '36','album_model_id' => '2','image_model_id' => '59'),
-            array('id' => '37','album_model_id' => '2','image_model_id' => '60'),
-            array('id' => '38','album_model_id' => '2','image_model_id' => '61'),
-            array('id' => '39','album_model_id' => '2','image_model_id' => '62'),
-            array('id' => '40','album_model_id' => '1','image_model_id' => '63'),
-            array('id' => '41','album_model_id' => '1','image_model_id' => '64'),
-            array('id' => '42','album_model_id' => '1','image_model_id' => '65'),
-            array('id' => '43','album_model_id' => '1','image_model_id' => '66'),
-            array('id' => '44','album_model_id' => '1','image_model_id' => '67'),
-            array('id' => '45','album_model_id' => '1','image_model_id' => '68'),
-            array('id' => '46','album_model_id' => '1','image_model_id' => '69'),
-            array('id' => '47','album_model_id' => '1','image_model_id' => '70'),
-            array('id' => '48','album_model_id' => '1','image_model_id' => '71'),
-            array('id' => '49','album_model_id' => '1','image_model_id' => '72'),
-            array('id' => '50','album_model_id' => '1','image_model_id' => '73'),
-            array('id' => '51','album_model_id' => '1','image_model_id' => '74'),
-            array('id' => '52','album_model_id' => '1','image_model_id' => '75'),
-            array('id' => '53','album_model_id' => '1','image_model_id' => '76'),
-            array('id' => '54','album_model_id' => '1','image_model_id' => '77'),
-            array('id' => '55','album_model_id' => '1','image_model_id' => '78'),
-            array('id' => '56','album_model_id' => '1','image_model_id' => '79'),
-            array('id' => '57','album_model_id' => '1','image_model_id' => '80'),
-            array('id' => '58','album_model_id' => '1','image_model_id' => '81'),
-            array('id' => '59','album_model_id' => '1','image_model_id' => '82'),
-            array('id' => '60','album_model_id' => '1','image_model_id' => '83')
+            array('id' => '1','album_id' => '2','image_id' => '24'),
+            array('id' => '2','album_id' => '2','image_id' => '25'),
+            array('id' => '3','album_id' => '2','image_id' => '26'),
+            array('id' => '4','album_id' => '2','image_id' => '27'),
+            array('id' => '5','album_id' => '2','image_id' => '28'),
+            array('id' => '6','album_id' => '2','image_id' => '29'),
+            array('id' => '7','album_id' => '2','image_id' => '30'),
+            array('id' => '8','album_id' => '2','image_id' => '31'),
+            array('id' => '9','album_id' => '2','image_id' => '32'),
+            array('id' => '10','album_id' => '2','image_id' => '33'),
+            array('id' => '11','album_id' => '2','image_id' => '34'),
+            array('id' => '12','album_id' => '2','image_id' => '35'),
+            array('id' => '13','album_id' => '2','image_id' => '36'),
+            array('id' => '14','album_id' => '2','image_id' => '37'),
+            array('id' => '15','album_id' => '2','image_id' => '38'),
+            array('id' => '16','album_id' => '2','image_id' => '39'),
+            array('id' => '17','album_id' => '2','image_id' => '40'),
+            array('id' => '18','album_id' => '2','image_id' => '41'),
+            array('id' => '19','album_id' => '2','image_id' => '42'),
+            array('id' => '20','album_id' => '2','image_id' => '43'),
+            array('id' => '21','album_id' => '2','image_id' => '44'),
+            array('id' => '22','album_id' => '2','image_id' => '45'),
+            array('id' => '23','album_id' => '2','image_id' => '46'),
+            array('id' => '24','album_id' => '2','image_id' => '47'),
+            array('id' => '25','album_id' => '2','image_id' => '48'),
+            array('id' => '26','album_id' => '2','image_id' => '49'),
+            array('id' => '27','album_id' => '2','image_id' => '50'),
+            array('id' => '28','album_id' => '2','image_id' => '51'),
+            array('id' => '29','album_id' => '2','image_id' => '52'),
+            array('id' => '30','album_id' => '2','image_id' => '53'),
+            array('id' => '31','album_id' => '2','image_id' => '54'),
+            array('id' => '32','album_id' => '2','image_id' => '55'),
+            array('id' => '33','album_id' => '2','image_id' => '56'),
+            array('id' => '34','album_id' => '2','image_id' => '57'),
+            array('id' => '35','album_id' => '2','image_id' => '58'),
+            array('id' => '36','album_id' => '2','image_id' => '59'),
+            array('id' => '37','album_id' => '2','image_id' => '60'),
+            array('id' => '38','album_id' => '2','image_id' => '61'),
+            array('id' => '39','album_id' => '2','image_id' => '62'),
+            array('id' => '40','album_id' => '1','image_id' => '63'),
+            array('id' => '41','album_id' => '1','image_id' => '64'),
+            array('id' => '42','album_id' => '1','image_id' => '65'),
+            array('id' => '43','album_id' => '1','image_id' => '66'),
+            array('id' => '44','album_id' => '1','image_id' => '67'),
+            array('id' => '45','album_id' => '1','image_id' => '68'),
+            array('id' => '46','album_id' => '1','image_id' => '69'),
+            array('id' => '47','album_id' => '1','image_id' => '70'),
+            array('id' => '48','album_id' => '1','image_id' => '71'),
+            array('id' => '49','album_id' => '1','image_id' => '72'),
+            array('id' => '50','album_id' => '1','image_id' => '73'),
+            array('id' => '51','album_id' => '1','image_id' => '74'),
+            array('id' => '52','album_id' => '1','image_id' => '75'),
+            array('id' => '53','album_id' => '1','image_id' => '76'),
+            array('id' => '54','album_id' => '1','image_id' => '77'),
+            array('id' => '55','album_id' => '1','image_id' => '78'),
+            array('id' => '56','album_id' => '1','image_id' => '79'),
+            array('id' => '57','album_id' => '1','image_id' => '80'),
+            array('id' => '58','album_id' => '1','image_id' => '81'),
+            array('id' => '59','album_id' => '1','image_id' => '82'),
+            array('id' => '60','album_id' => '1','image_id' => '83')
         );
 
         $this->seed('albums_images', $albums_images);
@@ -266,8 +266,8 @@ class TestSeeder extends Seeder
 
         $this->seed('links', $links);
 
-        /* `sot1`.`news` */
-        $news = array(
+        /* `sot1`.`posts` */
+        $posts = array(
             array('id' => '1','title' => 'Используем Cake для сборки C# кода','description' => 'Cake — это кроссплатформенная система сборки, использующая DSL с синтаксисом C# для того, что осуществлять в процессе сборки такие вещи, как сборка бинарников из исходных кодов, копирование файлов, создание/очищение/удаление папок, архивация артефактов, упаковка nuget-пакетов, прогоны юнит-тестов и многое другое. Так же Cake имеет развитую систему аддонов (просто C# классы, зачастую упакованные в nuget). Стоит отметить, что большое количество полезных функций уже встроены в Cake, а еще больше, практически на все случаи жизни, написаны сообществом и довольно успешно распространяются.','content' => '<h1>Итак, что такое Cake?</h1>
 
 <p>&nbsp;</p>
@@ -567,7 +567,7 @@ RunTarget(&quot;Tests::Unit&quot;);</code></pre>
     CopyFiles(@&quot;..\\Solution\\MyProject\\bin\\&quot; + configuration + @&quot;\\*.pdb&quot;, artefactsDir);
     CopyFileToDirectory(@&quot;.\\Solution.nuspec&quot;, artefactsDir);
 
-    NuGetPack(new FilePath(artefactsDir + @&quot;\\Solution.nuspec&quot;), new NuGetPackSettings
+    NuGetPack(post FilePath(artefactsDir + @&quot;\\Solution.nuspec&quot;), post NuGetPackSettings
     {
         OutputDirectory = packageDir
     });
@@ -592,7 +592,7 @@ Task(&quot;Publish&quot;)
 .IsDependentOn(&quot;Pack&quot;)
 .Does(()=&gt; 
 {
-    NuGetPush(GetFiles(@&quot;..\\package\\*.nupkg&quot;).First(), new NuGetPushSettings {
+    NuGetPush(GetFiles(@&quot;..\\package\\*.nupkg&quot;).First(), post NuGetPushSettings {
         Source = &quot;https://www.nuget.org/api/v2&quot;,
         ApiKey = nugetApiKey
     });
@@ -634,7 +634,7 @@ Task(&quot;Publish&quot;)
 .WithCriteria(publishRemotely)
 .Does(()=&gt; 
 {
-    NuGetPush(GetFiles(@&quot;..\\package\\*.nupkg&quot;).First(), new NuGetPushSettings {
+    NuGetPush(GetFiles(@&quot;..\\package\\*.nupkg&quot;).First(), post NuGetPushSettings {
         Source = &quot;https://www.nuget.org/api/v2&quot;,
         ApiKey = nugetApiKey
     });
@@ -807,7 +807,7 @@ private function twitterPost ($message)
         $OAUTH_SECRET    = \'vGzYOtJkcx8PK96YcyUdXM6PtqmhGiVLmHOqCDHM2lkIq\';
 
 
-        $connection = new \\Abraham\\TwitterOAuth\\TwitterOAuth($CONSUMER_KEY, $CONSUMER_SECRET, $OAUTH_TOKEN, $OAUTH_SECRET);
+        $connection = post \\Abraham\\TwitterOAuth\\TwitterOAuth($CONSUMER_KEY, $CONSUMER_SECRET, $OAUTH_TOKEN, $OAUTH_SECRET);
 
         $statues = $connection-&gt;post("statuses/update", array("status" =&gt; $message));
 
@@ -1024,10 +1024,10 @@ private function twitterPost ($message)
 {
 
     // blocking file I/O
-    InputStream fileIs = new FileInputStream("/path/to/file");
+    InputStream fileIs = post FileInputStream("/path/to/file");
 
     // blocking network I/O
-    URLConnection urlConnection = (new URL("http://example.com/example-microservice")).openConnection();
+    URLConnection urlConnection = (post URL("http://example.com/example-microservice")).openConnection();
     InputStream netIs = urlConnection.getInputStream();
 
     // some more blocking network I/O
@@ -1291,45 +1291,45 @@ out.println("...");
             array('id' => '6','title' => 'asdasdasd','description' => 'asdasdasd','content' => '<p>asdasdasdasdasdasdasdasdasd</p>','image_id' => NULL,'category_id' => '2','active' => '0','created_at' => '2017-05-24 08:22:46','updated_at' => '2017-05-24 11:36:24')
         );
 
-        $this->seed('news', $news);
+        $this->seed('posts', $posts);
 
-        /* `sot1`.`news_documents` */
-        $news_documents = array(
-            array('id' => '1','new_model_id' => '4','document_model_id' => '1'),
-            array('id' => '2','new_model_id' => '4','document_model_id' => '2'),
-            array('id' => '3','new_model_id' => '4','document_model_id' => '3'),
-            array('id' => '4','new_model_id' => '4','document_model_id' => '4'),
-            array('id' => '5','new_model_id' => '4','document_model_id' => '5'),
-            array('id' => '6','new_model_id' => '4','document_model_id' => '6'),
-            array('id' => '7','new_model_id' => '4','document_model_id' => '7'),
-            array('id' => '8','new_model_id' => '4','document_model_id' => '8'),
-            array('id' => '9','new_model_id' => '4','document_model_id' => '9'),
-            array('id' => '10','new_model_id' => '4','document_model_id' => '10'),
-            array('id' => '11','new_model_id' => '4','document_model_id' => '11'),
-            array('id' => '12','new_model_id' => '4','document_model_id' => '12'),
-            array('id' => '13','new_model_id' => '4','document_model_id' => '13'),
-            array('id' => '16','new_model_id' => '4','document_model_id' => '14')
+        /* `sot1`.`posts_documents` */
+        $posts_documents = array(
+            array('id' => '1','post_id' => '4','document_id' => '1'),
+            array('id' => '2','post_id' => '4','document_id' => '2'),
+            array('id' => '3','post_id' => '4','document_id' => '3'),
+            array('id' => '4','post_id' => '4','document_id' => '4'),
+            array('id' => '5','post_id' => '4','document_id' => '5'),
+            array('id' => '6','post_id' => '4','document_id' => '6'),
+            array('id' => '7','post_id' => '4','document_id' => '7'),
+            array('id' => '8','post_id' => '4','document_id' => '8'),
+            array('id' => '9','post_id' => '4','document_id' => '9'),
+            array('id' => '10','post_id' => '4','document_id' => '10'),
+            array('id' => '11','post_id' => '4','document_id' => '11'),
+            array('id' => '12','post_id' => '4','document_id' => '12'),
+            array('id' => '13','post_id' => '4','document_id' => '13'),
+            array('id' => '16','post_id' => '4','document_id' => '14')
         );
 
-        $this->seed('news_documents', $news_documents);
+        $this->seed('posts_documents', $posts_documents);
 
-        /* `sot1`.`news_images` */
-        $news_images = array(
-            array('id' => '1','new_model_id' => '4','image_model_id' => '1'),
-            array('id' => '2','new_model_id' => '4','image_model_id' => '2'),
-            array('id' => '3','new_model_id' => '4','image_model_id' => '3'),
-            array('id' => '4','new_model_id' => '4','image_model_id' => '4'),
-            array('id' => '5','new_model_id' => '4','image_model_id' => '5'),
-            array('id' => '8','new_model_id' => '4','image_model_id' => '9'),
-            array('id' => '9','new_model_id' => '4','image_model_id' => '10'),
-            array('id' => '16','new_model_id' => '1','image_model_id' => '84'),
-            array('id' => '17','new_model_id' => '2','image_model_id' => '85'),
-            array('id' => '18','new_model_id' => '3','image_model_id' => '86'),
-            array('id' => '20','new_model_id' => '5','image_model_id' => '88'),
-            array('id' => '21','new_model_id' => '1','image_model_id' => '89')
+        /* `sot1`.`posts_images` */
+        $posts_images = array(
+            array('id' => '1','post_id' => '4','image_id' => '1'),
+            array('id' => '2','post_id' => '4','image_id' => '2'),
+            array('id' => '3','post_id' => '4','image_id' => '3'),
+            array('id' => '4','post_id' => '4','image_id' => '4'),
+            array('id' => '5','post_id' => '4','image_id' => '5'),
+            array('id' => '8','post_id' => '4','image_id' => '9'),
+            array('id' => '9','post_id' => '4','image_id' => '10'),
+            array('id' => '16','post_id' => '1','image_id' => '84'),
+            array('id' => '17','post_id' => '2','image_id' => '85'),
+            array('id' => '18','post_id' => '3','image_id' => '86'),
+            array('id' => '20','post_id' => '5','image_id' => '88'),
+            array('id' => '21','post_id' => '1','image_id' => '89')
         );
 
-        $this->seed('news_images', $news_images);
+        $this->seed('posts_images', $posts_images);
 
         /* `sot1`.`polls` */
         $polls = array(
