@@ -142,7 +142,7 @@
 
             <div class="col-lg-8">
 
-                @if (config('bavix.notify', false))
+                @if (config('bx.notify', false))
 
                     @if (notifies()->count())
                         <noindex>
@@ -388,7 +388,7 @@
                                     <!-- end {{ $counter->title }} -->
                                 @endforeach
                             @endif
-                            
+
                             <div>
                                 Гостей: {{ \App\Models\TrackerModel::hostCount() }}<br />
                                 Визитов: {{ \App\Models\TrackerModel::hitCount() }}<br />
@@ -545,7 +545,7 @@
         data-color="{{ visuallyColor() }}"
         data-font="{{ visuallyFont() }}"></script>
 
-@if (config('bavix.notify', false))
+@if (config('bx.notify', false))
     <script>
         $(function () {
             var $automatic = $('.alert.bx-automatic');
