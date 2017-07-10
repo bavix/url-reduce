@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\ImageModel;
+use App\Models\Image;
 use Bavix\Helpers\JSON;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
@@ -53,7 +53,7 @@ class GearmanCommand extends Command
         $worker->addFunction('resize', function (\GearmanJob $job) use ($console)
         {
             /**
-             * @var ImageModel $model
+             * @var Image $model
              */
             $model = unserialize($job->workload(), []);
 

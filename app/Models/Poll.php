@@ -6,7 +6,7 @@ use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
-class PollModel extends Model
+class Poll extends Model
 {
 
     use Searchable;
@@ -29,7 +29,7 @@ class PollModel extends Model
 
     public function questions()
     {
-        return $this->hasMany(QuestionModel::class, 'poll_id');
+        return $this->hasMany(Question::class, 'poll_id');
     }
 
     /**

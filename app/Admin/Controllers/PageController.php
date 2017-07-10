@@ -2,14 +2,14 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\PageModel;
+use App\Models\Page;
 
-class PageController extends NewController
+class PageController extends PostController
 {
 
     protected $category = false;
     protected $title    = 'Страницы';
-    protected $model    = PageModel::class;
+    protected $model    = Page::class;
 
     protected $mainPage = true;
 

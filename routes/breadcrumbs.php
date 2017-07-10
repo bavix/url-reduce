@@ -6,46 +6,46 @@ Breadcrumbs::register('home', function ($breadcrumbs)
     $breadcrumbs->push('Главная', route('home'));
 });
 
-// news
-Breadcrumbs::register('new', function ($breadcrumbs)
+// posts
+Breadcrumbs::register('post', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
 
-    $breadcrumbs->push('Новости', route('new'));
+    $breadcrumbs->push('Посты', route('post'));
 });
 
-Breadcrumbs::register('new.search', function ($breadcrumbs)
+Breadcrumbs::register('post.search', function ($breadcrumbs)
 {
-    $breadcrumbs->parent('new');
-    $breadcrumbs->push('Результат поиска', route('new.search'));
+    $breadcrumbs->parent('post');
+    $breadcrumbs->push('Результат поиска', route('post.search'));
 });
 
-Breadcrumbs::register('new.category', function ($breadcrumbs, $id = null)
+Breadcrumbs::register('post.category', function ($breadcrumbs, $id = null)
 {
-    $breadcrumbs->parent('new');
+    $breadcrumbs->parent('post');
 
     $categoryId = $id ?: request()->route()->parameter('id');
-    $category   = \App\Models\CategoryModel::query()->findOrFail($categoryId);
+    $category   = \App\Models\Category::query()->findOrFail($categoryId);
 
-    $breadcrumbs->push($category->title, route('new.category', [
+    $breadcrumbs->push($category->title, route('post.category', [
         $category->id,
         $category->title,
     ]));
 });
 
-Breadcrumbs::register('new.view', function ($breadcrumbs, $item)
+Breadcrumbs::register('post.view', function ($breadcrumbs, $item)
 {
-    $breadcrumbs->parent('new.category', $item->category_id);
-    $breadcrumbs->push($item->title, route('new.view', [
+    $breadcrumbs->parent('post.category', $item->category_id);
+    $breadcrumbs->push($item->title, route('post.view', [
         $item->id,
         $item->title
     ]));
 });
 
-Breadcrumbs::register('new.preview', function ($breadcrumbs, $item)
+Breadcrumbs::register('post.preview', function ($breadcrumbs, $item)
 {
-    $breadcrumbs->parent('new.category', $item->category_id);
-    $breadcrumbs->push('Черновик', route('new.preview', [
+    $breadcrumbs->parent('post.category', $item->category_id);
+    $breadcrumbs->push('Черновик', route('post.preview', [
         $item->id,
         $item->title
     ]));

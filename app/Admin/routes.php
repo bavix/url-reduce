@@ -47,8 +47,8 @@ Route::group([
     // categories
     $router->resource('/categories', \App\Admin\Controllers\CategoryController::class);
 
-    // news
-    $router->resource('/news', \App\Admin\Controllers\NewController::class);
+    // posts
+    $router->resource('/posts', \App\Admin\Controllers\PostController::class);
 
     // albums
     $router->resource('/albums', \App\Admin\Controllers\AlbumController::class);

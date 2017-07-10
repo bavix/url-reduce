@@ -110,8 +110,8 @@
 
             <div class="collapse navbar-collapse" id="navbarDefault">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item {{ activeClass(['new', 'new.view', 'new.category', 'new.search']) }}">
-                        <a class="nav-link" href="{{ route('new', [], false) }}">Новости <span class="sr-only">(current)</span></a>
+                    <li class="nav-item {{ activeClass(['post', 'post.view', 'post.category', 'post.search']) }}">
+                        <a class="nav-link" href="{{ route('post', [], false) }}">Посты <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item {{ activeClass(['page', 'page.view', 'page.search']) }}">
                         <a class="nav-link" href="{{ route('page', [], false) }}">Страницы</a>
@@ -390,9 +390,9 @@
                             @endif
 
                             <div>
-                                Гостей: {{ \App\Models\TrackerModel::hostCount() }}<br />
-                                Визитов: {{ \App\Models\TrackerModel::hitCount() }}<br />
-                                Онлайн всего: {{ \App\Models\TrackerModel::onlineCount() }}
+                                Гостей: {{ \App\Models\Tracker::hostCount() }}<br />
+                                Визитов: {{ \App\Models\Tracker::hitCount() }}<br />
+                                Онлайн всего: {{ \App\Models\Tracker::onlineCount() }}
                             </div>
 
                         </div>

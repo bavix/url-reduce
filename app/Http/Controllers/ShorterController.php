@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\QrModel;
+use App\Models\Qr;
 use Illuminate\Http\Request;
 
 class ShorterController extends Controller
@@ -10,7 +10,7 @@ class ShorterController extends Controller
 
     public function index(Request $request, $hash)
     {
-        $model = QrModel::findByHash($hash);
+        $model = Qr::findByHash($hash);
         abort_if($model === null, 404);
 
         header('Location: ' . $model->url, true, 301);

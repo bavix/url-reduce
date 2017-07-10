@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ConfigModel;
-use App\Models\CounterModel;
-use App\Models\LinkModel;
-use App\Models\PageModel;
-use App\Models\PollModel;
-use App\Models\TrackerModel;
+use App\Models\Config;
+use App\Models\Counter;
+use App\Models\Link;
+use App\Models\Page;
+use App\Models\Poll;
+use App\Models\Tracker;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -66,30 +66,30 @@ class Controller extends BaseController
     public function mergeData()
     {
 
-        TrackerModel::hit();
+        Tracker::hit();
 
         return [
 
-            'links' => LinkModel::query()
+            'links' => Link::query()
                 ->where('active', 1)
                 ->orderBy('id', 'desc')
 //                ->limit(5)
                 ->get(),
 
-            'pages' => PageModel::query()
+            'pages' => Page::query()
                 ->where('active', 1)
                 ->where('main_page', 0)
                 ->orderBy('id', 'desc')
                 ->limit(5)
                 ->get(),
 
-            'polls' => PollModel::query()
+            'polls' => Poll::query()
                 ->where('active', 1)
                 ->orderBy('id', 'desc')
                 ->limit(5)
                 ->get(),
 
-            'counters' => CounterModel::query()
+            'counters' => Counter::query()
                 ->where('active', 1)
                 ->get()
 

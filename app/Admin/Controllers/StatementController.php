@@ -4,10 +4,10 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Extensions\BtnPrint;
 use App\Http\Controllers\Controller;
-use App\Models\CategoryModel;
-use App\Models\NewModel;
-use App\Models\StatementModel;
-use App\Models\TypeModel;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\Statement;
+use App\Models\Type;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -22,11 +22,11 @@ class StatementController extends AdminController
 {
 
     protected $title = 'Подача заявлений';
-    protected $model = StatementModel::class;
+    protected $model = Statement::class;
 
     protected function doc(Request $request, $id)
     {
-        return view('docs.statement', StatementModel::with(['type'])->findOrFail($id));
+        return view('docs.statement', Statement::with(['type'])->findOrFail($id));
     }
 
     /**
@@ -72,7 +72,7 @@ class StatementController extends AdminController
             $form->display('id', 'ID');
 
             $form->select('type_id', 'Кружок')->options(
-                TypeModel::all(['id', 'title'])->pluck('title', 'id')->all()
+                Type::all(['id', 'title'])->pluck('title', 'id')->all()
             );
 
             $form->text('parent_name', 'ФИО (родитель)');

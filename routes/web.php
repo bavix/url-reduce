@@ -19,21 +19,21 @@ Route::domain($url)->group(function () {
     }
 });
 
-// news
-Route::paginate('/news', 'NewController@index')
-    ->name('new');
+// posts
+Route::paginate('/posts', 'PostController@index')
+    ->name('post');
 
-Route::paginate('/new/search/{query?}', 'NewController@search')
-    ->name('new.search');
+Route::paginate('/post/search/{query?}', 'PostController@search')
+    ->name('post.search');
 
-Route::get('/new/category/{id}-{title}', 'NewController@index')
-    ->name('new.category');
+Route::get('/post/category/{id}-{title}', 'PostController@index')
+    ->name('post.category');
 
-Route::get('/new/preview/{id}-{title}.html', 'NewController@preview')
-    ->name('new.preview');
+Route::get('/post/preview/{id}-{title}.html', 'PostController@preview')
+    ->name('post.preview');
 
-Route::get('/new/{id}-{title}.html', 'NewController@view')
-    ->name('new.view');
+Route::get('/post/{id}-{title}.html', 'PostController@view')
+    ->name('post.view');
 
 // pages
 Route::paginate('/pages', 'PageController@index')

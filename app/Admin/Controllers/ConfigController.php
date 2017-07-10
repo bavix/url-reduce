@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\ConfigModel;
+use App\Models\Config;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -17,7 +17,7 @@ class ConfigController extends AdminController
 {
 
     protected $title = 'Конфигурации';
-    protected $model = ConfigModel::class;
+    protected $model = Config::class;
 
     /**
      * Make a grid builder.

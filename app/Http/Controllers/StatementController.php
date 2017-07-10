@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\StatementModel;
-use App\Models\TypeModel;
+use App\Models\Statement;
+use App\Models\Type;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ class StatementController extends Controller
      */
     public function index(Request $request)
     {
-        $types = TypeModel::query()
+        $types = Type::query()
             ->where('active', 1)
             ->get();
 
@@ -44,7 +44,7 @@ class StatementController extends Controller
             return ['result' => false];
         }
 
-        $item = new StatementModel();
+        $item = new Statement();
 
         foreach ($data as $key => $value)
         {

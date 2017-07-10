@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AlbumModel;
-use App\Models\FeedbackModel;
-use App\Models\LinkModel;
-use App\Models\NewModel;
-use App\Models\PageModel;
-use App\Models\PollModel;
-use App\Models\StatementModel;
-use App\Models\TrackerModel;
+use App\Models\Album;
+use App\Models\Feedback;
+use App\Models\Link;
+use App\Models\Post;
+use App\Models\Page;
+use App\Models\Poll;
+use App\Models\Statement;
+use App\Models\Tracker;
 use Bavix\Helpers\JSON;
 use Intervention\Image\Facades\Image;
 use Intervention\Image\Imagick\Font;
@@ -19,10 +19,10 @@ class TrackerController extends Controller
 
     public function statistics()
     {
-        $graphHost = TrackerModel::graphHost()->pluck('res', 'month')
+        $graphHost = Tracker::graphHost()->pluck('res', 'month')
             ->toArray();
 
-        $graphHit = TrackerModel::graphHit()->pluck('res', 'month')
+        $graphHit = Tracker::graphHit()->pluck('res', 'month')
             ->toArray();
 
         return $this->render('tracker.statistics', [
@@ -35,28 +35,28 @@ class TrackerController extends Controller
             'chartDataHost' => JSON::encode(array_values($graphHost)),
             'chartDataHit'  => JSON::encode(array_values($graphHit)),
 
-            'newCount' => NewModel::query()
+            'newCount' => Post::query()
                 ->where('active', 1)
                 ->count(),
 
-            'pageCount' => PageModel::query()
+            'pageCount' => Page::query()
                 ->where('active', 1)
                 ->where('main_page', 0)
                 ->count(),
 
-            'albumCount' => AlbumModel::query()
+            'albumCount' => Album::query()
                 ->where('active', 1)
                 ->count(),
 
-            'linkCount' => LinkModel::query()
+            'linkCount' => Link::query()
                 ->where('active', 1)
                 ->count(),
 
-            'pollCount' => PollModel::query()
+            'pollCount' => Poll::query()
                 ->where('active', 1)
                 ->count(),
 
-            'statementCount' => StatementModel::query()->count(),
+            'statementCount' => Statement::query()->count(),
 
         ], $this->mergeData());
     }
@@ -68,21 +68,21 @@ class TrackerController extends Controller
          */
         $img = Image::canvas(88, 31, QRController::hex());
 
-        $img->text('hosts: ' . TrackerModel::hostAllCount(), 2, 9, function (Font $font)
+        $img->text('hosts: ' . Tracker::hostAllCount(), 2, 9, function (Font $font)
         {
             $font->file(config('tracker.font'));
             $font->size(9);
             $font->color('#fff');
         });
 
-        $img->text('hits: ' . TrackerModel::hitAllCount(), 2, 19, function (Font $font)
+        $img->text('hits: ' . Tracker::hitAllCount(), 2, 19, function (Font $font)
         {
             $font->file(config('tracker.font'));
             $font->size(9);
             $font->color('#fff');
         });
 
-        $img->text('online: ' . TrackerModel::onlineCount(), 2, 28, function (Font $font)
+        $img->text('online: ' . Tracker::onlineCount(), 2, 28, function (Font $font)
         {
             $font->file(config('tracker.font'));
             $font->size(9);

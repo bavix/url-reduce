@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 
-class TrackerModel extends Model
+class Tracker extends Model
 {
 
     protected $table      = 'trackers';

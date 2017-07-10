@@ -4,8 +4,8 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Extensions\LG\Trash;
 use App\Http\Controllers\Controller;
-use App\Models\AlbumModel;
-use App\Models\CounterModel;
+use App\Models\Album;
+use App\Models\Counter;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
 use App\Accessor\Form;
@@ -16,7 +16,7 @@ class CounterController extends AdminController
 {
 
     protected $title = 'Счётчики';
-    protected $model = CounterModel::class;
+    protected $model = Counter::class;
 
     /**
      * Make a grid builder.

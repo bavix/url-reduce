@@ -3,8 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\ConfigModel;
-use App\Models\NotifyModel;
+use App\Models\Config;
+use App\Models\Notify;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -18,7 +18,7 @@ class NotifyController extends AdminController
 {
 
     protected $title = 'Уведомления';
-    protected $model = NotifyModel::class;
+    protected $model = Notify::class;
 
     /**
      * Make a grid builder.

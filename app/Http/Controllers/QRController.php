@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ConfigModel;
-use App\Models\QrModel;
+use App\Models\Config;
+use App\Models\Qr;
 use Bavix\Helpers\Arr;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -42,7 +42,7 @@ class QRController extends Controller
 
     public function index(Request $request, $hash)
     {
-        $model = QrModel::findByHash($hash);
+        $model = Qr::findByHash($hash);
 
         abort_if($model === null, 404);
 

@@ -3,10 +3,10 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\CategoryModel;
-use App\Models\NewModel;
-use App\Models\PollModel;
-use App\Models\QuestionModel;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\Poll;
+use App\Models\Question;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -20,7 +20,7 @@ class PollController extends AdminController
 {
 
     protected $title = 'Опросы';
-    protected $model = PollModel::class;
+    protected $model = Poll::class;
 
     /**
      * Make a grid builder.

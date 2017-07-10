@@ -3,9 +3,9 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\CategoryModel;
-use App\Models\NewModel;
-use App\Models\TypeModel;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\Type;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -19,7 +19,7 @@ class TypeController extends AdminController
 {
 
     protected $title = 'Кружки';
-    protected $model = TypeModel::class;
+    protected $model = Type::class;
 
     /**
      * Make a grid builder.

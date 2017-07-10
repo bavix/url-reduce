@@ -183,7 +183,7 @@ if (!function_exists('qrModel'))
 
         $url = request()->url();
 
-        return \App\Models\QrModel::findByUrl($url);
+        return \App\Models\Qr::findByUrl($url);
     }
 }
 
@@ -213,7 +213,7 @@ if (!function_exists('notifies'))
 
         if (!$data)
         {
-            $data = \App\Models\NotifyModel::query()
+            $data = \App\Models\Notify::query()
                 ->where('active', 1)
                 ->whereNotIn('id', bx_cookie('notify', []))
                 ->orderBy('id', 'desc')
@@ -228,7 +228,7 @@ if (!function_exists('bxCfg'))
 {
     function bxCfg($name, $default = null)
     {
-        $cfg = [\App\Models\ConfigModel::class, 'getValue'];
+        $cfg = [\App\Models\Config::class, 'getValue'];
 
         return $cfg($name, config($name, $default));
     }

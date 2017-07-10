@@ -5,8 +5,8 @@ namespace App\Admin\Controllers;
 use App\Admin\Extensions\BtnPreview;
 use App\Admin\Extensions\LG\Trash;
 use App\Http\Controllers\Controller;
-use App\Models\CategoryModel;
-use App\Models\NewModel;
+use App\Models\Category;
+use App\Models\Post;
 use Bavix\Helpers\Str;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
@@ -14,12 +14,12 @@ use App\Accessor\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 
-class NewController extends AdminController
+class PostController extends AdminController
 {
 
     protected $category = true;
-    protected $title    = 'Новости';
-    protected $model    = NewModel::class;
+    protected $title    = 'Посты';
+    protected $model    = Post::class;
 
     protected $mainPage = false;
 
@@ -102,7 +102,7 @@ class NewController extends AdminController
             if ($this->category)
             {
                 $form->select('category_id', 'Категория')->options(
-                    CategoryModel::all('id', 'title')
+                    Category::all('id', 'title')
                         ->pluck('title', 'id')
                         ->all()
                 );

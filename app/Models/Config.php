@@ -5,7 +5,7 @@ namespace App\Models;
 use Encore\Admin\Auth\Database\Administrator;
 use Illuminate\Database\Eloquent\Model;
 
-class ConfigModel extends Model
+class Config extends Model
 {
 
     /**

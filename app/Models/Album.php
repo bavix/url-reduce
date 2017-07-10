@@ -7,7 +7,7 @@ use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
-class AlbumModel extends Model
+class Album extends Model
 {
 
     use Searchable;
@@ -27,7 +27,7 @@ class AlbumModel extends Model
 
     public function setPictureAttribute($picture, $toModel = true)
     {
-        $model      = new ImageModel();
+        $model      = new Image();
         $model->src = $picture;
         $model->save();
 
@@ -59,12 +59,12 @@ class AlbumModel extends Model
 
     public function image()
     {
-        return $this->belongsTo(ImageModel::class);
+        return $this->belongsTo(Image::class);
     }
 
     public function gallery()
     {
-        return $this->belongsToMany(ImageModel::class, $this->table . '_images');
+        return $this->belongsToMany(Image::class, $this->table . '_images');
     }
 
     /**

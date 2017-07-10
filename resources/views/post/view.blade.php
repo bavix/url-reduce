@@ -28,7 +28,7 @@
                     <hr class="if-visually" />
 
                     <span class="if-visually float-right badge badge-default">
-                        <small>Просмотров: {{ \App\Models\TrackerModel::visits() }}</small>
+                        <small>Просмотров: {{ \App\Models\Tracker::visits() }}</small>
                     </span>
 
                     <span class="if-visually float-left badge badge-primary">

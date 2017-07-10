@@ -4,8 +4,8 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Extensions\LG\Trash;
 use App\Http\Controllers\Controller;
-use App\Models\AlbumModel;
-use App\Models\TrackerModel;
+use App\Models\Album;
+use App\Models\Tracker;
 use Bavix\Helpers\JSON;
 use Encore\Admin\Controllers\ModelForm;
 use App\Facades\Admin;
@@ -18,7 +18,7 @@ class TrackerController extends AdminController
 {
 
     protected $title = 'Трекер';
-    protected $model = TrackerModel::class;
+    protected $model = Tracker::class;
 
     /**
      * Make a grid builder.
