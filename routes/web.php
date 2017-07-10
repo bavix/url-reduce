@@ -133,11 +133,10 @@ if (env('APP_DEBUG'))
         ->name('debug');
 }
 
-Auth::routes();
+if (bxCfg('bx.auth'))
+{
+    Auth::routes();
 
-// todo
-Route::get('/user', 'UserController@index')->name('user');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+    // todo
+    Route::get('/user', 'UserController@index')->name('user');
+}
