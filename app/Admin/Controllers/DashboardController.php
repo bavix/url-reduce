@@ -30,7 +30,7 @@ class DashboardController extends Controller
 
                 $row->column(2, new InfoBox('Подача заявлений', 'users', 'aqua', '/cp/statements', Statement::query()->count()));
 
-                $row->column(2, new InfoBox('Новости', 'newspaper-o', 'yellow', '/cp/posts', Post::query()->count()));
+                $row->column(2, new InfoBox('Посты', 'newspaper-o', 'yellow', '/cp/posts', Post::query()->count()));
 
                 $row->column(2, new InfoBox('Обратная связь', 'hashtag', 'red', '/cp/feedback', Feedback::query()->count()));
 

@@ -11,7 +11,7 @@ Breadcrumbs::register('post', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
 
-    $breadcrumbs->push('Новости', route('post'));
+    $breadcrumbs->push('Посты', route('post'));
 });
 
 Breadcrumbs::register('post.search', function ($breadcrumbs)

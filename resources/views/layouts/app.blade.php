@@ -111,7 +111,7 @@
             <div class="collapse navbar-collapse" id="navbarDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {{ activeClass(['post', 'post.view', 'post.category', 'post.search']) }}">
-                        <a class="nav-link" href="{{ route('post', [], false) }}">Новости <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('post', [], false) }}">Посты <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item {{ activeClass(['page', 'page.view', 'page.search']) }}">
                         <a class="nav-link" href="{{ route('page', [], false) }}">Страницы</a>

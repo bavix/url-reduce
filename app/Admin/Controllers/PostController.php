@@ -18,7 +18,7 @@ class PostController extends AdminController
 {
 
     protected $category = true;
-    protected $title    = 'Новости';
+    protected $title    = 'Посты';
     protected $model    = Post::class;
 
     protected $mainPage = false;

@@ -32,7 +32,7 @@ class AdminMenuTableSeeder extends Seeder
             array('id' => '16','parent_id' => '12','order' => '9','title' => 'Категории','icon' => 'fa-hashtag','uri' => '/categories','created_at' => NULL,'updated_at' => NULL),
             array('id' => '17','parent_id' => '15','order' => '5','title' => 'Кружки','icon' => 'fa-child','uri' => '/types','created_at' => NULL,'updated_at' => NULL),
             array('id' => '18','parent_id' => '15','order' => '4','title' => 'Заявления','icon' => 'fa-user-plus','uri' => '/statements','created_at' => NULL,'updated_at' => NULL),
-            array('id' => '19','parent_id' => '12','order' => '8','title' => 'Новости','icon' => 'fa-newspaper-o','uri' => '/news','created_at' => NULL,'updated_at' => NULL),
+            array('id' => '19','parent_id' => '12','order' => '8','title' => 'Посты','icon' => 'fa-newspaper-o','uri' => '/news','created_at' => NULL,'updated_at' => NULL),
             array('id' => '20','parent_id' => '0','order' => '2','title' => 'Ссылки','icon' => 'fa-link','uri' => '/links','created_at' => NULL,'updated_at' => NULL),
             array('id' => '21','parent_id' => '14','order' => '12','title' => 'Опросы','icon' => 'fa-area-chart','uri' => '/polls','created_at' => NULL,'updated_at' => NULL),
             array('id' => '22','parent_id' => '14','order' => '13','title' => 'Вопросы','icon' => 'fa-question-circle','uri' => '/questions','created_at' => NULL,'updated_at' => NULL),

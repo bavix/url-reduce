@@ -15,8 +15,8 @@ class PostController extends Controller
     protected $withModel   = ['image', 'category'];
     protected $isCategory  = true;
     protected $route       = 'post';
-    protected $title       = 'Новости';
-    protected $description = 'Список новостей';
+    protected $title       = 'Посты';
+    protected $description = 'Список постов';
 
     protected $mainPage = false;
     protected $preview  = false;

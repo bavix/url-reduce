@@ -50,7 +50,7 @@
                     <table class="table table-striped">
                         <tbody>
                             <tr>
-                                <td>Всего новостей</td>
+                                <td>Всего постов</td>
                                 <td class="text-right">{{ $newCount }}</td>
                             </tr>
                             <tr>
