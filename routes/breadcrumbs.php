@@ -6,6 +6,19 @@ Breadcrumbs::register('home', function ($breadcrumbs)
     $breadcrumbs->push('Главная', route('home'));
 });
 
+Breadcrumbs::register('login', function ($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Авторизация', route('login'));
+});
+
+Breadcrumbs::register('register', function ($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Регистрация', route('register'));
+});
+
+
 // posts
 Breadcrumbs::register('post', function ($breadcrumbs)
 {

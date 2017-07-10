@@ -132,3 +132,12 @@ if (env('APP_DEBUG'))
     Route::get('/debug', 'DebugController@index')
         ->name('debug');
 }
+
+Auth::routes();
+
+// todo
+Route::get('/user', 'UserController@index')->name('user');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

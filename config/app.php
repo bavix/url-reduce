@@ -198,6 +198,9 @@ return [
         ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
         DamianTW\MySQLScout\Providers\MySQLScoutServiceProvider::class,
 
+        // passport
+        Laravel\Passport\PassportServiceProvider::class,
+
     ],
 
     /*
