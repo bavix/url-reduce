@@ -24,7 +24,7 @@ Route::get('v1/{model}', function (Request $request, $model)
 
     $preload = $request->query('preload', []);
 
-    $search   = $request->query('search');
+    $search = $request->query('search');
 
     $terms   = $request->query('terms', []);
     $greater = $request->query('greater', []);
@@ -36,7 +36,7 @@ Route::get('v1/{model}', function (Request $request, $model)
 
     if ($search && method_exists($model, 'search'))
     {
-        $object = $model::search($search);
+        $object      = $model::search($search);
         $withPreload = true;
     }
     else

@@ -68,6 +68,8 @@ class FeedbackController extends AdminController
 
             $form->display('id', 'ID');
 
+            $form->text('name', 'Имя');
+
             $form->text('communication', 'Обратная связь');
 
             $form->textarea('content', 'Текст');
