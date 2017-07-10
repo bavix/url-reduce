@@ -20,7 +20,11 @@ use Illuminate\Http\Request;
 Route::get('v1/{model}', function (Request $request, $model)
 {
 
+    $withPreload = false;
+
     $preload = $request->query('preload', []);
+
+    $query   = $request->query('query');
 
     $terms   = $request->query('terms', []);
     $greater = $request->query('greater', []);
@@ -30,7 +34,15 @@ Route::get('v1/{model}', function (Request $request, $model)
     $model = strtolower($model);
     $model = '\\App\\Models\\' . ucfirst($model) . 'Model';
 
-    $object = $model::with($preload);
+    if ($query && method_exists($model, 'search'))
+    {
+        $object = $model::search($query);
+        $withPreload = true;
+    }
+    else
+    {
+        $object = $model::with($preload);
+    }
 
     foreach ($terms as $column => $value)
     {
@@ -52,6 +64,12 @@ Route::get('v1/{model}', function (Request $request, $model)
         $object->orderBy($column, $direction);
     }
 
-    return $object->paginate(50);
+    $paginate = $object->paginate(50);
 
+    if ($withPreload)
+    {
+        $paginate->load($preload);
+    }
+
+    return $paginate;
 });
