@@ -133,7 +133,7 @@ if (env('APP_DEBUG'))
         ->name('debug');
 }
 
-if (bxCfg('bx.auth'))
+if (config('bx.auth'))
 {
     Auth::routes();
 
