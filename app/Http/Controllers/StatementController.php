@@ -25,8 +25,8 @@ class StatementController extends Controller
 
         return view('statement.index', [
             'types'       => $types,
-            'title'       => 'Подать заявление',
-            'description' => 'Подать заявление'
+            'title'       => __('blocks.statement'),
+            'description' => __('blocks.statement')
         ], $this->mergeData());
     }
 

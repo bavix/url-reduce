@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1>Статистика</h1>
+                    <h1>{{ __('blocks.statistics') }}</h1>
                 </div>
 
                 <div class="panel-body">

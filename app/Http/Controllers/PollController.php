@@ -12,8 +12,8 @@ class PollController extends AlbumController
     protected $model       = Poll::class;
     protected $withModel   = [];
     protected $route       = 'poll';
-    protected $title       = 'Опросы';
-    protected $description = 'Список опросов';
+    protected $title       = 'blocks.polls';
+    protected $description = 'blocks.listPolls';
 
     /**
      * Show the application dashboard.

@@ -12,7 +12,7 @@ class AlbumController extends PostController
     protected $withModel   = ['image'];
     protected $isCategory  = false;
     protected $route       = 'album';
-    protected $title       = 'Альбомы';
-    protected $description = 'Список альбомов';
+    protected $title       = 'blocks.albums';
+    protected $description = 'blocks.listAlbums';
 
 }

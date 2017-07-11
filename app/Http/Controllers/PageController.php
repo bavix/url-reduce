@@ -10,8 +10,8 @@ class PageController extends AlbumController
 
     protected $model       = Page::class;
     protected $route       = 'page';
-    protected $title       = 'Страницы';
-    protected $description = 'Список страниц';
+    protected $title       = 'blocks.pages';
+    protected $description = 'blocks.listPages';
 
     protected $mainPage = true;
 

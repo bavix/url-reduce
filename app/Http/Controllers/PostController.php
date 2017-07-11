@@ -15,19 +15,25 @@ class PostController extends Controller
     protected $withModel   = ['image', 'category'];
     protected $isCategory  = true;
     protected $route       = 'post';
-    protected $title       = 'Посты';
-    protected $description = 'Список постов';
+    protected $title       = 'blocks.posts';
+    protected $description = 'blocks.listPosts';
 
     protected $mainPage = false;
     protected $draft  = false;
 
     protected $query;
 
+    /**
+     * @param Request $request
+     * @param string  $query
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     */
     public function search(Request $request, $query = null)
     {
         if ($query === null)
         {
-            $query = $request->query('query');
+            $query = (string)$request->query('query');
 
             abort_if($query === null, 400);
 

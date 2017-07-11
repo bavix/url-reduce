@@ -19,6 +19,7 @@ return [
     'polls'     => __('breadcrumbs.polls'),
     'albums'    => __('breadcrumbs.albums'),
     'statement' => __('breadcrumbs.statement'),
+    'statistics' => __('breadcrumbs.statistics'),
     'feedback'  => __('breadcrumbs.feedback'),
 
     'submit' => 'Submit',

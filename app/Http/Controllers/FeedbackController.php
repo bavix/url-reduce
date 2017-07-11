@@ -18,8 +18,8 @@ class FeedbackController extends Controller
     public function index(Request $request)
     {
         return view('feedback.index', [
-            'title'       => 'Обратная связь',
-            'description' => 'Обратная связь'
+            'title'       => __('blocks.feedback'),
+            'description' => __('blocks.feedback')
         ], $this->mergeData());
     }
 

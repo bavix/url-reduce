@@ -11,6 +11,7 @@ return [
     'albums'    => 'Albums',
     'polls'     => 'Polls',
     'statement' => 'Statement',
+    'statistics' => 'Statistics',
     'feedback'  => 'Feedback',
     'search'    => 'Search Results',
 ];
