@@ -37,7 +37,7 @@ class Album extends Model
 
         if (!$toModel)
         {
-            $this->gallery()->save($model);
+            $this->images()->save($model);
 
             return;
         }
@@ -46,7 +46,7 @@ class Album extends Model
         $this->save();
     }
 
-    public function setImagesAttribute($pictures)
+    public function setGalleryAttribute($pictures)
     {
         if (is_array($pictures))
         {
@@ -62,7 +62,7 @@ class Album extends Model
         return $this->belongsTo(Image::class);
     }
 
-    public function gallery()
+    public function images()
     {
         return $this->belongsToMany(Image::class, $this->table . '_images');
     }

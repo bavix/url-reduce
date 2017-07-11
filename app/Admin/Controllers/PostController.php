@@ -108,9 +108,9 @@ class PostController extends AdminController
                 );
             }
 
-            $form->multipleImage('images', 'Галерея')->uniqueName();
+            $form->multipleImage('gallery', 'Галерея')->uniqueName();
             $form->lightGallery('pictures', '')->options([
-                'column' => 'gallery'
+                'column' => 'images'
             ]);
 
             $form->multipleFile('documents', 'Документы')

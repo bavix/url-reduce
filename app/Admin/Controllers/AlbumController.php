@@ -68,9 +68,9 @@ class AlbumController extends AdminController
             $form->image('picture', 'Изображение')->uniqueName();
             $form->logo('logo', '');
 
-            $form->multipleImage('images', 'Галерея')->uniqueName();
+            $form->multipleImage('gallery', 'Галерея')->uniqueName();
             $form->lightGallery('pictures', '')->options([
-                'column' => 'gallery'
+                'column' => 'images'
             ]);
 
             $form->switch('active', 'Видимость');
