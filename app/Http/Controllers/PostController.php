@@ -60,6 +60,7 @@ class PostController extends Controller
 
         $name  = $request->route()->getName();
         $model = $this->model;
+        $this->title = __($this->title);
 
         /**
          * @var \Illuminate\Database\Eloquent\Builder $query
@@ -75,6 +76,8 @@ class PostController extends Controller
             \abort_if($category === null, 404);
 
             $query->where('category_id', $id);
+
+            $this->title = $category->title . ' / ' . $this->title;
 
             if ($request->url() !== $category->url())
             {
@@ -95,7 +98,7 @@ class PostController extends Controller
 
         return view('post.index', [
             'items'       => $paginate,
-            'title'       => __($this->title),
+            'title'       => $this->title,
             'description' => __($this->description),
             // todo
             'message'     => __('blocks.empty', [
@@ -146,7 +149,7 @@ class PostController extends Controller
 
         return view('post.view', [
             'item'        => $model,
-            'title'       => $model->title . ' - ' . $this->title,
+            'title'       => $model->title . ' / ' . $model->category->title . ' / ' . __($this->title),
             'description' => $model->description ?? ''
         ], $this->mergeData());
     }

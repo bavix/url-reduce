@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @php($fullTitle = bxCfg('app.name'))
     @if(isset($title))
-        @php($fullTitle = $title . ' - ' . $fullTitle)
+        @php($fullTitle = $title . ' / ' . $fullTitle)
     @endif
 
     <title>{{ $fullTitle }}</title>
