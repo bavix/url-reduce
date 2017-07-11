@@ -29,8 +29,8 @@ Route::paginate('/post/search/{query?}', 'PostController@search')
 Route::get('/post/category/{id}-{title}', 'PostController@index')
     ->name('post.category');
 
-Route::get('/post/preview/{id}-{title}.html', 'PostController@preview')
-    ->name('post.preview');
+Route::get('/post/draft/{id}-{title}.html', 'PostController@draft')
+    ->name('post.draft');
 
 Route::get('/post/{id}-{title}.html', 'PostController@view')
     ->name('post.view');
@@ -42,8 +42,8 @@ Route::paginate('/pages', 'PageController@index')
 Route::paginate('/page/search/{query?}', 'PageController@search')
     ->name('page.search');
 
-Route::get('/page/preview/{id}-{title}.html', 'PageController@preview')
-    ->name('page.preview');
+Route::get('/page/draft/{id}-{title}.html', 'PageController@draft')
+    ->name('page.draft');
 
 Route::get('/page/{id}-{title}.html', 'PageController@view')
     ->name('page.view');
@@ -55,8 +55,8 @@ Route::paginate('/polls', 'PollController@index')
 Route::paginate('/poll/search/{query?}', 'PollController@search')
     ->name('poll.search');
 
-Route::get('/poll/preview/{id}-{title}.html', 'PollController@preview')
-    ->name('poll.preview');
+Route::get('/poll/draft/{id}-{title}.html', 'PollController@draft')
+    ->name('poll.draft');
 
 Route::get('/poll/{id}-{title}.html', 'PollController@view')
     ->name('poll.view');
@@ -71,8 +71,8 @@ Route::paginate('/albums', 'AlbumController@index')
 Route::paginate('/album/search/{query?}', 'AlbumController@search')
     ->name('album.search');
 
-Route::get('/album/preview/{id}-{title}.html', 'AlbumController@preview')
-    ->name('album.preview');
+Route::get('/album/draft/{id}-{title}.html', 'AlbumController@draft')
+    ->name('album.draft');
 
 Route::get('/album/{id}-{title}.html', 'AlbumController@view')
     ->name('album.view');

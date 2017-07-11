@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
          $this->call(AdminMenuTableSeeder::class);
          $this->call(NotifyTableSeeder::class);
+         $this->call(LanguageTableSeeder::class);
     }
 
 }

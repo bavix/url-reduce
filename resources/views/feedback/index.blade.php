@@ -4,35 +4,35 @@
     <article class="row">
         <div class="col-md-12">
 
-            <h1>Обратная связь</h1>
+            <h1>{{ __('blocks.feedback') }}</h1>
 
             <form method="POST">
 
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label for="name">Фамилия Имя Отчество</label>
+                    <label for="name">{{ __('blocks.lastName') }} {{ __('blocks.name') }} {{ __('blocks.middleName') }}</label>
                     <input required type="text" class="form-control" id="name" name="name" placeholder="Иванов Иван Иванович">
                 </div>
 
                 <div class="form-group">
-                    <label for="communication">Электронный адрес / Телефон / Адрес проживания</label>
+                    <label for="communication">{{ __('blocks.email') }} / {{  __('blocks.phone') }} / {{ __('blocks.residentialAddress') }}</label>
                     <input required type="text" class="form-control" id="communication" name="communication" placeholder="Поле обратной связи">
                 </div>
 
                 <div class="form-group">
-                    <label for="content">Текст</label>
+                    <label for="content">{{ __('blocks.text') }}</label>
                     <textarea required class="form-control" id="content" rows="9" name="content" placeholder="Введите текст"></textarea>
                 </div>
 
                 <div class="form-check">
                     <label class="form-check-label">
                         <input id="personal-data" type="checkbox" class="form-check-input" />
-                        Разрешить обработку персональных данных
+                        {{ __('blocks.allowProcessingPersonalInformation') }}
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-secondary" disabled data-personal>Отправить</button>
+                <button type="submit" class="btn btn-secondary" disabled data-personal>{{ __('blocks.submit') }}</button>
 
             </form>
 

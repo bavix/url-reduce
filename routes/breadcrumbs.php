@@ -3,19 +3,19 @@
 // home
 Breadcrumbs::register('home', function ($breadcrumbs)
 {
-    $breadcrumbs->push('Главная', route('home'));
+    $breadcrumbs->push(__('breadcrumbs.home'), route('home'));
 });
 
 Breadcrumbs::register('login', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Авторизация', route('login'));
+    $breadcrumbs->push(__('breadcrumbs.signIn'), route('login'));
 });
 
 Breadcrumbs::register('register', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Регистрация', route('register'));
+    $breadcrumbs->push(__('breadcrumbs.signUp'), route('register'));
 });
 
 
@@ -24,13 +24,13 @@ Breadcrumbs::register('post', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
 
-    $breadcrumbs->push('Посты', route('post'));
+    $breadcrumbs->push(__('breadcrumbs.posts'), route('post'));
 });
 
 Breadcrumbs::register('post.search', function ($breadcrumbs)
 {
     $breadcrumbs->parent('post');
-    $breadcrumbs->push('Результат поиска', route('post.search'));
+    $breadcrumbs->push(__('breadcrumbs.search'), route('post.search'));
 });
 
 Breadcrumbs::register('post.category', function ($breadcrumbs, $id = null)
@@ -55,10 +55,10 @@ Breadcrumbs::register('post.view', function ($breadcrumbs, $item)
     ]));
 });
 
-Breadcrumbs::register('post.preview', function ($breadcrumbs, $item)
+Breadcrumbs::register('post.draft', function ($breadcrumbs, $item)
 {
     $breadcrumbs->parent('post.category', $item->category_id);
-    $breadcrumbs->push('Черновик', route('post.preview', [
+    $breadcrumbs->push(__('breadcrumbs.draft'), route('post.draft', [
         $item->id,
         $item->title
     ]));
@@ -69,13 +69,13 @@ Breadcrumbs::register('page', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
 
-    $breadcrumbs->push('Страницы', route('page'));
+    $breadcrumbs->push(__('breadcrumbs.pages'), route('page'));
 });
 
 Breadcrumbs::register('page.search', function ($breadcrumbs)
 {
     $breadcrumbs->parent('page');
-    $breadcrumbs->push('Результат поиска', route('page.search'));
+    $breadcrumbs->push(__('breadcrumbs.search'), route('page.search'));
 });
 
 Breadcrumbs::register('page.view', function ($breadcrumbs, $item)
@@ -87,10 +87,10 @@ Breadcrumbs::register('page.view', function ($breadcrumbs, $item)
     ]));
 });
 
-Breadcrumbs::register('page.preview', function ($breadcrumbs, $item)
+Breadcrumbs::register('page.draft', function ($breadcrumbs, $item)
 {
     $breadcrumbs->parent('page', $item->category_id);
-    $breadcrumbs->push('Черновик', route('page.preview', [
+    $breadcrumbs->push(__('breadcrumbs.draft'), route('page.draft', [
         $item->id,
         $item->title
     ]));
@@ -101,13 +101,13 @@ Breadcrumbs::register('album', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
 
-    $breadcrumbs->push('Альбомы', route('album'));
+    $breadcrumbs->push(__('breadcrumbs.albums'), route('album'));
 });
 
 Breadcrumbs::register('album.search', function ($breadcrumbs)
 {
     $breadcrumbs->parent('album');
-    $breadcrumbs->push('Результат поиска', route('album.search'));
+    $breadcrumbs->push(__('breadcrumbs.search'), route('album.search'));
 });
 
 Breadcrumbs::register('album.view', function ($breadcrumbs, $item)
@@ -119,10 +119,10 @@ Breadcrumbs::register('album.view', function ($breadcrumbs, $item)
     ]));
 });
 
-Breadcrumbs::register('album.preview', function ($breadcrumbs, $item)
+Breadcrumbs::register('album.draft', function ($breadcrumbs, $item)
 {
     $breadcrumbs->parent('album', $item->category_id);
-    $breadcrumbs->push('Черновик', route('album.preview', [
+    $breadcrumbs->push(__('breadcrumbs.draft'), route('album.draft', [
         $item->id,
         $item->title
     ]));
@@ -133,13 +133,13 @@ Breadcrumbs::register('poll', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
 
-    $breadcrumbs->push('Опросы', route('poll'));
+    $breadcrumbs->push(__('breadcrumbs.polls'), route('poll'));
 });
 
 Breadcrumbs::register('poll.search', function ($breadcrumbs)
 {
     $breadcrumbs->parent('poll');
-    $breadcrumbs->push('Результат поиска', route('poll.search'));
+    $breadcrumbs->push(__('breadcrumbs.search'), route('poll.search'));
 });
 
 Breadcrumbs::register('poll.view', function ($breadcrumbs, $item)
@@ -151,10 +151,10 @@ Breadcrumbs::register('poll.view', function ($breadcrumbs, $item)
     ]));
 });
 
-Breadcrumbs::register('poll.preview', function ($breadcrumbs, $item)
+Breadcrumbs::register('poll.draft', function ($breadcrumbs, $item)
 {
     $breadcrumbs->parent('poll', $item->category_id);
-    $breadcrumbs->push('Черновик', route('poll.preview', [
+    $breadcrumbs->push(__('breadcrumbs.draft'), route('poll.draft', [
         $item->id,
         $item->title
     ]));
@@ -165,7 +165,7 @@ Breadcrumbs::register('statement', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
 
-    $breadcrumbs->push('Подать заявление', route('statement'));
+    $breadcrumbs->push(__('breadcrumbs.statement'), route('statement'));
 });
 
 // feedback
@@ -173,7 +173,7 @@ Breadcrumbs::register('feedback', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
 
-    $breadcrumbs->push('Обратная связь', route('feedback'));
+    $breadcrumbs->push(__('breadcrumbs.feedback'), route('feedback'));
 });
 
 // contact
@@ -181,7 +181,7 @@ Breadcrumbs::register('contact', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
 
-    $breadcrumbs->push('Контакты', route('contact'));
+    $breadcrumbs->push(__('breadcrumbs.contact'), route('contact'));
 });
 
 // statistics
@@ -189,5 +189,5 @@ Breadcrumbs::register('statistics', function ($breadcrumbs)
 {
     $breadcrumbs->parent('home');
 
-    $breadcrumbs->push('Статистика', route('statistics'));
+    $breadcrumbs->push(__('breadcrumbs.statistics'), route('statistics'));
 });

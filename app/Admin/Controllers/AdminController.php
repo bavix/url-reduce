@@ -27,7 +27,6 @@ abstract class AdminController extends Controller
     {
         return Admin::content(function (Content $content)
         {
-
             $content->header($this->title);
 
             $content->body($this->grid());
@@ -45,7 +44,6 @@ abstract class AdminController extends Controller
     {
         return Admin::content(function (Content $content) use ($id)
         {
-
             $content->header($this->title);
 
             $content->body($this->form()->edit($id));

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Bavix\Helpers\JSON;
 use Encore\Admin\Auth\Database\Administrator;
 use Illuminate\Database\Eloquent\Model;
 
@@ -42,7 +43,7 @@ class Config extends Model
         {
             $model        = new static();
             $model->name  = $name;
-            $model->value = $value;
+            $model->value = JSON::encode($value);
 
             $model->save();
 
@@ -62,7 +63,8 @@ class Config extends Model
     {
         if (!static::$data)
         {
-            static::$data = static::all()->pluck('value', 'name');
+            static::$data = static::all()->pluck('value', 'name')
+                ->map([JSON::class, 'decode']);
         }
 
         return static::register($name, $default);

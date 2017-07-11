@@ -40,7 +40,7 @@ class AlbumController extends AdminController
 
             $grid->actions(function (Grid\Displayers\Actions $actions)
             {
-                $actions->append(new BtnPreview($actions->getKey(), 'album.preview'));
+                $actions->append(new BtnPreview($actions->getKey(), 'album.draft'));
             });
 
             $grid->exporter(new \App\Accessor\CsvExporter());

@@ -111,22 +111,22 @@
             <div class="collapse navbar-collapse" id="navbarDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {{ activeClass(['post', 'post.view', 'post.category', 'post.search']) }}">
-                        <a class="nav-link" href="{{ route('post', [], false) }}">Посты <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('post', [], false) }}">{{ __('blocks.posts') }} <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item {{ activeClass(['page', 'page.view', 'page.search']) }}">
-                        <a class="nav-link" href="{{ route('page', [], false) }}">Страницы</a>
+                        <a class="nav-link" href="{{ route('page', [], false) }}">{{ __('blocks.pages') }}</a>
                     </li>
                     <li class="nav-item {{ activeClass(['album', 'album.view', 'album.search']) }}">
-                        <a class="nav-link" href="{{ route('album', [], false) }}">Альбомы</a>
+                        <a class="nav-link" href="{{ route('album', [], false) }}">{{ __('blocks.albums') }}</a>
                     </li>
                     <li class="nav-item {{ activeClass(['poll', 'poll.view', 'poll.search']) }}">
-                        <a class="nav-link" href="{{ route('poll', [], false) }}">Опросы</a>
+                        <a class="nav-link" href="{{ route('poll', [], false) }}">{{ __('blocks.polls') }}</a>
                     </li>
                     <li class="nav-item {{ activeClass('statement') }}">
-                        <a class="nav-link" href="{{ route('statement', [], false) }}">Подать заявление</a>
+                        <a class="nav-link" href="{{ route('statement', [], false) }}">{{ __('blocks.statement') }}</a>
                     </li>
                     <li class="nav-item {{ activeClass('feedback') }}">
-                        <a class="nav-link" href="{{ route('feedback', [], false) }}">Обратная связь</a>
+                        <a class="nav-link" href="{{ route('feedback', [], false) }}">{{ __('blocks.feedback') }}</a>
                     </li>
                 </ul>
             </div>
@@ -173,10 +173,10 @@
                         <div class="input-group">
                             <input type="text" name="query"
                                    class="form-control"
-                                   placeholder="Поиск..."
+                                   placeholder="{{ __('blocks.search') }}"
                                    value="{{ $query ?? null }}" />
                             <span class="input-group-btn">
-                            <button class="btn btn-secondary" type="submit">Найти</button>
+                            <button class="btn btn-secondary" type="submit">{{ __('blocks.find') }}</button>
                           </span>
                         </div>
                     </form>
@@ -186,7 +186,7 @@
                     <div class="card">
                         <div class="card-block">
                             <h5 class="card-title">
-                                Документы
+                                {{ __('blocks.documents') }}
                                 <span class="badge badge-default float-right">{{ $item->files->count() }}</span>
                             </h5>
 
@@ -268,7 +268,7 @@
                 @if (empty($query) && $qrModel)
                     <div class="card no-visually">
                         <div class="card-block">
-                            <h5 class="card-title">Поделись страницей</h5>
+                            <h5 class="card-title">{{ __('blocks.pageShare') }}</h5>
 
                             <p>
                                 <img id="qr-image" width="100%" src="{{ $qrModel->qr() }}"
@@ -315,7 +315,7 @@
                     <div class="card">
                         <div class="card-block">
                             <h5 class="card-title">
-                                Опросы
+                                {{ __('blocks.polls') }}
                                 <span class="badge badge-default float-right">{{ $polls->count() }}</span>
                             </h5>
 
@@ -334,7 +334,7 @@
                     <div class="card">
                         <div class="card-block">
                             <h5 class="card-title">
-                                Страницы
+                                {{ __('blocks.pages') }}
                                 <span class="badge badge-default float-right">{{ $pages->count() }}</span>
                             </h5>
 
@@ -353,7 +353,7 @@
                     <div class="card">
                         <div class="card-block">
                             <h5 class="card-title">
-                                Ссылки
+                                {{ __('blocks.links') }}
                                 <span class="badge badge-default float-right">{{ $links->count() }}</span>
                             </h5>
 
@@ -370,14 +370,14 @@
 
                 <div class="card">
                     <div class="card-block">
-                        <h5 class="card-title">Счётчики посещений</h5>
+                        <h5 class="card-title">{{ __('blocks.counters') }}</h5>
 
                         <div class="card-text">
 
                             <a href="{{ route('statistics', [], false) }}"
                                title="Статистика">
-                                <img title="Счётчик посещений"
-                                     alt="Счётчик посещений"
+                                <img title="{{ __('blocks.counters') }}"
+                                     alt="{{ __('blocks.counters') }}"
                                      src="{{ route('tracker', [], false) }}"/>
                             </a>
 
@@ -431,7 +431,7 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="footer-pad">
                             @if(isset($pages))
-                                <h4>Последние страницы</h4>
+                                <h4>{{ __('blocks.lastPages') }}</h4>
                                 <ul class="list-unstyled">
                                     @foreach($pages as $page)
                                         <li>
@@ -446,7 +446,7 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="footer-pad">
                             @if(isset($polls))
-                                <h4>Последние опросы</h4>
+                                <h4>{{ __('blocks.lastPolls') }}</h4>
                                 <ul class="list-unstyled">
                                     @foreach($polls as $poll)
                                         <li>
@@ -461,7 +461,7 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="footer-pad">
                             <h4>
-                                <a href="{{ route('contact', [], false) }}" title="Контакты">Контакты</a>
+                                <a href="{{ route('contact', [], false) }}" title="Контакты">{{ __('blocks.contact') }}</a>
                             </h4>
                             <ul class="list-unstyled" itemscope itemtype="http://schema.org/Organization">
                                 <li class="space">

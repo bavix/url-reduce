@@ -19,7 +19,7 @@ class PostController extends Controller
     protected $description = 'Список постов';
 
     protected $mainPage = false;
-    protected $preview  = false;
+    protected $draft  = false;
 
     protected $query;
 
@@ -91,18 +91,19 @@ class PostController extends Controller
             'items'       => $paginate,
             'title'       => $this->title,
             'description' => $this->description,
-            'message'     => 'В разделе "' . $this->title . '" ничего не найдено!',
+            // todo
+            'message'     => __('blocks.empty', ['name' => $this->title]),
             'searchBar'   => true,
             'selfRoute'   => $this->route,
             'query'       => $this->query
         ], $this->mergeData());
     }
 
-    public function preview(Request $request, $id)
+    public function draft(Request $request, $id)
     {
         abort_if(!Auth::guard('admin')->user(), 404);
 
-        $this->preview = true;
+        $this->draft = true;
 
         return $this->view($request, $id);
     }
@@ -120,7 +121,7 @@ class PostController extends Controller
         $modelName = $this->model;
         $model     = $modelName::query();
 
-        if (!$this->preview)
+        if (!$this->draft)
         {
             $model->where('active', 1);
         }
@@ -129,7 +130,7 @@ class PostController extends Controller
 
         \abort_if(!$model, 404);
 
-        if (!$this->preview && $request->getPathInfo() !== '/' && $request->url() !== $model->url())
+        if (!$this->draft && $request->getPathInfo() !== '/' && $request->url() !== $model->url())
         {
             // seo
             return redirect($model->url(), 301);

@@ -63,11 +63,11 @@ class PostController extends AdminController
 
                 if ($self->category)
                 {
-                    $actions->append(new BtnPreview($actions->getKey(), 'post.preview'));
+                    $actions->append(new BtnPreview($actions->getKey(), 'post.draft'));
                 }
                 else
                 {
-                    $actions->append(new BtnPreview($actions->getKey(), 'page.preview'));
+                    $actions->append(new BtnPreview($actions->getKey(), 'page.draft'));
                 }
 
             });
