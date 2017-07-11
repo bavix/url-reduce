@@ -95,10 +95,12 @@ class PostController extends Controller
 
         return view('post.index', [
             'items'       => $paginate,
-            'title'       => $this->title,
-            'description' => $this->description,
+            'title'       => __($this->title),
+            'description' => __($this->description),
             // todo
-            'message'     => __('blocks.empty', ['name' => $this->title]),
+            'message'     => __('blocks.empty', [
+                'name' => __($this->title)
+            ]),
             'searchBar'   => true,
             'selfRoute'   => $this->route,
             'query'       => $this->query

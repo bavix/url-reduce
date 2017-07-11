@@ -22,6 +22,11 @@ return [
     'statistics' => __('breadcrumbs.statistics'),
     'feedback'  => __('breadcrumbs.feedback'),
 
+    'listPolls' => 'Polls list',
+    'listPosts' => 'Posts list',
+    'listPages' => 'Pages list',
+    'listAlbums' => 'Albums list',
+
     'submit' => 'Submit',
 
     'lastName' => 'Last name',
