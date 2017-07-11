@@ -35,20 +35,38 @@ if (!function_exists('activeClass'))
 
 }
 
+if (!function_exists('bx_decrypt'))
+{
+    function bx_decrypt($mixed)
+    {
+        try
+        {
+            return decrypt($mixed);
+        }
+        catch (\Throwable $throwable)
+        {
+            return $mixed;
+        }
+    }
+}
+
 if (!function_exists('bx_cookie'))
 {
     function bx_cookie($key, $default = null)
     {
         $data = Cookie::get($key, $default);
 
-        try
+        if (is_array($data))
         {
-            return Crypt::decrypt($data);
-        }
-        catch (\Throwable $throwable)
-        {
+            foreach ($data as $i => $value)
+            {
+                $data[$i] = bx_decrypt( $value );
+            }
+
             return $data;
         }
+
+        return bx_decrypt($data);
     }
 }
 

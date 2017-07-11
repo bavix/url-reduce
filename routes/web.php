@@ -132,3 +132,11 @@ if (env('APP_DEBUG'))
     Route::get('/debug', 'DebugController@index')
         ->name('debug');
 }
+
+if (config('bx.auth'))
+{
+    Auth::routes();
+
+    // todo
+    Route::get('/user', 'UserController@index')->name('user');
+}

@@ -15,4 +15,3 @@ composer upd
 ./artisan db:seed
 cd public
 npm i
-cd ..

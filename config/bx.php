@@ -5,6 +5,9 @@ return [
     // module notify enable
     'notify' => true,
 
+    // module auth is enable
+    'auth' => 1,
+
     // стиль
     'style'       => 'default',
 
