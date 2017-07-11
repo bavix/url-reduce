@@ -147,9 +147,16 @@ class PostController extends Controller
             return redirect($model->url(), 301);
         }
 
+        $category = '';
+
+        if (method_exists($model, 'category'))
+        {
+            $category = $model->category->title . ' / ';
+        }
+
         return view('post.view', [
             'item'        => $model,
-            'title'       => $model->title . ' / ' . $model->category->title . ' / ' . __($this->title),
+            'title'       => $model->title . ' / ' . $category . __($this->title),
             'description' => $model->description ?? ''
         ], $this->mergeData());
     }
