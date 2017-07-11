@@ -38,4 +38,10 @@ return [
     'residentialAddress' => 'Residential Address',
     'text' => 'Text',
     'allowProcessingPersonalInformation' => 'To allow processing of personal information',
+
+    'examples' => [
+        'fullNameField' => 'Ivanov Ivan Ivanovich',
+        'feedbackField' => 'Field of feedback',
+        'inputTextField' => 'Input text',
+    ],
 ];

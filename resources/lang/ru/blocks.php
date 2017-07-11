@@ -29,4 +29,10 @@ return [
     'residentialAddress' => 'Адрес проживания',
     'text' => 'Текст',
     'allowProcessingPersonalInformation' => 'Разрешить обработку персональных данных',
+
+    'examples' => [
+        'fullNameField' => 'Иванов Иван Иванович',
+        'feedbackField' => 'Поле обратной связи',
+        'inputTextField' => 'Введите текст',
+    ],
 ];
