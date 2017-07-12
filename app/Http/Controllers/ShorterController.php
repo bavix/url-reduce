@@ -49,7 +49,7 @@ class ShorterController extends Controller
             ];
         }
 
-        return $model;
+        return $model->setVisible(['hash']);
     }
 
     public function index(Request $request)

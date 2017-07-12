@@ -13,7 +13,10 @@ Route::get('/language', 'LanguageController@change')
 
 // seo
 Route::get('/s/{hash}', function (\Illuminate\Http\Request $request) {
-    return redirect(route('shorter', $request->route()->parameters()));
+    return redirect(
+        route('shorter', $request->route()->parameters()),
+        301
+    );
 });
 
 Route::get('/{hash}', 'ShorterController@hash')
