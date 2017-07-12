@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLinksTable extends Migration
+class CreateAnalyticsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,17 @@ class CreateLinksTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('links'))
+        if (!Schema::hasTable('analytics'))
         {
-            Schema::create('links', function (Blueprint $table)
+            Schema::create('analytics', function (Blueprint $table)
             {
                 $table->increments('id');
 
-                $table->char('hash', 5);
-                $table->string('url', 1600);
-
-                $table->boolean('deleted');
-                $table->boolean('fast_redirect');
+                $table->unsignedInteger('link_id');
+                $table->string('url_ref', 1600)->nullable();
 
                 $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'));
-
-                $table->timestamp('updated_at')
-                    ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             });
         }
     }
@@ -41,6 +35,6 @@ class CreateLinksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('links');
+        Schema::dropIfExists('analytics');
     }
 }

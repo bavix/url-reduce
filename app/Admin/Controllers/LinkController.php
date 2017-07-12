@@ -33,7 +33,8 @@ class LinkController extends AdminController
 
             $grid->id('ID')->sortable();
 
-            $grid->column('title', 'Название')->sortable();
+            $grid->column('url', 'URL')->sortable();
+            $grid->column('hash', 'Хэш')->sortable();
 
             $grid->exporter(new \App\Accessor\CsvExporter());
 
@@ -53,8 +54,8 @@ class LinkController extends AdminController
 
             $form->display('id', 'ID');
 
-            $form->text('title', 'Название');
-            $form->url('url', 'Ссылка');
+            $form->url('url', 'URL');
+            $form->text('hash', 'Хэш');
 
             $form->switch('active', 'Видимость');
 

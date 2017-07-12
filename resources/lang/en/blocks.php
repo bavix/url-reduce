@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'title'       => 'URL Shortener',
+    'description' => 'To reduce the reference!',
+
+    'placeholderInputURL' => 'Your original URL here',
+    'digitalOceanTech'    => 'We use DigitalOcean technologies',
+
+    'toMainPage'     => 'To main page',
+    'changeLanguage' => 'Change language',
+
     'links'     => 'Links',
     'counters'  => 'Counters',
     'pageShare' => 'Page Share',
@@ -10,38 +19,45 @@ return [
     'documents' => 'Documents',
 
     'search' => 'Search...',
-    'find' => 'Find',
-    'empty' => 'Nothing is found in the section ":Name"!',
+    'find'   => 'Find',
+    'empty'  => 'Nothing is found in the section ":Name"!',
 
-    'contact'   => __('breadcrumbs.contact'),
-    'posts'     => __('breadcrumbs.posts'),
-    'pages'     => __('breadcrumbs.pages'),
-    'polls'     => __('breadcrumbs.polls'),
-    'albums'    => __('breadcrumbs.albums'),
-    'statement' => __('breadcrumbs.statement'),
+    'contact'    => __('breadcrumbs.contact'),
+    'posts'      => __('breadcrumbs.posts'),
+    'pages'      => __('breadcrumbs.pages'),
+    'polls'      => __('breadcrumbs.polls'),
+    'albums'     => __('breadcrumbs.albums'),
+    'statement'  => __('breadcrumbs.statement'),
     'statistics' => __('breadcrumbs.statistics'),
-    'feedback'  => __('breadcrumbs.feedback'),
+    'feedback'   => __('breadcrumbs.feedback'),
 
-    'listPolls' => 'Polls list',
-    'listPosts' => 'Posts list',
-    'listPages' => 'Pages list',
+    'listPolls'  => 'Polls list',
+    'listPosts'  => 'Posts list',
+    'listPages'  => 'Pages list',
     'listAlbums' => 'Albums list',
 
-    'submit' => 'Submit',
+    'submit' => 'Shorten URL',
 
-    'lastName' => 'Last name',
-    'name' => 'Name',
+    'lastName'   => 'Last name',
+    'name'       => 'Name',
     'middleName' => 'Middle name',
 
-    'email' => 'E-mail',
-    'phone' => 'Phone',
-    'residentialAddress' => 'Residential Address',
-    'text' => 'Text',
+    'email'                              => 'E-mail',
+    'phone'                              => 'Phone',
+    'residentialAddress'                 => 'Residential Address',
+    'text'                               => 'Text',
     'allowProcessingPersonalInformation' => 'To allow processing of personal information',
 
     'examples' => [
-        'fullNameField' => 'Ivanov Ivan Ivanovich',
-        'feedbackField' => 'Field of feedback',
+        'fullNameField'  => 'Ivanov Ivan Ivanovich',
+        'feedbackField'  => 'Field of feedback',
         'inputTextField' => 'Input text',
     ],
+
+    'shorten' => [
+        'empty' => 'URL is empty!',
+        'reduceTheReduced' => 'It is impossible to reduce the reduced reference!',
+        'noAllow' => 'This reference violates rules of service!',
+        'validateUrl' => 'Not the valid reference',
+    ]
 ];

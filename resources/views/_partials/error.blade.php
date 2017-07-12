@@ -39,6 +39,13 @@
             <h4 class="text-center">{{ $description }}</h4>
         @endif
         <h6 class="text-center">{{ $title }}</h6>
+        @if (isset($toMainPage))
+            <p class="text-center">
+                <a href="{{ route('home') }}" class="btn btn-primary" title="{{ __('blocks.toMainPage') }}">
+                    {{ __('blocks.toMainPage') }}
+                </a>
+            </p>
+        @endif
     </div>
 </div>
 

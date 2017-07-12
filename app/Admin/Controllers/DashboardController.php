@@ -28,17 +28,17 @@ class DashboardController extends Controller
             $content->row(function (Row $row)
             {
 
-                $row->column(2, new InfoBox('Подача заявлений', 'users', 'aqua', '/cp/statements', Statement::query()->count()));
-
-                $row->column(2, new InfoBox('Посты', 'newspaper-o', 'yellow', '/cp/posts', Post::query()->count()));
-
-                $row->column(2, new InfoBox('Обратная связь', 'hashtag', 'red', '/cp/feedback', Feedback::query()->count()));
-
-                $row->column(2, new InfoBox('Опросы', 'question-circle', 'gray', '/cp/polls', Poll::query()->count()));
-
-                $row->column(2, new InfoBox('Страницы', 'file-text', 'blue', '/cp/pages', Page::query()->count()));
-
-                $row->column(2, new InfoBox('Альбомы', 'picture-o', 'green', '/cp/albums', Album::query()->count()));
+//                $row->column(2, new InfoBox('Подача заявлений', 'users', 'aqua', '/cp/statements', Statement::query()->count()));
+//
+//                $row->column(2, new InfoBox('Посты', 'newspaper-o', 'yellow', '/cp/posts', Post::query()->count()));
+//
+//                $row->column(2, new InfoBox('Обратная связь', 'hashtag', 'red', '/cp/feedback', Feedback::query()->count()));
+//
+//                $row->column(2, new InfoBox('Опросы', 'question-circle', 'gray', '/cp/polls', Poll::query()->count()));
+//
+//                $row->column(2, new InfoBox('Страницы', 'file-text', 'blue', '/cp/pages', Page::query()->count()));
+//
+//                $row->column(2, new InfoBox('Альбомы', 'picture-o', 'green', '/cp/albums', Album::query()->count()));
 
             });
 

@@ -85,7 +85,7 @@ class Tracker extends Model
     /**
      * add hit
      */
-    public static function hit()
+    public static function hit(Link $link = null)
     {
         $req = request();
 
@@ -104,6 +104,7 @@ class Tracker extends Model
                     'language'   => $req->getPreferredLanguage(),
                     'referer'    => $req->headers->get('referer'),
                     'route'      => $route->getName(),
+                    'link_id'    => $link ? $link->id : null
                 ]);
 
                 $model->save();

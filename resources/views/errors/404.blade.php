@@ -1,4 +1,4 @@
-@include('post.empty', [
-    'message' => __('bavix.http.404'),
-    'hasError' => true
+@include('_partials.error', [
+    'title' => __('bavix.http.404'),
+    'toMainPage' => true
 ])

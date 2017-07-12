@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'bavix'),
+    'name' => env('APP_NAME', 'URL Shortener'),
 
     /*
     |--------------------------------------------------------------------------
@@ -186,17 +186,7 @@ return [
         // qr
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
-        // paginate
-        Spatie\PaginateRoute\PaginateRouteServiceProvider::class,
-
         Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
-
-        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
-
-        // scout
-        Laravel\Scout\ScoutServiceProvider::class,
-        ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
-        DamianTW\MySQLScout\Providers\MySQLScoutServiceProvider::class,
 
     ],
 
@@ -248,12 +238,9 @@ return [
         'View'          => Illuminate\Support\Facades\View::class,
         'Image'         => Intervention\Image\Facades\Image::class,
         'QrCode'        => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-        'PaginateRoute' => Spatie\PaginateRoute\PaginateRouteFacade::class,
 
         'LocalizedCarbon' => Laravelrus\LocalizedCarbon\LocalizedCarbon::class,
         'DiffFormatter'   => Laravelrus\LocalizedCarbon\DiffFactoryFacade::class,
-
-        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
     ],
 
 ];

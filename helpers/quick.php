@@ -242,6 +242,25 @@ if (!function_exists('notifies'))
     }
 }
 
+
+if (!function_exists('counters'))
+{
+    function counters()
+    {
+        static $data;
+
+        if (!$data)
+        {
+            $data = \App\Models\Counter::query()
+                ->where('active', 1)
+                ->orderBy('id', 'desc')
+                ->get();
+        }
+
+        return $data;
+    }
+}
+
 if (!function_exists('bxCfg'))
 {
     function bxCfg($name, $default = null)

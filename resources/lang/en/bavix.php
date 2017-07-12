@@ -5,6 +5,7 @@ return [
     'http'        => [
         '400' => 'Bad Request',
         '403' => 'Forbidden',
+        '403_2' =>'Access Denied',
         '404' => 'Page not found',
         '405' => 'Method Not Allowed',
         '423' => 'The page for developers',
