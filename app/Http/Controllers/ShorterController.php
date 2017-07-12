@@ -33,7 +33,7 @@ class ShorterController extends Controller
             $url = 'http://' . $url;
         }
 
-        if (!filter_var($url, FILTER_VALIDATE_URL) || !preg_match('~\.~', $url))
+        if (!filter_var($url, FILTER_VALIDATE_URL) || !preg_match('~https?://.{1,}\..{2,}~', $url))
         {
             return [
                 'error' => __('blocks.shorten.validateUrl')
