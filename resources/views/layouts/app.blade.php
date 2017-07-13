@@ -58,7 +58,7 @@
 </head>
 <body>
 
-<div class="wrapper container d-flex" style="height: 100%; width: 100%;">
+<div class="wrapper container d-flex" style="min-height: 100%; width: 100%;">
     <div class="bx-container mx-auto align-self-center" style="width: 100%">
 
         @php($lang = app()->getLocale() === 'en' ? 'us' : 'ru')
