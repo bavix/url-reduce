@@ -58,6 +58,9 @@ return [
         'empty' => 'URL is empty!',
         'reduceTheReduced' => 'It is impossible to reduce the reduced reference!',
         'noAllow' => 'This reference violates rules of service!',
-        'validateUrl' => 'Not the valid reference',
+        'validateUrl' => 'Not the valid reference!',
+        'referenceTooShort' => 'Your reference too short!',
+        'schemeForbidden' => 'This scheme ":scheme" is forbidden!',
+        'domainFirstLevel' => 'Sorry, domains of the first level aren\'t supported!'
     ]
 ];

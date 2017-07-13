@@ -15,6 +15,7 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelrus/localized-carbon": "dev-master",
+        "mabrahamde/idna-converter": "^1.0",
         "ps/image-optimizer": "^1.1",
         "simplesoftwareio/simple-qrcode": "~1"
     },

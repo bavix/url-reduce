@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Link;
 use App\Models\Tracker;
+use Bavix\Helpers\JSON;
 use Bavix\Helpers\Str;
 use Illuminate\Http\Request;
 
@@ -28,17 +29,43 @@ class ShorterController extends Controller
             ];
         }
 
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+
+        if ($scheme && !preg_match('~https?~', $scheme))
+        {
+            return [
+                'error' => __('blocks.shorten.schemeForbidden', ['scheme' => $scheme])
+            ];
+        }
+
         if (!preg_match('~^https?://~', $url))
         {
             $url = 'http://' . $url;
         }
 
+        $idn = new \idna_convert(['idn_version' => 2008]);
         $regExp = '~\b(https?://)?' . str_replace('.', '\\.', $request->getHost()) . '[^\w\.-]~i';
 
-        if (!filter_var($url, FILTER_VALIDATE_URL) || preg_match($regExp, $url))
+        if (!filter_var($idn->encode($url), FILTER_VALIDATE_URL) || preg_match($regExp, $idn->encode($url)))
         {
             return [
                 'error' => __('blocks.shorten.validateUrl')
+            ];
+        }
+
+        $host = parse_url($url, PHP_URL_HOST);
+
+        if (!preg_match('~\.~', $host))
+        {
+            return [
+                'error' => __('blocks.shorten.domainFirstLevel')
+            ];
+        }
+
+        if (mb_strlen($url) <= (mb_strlen($request->getHost()) + 13))
+        {
+            return [
+                'error' => __('blocks.shorten.referenceTooShort')
             ];
         }
 
