@@ -65,7 +65,7 @@
 
         <a href="{{ route('language') }}" class="float-right"
            title="{{ __('blocks.changeLanguage') }}">
-            <img width="18px" style="box-shadow: 0 0 10px #f0ad4e;" title="{{ __('blocks.changeLanguage') }}"
+            <img width="18px" title="{{ __('blocks.changeLanguage') }}"
                  alt="{{ __('blocks.changeLanguage') }}"
                  src="https://ds.bavix.ru/svg/flags/4x3/{{ $lang }}.svg" />
         </a>
