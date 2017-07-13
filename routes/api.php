@@ -73,3 +73,16 @@ Route::get('v1/{model}', function (Request $request, $model)
 
     return $paginate;
 });
+
+Route::get('embed', function (Request $request) {
+
+    if (!($url = $request->input('url')))
+    {
+        return [
+            'error' => 'Query param `url` is undefined'
+        ];
+    }
+
+    return \App\Helpers\Embed::read($url);
+
+});

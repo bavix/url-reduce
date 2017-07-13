@@ -110,7 +110,10 @@
                        readonly />
 
                 <span class="input-group-btn">
-                    <button data-clipboard-target="#result" class="btn btn-danger clipboard">
+                    <button title="Copy to clipboard!"
+                            data-toggle="tooltip"
+                            data-clipboard-target="#result"
+                            class="btn btn-danger clipboard">
                         <img width="18px" src="https://ds.bavix.ru/svg/clipboard/clippy.svg"
                              title="Copy to clipboard!"
                              alt="Copy to clipboard!" />
