@@ -61,11 +61,11 @@
 <div class="wrapper container d-flex" style="min-height: 100%; width: 100%;">
     <div class="bx-container mx-auto align-self-center" style="width: 100%">
 
-        @php($lang = app()->getLocale() === 'en' ? 'us' : 'ru')
+        @php($lang = app()->getLocale() === 'en' ? 'ru' : 'us')
 
         <a href="{{ route('language') }}" class="float-right"
            title="{{ __('blocks.changeLanguage') }}">
-            <img width="18px" title="{{ __('blocks.changeLanguage') }}"
+            <img width="18px" style="box-shadow: 0 0 10px #f0ad4e;" title="{{ __('blocks.changeLanguage') }}"
                  alt="{{ __('blocks.changeLanguage') }}"
                  src="https://ds.bavix.ru/svg/flags/4x3/{{ $lang }}.svg" />
         </a>
