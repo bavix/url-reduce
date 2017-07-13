@@ -44,7 +44,7 @@ class ShorterController extends Controller
         }
 
         $idn = new \idna_convert(['idn_version' => 2008]);
-        $regExp = '~\b(https?://)?' . str_replace('.', '\\.', $request->getHost()) . '[^\w\.-]~i';
+        $regExp = '~\b(https?://)?' . str_replace('.', '\\.', $idn->encode($request->getHost())) . '[^\w\.-]~i';
 
         if (!filter_var($idn->encode($url), FILTER_VALIDATE_URL) || preg_match($regExp, $idn->encode($url)))
         {
