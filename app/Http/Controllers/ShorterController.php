@@ -62,12 +62,12 @@ class ShorterController extends Controller
             ];
         }
 
-        if (mb_strlen($url) <= (mb_strlen($request->getHost()) + 13))
-        {
-            return [
-                'error' => __('blocks.shorten.referenceTooShort')
-            ];
-        }
+//        if (mb_strlen($url) <= (mb_strlen($request->getHost()) + 13))
+//        {
+//            return [
+//                'error' => __('blocks.shorten.referenceTooShort')
+//            ];
+//        }
 
         $model = Link::addUrl($url);
 
