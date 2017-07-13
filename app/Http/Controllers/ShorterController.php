@@ -33,7 +33,7 @@ class ShorterController extends Controller
             $url = 'http://' . $url;
         }
 
-        $regExp = '~\b(https?://)?' . str_replace('.', '\\.', $request->getHost()) . '[^\w\.]~i';
+        $regExp = '~\b(https?://)?' . str_replace('.', '\\.', $request->getHost()) . '[^\w\.-]~i';
 
         if (!filter_var($url, FILTER_VALIDATE_URL) || preg_match($regExp, $url))
         {
