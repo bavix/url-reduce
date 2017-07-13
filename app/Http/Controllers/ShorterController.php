@@ -31,7 +31,7 @@ class ShorterController extends Controller
 
         $scheme = parse_url($url, PHP_URL_SCHEME);
 
-        if ($scheme && !preg_match('~https?~', $scheme))
+        if ($scheme && !preg_match('~^https?$~', $scheme))
         {
             return [
                 'error' => __('blocks.shorten.schemeForbidden', ['scheme' => $scheme])
@@ -55,7 +55,7 @@ class ShorterController extends Controller
 
         $host = parse_url($url, PHP_URL_HOST);
 
-        if (!preg_match('~\.~', $host))
+        if (!preg_match('~.+\..{2,}~', $host))
         {
             return [
                 'error' => __('blocks.shorten.domainFirstLevel')
