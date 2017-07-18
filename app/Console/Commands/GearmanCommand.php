@@ -82,7 +82,7 @@ class GearmanCommand extends Command
             catch (\Throwable $throwable)
             {
                 $console->info('fatal error: ' . $throwable->getMessage());
-                $model->active = 1; // todo : добавить retry!!! 
+                $model->active = 1; // todo : добавить retry!!!
             }
 
             $model->save();

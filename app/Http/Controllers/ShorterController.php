@@ -148,7 +148,12 @@ class ShorterController extends Controller
             ];
         }
 
-        return $model->setVisible(['hash']);
+        $model->parameters = JSON::decode($model->parameters);
+
+        return $model->setVisible([
+            'hash',
+            'parameters',
+        ]);
     }
 
     public function index(Request $request)
