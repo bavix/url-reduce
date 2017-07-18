@@ -17,6 +17,20 @@ class Tracker extends Model
     protected static $_host;
     protected static $_online;
 
+    protected static $bots = [
+        'partners',
+        'robots?',
+        'archiver',
+        'externalhit',
+        'spider',
+        'yahoo',
+        'slurp',
+        'snippet',
+        'Google',
+        'Yandex',
+        'bots?'
+    ];
+
     public static function visits()
     {
         return static::query()
@@ -95,19 +109,25 @@ class Tracker extends Model
             {
                 $route = $req->route();
 
-                $model             = new static();
-                $model->ip         = $req->ip();
-                $model->url        = $req->getPathInfo();
-                $model->parameters = JSON::encode([
-                    'attributes' => $route->parameters(),
-                    'userAgent'  => $req->headers->get('User-Agent'),
-                    'language'   => $req->getPreferredLanguage(),
-                    'referer'    => $req->headers->get('referer'),
-                    'route'      => $route->getName(),
-                    'link_id'    => $link ? $link->id : null
-                ]);
+                $userAgent = $req->headers->get('User-Agent');
 
-                $model->save();
+                // popular bot -- skip
+                if (!preg_match('~(' . implode('|', static::$bots) . ')~i', $userAgent))
+                {
+                    $model             = new static();
+                    $model->ip         = $req->ip();
+                    $model->url        = $req->getPathInfo();
+                    $model->parameters = JSON::encode([
+                        'attributes' => $route->parameters(),
+                        'userAgent'  => $userAgent,
+                        'language'   => $req->getPreferredLanguage(),
+                        'referer'    => $req->headers->get('referer'),
+                        'route'      => $route->getName(),
+                        'link_id'    => $link ? $link->id : null
+                    ]);
+
+                    $model->save();
+                }
             }
         }
     }
