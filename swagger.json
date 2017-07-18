@@ -29,15 +29,12 @@
                     "200": {
                         "description": "If url is valid",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "properties": {
-                                    "hash": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
+                            "properties": {
+                                "hash": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
                         }
                     }
                 }
@@ -51,10 +48,9 @@
                     {
                         "name": "url",
                         "in": "body",
-                        "description": "URL parameter",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "$ref": "#/definitions/Link"
                         }
                     }
                 ],
@@ -62,20 +58,26 @@
                     "200": {
                         "description": "If url is valid",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "properties": {
-                                    "hash": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
+                            "properties": {
+                                "hash": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
                         }
                     }
                 }
             }
         }
     },
-    "definitions": {}
+    "definitions": {
+        "Link": {
+            "properties": {
+                "url": {
+                    "description": "URL",
+                    "type": "string"
+                }
+            }
+        }
+    }
 }

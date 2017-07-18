@@ -49,11 +49,8 @@ class ShorterController extends Controller
      *     response=200,
      *     description="If url is valid",
      *     @SWG\Schema(
-     *      type="array",
-     *      @SWG\Items(
      *        type="object",
      *        @SWG\Property(property="hash", type="string")
-     *      )
      *     )
      *   )
      * )
@@ -64,19 +61,15 @@ class ShorterController extends Controller
      *   @SWG\Parameter(
      *     name="url",
      *     in="body",
-     *     description="URL parameter",
      *     required=true,
-     *     @SWG\Schema(type="string")
+     *     @SWG\Schema(ref="#/definitions/Link")
      *   ),
      *   @SWG\Response(
      *     response=200,
      *     description="If url is valid",
      *     @SWG\Schema(
-     *      type="array",
-     *      @SWG\Items(
      *        type="object",
      *        @SWG\Property(property="hash", type="string")
-     *      )
      *     )
      *   )
      * )

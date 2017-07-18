@@ -6,12 +6,28 @@ use Bavix\Helpers\JSON;
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @SWG\Definition()
+ */
 class Link extends Model
 {
     protected $table   = 'links';
 
     public $timestamps = false;
 
+    /**
+     * @SWG\Property(
+     *   property="url",
+     *   type="string",
+     *   description="URL"
+     * )
+     */
+
+    /**
+     * @param $hash
+     *
+     * @return mixed
+     */
     public static function findByHash($hash)
     {
         return static::query()
