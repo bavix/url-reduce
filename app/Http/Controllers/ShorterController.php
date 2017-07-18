@@ -8,6 +8,20 @@ use Bavix\Helpers\JSON;
 use Bavix\Helpers\Str;
 use Illuminate\Http\Request;
 
+/**
+ * @SWG\Swagger(
+ *   schemes={"https"},
+ *   host="ln4.ru",
+ *   basePath="/api"
+ * )
+ */
+
+/**
+ * @SWG\Info(title="Shorter API", version="0.1")
+ * @SWG\Path(
+ *   path="/add"
+ * )
+ */
 class ShorterController extends Controller
 {
 
@@ -19,6 +33,54 @@ class ShorterController extends Controller
     const ERR_REFERENCE_TOO_SHORT = self::ERR_DOMAIN_FIRST_LEVEL + 1;
     const ERR_NO_ALLOW            = self::ERR_REFERENCE_TOO_SHORT + 1;
 
+    /**
+     * @SWG\Get(
+     *   tags={"Add URL"},
+     *   summary="Add URL in Shorter URL",
+     *   path="/add",
+     *   @SWG\Parameter(
+     *     name="url",
+     *     in="query",
+     *     description="URL parameter",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(
+     *     response=200,
+     *     description="If url is valid",
+     *     @SWG\Schema(
+     *      type="array",
+     *      @SWG\Items(
+     *        type="object",
+     *        @SWG\Property(property="hash", type="string")
+     *      )
+     *     )
+     *   )
+     * )
+     * @SWG\Post(
+     *   tags={"Add URL"},
+     *   summary="Add URL in Shorter URL",
+     *   path="/add",
+     *   @SWG\Parameter(
+     *     name="url",
+     *     in="body",
+     *     description="URL parameter",
+     *     required=true,
+     *     @SWG\Schema(type="string")
+     *   ),
+     *   @SWG\Response(
+     *     response=200,
+     *     description="If url is valid",
+     *     @SWG\Schema(
+     *      type="array",
+     *      @SWG\Items(
+     *        type="object",
+     *        @SWG\Property(property="hash", type="string")
+     *      )
+     *     )
+     *   )
+     * )
+     */
     public function store(Request $request)
     {
         $url = trim($request->input('url'));

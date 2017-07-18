@@ -13,3 +13,4 @@ npm-debug.log
 web
 composer.lock
 yarn.lock
+swagger-codegen-cli-*.jar

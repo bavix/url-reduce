@@ -1,0 +1,81 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Shorter API",
+        "version": "0.1"
+    },
+    "host": "ln4.ru",
+    "basePath": "/api",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/add": {
+            "get": {
+                "tags": [
+                    "Add URL"
+                ],
+                "summary": "Add URL in Shorter URL",
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "description": "URL parameter",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "If url is valid",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "hash": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Add URL"
+                ],
+                "summary": "Add URL in Shorter URL",
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "body",
+                        "description": "URL parameter",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "If url is valid",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "hash": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
