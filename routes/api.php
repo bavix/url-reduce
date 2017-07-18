@@ -86,3 +86,5 @@ Route::get('embed', function (Request $request) {
     return \App\Helpers\Embed::read($url);
 
 });
+
+Route::post('addUrl', 'ShorterController@store');
