@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Image;
+use App\Helpers\Embed;
+use App\Models\Link;
 use Bavix\Helpers\JSON;
+use Embed\Http\CurlDispatcher;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
-use ImageOptimizer\OptimizerFactory;
 
 class GearmanCommand extends Command
 {
@@ -22,7 +22,7 @@ class GearmanCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Gearman Image Cropper';
+    protected $description = 'Mozilla/5.0 (compatible; bavix/metabot-v2.1; +https://bavix.ru/bot.html)';
 
     /**
      * GearmanCommand constructor.
@@ -41,8 +41,15 @@ class GearmanCommand extends Command
     {
         $console = $this;
 
-        $factory   = new OptimizerFactory();
-        $optimizer = $factory->get();
+        $dispatcher = new CurlDispatcher([
+            CURLOPT_MAXREDIRS      => 20,
+            CURLOPT_CONNECTTIMEOUT => 60,
+            CURLOPT_TIMEOUT        => 60,
+            CURLOPT_ENCODING       => '',
+            CURLOPT_AUTOREFERER    => true,
+            CURLOPT_USERAGENT      => $this->description,
+            CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4,
+        ]);
 
         $worker = new \GearmanWorker();
         $worker->addServer(
@@ -50,33 +57,35 @@ class GearmanCommand extends Command
             config('gearman.port')
         );
 
-        $worker->addFunction('resize', function (\GearmanJob $job) use ($console)
+        $worker->addFunction('metadata', function (\GearmanJob $job) use ($console, $dispatcher)
         {
             /**
-             * @var Image $model
+             * @var Link $model
              */
             $model = unserialize($job->workload(), []);
 
-            $console->info('image #' . $model->id . ' is loaded');
-
-            foreach ($model->resizeList as $item)
+            try
             {
-                $console->info('processing task:' . $item . '...');
-                $model->{$item}();
+
+                $console->info('read metadata from: ' . $model->url);
+                $model->parameters = JSON::encode(
+                    Embed::read(
+                        $model->url,
+                        null,
+                        $dispatcher
+                    )
+                );
+
+                $console->info('metadata: ' . $model->parameters);
+
             }
-        });
-
-        $worker->addFunction('optimize', function (\GearmanJob $job) use ($console, $optimizer)
-        {
-
-            if (class_exists(OptimizerFactory::class))
+            catch (\Throwable $throwable)
             {
-                $path = $job->workload();
-
-                $console->info('processing task:optimize ' . $path);
-                $optimizer->optimize($path);
+                $console->info('fatal error: ' . $throwable->getMessage());
+                $model->active = 0;
             }
 
+            $model->save();
         });
 
         while ($worker->work())

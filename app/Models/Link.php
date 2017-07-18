@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Observers\LinkObserver;
 use Bavix\Helpers\JSON;
 use Bavix\Helpers\Str;
 use Illuminate\Database\Eloquent\Model;
