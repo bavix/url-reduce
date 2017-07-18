@@ -140,9 +140,17 @@
             </div>
 
             <div class="text-center">
-                <a class="referral" href="/DigOn" rel="nofollow" target="__blank">
-                    {{ __('blocks.digitalOceanTech') }}
-                </a>
+                <div class="referral">
+                    <a href="/DigOn" rel="nofollow" target="__blank">
+                        {{ __('blocks.digitalOceanTech') }}
+                    </a>
+                </div>
+                <div class="referral">
+                    <a href="https://docs.ln4.ru/" rel="nofollow" target="__blank">API Docs</a>
+                </div>
+                <div class="referral">
+                    <a href="https://bavix.ru/" target="__blank">bavix</a>
+                </div>
             </div>
 
             @if (counters()->count())

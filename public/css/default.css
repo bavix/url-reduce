@@ -42,7 +42,11 @@ body {
       height: 160px;
       margin-top: 1rem; }
     .wrapper .bx-container .referral {
+      display: inline;
       font-size: 0.9rem; }
+      .wrapper .bx-container .referral + .referral:before {
+        content: "|";
+        color: white; }
     .wrapper .bx-container .footer {
       padding-top: 5rem; }
 
