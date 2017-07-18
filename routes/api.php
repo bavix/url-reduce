@@ -87,4 +87,4 @@ Route::get('embed', function (Request $request) {
 
 });
 
-Route::post('addUrl', 'ShorterController@store');
+Route::match(['get', 'post'], 'add', 'ShorterController@store');

@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 class ShorterController extends Controller
 {
 
+    const ERR_EMPTY               = 100;
+    const ERR_REDUCE_REDUCED      = self::ERR_EMPTY + 1;
+    const ERR_SCHEME_FORBIDDEN    = self::ERR_REDUCE_REDUCED + 1;
+    const ERR_VALIDATE_URL        = self::ERR_SCHEME_FORBIDDEN + 1;
+    const ERR_DOMAIN_FIRST_LEVEL  = self::ERR_VALIDATE_URL + 1;
+    const ERR_REFERENCE_TOO_SHORT = self::ERR_DOMAIN_FIRST_LEVEL + 1;
+    const ERR_NO_ALLOW            = self::ERR_REFERENCE_TOO_SHORT + 1;
+
     public function store(Request $request)
     {
         $url = trim($request->input('url'));
@@ -18,6 +26,7 @@ class ShorterController extends Controller
         if (empty($url))
         {
             return [
+                'code'  => self::ERR_EMPTY,
                 'error' => __('blocks.shorten.empty')
             ];
         }
@@ -25,6 +34,7 @@ class ShorterController extends Controller
         if (stripos($url, $request->getHost()) !== false)
         {
             return [
+                'code'  => self::ERR_REDUCE_REDUCED,
                 'error' => __('blocks.shorten.reduceTheReduced')
             ];
         }
@@ -34,6 +44,7 @@ class ShorterController extends Controller
         if ($scheme && !preg_match('~^https?$~', $scheme))
         {
             return [
+                'code'  => self::ERR_SCHEME_FORBIDDEN,
                 'error' => __('blocks.shorten.schemeForbidden', ['scheme' => $scheme])
             ];
         }
@@ -43,12 +54,13 @@ class ShorterController extends Controller
             $url = 'http://' . $url;
         }
 
-        $idn = new \idna_convert(['idn_version' => 2008]);
+        $idn    = new \idna_convert(['idn_version' => 2008]);
         $regExp = '~\b(https?://)?' . str_replace('.', '\\.', $idn->encode($request->getHost())) . '[^\w\.-]~i';
 
         if (!filter_var($idn->encode($url), FILTER_VALIDATE_URL) || preg_match($regExp, $idn->encode($url)))
         {
             return [
+                'code'  => self::ERR_VALIDATE_URL,
                 'error' => __('blocks.shorten.validateUrl')
             ];
         }
@@ -58,6 +70,7 @@ class ShorterController extends Controller
         if (!preg_match('~.+\..{2,}~', $host))
         {
             return [
+                'code'  => self::ERR_DOMAIN_FIRST_LEVEL,
                 'error' => __('blocks.shorten.domainFirstLevel')
             ];
         }
@@ -65,6 +78,7 @@ class ShorterController extends Controller
         if (mb_strlen($url) <= (12 + ($scheme === 'https')))
         {
             return [
+                'code'  => self::ERR_REFERENCE_TOO_SHORT,
                 'error' => __('blocks.shorten.referenceTooShort')
             ];
         }
@@ -74,6 +88,7 @@ class ShorterController extends Controller
         if (!$model->active)
         {
             return [
+                'code'  => self::ERR_NO_ALLOW,
                 'error' => __('blocks.shorten.noAllow')
             ];
         }
