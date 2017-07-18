@@ -82,8 +82,7 @@ Route::get('embed', function (Request $request) {
             'error' => 'Query param `url` is undefined'
         ];
     }
-
-
+    
     $dispatcher = new \Embed\Http\CurlDispatcher([
         CURLOPT_MAXREDIRS      => 20,
         CURLOPT_CONNECTTIMEOUT => 5,
