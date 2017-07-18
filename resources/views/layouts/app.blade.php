@@ -120,6 +120,10 @@
                     </button>
                 </span>
             </div>
+
+            <div class="text-center">
+                <img id="qr-code" class="img-thumbnail" src="https://ds.bavix.ru/svg/logo.svg" title="QR-code" alt="QR-code" />
+            </div>
         </div>
 
         <footer class="footer">

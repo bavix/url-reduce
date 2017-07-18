@@ -23,6 +23,10 @@ Route::get('/{hash}', 'ShorterController@hash')
     ->where('hash', '\w{5}')
     ->name('shorter');
 
+Route::get('/qr/{hash}', 'QRController@index')
+    ->where('hash', '\w{5}')
+    ->name('qr');
+
 // feedback
 Route::get('/feedback', 'FeedbackController@index')
     ->name('feedback');

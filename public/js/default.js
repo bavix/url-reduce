@@ -26,11 +26,14 @@ $(function () {
         e.preventDefault();
 
         var $collapse = $('#collapse');
+        var $qr = $collapse.find('#qr-code');
         var $result = $('#result');
         var $form = $(this);
         var url = $form.find('input[name=url]').val().trim();
 
         $result.val('');
+
+        $qr.attr('src', 'https://ds.bavix.ru/svg/logo.svg');
 
         $.ajax({
             url: $form.attr('action'),
@@ -51,7 +54,6 @@ $(function () {
                     $form.find('.form-group .form-control-feedback')
                         .text(res.error);
 
-
                 } else {
 
                     $collapse.collapse('show');
@@ -64,6 +66,7 @@ $(function () {
                     $form.find('.form-group .form-control-feedback')
                         .text('');
 
+                    $qr.attr('src', 'https://' + location.host + '/qr/' + res.hash);
                     $result.val('https://' + location.host + '/' + res.hash);
                 }
 

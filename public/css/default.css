@@ -37,6 +37,10 @@ body {
         border-color: #d9534f; }
         .wrapper .bx-container #collapse .input-group input[name=shortUrl]:focus {
           border-color: #66afe9; }
+    .wrapper .bx-container #qr-code {
+      width: 160px;
+      height: 160px;
+      margin-top: 1rem; }
     .wrapper .bx-container .referral {
       font-size: 0.9rem; }
     .wrapper .bx-container .footer {
