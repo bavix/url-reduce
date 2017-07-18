@@ -43,9 +43,9 @@ class GearmanCommand extends Command
 
         $dispatcher = new CurlDispatcher([
             CURLOPT_MAXREDIRS      => 20,
-            CURLOPT_CONNECTTIMEOUT => 60,
-            CURLOPT_TIMEOUT        => 60,
-            CURLOPT_ENCODING       => '',
+            CURLOPT_CONNECTTIMEOUT => 5,
+            CURLOPT_TIMEOUT        => 5,
+            CURLOPT_ENCODING       => 'UTF-8',
             CURLOPT_AUTOREFERER    => true,
             CURLOPT_USERAGENT      => $this->description,
             CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4,

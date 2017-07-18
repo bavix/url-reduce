@@ -83,7 +83,18 @@ Route::get('embed', function (Request $request) {
         ];
     }
 
-    return \App\Helpers\Embed::read($url);
+
+    $dispatcher = new \Embed\Http\CurlDispatcher([
+        CURLOPT_MAXREDIRS      => 20,
+        CURLOPT_CONNECTTIMEOUT => 5,
+        CURLOPT_TIMEOUT        => 5,
+        CURLOPT_ENCODING       => 'UTF-8',
+        CURLOPT_AUTOREFERER    => true,
+        CURLOPT_USERAGENT      => 'Mozilla/5.0 (compatible; bavix/metabot-v2.1; +https://bavix.ru/bot.html)',
+        CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4,
+    ]);
+
+    return \App\Helpers\Embed::read($url, null, $dispatcher);
 
 });
 
