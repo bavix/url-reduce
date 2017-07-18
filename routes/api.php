@@ -90,7 +90,7 @@ Route::get('embed', function (Request $request) {
 Route::match(['get', 'post'], 'add', 'ShorterController@store');
 
 Route::get('test', function (Request $request) {
-    foreach (\App\Models\Link::all() as $link) {
+    foreach (\App\Models\Link::query()->whereNull(DB::RAW('parameters->>"$.url"'))->get() as $link) {
         (new \App\Observers\LinkObserver())->created($link);
     }
 
