@@ -66,7 +66,7 @@ $(function () {
                     $form.find('.form-group .form-control-feedback')
                         .text('');
 
-                    $qr.attr('src', 'https://' + location.host + '/qr/' + res.hash);
+                    $qr.attr('src', '/qr/' + res.hash);
                     $result.val('https://' + location.host + '/' + res.hash);
                 }
 
