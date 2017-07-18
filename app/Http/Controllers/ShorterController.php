@@ -62,7 +62,7 @@ class ShorterController extends Controller
             ];
         }
 
-        if (mb_strlen($url) <= 5)
+        if (mb_strlen($url) <= (12 + ($scheme === 'https')))
         {
             return [
                 'error' => __('blocks.shorten.referenceTooShort')
