@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ asset2('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
+    <link href="{{ asset2('css/css-loader/index.css') }}" rel="stylesheet" />
     <link href="{{ asset2('css/default.css')  }}" rel="stylesheet"/>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -40,7 +41,7 @@
     <meta name="theme-color" content="#ffffff"/>
 
     <meta property="og:title" content="{{ $fullTitle }}"/>
-    <meta property="og:description" content="{{ $description ?? '' }}"/>
+    <meta property="og:description" content="{{ __('blocks.description') }}"/>
     <meta property="og:url" content="{{ request()->url() }}"/>
     <meta property="og:type" content="website"/>
 
@@ -121,8 +122,28 @@
                 </span>
             </div>
 
-            <div class="text-center">
-                <img id="qr-code" class="img-thumbnail" src="https://ds.bavix.ru/svg/logo.svg" title="QR-code" alt="QR-code" />
+            <div class="col-12" data-share-info>
+                <div class="row">
+
+                    <div class="col-md-5">
+
+                        <div class="text-center">
+                            <img id="qr-code" class="img-thumbnail" src="https://ds.bavix.ru/svg/logo.svg" title="QR-code" alt="QR-code" />
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-7">
+                        <h3 class="share-title"></h3>
+                        <p class="share-description"></p>
+
+                        <div id="share"
+                             data-url="https://bavix.ru/"
+                             data-title="bavix"
+                             data-description="Development and technical support of the website - bavix"
+                             data-media="https://ds.bavix.ru/svg/logo.svg"></div>
+                    </div>
+                </div>
             </div>
         </div>
 

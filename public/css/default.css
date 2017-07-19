@@ -38,9 +38,17 @@ body {
         .wrapper .bx-container #collapse .input-group input[name=shortUrl]:focus {
           border-color: #66afe9; }
     .wrapper .bx-container #qr-code {
-      width: 160px;
-      height: 160px;
-      margin-top: 1rem; }
+      width: 150px;
+      height: 150px; }
+    .wrapper .bx-container [data-share-info] {
+      margin-top: 1rem;
+      word-wrap: break-word; }
+      .wrapper .bx-container [data-share-info] .share-description {
+        height: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .wrapper .bx-container [data-share-info] .arc-rotate-double .loader > div {
+        border-color: transparent #fff; }
     .wrapper .bx-container .referral {
       display: inline;
       font-size: 0.9rem; }

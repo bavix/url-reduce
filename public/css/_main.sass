@@ -47,9 +47,20 @@ body
           border-color: #66afe9
 
     #qr-code
-      width: 160px
-      height: 160px
+      width: 150px
+      height: 150px
+
+    [data-share-info]
       margin-top: 1rem
+      word-wrap: break-word
+
+      .share-description
+        height: 140px
+        overflow: hidden
+        text-overflow: ellipsis
+
+      .arc-rotate-double .loader > div
+        border-color: transparent #fff
 
     .referral
       display: inline
