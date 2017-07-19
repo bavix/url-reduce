@@ -9,6 +9,10 @@ $(function () {
 
     // clipboard
     var clipboard = new Clipboard('button.clipboard');
+    var $qr = $('#qr-code');
+    var $collapse = $('#collapse');
+    var $result = $('#result');
+    var _token = $('meta[name="csrf-token"]').attr('content');
 
     clipboard.on('success', function (e) {
         var $button = $(e.trigger);
@@ -34,11 +38,7 @@ $(function () {
         return obj[prop];
     }
 
-    function token() {
-        return $('meta[name="csrf-token"]').attr('content');
-    }
-
-    function registerInfo($collapse, api, url) {
+    function registerInfo($form, api, url) {
         var id = setInterval(function () {
 
             $.ajax({
@@ -46,13 +46,16 @@ $(function () {
                 method: 'POST',
                 data: {
                     url: url,
-                    _token: token()
+                    _token: _token
                 },
                 success: function (res) {
                     var title = def(res.parameters, 'title', null);
+                    var err = def(res, 'error', undefined);
 
-                    if (title !== null) {
-
+                    if (typeof err !== "undefined") {
+                        addError($form, err);
+                        clearInterval(id);
+                    } else if (title !== null) {
                         // description link
                         $collapse.find('.share-title').text(title);
                         $collapse.find('.share-description').text(def(res.parameters, 'description', null));
@@ -65,44 +68,48 @@ $(function () {
         }, 1500);
     }
 
+    function addError($form, message) {
+
+        $form.find('.form-group')
+            .addClass('has-danger')
+            .find('input')
+            .addClass('form-control-danger');
+
+        $form.find('.form-group .form-control-feedback')
+            .text(message);
+
+        $collapse.collapse('hide');
+
+    }
+
+    function reset() {
+        $result.val('');
+        $collapse.find('.share-title').text('');
+        $collapse.find('.share-description').text('');
+        $qr.attr('src', 'https://ds.bavix.ru/svg/logo.svg');
+        $collapse.collapse('hide');
+    }
+
     $('form.bx-form').submit(function (e) {
 
         e.preventDefault();
 
-        var $collapse = $('#collapse');
-        var $qr = $collapse.find('#qr-code');
-        var $share = $('#share');
-        var $result = $('#result');
         var $form = $(this);
         var url = $form.find('input[name=url]').val().trim();
 
-        $result.val('');
-        $collapse.find('.share-title').text('');
-        $collapse.find('.share-description').text('');
-
-        $qr.attr('src', 'https://ds.bavix.ru/svg/logo.svg');
+        reset();
 
         $.ajax({
             url: $form.attr('action'),
             method: 'POST',
             data: {
                 url: url,
-                _token: token()
+                _token: _token
             },
             success: function (res) {
 
                 if (typeof res.error !== "undefined") {
-
-                    $form.find('.form-group')
-                        .addClass('has-danger')
-                        .find('input')
-                        .addClass('form-control-danger');
-
-                    $form.find('.form-group .form-control-feedback')
-                        .text(res.error);
-
-                    $collapse.collapse('hide');
-
+                    addError($form, res.error);
                 }
                 else {
 
@@ -125,7 +132,7 @@ $(function () {
                     $result.val(_url);
 
                     if (title === null) {
-                        registerInfo($collapse, $form.attr('action'), url);
+                        registerInfo($form, $form.attr('action'), url);
 
                         $loader = '<div id="loaders">' +
                             '<div class="loader-container mx-auto arc-rotate-double">' +
@@ -144,24 +151,11 @@ $(function () {
                         $collapse.find('.share-description').text(description);
                     }
 
-                    // share link
-                    $share.data('url', _url);
-                    $share.data('title', title);
-                    $share.data('description', description);
-                    $share.data('media', media);
                 }
 
             },
             error: function (res) {
-
-                $form.find('.form-group')
-                    .addClass('has-danger')
-                    .find('input')
-                    .addClass('form-control-danger');
-
-                $form.find('.form-group .form-control-feedback')
-                    .text(typeof res.error !== "undefined" ? res.error : res);
-
+                addError($form, typeof res.error !== "undefined" ? res.error : res);
             }
         });
 
