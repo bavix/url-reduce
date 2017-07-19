@@ -49,6 +49,10 @@ class GearmanCommand extends Command
             CURLOPT_AUTOREFERER    => true,
             CURLOPT_USERAGENT      => $this->description,
             CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4,
+
+            CURLOPT_HTTPHEADER     => ['Accept-Language: en-US;q=0.6,en;q=0.4'],
+            CURLOPT_RETURNTRANSFER => true,     // return web page
+            CURLOPT_HEADER         => false,    // don't return headers
         ]);
 
         $worker = new \GearmanWorker();

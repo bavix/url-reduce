@@ -87,7 +87,7 @@ $(function () {
         $collapse.find('.share-title').text('');
         $collapse.find('.share-description').text('');
         $qr.attr('src', 'https://ds.bavix.ru/svg/logo.svg');
-        $collapse.collapse('hide');
+        // $collapse.collapse('hide');
     }
 
     $('form.bx-form').submit(function (e) {

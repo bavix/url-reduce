@@ -28,6 +28,8 @@ class Tracker extends Model
         'snippet',
         'Google',
         'Yandex',
+        'curl',
+        'wget',
         'bots?'
     ];
 
