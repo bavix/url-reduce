@@ -18,19 +18,20 @@ class Tracker extends Model
     protected static $_online;
 
     protected static $bots = [
-        'partners',
-        'robots?',
-        'archiver',
-        'externalhit',
-        'spider',
-        'yahoo',
-        'slurp',
-        'snippet',
-        'Google',
-        'Yandex',
-        'curl',
-        'wget',
-        'bots?'
+        'bavix' // remove self-bot
+//        'partners',
+//        'robots?',
+//        'archiver',
+//        'externalhit',
+//        'spider',
+//        'yahoo',
+//        'slurp',
+//        'snippet',
+//        'Google',
+//        'Yandex',
+//        'curl',
+//        'wget',
+//        'bots?'
     ];
 
     public static function visits()
