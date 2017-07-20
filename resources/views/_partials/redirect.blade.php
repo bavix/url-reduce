@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link href="{{ asset2('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
 
-    <meta http-equiv="refresh" content="4;url={{ $item->url }}" />
+    <meta http-equiv="refresh" content="0;url={{ $item->url }}" />
 
     <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png"/>
     <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png"/>
@@ -44,7 +44,7 @@
 
     <style>
         html, body {height: 100%;width: 100%}
-        #be-right-back {max-width: 500px; padding: 15px}
+        #be-right-back {word-wrap: break-word;max-width: 500px; padding: 15px}
         a.bavix:hover[href] {filter: contrast(150%)}
     </style>
 </head>
@@ -77,5 +77,6 @@
     </div>
 </div>
 
+<script defer async>location.href = '{{ $item->url }}';</script>
 </body>
 </html>
