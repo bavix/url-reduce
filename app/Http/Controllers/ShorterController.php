@@ -144,6 +144,7 @@ class ShorterController extends Controller
         }
 
         $model = Link::addUrl($url);
+        $model->updateMetadata(); // if old link
 
         if (!$model->active)
         {
