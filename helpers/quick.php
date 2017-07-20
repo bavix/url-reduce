@@ -159,12 +159,12 @@ if (!function_exists('keywords'))
      *
      * @return string
      */
-    function keywords($content)
+    function keywords($content, $merge = [])
     {
         $trim  = trim($content);
         $data  = preg_replace('~[^а-яё\w\\/]+~ui', ',', $trim);
         $mixed = explode(',', $data);
-        $data  = array_unique($mixed);
+        $data  = array_unique(array_merge($mixed, $merge));
 
         $data = array_filter($data, function ($val) {
             return strlen($val) > 1;

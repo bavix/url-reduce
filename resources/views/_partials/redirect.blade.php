@@ -40,7 +40,7 @@
     <meta name="twitter:domain" content="{{ request()->getHost() }}"/>
 
     <meta name="description" content="{{ $item->parameters['description'] ?? '' }}"/>
-    <meta name="keywords" content="{{ keywords($item->parameters['title'] ?? 'URL Shortener') }}"/>
+    <meta name="keywords" content="{{ keywords($item->parameters['title'] ?? 'URL Shortener', $item->parameters['tags'] ?? []) }}"/>
 
     <style>
         html, body {height: 100%;width: 100%}
