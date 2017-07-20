@@ -22,7 +22,8 @@ class GearmanCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Mozilla/5.0 (compatible; bavix/metabot-v2.1; +https://bavix.ru/bot.html)';
+    protected $description = 'bavix metabot';
+    protected $userAgent = 'Mozilla/5.0 (compatible; bavix/metabot-v2.1; +https://bavix.ru/bot.html)';
 
     /**
      * GearmanCommand constructor.
@@ -47,10 +48,12 @@ class GearmanCommand extends Command
             CURLOPT_TIMEOUT        => 5,
             CURLOPT_ENCODING       => 'UTF-8',
             CURLOPT_AUTOREFERER    => true,
-            CURLOPT_USERAGENT      => $this->description,
+            CURLOPT_USERAGENT      => $this->userAgent,
             CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4,
 
-            CURLOPT_HTTPHEADER     => ['Accept-Language: en-US;q=0.6,en;q=0.4'],
+            CURLOPT_HTTPHEADER     => [
+                'Accept-Language: en,en-US;q=0.8,ru;q=0.6'
+            ],
             CURLOPT_RETURNTRANSFER => true,     // return web page
             CURLOPT_HEADER         => false,    // don't return headers
         ]);
