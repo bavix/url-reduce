@@ -177,6 +177,7 @@ class ShorterController extends Controller
         abort_if(!$model->active, 403, __('bavix.http.403_2'));
 
         Tracker::hit($model);
+        $model->updateMetadata(); // if old link
 
         return redirect($model->url);
     }
