@@ -19,6 +19,11 @@ class Link extends Model
 
     public function updateMetadata()
     {
+        if (!$this->updated_at)
+        {
+            return;
+        }
+
         $carbon = Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at);
 
         if ($carbon->diffInMonths(Carbon::now()) > 1)
