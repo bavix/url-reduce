@@ -76,7 +76,7 @@ class ShorterController extends Controller
      */
     public function store(Request $request)
     {
-        $idn    = new \idna_convert(['idn_version' => 2008]);
+        $idn = new \idna_convert(['idn_version' => 2008]);
         $url = trim((string)$request->input('url'));
 
         if (empty($url))
@@ -112,10 +112,9 @@ class ShorterController extends Controller
 
         if (!preg_match('~^https?://~', $url))
         {
-            $url = 'http://' . $url;
+            $url  = 'http://' . $url;
+            $test = $idn->encode($url);
         }
-
-        $test = $idn->encode($url);
 
         if (!filter_var($test, FILTER_VALIDATE_URL))
         {
