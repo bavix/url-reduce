@@ -100,7 +100,7 @@ class ShorterController extends Controller
             ];
         }
 
-        $regExp = '~^(https?://)?(www\.)?' . preg_quote($host, null) . '[^\w\.-]~iu';
+        $regExp = '~^(https?://)?(www\.)?' . preg_quote($host, '~') . '(/.*)?$~iu';
 
         if (preg_match($regExp, $test))
         {
