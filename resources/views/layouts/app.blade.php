@@ -128,12 +128,17 @@
                         <div class="text-center">
                             <img id="qr-code" class="img-thumbnail" src="https://ds.bavix.ru/svg/logo.svg" title="QR-code" alt="QR-code" />
                         </div>
+                        <div id="share" class="text-center" data-share-info>
+                            <div class="addthis_inline_share_toolbox"></div>
+                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53347bb35778c0b9"></script>
+                        </div>
                     </div>
 
                     <div class="col-md-7">
                         <h3 class="share-title"></h3>
                         <p class="share-description"></p>
                     </div>
+
                 </div>
             </div>
         </div>

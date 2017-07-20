@@ -10,6 +10,7 @@ $(function () {
     // clipboard
     var clipboard = new Clipboard('button.clipboard');
     var $qr = $('#qr-code');
+    var $share = $('#share');
     var $collapse = $('#collapse');
     var $result = $('#result');
     var _token = $('meta[name="csrf-token"]').attr('content');
@@ -38,7 +39,7 @@ $(function () {
         return obj[prop];
     }
 
-    function registerInfo($form, api, url) {
+    function registerInfo($form, api, url, _url, media) {
         var retry = 10;
         var id = setInterval(function () {
 
@@ -58,9 +59,13 @@ $(function () {
                         clearInterval(id);
                         retry = 0;
                     } else if (title !== null) {
+
+                        var description = def(res.parameters, 'description', null);
+
                         // description link
                         $collapse.find('.share-title').text(title);
-                        $collapse.find('.share-description').text(def(res.parameters, 'description', null));
+                        $collapse.find('.share-description').text(description);
+                        shareInfo(title, description, _url, media);
                         retry = 0;
                     }
 
@@ -84,7 +89,17 @@ $(function () {
             .text(message);
 
         $collapse.collapse('hide');
+        $share.hide();
 
+    }
+
+    function shareInfo(title, description, url, media) {
+        addthis.update('share', 'url', url);
+        addthis.update('share', 'title', title);
+        addthis.update('share', 'description', description);
+        addthis.update('share', 'media', media);
+
+        $share.show();
     }
 
     function reset() {
@@ -93,6 +108,7 @@ $(function () {
         $collapse.find('.share-description').text('');
         $qr.attr('src', 'https://ds.bavix.ru/svg/logo.svg');
         // $collapse.collapse('hide');
+        $share.hide();
     }
 
     $('form.bx-form').submit(function (e) {
@@ -137,7 +153,7 @@ $(function () {
                     $result.val(_url);
 
                     if (title === null) {
-                        registerInfo($form, $form.attr('action'), url);
+                        registerInfo($form, $form.attr('action'), url, _url, media);
 
                         $loader = '<div id="loaders">' +
                             '<div class="loader-container mx-auto arc-rotate-double">' +
@@ -154,6 +170,8 @@ $(function () {
                         // description link
                         $collapse.find('.share-title').text(title);
                         $collapse.find('.share-description').text(description);
+
+                        shareInfo(title, description, _url, media);
                     }
 
                 }
