@@ -158,7 +158,7 @@
                     </a>
                 </div>
                 <div class="referral">
-                    <a href="https://docs.ln4.ru/" rel="nofollow" target="__blank">API Docs</a>
+                    <a href="https://docs.ln4.ru/" rel="nofollow" target="__blank">Swagger</a>
                 </div>
                 <div class="referral">
                     <a href="https://bavix.ru/" target="__blank">bavix</a>

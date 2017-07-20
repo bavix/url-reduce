@@ -39,6 +39,7 @@ $(function () {
     }
 
     function registerInfo($form, api, url) {
+        var retry = 10;
         var id = setInterval(function () {
 
             $.ajax({
@@ -55,11 +56,15 @@ $(function () {
                     if (typeof err !== "undefined") {
                         addError($form, err);
                         clearInterval(id);
+                        retry = 0;
                     } else if (title !== null) {
                         // description link
                         $collapse.find('.share-title').text(title);
                         $collapse.find('.share-description').text(def(res.parameters, 'description', null));
+                        retry = 0;
+                    }
 
+                    if (--retry <= 0) {
                         clearInterval(id);
                     }
                 }

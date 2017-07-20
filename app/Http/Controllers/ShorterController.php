@@ -76,7 +76,8 @@ class ShorterController extends Controller
      */
     public function store(Request $request)
     {
-        $url = trim($request->input('url'));
+        $idn    = new \idna_convert(['idn_version' => 2008]);
+        $url = trim((string)$request->input('url'));
 
         if (empty($url))
         {
@@ -86,15 +87,10 @@ class ShorterController extends Controller
             ];
         }
 
-        if (stripos($url, $request->getHost()) !== false)
-        {
-            return [
-                'code'  => self::ERR_REDUCE_REDUCED,
-                'error' => __('blocks.shorten.reduceTheReduced')
-            ];
-        }
+        $test = $idn->encode($url);
+        $host = $idn->encode($request->getHost());
 
-        $scheme = parse_url($url, PHP_URL_SCHEME);
+        $scheme = parse_url($host, PHP_URL_SCHEME);
 
         if ($scheme && !preg_match('~^https?$~', $scheme))
         {
@@ -104,15 +100,24 @@ class ShorterController extends Controller
             ];
         }
 
+        $regExp = '~^(https?://)?(www\.)?' . preg_quote($host, null) . '[^\w\.-]~iu';
+
+        if (preg_match($regExp, $test))
+        {
+            return [
+                'code'  => self::ERR_REDUCE_REDUCED,
+                'error' => __('blocks.shorten.reduceTheReduced')
+            ];
+        }
+
         if (!preg_match('~^https?://~', $url))
         {
             $url = 'http://' . $url;
         }
 
-        $idn    = new \idna_convert(['idn_version' => 2008]);
-        $regExp = '~\b(https?://)?' . str_replace('.', '\\.', $idn->encode($request->getHost())) . '[^\w\.-]~i';
+        $test = $idn->encode($url);
 
-        if (!filter_var($idn->encode($url), FILTER_VALIDATE_URL) || preg_match($regExp, $idn->encode($url)))
+        if (!filter_var($test, FILTER_VALIDATE_URL))
         {
             return [
                 'code'  => self::ERR_VALIDATE_URL,
@@ -120,7 +125,7 @@ class ShorterController extends Controller
             ];
         }
 
-        $host = parse_url($url, PHP_URL_HOST);
+        $host = parse_url($test, PHP_URL_HOST);
 
         if (!preg_match('~.+\..{2,}~', $host))
         {
@@ -130,6 +135,7 @@ class ShorterController extends Controller
             ];
         }
 
+        // check cyrillic's
         if (mb_strlen($url) <= (12 + ($scheme === 'https')))
         {
             return [
@@ -148,6 +154,7 @@ class ShorterController extends Controller
             ];
         }
 
+        // decode for API
         $model->parameters = JSON::decode($model->parameters);
 
         return $model->setVisible([
