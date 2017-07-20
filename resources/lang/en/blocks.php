@@ -36,6 +36,7 @@ return [
     'listPages'  => 'Pages list',
     'listAlbums' => 'Albums list',
 
+    'goto' => 'Transfer to',
     'submit' => 'Shorten URL',
 
     'lastName'   => 'Last name',

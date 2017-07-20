@@ -179,7 +179,13 @@ class ShorterController extends Controller
         Tracker::hit($model);
         $model->updateMetadata(); // if old link
 
-        return redirect($model->url);
+        $model->parameters = JSON::decode($model->parameters);
+
+        return $this->render('_partials.redirect', ['item' => $model])
+            ->setStatusCode(302, 'Found')
+            ->withHeaders([
+                'Location' => $model->url
+            ]);
     }
 
 }

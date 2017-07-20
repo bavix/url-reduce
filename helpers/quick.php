@@ -166,6 +166,10 @@ if (!function_exists('keywords'))
         $mixed = explode(',', $data);
         $data  = array_unique($mixed);
 
+        $data = array_filter($data, function ($val) {
+            return strlen($val) > 1;
+        });
+
         return implode(', ', $data);
     }
 }
