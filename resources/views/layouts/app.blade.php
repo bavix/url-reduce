@@ -146,13 +146,13 @@
         <footer class="footer">
             <div class="text-center">
                 <a class="social" href="/fbook" rel="nofollow" target="__blank" title="Facebook">
-                    <i class="fa fa-3x fa-facebook-square"></i>
+                    <i class="fa fa-3x fa-facebook-square icon-3d"></i>
                 </a>
                 <a class="social" href="/twitt" rel="nofollow" target="__blank" title="Twitter">
-                    <i class="fa fa-3x fa-twitter-square"></i>
+                    <i class="fa fa-3x fa-twitter-square icon-3d"></i>
                 </a>
                 <a class="social" href="/githb" rel="nofollow" target="__blank" title="Github">
-                    <i class="fa fa-3x fa-github-square"></i>
+                    <i class="fa fa-3x fa-github-square icon-3d"></i>
                 </a>
             </div>
 
