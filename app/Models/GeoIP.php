@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Bavix\Helpers\JSON;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -101,7 +102,13 @@ class GeoIP extends Model
 
         if (!Cache::has($key))
         {
-            Cache::put($key, static::_getLanguage($request, $ip));
+            Cache::put(
+                $key,
+                $locale = static::_getLanguage($request, $ip),
+                Carbon::now()->addMonth()
+            );
+
+            return $locale;
         }
 
         return Cache::get($key);

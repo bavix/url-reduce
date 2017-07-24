@@ -10,7 +10,7 @@ class LanguageHandle
 
     public function handle(Request $request, \Closure $next)
     {
-        $locale = bx_cookie('locale', GeoIP::getLanguage());
+        $locale = bx_cookie('locale', GeoIP::getLanguage($request));
 
         app()->setLocale($locale);
 
