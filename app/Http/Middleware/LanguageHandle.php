@@ -2,22 +2,15 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\GeoIP;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class LanguageHandle
 {
 
-    protected $languages = [];
-
-    public function __construct()
-    {
-        $this->languages = bxCfg('bx.languages', ['en', 'ru']);
-    }
-
     public function handle(Request $request, \Closure $next)
     {
-        $locale = bx_cookie('locale', $request->getPreferredLanguage($this->languages));
+        $locale = bx_cookie('locale', GeoIP::getLanguage());
 
         app()->setLocale($locale);
 
