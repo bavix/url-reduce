@@ -46,6 +46,10 @@ class GeoIP extends Model
         $data['from'] = ip2long($ip);
         $data['to']   = ip2long($ip);
 
+        $data = array_map(function ($item) {
+            return empty($item) ? null : $item;
+        }, $data);
+
         return static::query()
             ->forceCreate($data);
     }
