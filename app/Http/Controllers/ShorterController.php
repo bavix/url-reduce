@@ -116,7 +116,7 @@ class ShorterController extends Controller
             $test = $idn->encode($url);
         }
 
-        if (!filter_var($test, FILTER_VALIDATE_URL))
+        if (!filter_var(Str::translit($test), FILTER_VALIDATE_URL))
         {
             return [
                 'code'  => self::ERR_VALIDATE_URL,
