@@ -70,7 +70,7 @@ class GeoIP extends Model
                     ->first();
             }
 
-            if (static::$ips[$long] === null)
+            if ($long && static::$ips[$long] === null)
             {
                 static::$ips[$long] = self::loadFromIP($ip);
             }
