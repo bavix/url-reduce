@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Helpers\Embed;
 use App\Models\Link;
+use Bavix\Gearman\Worker;
 use Bavix\Helpers\JSON;
 use Embed\Http\CurlDispatcher;
 use Illuminate\Console\Command;
@@ -58,7 +59,7 @@ class GearmanCommand extends Command
             CURLOPT_HEADER         => false,    // don't return headers
         ]);
 
-        $worker = new \GearmanWorker();
+        $worker = new Worker();
         $worker->addServer(
             config('gearman.host'),
             config('gearman.port')
