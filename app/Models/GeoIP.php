@@ -68,11 +68,11 @@ class GeoIP extends Model
                 static::$ips[$long] = static::query()
                     ->whereRaw('? BETWEEN `from` AND `to`', [$long])
                     ->first();
-            }
 
-            if ($long && static::$ips[$long] === null)
-            {
-                static::$ips[$long] = self::loadFromIP($ip);
+                if (static::$ips[$long] === null)
+                {
+                    static::$ips[$long] = self::loadFromIP($ip);
+                }
             }
         }
 
