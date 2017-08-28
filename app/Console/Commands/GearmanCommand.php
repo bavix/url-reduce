@@ -64,7 +64,7 @@ class GearmanCommand extends Command
 
         curl_setopt($ch, CURLOPT_URL, 'https://www.virustotal.com/vtapi/v2/url/report');
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+//        curl_setopt($ch, CURLOPT_VERBOSE, 1);
         curl_setopt($ch, CURLOPT_ENCODING, 'gzip,deflate');
         curl_setopt($ch, CURLOPT_USERAGENT, $this->userAgent);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -96,6 +96,7 @@ class GearmanCommand extends Command
         {
             try
             {
+                sleep(14);
                 $this->addTaskVirusTotal($link);
             }
             catch (\Throwable $throwable)
