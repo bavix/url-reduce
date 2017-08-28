@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Helpers\Embed;
 use App\Models\Link;
+use Bavix\Gearman\Client;
 use Bavix\Gearman\Worker;
 use Bavix\Helpers\JSON;
 use Embed\Http\CurlDispatcher;
@@ -24,7 +25,7 @@ class GearmanCommand extends Command
      * @var string
      */
     protected $description = 'bavix metabot';
-    protected $userAgent = 'Mozilla/5.0 (compatible; bavix/metabot-v2.1; +https://bavix.ru/bot.html)';
+    protected $userAgent   = 'Mozilla/5.0 (compatible; bavix/metabot-v2.1; +https://bavix.ru/bot.html)';
 
     /**
      * GearmanCommand constructor.
@@ -32,6 +33,78 @@ class GearmanCommand extends Command
     public function __construct()
     {
         parent::__construct();
+    }
+
+    protected function addTaskVirusTotal(Link $link)
+    {
+        $client = new Client();
+        $client->addServer(
+            config('gearman.host'),
+            config('gearman.port')
+        );
+
+        $client->doBackground('virus', serialize($link));
+    }
+
+    protected function virusTotal(Link $link)
+    {
+        $apiKey = ENV('VT_API_KEY', null);
+
+        if (!$apiKey)
+        {
+            return;
+        }
+
+        $post = [
+            'apikey'   => $apiKey,
+            'resource' => $link->url
+        ];
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://www.virustotal.com/vtapi/v2/url/report');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_ENCODING, 'gzip,deflate');
+        curl_setopt($ch, CURLOPT_USERAGENT, $this->userAgent);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+        $queue = true;
+        $result      = curl_exec($ch);
+        $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        if ((int)$status_code === 200)
+        {
+            $data = JSON::decode($result);
+
+            if (isset($data['scans'])) {
+                $queue = false;
+
+                foreach ($data['scans'] as $antiVirus => $mixed) {
+                    $this->info('' . $antiVirus . ': ' . $mixed['result']);
+                    if ($mixed['detected']) {
+                        $link->blocked = true;
+                        $link->save();
+                        break;
+                    }
+                }
+            }
+        }
+
+        if ($queue)
+        {
+            try
+            {
+                $this->addTaskVirusTotal($link);
+            }
+            catch (\Throwable $throwable)
+            {
+            }
+        }
+
+        curl_close($ch);
+
     }
 
     /**
@@ -55,8 +128,9 @@ class GearmanCommand extends Command
             CURLOPT_HTTPHEADER     => [
                 'Accept-Language: en,en-US;q=0.8,ru;q=0.6'
             ],
-            CURLOPT_RETURNTRANSFER => true,     // return web page
-            CURLOPT_HEADER         => false,    // don't return headers
+
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HEADER         => false,
         ]);
 
         $worker = new Worker();
@@ -65,8 +139,16 @@ class GearmanCommand extends Command
             config('gearman.port')
         );
 
-        $worker->addFunction('metadata', function (\GearmanJob $job) use ($console, $dispatcher)
-        {
+        $worker->addFunction('virus', function (\GearmanJob $job) use ($console) {
+            /**
+             * @var Link $model
+             */
+            $model = unserialize($job->workload(), []);
+            $this->info('scan: ' . $model->url);
+            $console->virusTotal($model);
+        });
+
+        $worker->addFunction('metadata', function (\GearmanJob $job) use ($console, $dispatcher) {
             /**
              * @var Link $model
              */
@@ -85,6 +167,7 @@ class GearmanCommand extends Command
                 );
 
                 $console->info('metadata: ' . $model->parameters);
+                $console->addTaskVirusTotal($model);
 
             }
             catch (\Throwable $throwable)

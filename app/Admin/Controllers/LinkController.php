@@ -59,6 +59,9 @@ class LinkController extends AdminController
 
             $form->switch('active', 'Видимость');
 
+            $form->textarea('message', 'Сообщение');
+            $form->switch('blocked', 'Заблокировать');
+
             $form->ignore(['created_at', 'updated_at']);
 
         });

@@ -174,6 +174,7 @@ class ShorterController extends Controller
     {
         $model = Link::findByHash($hash);
         abort_if($model === null, 404);
+        abort_if($model->blocked, 403, !empty($model->message) ? $model->message : __('bavix.http.403_2'));
         abort_if(!$model->active, 403, __('bavix.http.403_2'));
 
         Tracker::hit($model);
