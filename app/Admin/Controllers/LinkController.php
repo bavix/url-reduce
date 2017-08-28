@@ -34,7 +34,29 @@ class LinkController extends AdminController
             $grid->id('ID')->sortable();
 
             $grid->column('url', 'URL')->sortable();
-            $grid->column('hash', 'Хэш')->sortable();
+            $grid->column('hash', 'Hash')->sortable();
+
+            $grid->column('active', 'Active')
+                ->display(function ($res) {
+
+                    if ($res)
+                    {
+                        return '<span class="badge bg-blue">Yes</span>';
+                    }
+
+                    return '<span class="badge bg-yellow">No</span>';
+                });
+
+            $grid->column('blocked', 'Blocked')
+                ->display(function ($res) {
+
+                    if ($res)
+                    {
+                        return '<span class="badge bg-red">Yes</span>';
+                    }
+
+                    return '<span class="badge bg-green">No</span>';
+                });
 
             $grid->exporter(new \App\Accessor\CsvExporter());
 
