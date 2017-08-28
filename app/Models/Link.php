@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Link extends Model
 {
-    protected $table   = 'links';
+    protected $table = 'links';
 
     public $timestamps = false;
 
@@ -26,11 +26,11 @@ class Link extends Model
 
         $carbon = Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at);
 
-        if ($carbon->diffInMonths(Carbon::now()) > 1)
+        if ($carbon->diffInWeeks(Carbon::now()) >= 2)
         {
             // reset information
             $this->parameters = JSON::encode(null);
-            $this->active = 1; // if not active
+            $this->active     = 1; // if not active
             $this->save();
 
             // gearman update information

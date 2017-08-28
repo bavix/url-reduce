@@ -50,14 +50,15 @@ class GearmanCommand extends Command
     {
         $apiKey = ENV('VT_API_KEY', null);
 
-        if (!$apiKey)
+        // if not api key OR blocked OR not active
+        if (!$apiKey || $link->blocked || !$link->active)
         {
             return;
         }
 
         $post = [
             'apikey'   => $apiKey,
-            'url' => $link->url
+            'resource' => $link->url,
         ];
 
         $ch = curl_init();
@@ -85,6 +86,12 @@ class GearmanCommand extends Command
                     $this->info('' . $antiVirus . ': ' . $mixed['result']);
                     if ($mixed['detected']) {
                         $link->blocked = true;
+
+                        if (null === $link->message)
+                        {
+                            $link->message = $antiVirus . ' found ' . $mixed['result'];
+                        }
+
                         $link->save();
                         break;
                     }
@@ -92,7 +99,7 @@ class GearmanCommand extends Command
             }
         }
 
-        if ($queue)
+        if (!empty($result['response_code']) && $queue)
         {
             try
             {
