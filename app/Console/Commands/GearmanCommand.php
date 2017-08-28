@@ -96,6 +96,7 @@ class GearmanCommand extends Command
         {
             try
             {
+                $this->error($result);
                 sleep(14);
                 $this->addTaskVirusTotal($link);
             }
