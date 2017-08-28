@@ -57,7 +57,7 @@ class GearmanCommand extends Command
 
         $post = [
             'apikey'   => $apiKey,
-            'resource' => $link->url
+            'url' => $link->url
         ];
 
         $ch = curl_init();
