@@ -146,6 +146,14 @@ class ShorterController extends Controller
         $model = Link::addUrl($url);
         $model->updateMetadata(); // if old link
 
+        if ($model->blocked)
+        {
+            return [
+                'code'  => self::ERR_NO_ALLOW,
+                'error' => $model->message ?? __('blocks.shorten.noAllow')
+            ];
+        }
+
         if (!$model->active)
         {
             return [
