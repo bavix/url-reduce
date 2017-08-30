@@ -26,10 +26,6 @@ class Laravel55 extends Migration
             ['role_id' => 1, 'permission_id' => 1]
         );
 
-        DB::table('admin_role_users')->insert(
-            ['role_id' => 1, 'user_id' => 1]
-        );
-
         DB::table('admin_user_permissions')->insert(
             ['user_id' => 1, 'permission_id' => 1]
         );
