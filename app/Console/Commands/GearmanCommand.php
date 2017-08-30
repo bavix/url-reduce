@@ -46,32 +46,49 @@ class GearmanCommand extends Command
         $client->doBackground('virus', serialize($link));
     }
 
-    protected function virusTotal(Link $link)
+    protected function req($uri, $data)
     {
-        $apiKey = ENV('VT_API_KEY', null);
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $uri);
+        curl_setopt($ch, CURLOPT_POST, true);
+//        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+//        curl_setopt($ch, CURLOPT_ENCODING, 'gzip,deflate');
+        curl_setopt($ch, CURLOPT_USERAGENT, $this->userAgent);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+        return $ch;
+    }
+
+    protected function phishtank(Link $link)
+    {
+
+        $apiKey = ENV('PHISHTANK_API_KEY', null);
 
         // if not api key OR blocked OR not active
         if (!$apiKey || $link->blocked || !$link->active)
         {
+            if ($apiKey)
+            {
+                $this->warn('URL is blocked or not active!');
+            }
+            else
+            {
+                $this->warn('API key not found ' . __METHOD__);
+            }
+
             return;
         }
 
-        $post = [
-            'apikey'   => $apiKey,
-            'resource' => $link->url,
-        ];
+        $uri = 'https://phishtank.com/checkurl/';
 
-        $ch = curl_init();
+        $ch = $this->req($uri, [
+            'app_key' => $apiKey,
+            'format'  => 'json',
+            'url'     => $link->url,
+        ]);
 
-        curl_setopt($ch, CURLOPT_URL, 'https://www.virustotal.com/vtapi/v2/url/report');
-        curl_setopt($ch, CURLOPT_POST, true);
-//        curl_setopt($ch, CURLOPT_VERBOSE, 1);
-        curl_setopt($ch, CURLOPT_ENCODING, 'gzip,deflate');
-        curl_setopt($ch, CURLOPT_USERAGENT, $this->userAgent);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-
-        $queue = true;
         $result      = curl_exec($ch);
         $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
@@ -79,12 +96,70 @@ class GearmanCommand extends Command
         {
             $data = JSON::decode($result);
 
-            if (isset($data['scans'])) {
+            $results = $data['results'] ?? [];
+
+            if (!empty($results['in_database']) && !empty($results['valid']))
+            {
+                $link->blocked = true;
+
+                if (null === $link->message)
+                {
+                    $link->message = 'URL is a phish! ' .
+                        'In more detail according to the reference ' .
+                        $results['phish_detail_page'];
+                }
+
+                $link->save();
+            }
+        }
+
+        curl_close($ch);
+
+    }
+
+    protected function virusTotal(Link $link)
+    {
+        $apiKey = ENV('VT_API_KEY', null);
+
+        // if not api key OR blocked OR not active
+        if (!$apiKey || $link->blocked || !$link->active)
+        {
+            if ($apiKey)
+            {
+                $this->warn('URL is blocked or not active!');
+            }
+            else
+            {
+                $this->warn('API key not found ' . __METHOD__);
+            }
+
+            return;
+        }
+
+        $uri = 'https://www.virustotal.com/vtapi/v2/url/report';
+
+        $ch = $this->req($uri, [
+            'apikey'   => $apiKey,
+            'resource' => $link->url,
+        ]);
+
+        $queue       = true;
+        $result      = curl_exec($ch);
+        $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        if ((int)$status_code === 200)
+        {
+            $data = JSON::decode($result);
+
+            if (isset($data['scans']))
+            {
                 $queue = false;
 
-                foreach ($data['scans'] as $antiVirus => $mixed) {
+                foreach ($data['scans'] as $antiVirus => $mixed)
+                {
                     $this->info('' . $antiVirus . ': ' . $mixed['result']);
-                    if ($mixed['detected']) {
+                    if ($mixed['detected'])
+                    {
                         $link->blocked = true;
 
                         if (null === $link->message)
@@ -134,7 +209,7 @@ class GearmanCommand extends Command
             CURLOPT_USERAGENT      => $this->userAgent,
             CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4,
 
-            CURLOPT_HTTPHEADER     => [
+            CURLOPT_HTTPHEADER => [
                 'Accept-Language: en,en-US;q=0.8,ru;q=0.6'
             ],
 
@@ -154,6 +229,7 @@ class GearmanCommand extends Command
              */
             $model = unserialize($job->workload(), []);
             $this->info('scan: ' . $model->url);
+            $console->phishtank($model);
             $console->virusTotal($model);
         });
 

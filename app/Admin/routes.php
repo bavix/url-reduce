@@ -3,34 +3,39 @@
 use Illuminate\Routing\Router;
 use Encore\Admin\Facades\Admin;
 
-Admin::registerHelpersRoutes();
+//Admin::registerHelpersRoutes();
+Admin::registerAuthRoutes();
 
 // dashboard
 Route::group([
-    'prefix'     => config('admin.prefix'),
+//    'prefix'     => config('admin.prefix'),
     //    'namespace'     => Admin::controllerNamespace(),
-    'middleware' => ['web', 'admin'],
+//    'middleware' => ['web', 'admin'],
+
+    'prefix'        => config('admin.route.prefix'),
+    'namespace'     => config('admin.route.namespace'),
+    'middleware'    => config('admin.route.middleware'),
 ], function (Router $router)
 {
 
     // dashboard
-    $router->resource('/', \App\Admin\Controllers\DashboardController::class);
+    $router->resource('/', DashboardController::class);
 
     // counters
-    $router->resource('/counters', \App\Admin\Controllers\CounterController::class);
+    $router->resource('/counters', CounterController::class);
 
     // trackers
-    $router->resource('/trackers', \App\Admin\Controllers\TrackerController::class);
+    $router->resource('/trackers', TrackerController::class);
 
     // configs
-    $router->resource('/config', \App\Admin\Controllers\ConfigController::class);
+    $router->resource('/config', ConfigController::class);
 
     // links
-    $router->resource('/links', \App\Admin\Controllers\LinkController::class);
+    $router->resource('/links', LinkController::class);
 
     // feedback
-    $router->resource('/feedback', \App\Admin\Controllers\FeedbackController::class);
-    $router->get('/feedback/doc/{id}', \App\Admin\Controllers\FeedbackController::class . '@doc')
+    $router->resource('/feedback', FeedbackController::class);
+    $router->get('/feedback/doc/{id}', FeedbackController::class . '@doc')
         ->name('feedback.doc');
 
     // lg.trash

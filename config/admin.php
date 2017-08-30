@@ -17,10 +17,14 @@ return [
      */
     'logo-mini' => '<b>bavix</b>',
 
-    /*
-     * Laravel-admin url prefix.
+    /**
+     * Route configration.
      */
-    'prefix'    => 'cp',
+    'route' => [
+        'prefix' => 'cp',
+        'namespace'     => 'App\\Admin\\Controllers',
+        'middleware'    => ['web', 'admin'],
+    ],
 
     /*
      * Laravel-admin install directory.
@@ -36,9 +40,20 @@ return [
      * Laravel-admin auth setting.
      */
     'auth' => [
-        'driver'   => 'session',
-        'provider' => '',
-        'model'    => Encore\Admin\Auth\Database\Administrator::class,
+
+        'guards' => [
+            'admin' => [
+                'driver' => 'session',
+                'provider' => 'admin',
+            ]
+        ],
+        'providers' => [
+            'admin' => [
+                'driver' => 'eloquent',
+                'model'  => Encore\Admin\Auth\Database\Administrator::class,
+            ]
+        ],
+
     ],
 
     /*
@@ -91,17 +106,23 @@ return [
     /*
      * By setting this option to open or close operation log in laravel-admin.
      */
-    'operation_log'   => true,
+    'operation_log'   => [
 
-    /*
-    |---------------------------------------------------------|
-    | SKINS         | skin-blue                               |
-    |               | skin-black                              |
-    |               | skin-purple                             |
-    |               | skin-yellow                             |
-    |               | skin-red                                |
-    |               | skin-green                              |
-    |---------------------------------------------------------|
+        'enable' => true,
+
+        /**
+         * Routes that will not log to database.
+         *
+         * All method to path like: admin/auth/logs
+         * or specific method to path like: get:admin/auth/logs
+         */
+        'except' => [
+            'admin/auth/logs*',
+        ]
+    ],
+
+    /**
+     * @see https://adminlte.io/docs/2.4/layout
      */
     'skin'    => 'skin-green',
 
@@ -119,5 +140,11 @@ return [
     /*
      * Version displayed in footer.
      */
-    'version'   => '1.0',
+    'version'   => '1.5.x-dev',
+
+    /**
+     * Settings for extensions.
+     */
+    'extensions' => [
+    ]
 ];
