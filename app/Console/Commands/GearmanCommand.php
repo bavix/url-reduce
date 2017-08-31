@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Helpers\Embed;
 use App\Models\Link;
+use App\Models\Tracker;
 use Bavix\Gearman\Client;
 use Bavix\Gearman\Worker;
 use Bavix\Helpers\JSON;
@@ -43,7 +44,7 @@ class GearmanCommand extends Command
             config('gearman.port')
         );
 
-        $client->doBackground('virus', serialize($link));
+        $client->doLowBackground('virus', serialize($link));
     }
 
     protected function req($uri, $data)
@@ -222,6 +223,16 @@ class GearmanCommand extends Command
             config('gearman.host'),
             config('gearman.port')
         );
+
+        $worker->addFunction('tracker', function (\GearmanJob $job) use ($console) {
+            /**
+             * @var Tracker $model
+             */
+            $workload = $job->workload();
+            $model = unserialize($workload, []);
+            $this->info('New visitor. IP: ' . $model->ip);
+            $model->save();
+        });
 
         $worker->addFunction('virus', function (\GearmanJob $job) use ($console) {
             /**

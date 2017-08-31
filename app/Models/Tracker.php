@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Bavix\Gearman\Client;
 use Bavix\Helpers\JSON;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
@@ -129,7 +130,22 @@ class Tracker extends Model
                         'link_id'    => $link ? $link->id : null
                     ]);
 
-                    $model->save();
+                    // without mysql-trigger
+                    $model->created_at = date('Y-m-d H:i:s');
+
+                    try
+                    {
+                        $client = new Client();
+                        $client->addServer(
+                            config('gearman.host'),
+                            config('gearman.port')
+                        );
+
+                        $client->doLowBackground('tracker', serialize($model));
+                    }
+                    catch (\Throwable $throwable)
+                    {
+                    }
                 }
             }
         }
