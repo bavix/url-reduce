@@ -228,7 +228,7 @@
 <!-- Scripts -->
 <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53347bb35778c0b9"></script>
 <script src="{{ asset2('node_modules/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ asset2('node_modules/tether/dist/js/tether.min.js') }}"></script>
+<script src="{{ asset2('node_modules/popper.js/dist/umd/popper.min.js') }}"></script>
 <script src="{{ asset2('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset2('node_modules/clipboard/dist/clipboard.min.js') }}"></script>
 <script src="{{ asset2('js/default.js') }}"></script>
