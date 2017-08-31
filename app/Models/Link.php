@@ -7,6 +7,7 @@ use Bavix\Helpers\JSON;
 use Bavix\Helpers\Str;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @SWG\Definition()
@@ -25,6 +26,7 @@ class Link extends Model
         return static::query()
             ->where('active', 1)
             ->where('blocked', 0)
+            ->whereNotNull(DB::raw('parameters->>\'$.title\''))
             ->orderBy('id', 'desc')
             ->limit(5)
             ->get();
