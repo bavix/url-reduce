@@ -230,7 +230,7 @@ class GearmanCommand extends Command
              */
             $workload = $job->workload();
             $model = unserialize($workload, []);
-            $this->info('New visitor. IP: ' . $model->ip);
+            $console->info('New visitor. IP: ' . $model->ip);
             $model->save();
         });
 
