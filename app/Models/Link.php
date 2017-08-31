@@ -132,4 +132,20 @@ class Link extends Model
         return $this->_parameters()['title'] ?? $this->url;
     }
 
+    /**
+     * @return array
+     */
+    public function getTags()
+    {
+        return array_slice($this->_parameters()['tags'] ?? [], 0, 7);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFavicon()
+    {
+        return $this->_parameters()['providerIcon'] ?? $this->url;
+    }
+
 }

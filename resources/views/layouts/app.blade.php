@@ -193,17 +193,24 @@
                 <ol class="live">
                     @foreach(\App\Models\Link::live() as $item)
                         <li>
-                            <img src="/qr/{{ $item->hash }}"
+                            <img src="{{ $item->getFavicon() }}"
                                  title="{{ $item->getTitle() }}"
                                  alt="{{ $item->getTitle() }}"
-                                 onerror="this.src='https://ds.bavix.ru/svg/logo.svg';"
-                                 width="34" height="34"
-                                 class="rounded-circle"
+                                 onerror="this.src='/favicons/favicon-32x32.png';"
+                                 class="img-thumbnail"
+                                 width="24"
                                  align="right" />
 
                             <a href="/{{ $item->hash }}"
                                target="_blank"
                                title="">{{ $item->getTitle() }}</a>
+
+                            <div>
+                                @foreach ($item->getTags() as $tag)
+                                    <span class="badge badge-light">{{ $tag }}</span>
+                                @endforeach
+                            </div>
+
                         </li>
                     @endforeach
                 </ol>

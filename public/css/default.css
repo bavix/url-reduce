@@ -42,8 +42,6 @@ body {
         border-color: #f0ad4e; }
         .wrapper .bx-container .bx-form input[name=url]:focus {
           border-color: #66afe9; }
-      .wrapper .bx-container .bx-form .btn {
-        font-size: 1.1rem; }
     .wrapper .bx-container #collapse .input-group {
       width: 90%; }
       .wrapper .bx-container #collapse .input-group input[name=shortUrl] {
