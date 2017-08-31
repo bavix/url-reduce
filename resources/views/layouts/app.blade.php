@@ -56,126 +56,161 @@
 <body>
 
 <div class="wrapper container d-flex" style="min-height: 100%; width: 100%;">
+
     <div class="bx-container mx-auto align-self-center" style="width: 100%">
 
-        @php($lang = app()->getLocale() === 'en' ? 'ru' : 'us')
+        <div class="row">
+            <div class="col-md-8">
 
-        <a href="{{ route('language') }}" class="float-right"
-           title="{{ __('blocks.changeLanguage') }}">
-            <img width="18px" title="{{ __('blocks.changeLanguage') }}"
-                 alt="{{ __('blocks.changeLanguage') }}"
-                 src="https://ds.bavix.ru/svg/flags/4x3/{{ $lang }}.svg" />
-        </a>
+                @php($lang = app()->getLocale() === 'en' ? 'ru' : 'us')
 
-        <h1 class="text-center">
-            <a href="{{ route('home') }}" title="{{ __('blocks.title') }}">{{ __('blocks.title') }}</a>
-        </h1>
+                <a href="{{ route('language') }}" class="float-right"
+                   title="{{ __('blocks.changeLanguage') }}">
+                    <img width="18px" title="{{ __('blocks.changeLanguage') }}"
+                         alt="{{ __('blocks.changeLanguage') }}"
+                         src="https://ds.bavix.ru/svg/flags/4x3/{{ $lang }}.svg" />
+                </a>
 
-        <h5 class="text-center description">{{ __('blocks.description') }}</h5>
+                <h1 class="text-center">
+                    <a href="{{ route('home') }}" title="{{ __('blocks.title') }}">{{ __('blocks.title') }}</a>
+                </h1>
 
-        <form class="bx-form" action="{{ route('shorter.store') }}">
-            <div class="form-group">
-                <div class="input-group input-group-lg">
+                <h5 class="text-center description">{{ __('blocks.description') }}</h5>
 
-                    <input class="form-control"
-                           placeholder="{{ __('blocks.placeholderInputURL') }}"
-                           name="url"
-                           type="text"
-                           autocomplete="off" />
+                <form class="bx-form" action="{{ route('shorter.store') }}">
+                    <div class="form-group">
+                        <div class="input-group input-group-lg">
 
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn-warning">
+                            <input class="form-control"
+                                   placeholder="{{ __('blocks.placeholderInputURL') }}"
+                                   name="url"
+                                   type="text"
+                                   autocomplete="off" />
 
-                            <img width="18px" src="/favicons/favicon-32x32.png"
-                                 title="{{ __('blocks.submit') }}"
-                                 alt="{{ __('blocks.submit') }}" />
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-warning">
 
-                        </button>
-                    </span>
+                                    <img width="18px" src="/favicons/favicon-32x32.png"
+                                         title="{{ __('blocks.submit') }}"
+                                         alt="{{ __('blocks.submit') }}" />
+
+                                </button>
+                            </span>
+                        </div>
+
+                        <div class="form-control-feedback text-center"></div>
+                    </div>
+                </form>
+
+                <div class="collapse" id="collapse">
+                    <div class="mx-auto input-group">
+                        <input id="result" class="form-control"
+                               name="shortUrl"
+                               type="text"
+                               value="hello"
+                               readonly />
+
+                        <span class="input-group-btn">
+                            <button title="Copy to clipboard!"
+                                    data-toggle="tooltip"
+                                    data-clipboard-target="#result"
+                                    class="btn btn-danger clipboard">
+                                <img width="18px" src="https://ds.bavix.ru/svg/clipboard/clippy.svg"
+                                     title="Copy to clipboard!"
+                                     alt="Copy to clipboard!" />
+                            </button>
+                        </span>
+                    </div>
+
+                    <div class="col-12" data-share-info>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="text-center">
+                                    <img id="qr-code" class="img-thumbnail" src="https://ds.bavix.ru/svg/logo.svg" title="QR-code" alt="QR-code" />
+                                </div>
+                                <div id="share" class="text-center" data-share-info>
+                                    <div class="addthis_inline_share_toolbox"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-7">
+                                <h3 class="share-title"></h3>
+                                <p class="share-description"></p>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-control-feedback text-center"></div>
-            </div>
-        </form>
+                <footer class="footer">
+                    <div class="text-center">
+                        <a class="social" href="/fbook" rel="nofollow" target="__blank" title="Facebook">
+                            <i class="fa fa-3x fa-facebook-square icon-3d"></i>
+                        </a>
+                        <a class="social" href="/twitt" rel="nofollow" target="__blank" title="Twitter">
+                            <i class="fa fa-3x fa-twitter-square icon-3d"></i>
+                        </a>
+                        <a class="social" href="/githb" rel="nofollow" target="__blank" title="Github">
+                            <i class="fa fa-3x fa-github-square icon-3d"></i>
+                        </a>
+                    </div>
 
-        <div class="collapse" id="collapse">
-            <div class="mx-auto input-group">
-                <input id="result" class="form-control"
-                       name="shortUrl"
-                       type="text"
-                       value="hello"
-                       readonly />
-
-                <span class="input-group-btn">
-                    <button title="Copy to clipboard!"
-                            data-toggle="tooltip"
-                            data-clipboard-target="#result"
-                            class="btn btn-danger clipboard">
-                        <img width="18px" src="https://ds.bavix.ru/svg/clipboard/clippy.svg"
-                             title="Copy to clipboard!"
-                             alt="Copy to clipboard!" />
-                    </button>
-                </span>
-            </div>
-
-            <div class="col-12" data-share-info>
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="text-center">
-                            <img id="qr-code" class="img-thumbnail" src="https://ds.bavix.ru/svg/logo.svg" title="QR-code" alt="QR-code" />
+                    <div class="text-center">
+                        <div class="referral">
+                            <a href="/DigOn" rel="nofollow" target="__blank">
+                                {{ __('blocks.digitalOceanTech') }}
+                            </a>
                         </div>
-                        <div id="share" class="text-center" data-share-info>
-                            <div class="addthis_inline_share_toolbox"></div>
+                        <div class="referral">
+                            <a href="https://docs.ln4.ru/"
+                               title="RESTful API"
+                               target="__blank">API</a>
+                        </div>
+                        <div class="referral">
+                            <a href="https://bavix.ru/"
+                               title="{{ __('bavix.description') }}"
+                               target="__blank">bavix</a>
                         </div>
                     </div>
 
-                    <div class="col-md-7">
-                        <h3 class="share-title"></h3>
-                        <p class="share-description"></p>
-                    </div>
+                    @if (counters()->count())
+                        <!--noindex-->
+                        <div style="display: none !important;">
+                            @foreach (counters() as $counter)
+                                {!! $counter->code !!}
+                            @endforeach
+                        </div>
+                        <!--/noindex-->
+                    @endif
 
-                </div>
+                </footer>
+
+            </div>
+            <div class="col-md-4 d-none d-md-inline">
+
+                <h2>{{ __('blocks.live') }}</h2>
+                <!--noindex-->
+                <ol class="live">
+                    @foreach(\App\Models\Link::live() as $item)
+                        <li>
+                            <img src="/qr/{{ $item->hash }}"
+                                 title="{{ $item->getTitle() }}"
+                                 alt="{{ $item->getTitle() }}"
+                                 onerror="this.src='https://ds.bavix.ru/svg/logo.svg';"
+                                 width="34" height="34"
+                                 class="rounded-circle"
+                                 align="right" />
+
+                            <a href="/{{ $item->hash }}"
+                               target="_blank"
+                               title="">{{ $item->getTitle() }}</a>
+                        </li>
+                    @endforeach
+                </ol>
+                <!--/noindex-->
             </div>
         </div>
 
-        <footer class="footer">
-            <div class="text-center">
-                <a class="social" href="/fbook" rel="nofollow" target="__blank" title="Facebook">
-                    <i class="fa fa-3x fa-facebook-square icon-3d"></i>
-                </a>
-                <a class="social" href="/twitt" rel="nofollow" target="__blank" title="Twitter">
-                    <i class="fa fa-3x fa-twitter-square icon-3d"></i>
-                </a>
-                <a class="social" href="/githb" rel="nofollow" target="__blank" title="Github">
-                    <i class="fa fa-3x fa-github-square icon-3d"></i>
-                </a>
-            </div>
-
-            <div class="text-center">
-                <div class="referral">
-                    <a href="/DigOn" rel="nofollow" target="__blank">
-                        {{ __('blocks.digitalOceanTech') }}
-                    </a>
-                </div>
-                <div class="referral">
-                    <a href="https://docs.ln4.ru/" rel="nofollow" target="__blank">Swagger</a>
-                </div>
-                <div class="referral">
-                    <a href="https://bavix.ru/" target="__blank">bavix</a>
-                </div>
-            </div>
-
-            @if (counters()->count())
-                <!--noindex-->
-                <div style="display: none !important;">
-                    @foreach (counters() as $counter)
-                        {!! $counter->code !!}
-                    @endforeach
-                </div>
-                <!--/noindex-->
-            @endif
-
-        </footer>
     </div>
 </div>
 

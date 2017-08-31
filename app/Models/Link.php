@@ -17,6 +17,19 @@ class Link extends Model
 
     public $timestamps = false;
 
+    /**
+     * @return Link[]
+     */
+    public static function live()
+    {
+        return static::query()
+            ->where('active', 1)
+            ->where('blocked', 0)
+            ->orderBy('id', 'desc')
+            ->limit(5)
+            ->get();
+    }
+
     public function updateMetadata()
     {
         if (!$this->updated_at)
@@ -92,6 +105,31 @@ class Link extends Model
         }
 
         return $model;
+    }
+
+    // property parameters
+
+    private $_parameters = [];
+
+    /**
+     * @return array|mixed
+     */
+    private function _parameters()
+    {
+        if (empty($this->_parameters) && $this->parameters !== 'null')
+        {
+            $this->_parameters = JSON::decode($this->parameters);
+        }
+
+        return $this->_parameters;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->_parameters()['title'] ?? $this->url;
     }
 
 }

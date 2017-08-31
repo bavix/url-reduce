@@ -21,7 +21,20 @@ body {
   .wrapper h1 {
     font-size: 4rem; }
   .wrapper .bx-container {
-    max-width: 30rem; }
+    max-width: 50rem; }
+    .wrapper .bx-container .live li {
+      width: 100%;
+      list-style: none;
+      word-wrap: break-word;
+      border-bottom: 1px solid;
+      font-size: 0.9rem;
+      min-height: 48px; }
+      .wrapper .bx-container .live li:not(:first-child) {
+        padding-top: 0.8rem; }
+      .wrapper .bx-container .live li:last-child {
+        border-bottom: 0; }
+      .wrapper .bx-container .live li:nth-child(2n+1) {
+        color: #f0ad4e; }
     .wrapper .bx-container .bx-form {
       padding-top: 5rem;
       padding-bottom: 1rem; }
@@ -67,7 +80,7 @@ body {
     -webkit-animation: icon3d 200ms infinite;
     animation: icon3d 200ms infinite; }
 
-.icon-3d-first {
+.icon-3d-on {
   -webkit-animation: icon3d 200ms 10;
   animation: icon3d 200ms 10; }
 

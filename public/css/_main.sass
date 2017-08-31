@@ -24,7 +24,24 @@ body
     font-size: 4rem
 
   .bx-container
-    max-width: 30rem
+    max-width: 50rem
+
+    .live li
+      width: 100%
+      list-style: none
+      word-wrap: break-word
+      border-bottom: 1px solid
+      font-size: 0.9rem
+      min-height: 48px
+
+      &:not(:first-child)
+        padding-top: .8rem
+
+      &:last-child
+        border-bottom: 0
+
+      &:nth-child(2n+1)
+        color: #f0ad4e
 
     .bx-form
       padding-top: 5rem

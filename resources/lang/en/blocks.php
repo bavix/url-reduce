@@ -4,6 +4,8 @@ return [
     'title'       => 'URL Shortener',
     'description' => 'To reduce the reference!',
 
+    'live' => 'Live',
+
     'placeholderInputURL' => 'Your original URL here',
     'digitalOceanTech'    => 'We use DigitalOcean technologies',
 

@@ -4,6 +4,8 @@ return [
     'title'       => 'URL Shortener',
     'description' => 'Просто сократи ссылку!',
 
+    'live' => 'Прямой эфир',
+
     'placeholderInputURL' => 'Введите вашу ссылку',
     'digitalOceanTech'    => 'Мы используем технологии DigitalOcean',
 
