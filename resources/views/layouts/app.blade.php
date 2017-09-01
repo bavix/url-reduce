@@ -188,7 +188,11 @@
             </div>
             <div class="col-md-4 d-none d-md-inline">
 
-                <h2>{{ __('blocks.live') }}</h2>
+                <span class="float-right badge badge-warning">{{ \App\Models\Link::consider() }}</span>
+
+                <h2>
+                    {{ __('blocks.live') }}
+                </h2>
                 <noindex>
                 <ol class="live">
                     @foreach(\App\Models\Link::live() as $item)

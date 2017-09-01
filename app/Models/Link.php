@@ -19,6 +19,14 @@ class Link extends Model
     public $timestamps = false;
 
     /**
+     * @return int
+     */
+    public static function consider()
+    {
+        return static::query()->count();
+    }
+
+    /**
      * @return Link[]
      */
     public static function live()
