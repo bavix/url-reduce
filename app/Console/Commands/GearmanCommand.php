@@ -96,14 +96,17 @@ class GearmanCommand extends Command
             return;
         }
 
+        $parameters = JSON::decode($link->parameters) ?: [];
+
         // url
         $rules = config('porn.url', []);
+        $url = $parameters['url'] ?? null;
 
         // config rules
         foreach ($rules as $rule)
         {
             $this->warn('Check rule [type=url] "' . $rule . '" on link ' . $link->url);
-            if (preg_match($rule, $link->url))
+            if (preg_match($rule, $link->url) || ($url && preg_match($rule, $link->url)))
             {
                 $link->is_porn = 1;
                 $link->save();
@@ -111,8 +114,6 @@ class GearmanCommand extends Command
                 return;
             }
         }
-
-        $parameters = JSON::decode($link->parameters) ?: [];
 
         // title | description
         $rules = config('porn.keywords', []);
