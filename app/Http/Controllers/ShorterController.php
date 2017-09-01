@@ -190,6 +190,13 @@ class ShorterController extends Controller
 
         $model->parameters = JSON::decode($model->parameters);
 
+        if ($model->is_porn)
+        {
+            return $this->render('_partials.porn', [
+                'item' => $model
+            ]);
+        }
+
         return $this->render('_partials.redirect', ['item' => $model])
             ->setStatusCode(302, 'Found')
             ->withHeaders([
