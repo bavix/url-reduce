@@ -99,6 +99,23 @@ use Illuminate\Http\Request;
 
 Route::match(['get', 'post'], 'add', 'ShorterController@store');
 
+Route::get('porn', function (Request $request) {
+
+
+    $client = new \Bavix\Gearman\Client();
+    $client->addServer(
+        config('gearman.host'),
+        config('gearman.port')
+    );
+
+    foreach (\App\Models\Link::all() as $item)
+    {
+        $client->doHighBackground('porn', serialize($item));
+    }
+
+    return $request->all();
+});
+
 //Route::get('test', function (Request $request) {
 //    foreach (\App\Models\Link::query()->where('active', 1)->whereNull(DB::RAW('parameters->>"$.url"'))->get() as $link) {
 //        (new \App\Observers\LinkObserver())->created($link);

@@ -21,6 +21,11 @@ class GearmanCommand extends Command
     protected $signature = 'bx:gearman';
 
     /**
+     * @var Client
+     */
+    protected $client;
+
+    /**
      * The console command description.
      *
      * @var string
@@ -36,15 +41,37 @@ class GearmanCommand extends Command
         parent::__construct();
     }
 
-    protected function addTaskVirusTotal(Link $link)
+    protected function client()
     {
-        $client = new Client();
-        $client->addServer(
-            config('gearman.host'),
-            config('gearman.port')
-        );
+        if (!$this->client)
+        {
+            $this->client = new Client();
+            $this->client->addServer(
+                config('gearman.host'),
+                config('gearman.port')
+            );
+        }
 
-        $client->doLowBackground('virus', serialize($link));
+        return $this->client;
+    }
+
+    protected function addTaskVirus(Link $link)
+    {
+        $this->info('Add task "Virus" on link ' . $link->url);
+
+        if ($link->is_porn)
+        {
+            $this->client()->doHighBackground('virus', serialize($link));
+            return;
+        }
+
+        $this->client()->doLowBackground('virus', serialize($link));
+    }
+
+    protected function addTaskPorn(Link $link)
+    {
+        $this->info('Add task "Porn" on link ' . $link->url);
+        $this->client()->doBackground('porn', serialize($link));
     }
 
     protected function req($uri, $data)
@@ -60,6 +87,62 @@ class GearmanCommand extends Command
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
         return $ch;
+    }
+
+    protected function porn(Link $link)
+    {
+        if (!$link->active || $link->blocked)
+        {
+            return;
+        }
+
+        // url
+        $rules = config('porn.url', []);
+
+        // config rules
+        foreach ($rules as $rule)
+        {
+            $this->warn('Check rule [type=url] "' . $rule . '" on link ' . $link->url);
+            if (preg_match($rule, $link->url))
+            {
+                $link->is_porn = 1;
+                $link->save();
+
+                return;
+            }
+        }
+
+        $parameters = JSON::decode($link->parameters) ?: [];
+
+        // title | description
+        $rules = config('porn.keywords', []);
+
+        $tags  = $parameters['tags'] ?? [];
+        $words = array_merge([$parameters['title']], $tags);
+
+        // config rules
+        foreach ($rules as $rule)
+        {
+            // if url is porn website
+            if ($link->is_porn)
+            {
+                break;
+            }
+
+            $this->warn('Check rule [type=keywords] "' . $rule . '" on link ' . $link->url);
+            foreach ($words as $word)
+            {
+                if (preg_match($rule, $word))
+                {
+                    $this->info('Porn content is found! `' . $word . '` from url ' . $link->url);
+                    $link->is_porn = 1;
+                    $link->save();
+
+                    return;
+                }
+            }
+        }
+
     }
 
     protected function phishtank(Link $link)
@@ -181,7 +264,7 @@ class GearmanCommand extends Command
             {
                 $this->error($result);
                 sleep(14);
-                $this->addTaskVirusTotal($link);
+                $this->addTaskVirus($link);
             }
             catch (\Throwable $throwable)
             {
@@ -229,7 +312,7 @@ class GearmanCommand extends Command
              * @var Tracker $model
              */
             $workload = $job->workload();
-            $model = unserialize($workload, []);
+            $model    = unserialize($workload, []);
             $console->info('New visitor ' . $model->created_at . '; URL: ' . $model->url . '; IP: ' . $model->ip);
             $model->save();
         });
@@ -244,6 +327,15 @@ class GearmanCommand extends Command
             $console->virusTotal($model);
         });
 
+        $worker->addFunction('porn', function (\GearmanJob $job) use ($console) {
+            /**
+             * @var Link $model
+             */
+            $model = unserialize($job->workload(), []);
+            $this->info('search porn content: ' . $model->url);
+            $console->porn($model);
+        });
+
         $worker->addFunction('metadata', function (\GearmanJob $job) use ($console, $dispatcher) {
             /**
              * @var Link $model
@@ -255,15 +347,42 @@ class GearmanCommand extends Command
 
                 $console->info('read metadata from: ' . $model->url);
                 $model->parameters = JSON::encode(
-                    Embed::read(
+                    $data = Embed::read(
                         $model->url,
                         null,
                         $dispatcher
                     )
                 );
 
+                if ($data)
+                {
+                    if ($data['url'] === $data['title'])
+                    {
+                        $model->retry++;
+                        $model->save();
+
+                        $console->info('Retry model link');
+                        $console->client()
+                            ->doBackground('metadata', serialize($model));
+
+                        return;
+                    }
+
+                    $model->retry = 0;
+
+                }
+                else
+                {
+                    $console->client()
+                        ->doBackground('metadata', serialize($model));
+
+                    return;
+                }
+
                 $console->info('metadata: ' . $model->parameters);
-                $console->addTaskVirusTotal($model);
+                $console->addTaskPorn($model);
+
+                $console->addTaskVirus($model);
 
             }
             catch (\Throwable $throwable)

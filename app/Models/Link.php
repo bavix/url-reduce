@@ -26,6 +26,7 @@ class Link extends Model
         return static::query()
             ->where('active', 1)
             ->where('blocked', 0)
+            ->where('is_porn', 0)
             ->whereNotNull(DB::raw('parameters->>\'$.title\''))
             ->orderBy('id', 'desc')
             ->limit(5)
