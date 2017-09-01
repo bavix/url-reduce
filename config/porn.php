@@ -2,7 +2,9 @@
 
 return [
     'keywords' => [
+        '~18\+~i',
         '~porno?~i',
+        '~anus~i',
         '~erotics?~i',
         '~XXX~i',
         '~pussy~i',
@@ -15,8 +17,7 @@ return [
     'url' => [
         '~/(www\.)?redtube\.com/?~i',
         '~dosugcloud\.~i',
-        '~.*(porno?|xxx).*\..*~i',
+        '~.*(anus|porno?|xxx).*\..*~i',
         '~bongacams\.com~i',
-        '~anuswebkamera\.blogspot\.com~i',
     ],
 ];

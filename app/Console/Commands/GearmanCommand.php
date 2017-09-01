@@ -106,7 +106,7 @@ class GearmanCommand extends Command
         foreach ($rules as $rule)
         {
             $this->warn('Check rule [type=url] "' . $rule . '" on link ' . $link->url);
-            if (preg_match($rule, $link->url) || ($url && preg_match($rule, $link->url)))
+            if (preg_match($rule, $link->url) || ($url && preg_match($rule, $url)))
             {
                 $link->is_porn = 1;
                 $link->save();
