@@ -95,6 +95,8 @@ class LinkController extends AdminController
             $form->textarea('message', 'Сообщение');
             $form->switch('blocked', 'Заблокировать');
 
+            $form->switch('is_porn', '18+');
+
             $form->ignore(['created_at', 'updated_at']);
 
         });
