@@ -117,8 +117,12 @@ class GearmanCommand extends Command
         // title | description
         $rules = config('porn.keywords', []);
 
-        $tags  = $parameters['tags'] ?? [];
-        $words = array_merge([$parameters['title']], $tags);
+        $words  = $parameters['tags'] ?? [];
+
+        if (isset($parameters['title']))
+        {
+            $words = array_merge([$parameters['title']], $words);
+        }
 
         // config rules
         foreach ($rules as $rule)
