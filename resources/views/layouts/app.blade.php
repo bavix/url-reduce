@@ -174,13 +174,13 @@
                     </div>
 
                     @if (counters()->count())
-                        <!--noindex-->
+                        <noindex>
                         <div style="display: none !important;">
                             @foreach (counters() as $counter)
                                 {!! $counter->code !!}
                             @endforeach
                         </div>
-                        <!--/noindex-->
+                        </noindex>
                     @endif
 
                 </footer>
@@ -189,7 +189,7 @@
             <div class="col-md-4 d-none d-md-inline">
 
                 <h2>{{ __('blocks.live') }}</h2>
-                <!--noindex-->
+                <noindex>
                 <ol class="live">
                     @foreach(\App\Models\Link::live() as $item)
                         <li>
@@ -203,6 +203,7 @@
 
                             <a href="/{{ $item->hash }}"
                                target="_blank"
+                               rel="nofollow"
                                title="">{{ $item->getTitle() }}</a>
 
                             <div>
@@ -214,7 +215,7 @@
                         </li>
                     @endforeach
                 </ol>
-                <!--/noindex-->
+                </noindex>
             </div>
         </div>
 
