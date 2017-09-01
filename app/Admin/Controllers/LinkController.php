@@ -58,6 +58,17 @@ class LinkController extends AdminController
                     return '<span class="badge bg-green">No</span>';
                 });
 
+            $grid->column('is_porn', '18+')
+                ->display(function ($res) {
+
+                    if ($res)
+                    {
+                        return '<span class="badge bg-red">Yes</span>';
+                    }
+
+                    return '<span class="badge bg-green">No</span>';
+                });
+
             $grid->exporter(new \App\Accessor\CsvExporter());
 
         });
