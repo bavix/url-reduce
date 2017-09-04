@@ -27,6 +27,9 @@ Route::get('/qr/{hash}', 'QRController@index')
     ->where('hash', '\w{5}')
     ->name('qr');
 
+Route::get('/{friendly}.html', 'PageController@index')
+    ->name('page');
+
 // feedback
 Route::get('/feedback', 'FeedbackController@index')
     ->name('feedback');
