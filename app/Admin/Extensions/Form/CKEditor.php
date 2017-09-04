@@ -10,7 +10,7 @@ class CKEditor extends Field
     /**
      * @var string
      */
-    protected $view = 'vendor.admin.form.ckeditor';
+    protected $view = 'vendor.admin.custom.ckeditor';
 
     /**
      * @var array
