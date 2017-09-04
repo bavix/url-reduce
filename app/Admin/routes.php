@@ -33,6 +33,9 @@ Route::group([
     // links
     $router->resource('/links', LinkController::class);
 
+    // links
+    $router->resource('/pages', PageController::class);
+
     // feedback
     $router->resource('/feedback', FeedbackController::class);
     $router->get('/feedback/doc/{id}', FeedbackController::class . '@doc')
