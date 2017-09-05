@@ -51,8 +51,8 @@
     @if(!empty($title))
         <meta name="keywords" content="{{ keywords($title) }}"/>
     @else
-        @php($keywords = ' ln4 awesome save share shorten shorten urls security link smaller hyperlink tinyurl tiny advertising')
-        <meta name="keywords" content="{{ keywords($fullTitle . $keywords) }}"/>
+        @php($keywords = __('blocks.keywords'))
+        <meta name="keywords" content="{{ keywords($fullTitle . ' ' . $keywords) }}"/>
     @endif
 
 </head>

@@ -4,6 +4,8 @@ return [
     'title'       => 'URL Shortener',
     'description' => 'To reduce the reference!',
 
+    'keywords' => 'ln4, awesome, save, share, shorten, shorten urls, security, link, smaller, hyperlink, tinyurl, tiny, advertising',
+
     'live' => 'Live',
 
     'placeholderInputURL' => 'Your original URL here',
