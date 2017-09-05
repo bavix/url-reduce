@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Observers\LinkObserver;
+use Bavix\Helpers\Arr;
 use Bavix\Helpers\JSON;
 use Bavix\Helpers\Str;
 use Carbon\Carbon;
@@ -148,7 +149,10 @@ class Link extends Model
      */
     public function getTags()
     {
-        return array_slice($this->_parameters()['tags'] ?? [], 0, 7);
+        $tags = $this->_parameters()['tags'] ?? [];
+        Arr::shuffle($tags);
+
+        return array_slice($tags, 0, 7);
     }
 
     /**
