@@ -17,6 +17,7 @@ return [
     'url' => [
         '~/(www\.)?redtube\.com/?~i',
         '~dosugcloud\.~i',
+        '~/.*?\.xxx/?~i',
         '~.*(anus|porno?|xxx).*\..*~i',
         '~bongacams\.com~i',
     ],
