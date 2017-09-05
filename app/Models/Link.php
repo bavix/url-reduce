@@ -50,7 +50,7 @@ class Link extends Model
 
         $carbon = Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at);
 
-        if ($carbon->diffInWeeks(Carbon::now()) >= 2)
+        if ($this->parameters === 'null' || $carbon->diffInWeeks(Carbon::now()) >= 2)
         {
             // reset information
             $this->parameters = JSON::encode(null);

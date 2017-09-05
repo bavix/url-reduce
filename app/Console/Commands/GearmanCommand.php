@@ -327,7 +327,7 @@ class GearmanCommand extends Command
              * @var Link $model
              */
             $model = unserialize($job->workload(), []);
-            $this->info('scan: ' . $model->url);
+            $console->info('scan: ' . $model->url);
             $console->phishtank($model);
             $console->virusTotal($model);
         });
@@ -337,8 +337,33 @@ class GearmanCommand extends Command
              * @var Link $model
              */
             $model = unserialize($job->workload(), []);
-            $this->info('search porn content: ' . $model->url);
+            $console->info('search porn content: ' . $model->url);
             $console->porn($model);
+        });
+
+        $worker->addFunction('dns', function (\GearmanJob $job) use ($console) {
+
+            /**
+             * @var Link $model
+             */
+            $model = unserialize($job->workload(), []);
+            $console->info('DNS checker: ' . $model->url);
+
+            $host = parse_url($model->url, PHP_URL_HOST);
+
+            $dns = dns_get_record($host);
+
+            if (!empty($dns))
+            {
+                $console->info(var_export($dns, true));
+                $console->client()->doBackground('metadata', $job->workload());
+                return;
+            }
+
+            $console->warn('DNS record is empty!');
+            $model->active = 0;
+            $model->save();
+
         });
 
         $worker->addFunction('metadata', function (\GearmanJob $job) use ($console, $dispatcher) {

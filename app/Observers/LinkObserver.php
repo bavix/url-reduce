@@ -20,7 +20,7 @@ class LinkObserver
                     config('gearman.port')
                 );
 
-                $client->doHighBackground('metadata', serialize($item));
+                $client->doHighBackground('dns', serialize($item));
             }
             catch (\Throwable $throwable)
             {
