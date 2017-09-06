@@ -101,7 +101,7 @@
                             </span>
                         </div>
 
-                        <div class="form-control-feedback text-center"></div>
+                        <div class="form-control-report text-center"></div>
                     </div>
                 </form>
 
@@ -228,6 +228,35 @@
 
     </div>
 </div>
+
+<!-- report -->
+@if (env('APP_DEBUG'))
+<div class="report-btn"><i class="fa fa-bug" aria-hidden="true"></i></div>
+@endif
+
+<div class="bx-modal">
+    <div class="bx-modal-content">
+        <h2>The ln4.ru short URL you wish to report:</h2>
+
+        <hr />
+
+        <form>
+            <div class="form-group">
+                <label class="form-control-label" for="report">Your short URL here</label>
+                <input type="text" class="form-control" id="report" placeholder="https://ln4.ru/exple">
+            </div>
+            <button type="submit" class="btn btn-warning">Report URL</button>
+        </form>
+
+        <hr />
+
+        <p class="text-center">Powered by <a href="https://bavix.ru/" title="{{ __('bavix.description') }}">bavix</a></p>
+
+    </div>
+
+    <div class="close-bx-modal"><i class="fa fa-times" aria-hidden="true"></i></div>
+</div>
+<!-- /report -->
 
 <link href="{{ asset2('css/css-loader/index.css') }}" rel="stylesheet" />
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"

@@ -150,6 +150,10 @@ class Link extends Model
     public function getTags()
     {
         $tags = $this->_parameters()['tags'] ?? [];
+        $tags = Arr::filter($tags, function ($tag) {
+            return mb_strlen($tag) < 16;
+        });
+
         Arr::shuffle($tags);
 
         return array_slice($tags, 0, 7);

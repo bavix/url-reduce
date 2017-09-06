@@ -7,6 +7,39 @@
  */
 $(function () {
 
+    // report
+    var $btnReport = $('.report-btn');
+
+    $btnReport.click(function(){
+        $('.bx-modal').css('display', 'flex');
+
+        history.pushState(
+            {report: 1},
+            '',
+            location.origin + location.pathname + '#report'
+        )
+    });
+
+    $('.bx-modal, .close-bx-modal').click(function(e) {
+
+        if ($(e.target).parents('.bx-modal-content').length > 0 || $(e.target).hasClass('bx-modal-content')) {
+            return;
+        }
+
+        $('.bx-modal').css('display', 'none');
+        history.back();
+    });
+
+    function reportEvent() {
+        if (location.hash === '#report') {
+            $btnReport.click();
+        }
+    }
+
+    window.addEventListener('hashchange', reportEvent);
+    reportEvent();
+    // /report
+
     // clipboard
     var clipboard = new Clipboard('button.clipboard');
     var $qr = $('#qr-code');

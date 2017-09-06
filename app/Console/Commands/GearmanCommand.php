@@ -31,7 +31,7 @@ class GearmanCommand extends Command
      * @var string
      */
     protected $description = 'bavix metabot';
-    protected $userAgent   = 'Mozilla/5.0 (compatible; bavix/metabot-v2.1; +https://bavix.ru/bot.html)';
+    protected $userAgent   = 'Mozilla/5.0 (compatible; bavix/metabot-v2.2; +https://bavix.ru/bot.html)';
 
     /**
      * GearmanCommand constructor.
@@ -81,7 +81,7 @@ class GearmanCommand extends Command
         curl_setopt($ch, CURLOPT_URL, $uri);
         curl_setopt($ch, CURLOPT_POST, true);
 //        curl_setopt($ch, CURLOPT_VERBOSE, 1);
-//        curl_setopt($ch, CURLOPT_ENCODING, 'gzip,deflate');
+        curl_setopt($ch, CURLOPT_ENCODING, 'gzip,deflate');
         curl_setopt($ch, CURLOPT_USERAGENT, $this->userAgent);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -349,6 +349,15 @@ class GearmanCommand extends Command
             $model = unserialize($job->workload(), []);
             $console->info('DNS checker: ' . $model->url);
 
+            if ($model->retry)
+            {
+                $console->warn('retry > 1');
+                return;
+            }
+
+            $model->retry++;
+            $model->save();
+
             $host = parse_url($model->url, PHP_URL_HOST);
 
             $dns = dns_get_record($host);
@@ -372,6 +381,8 @@ class GearmanCommand extends Command
              */
             $model = unserialize($job->workload(), []);
 
+            $console->error($job->workload());
+
             try
             {
 
@@ -391,7 +402,7 @@ class GearmanCommand extends Command
                         $model->retry++;
                         $model->save();
 
-                        $console->info('Retry model link');
+                        $console->warn('Retry model link');
                         $console->client()
                             ->doBackground('metadata', serialize($model));
 
@@ -403,6 +414,7 @@ class GearmanCommand extends Command
                 }
                 else
                 {
+                    $console->error('Embed error');
                     $console->client()
                         ->doBackground('metadata', serialize($model));
 
