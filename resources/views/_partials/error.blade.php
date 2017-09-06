@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <link href="{{ asset2('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
+    <link href="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
     @if (isset($reload))
         <link href="{{ asset2('css/css-loader/index.css') }}" rel="stylesheet" />
     @endif
@@ -50,7 +50,7 @@
 </div>
 
 @if (isset($reload))
-    <script src="{{ asset2('node_modules/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset2('https://cdn.bavix.ru/jquery/latest/dist/jquery.min.js') }}"></script>
     <script defer async>
         setInterval(function () {
             $.ajax({

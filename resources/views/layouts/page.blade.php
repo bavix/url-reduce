@@ -7,7 +7,7 @@
     <title>{{ $item->title }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset2('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
+    <link href="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
     <link href="{{ asset2('css/blog.css')  }}" rel="stylesheet"/>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png"/>
@@ -109,8 +109,8 @@
 </footer>
 
 
-<script src="{{ asset2('node_modules/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ asset2('node_modules/popper.js/dist/umd/popper.min.js') }}"></script>
-<script src="{{ asset2('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset2('https://cdn.bavix.ru/jquery/latest/dist/jquery.min.js') }}"></script>
+<script src="{{ asset2('https://cdn.bavix.ru/popper.js/latest/dist/umd/popper.min.js') }}"></script>
+<script src="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

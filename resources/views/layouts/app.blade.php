@@ -14,7 +14,7 @@
     <title>{{ $fullTitle }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset2('node_modules/bootstrap/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
+    <link href="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
     <link href="{{ asset2('css/default.css')  }}" rel="stylesheet"/>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png"/>
@@ -235,10 +235,10 @@
 
 <!-- Scripts -->
 <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53347bb35778c0b9"></script>
-<script src="{{ asset2('node_modules/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ asset2('node_modules/popper.js/dist/umd/popper.min.js') }}"></script>
-<script src="{{ asset2('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset2('node_modules/clipboard/dist/clipboard.min.js') }}"></script>
+<script src="{{ asset2('https://cdn.bavix.ru/jquery/latest/dist/jquery.min.js') }}"></script>
+<script src="{{ asset2('https://cdn.bavix.ru/popper.js/latest/dist/umd/popper.min.js') }}"></script>
+<script src="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset2('https://cdn.bavix.ru/clipboard/latest/dist/clipboard.min.js') }}"></script>
 <script src="{{ asset2('js/default.js') }}"></script>
 
 </body>
