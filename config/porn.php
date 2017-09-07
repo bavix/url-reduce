@@ -9,9 +9,11 @@ return [
         '~XXX~i',
         '~pussy~i',
         '~brazzers~i',
+        '~hid(e|den)\s+cam(era)?~i',
         '~эрочат~iu',
         '~порно?~iu',
         '~эротика~iu',
+        '~скрытая?\s+камера?~iu',
     ],
 
     'url' => [
