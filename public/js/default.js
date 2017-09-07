@@ -45,7 +45,7 @@ $(function () {
     window.addEventListener('hashchange', reportEvent);
     reportEvent();
 
-    $('#report').submit(function (e) {
+    $('#form-report').submit(function (e) {
         e.preventDefault();
         $.ajax({
             url: $(this).attr('action'),

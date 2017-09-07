@@ -70,7 +70,7 @@
 
                 <a href="{{ route('language') }}" class="float-right"
                    title="{{ __('blocks.changeLanguage') }}">
-                    <img width="18px" title="{{ __('blocks.changeLanguage') }}"
+                    <img width="18" title="{{ __('blocks.changeLanguage') }}"
                          alt="{{ __('blocks.changeLanguage') }}"
                          src="https://ds.bavix.ru/svg/flags/4x3/{{ $lang }}.svg" />
                 </a>
@@ -94,7 +94,7 @@
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-warning">
 
-                                    <img width="18px" src="/favicons/favicon-32x32.png"
+                                    <img width="18" src="/favicons/favicon-32x32.png"
                                          title="{{ __('blocks.submit') }}"
                                          alt="{{ __('blocks.submit') }}" />
 
@@ -138,7 +138,7 @@
                             </div>
 
                             <div class="col-md-7">
-                                <h3 class="share-title"></h3>
+                                <h3 class="share-title">share title</h3>
                                 <p class="share-description"></p>
                             </div>
 
@@ -148,43 +148,41 @@
 
                 <footer class="footer">
                     <div class="text-center">
-                        <a class="social" href="/fbook" rel="nofollow" target="__blank" title="Facebook">
+                        <a class="social" href="/fbook" rel="nofollow" target="_blank" title="Facebook">
                             <i class="fa fa-3x fa-facebook-square icon-3d"></i>
                         </a>
-                        <a class="social" href="/twitt" rel="nofollow" target="__blank" title="Twitter">
+                        <a class="social" href="/twitt" rel="nofollow" target="_blank" title="Twitter">
                             <i class="fa fa-3x fa-twitter-square icon-3d"></i>
                         </a>
-                        <a class="social" href="/githb" rel="nofollow" target="__blank" title="Github">
+                        <a class="social" href="/githb" rel="nofollow" target="_blank" title="Github">
                             <i class="fa fa-3x fa-github-square icon-3d"></i>
                         </a>
                     </div>
 
                     <div class="text-center">
                         <div class="referral">
-                            <a href="/DigOn" rel="nofollow" target="__blank">
+                            <a href="/DigOn" rel="nofollow" target="_blank">
                                 {{ __('blocks.digitalOceanTech') }}
                             </a>
                         </div>
                         <div class="referral">
                             <a href="https://docs.ln4.ru/"
                                title="RESTful API"
-                               target="__blank">API</a>
+                               target="_blank">API</a>
                         </div>
                         <div class="referral">
                             <a href="https://bavix.ru/"
                                title="{{ __('bavix.description') }}"
-                               target="__blank">bavix</a>
+                               target="_blank">bavix</a>
                         </div>
                     </div>
 
                     @if (counters()->count())
-                        <noindex>
                         <div style="display: none !important;">
                             @foreach (counters() as $counter)
                                 {!! $counter->code !!}
                             @endforeach
                         </div>
-                        </noindex>
                     @endif
 
                 </footer>
@@ -197,7 +195,6 @@
                 <h2>
                     {{ __('blocks.live') }}
                 </h2>
-                <noindex>
                 <ol class="live">
                     @foreach(\App\Models\Link::live() as $item)
                         <li>
@@ -205,9 +202,8 @@
                                  title="{{ $item->getTitle() }}"
                                  alt="{{ $item->getTitle() }}"
                                  onerror="this.src='/favicons/favicon-32x32.png';"
-                                 class="img-thumbnail"
-                                 width="24"
-                                 align="right" />
+                                 class="float-right img-thumbnail"
+                                 width="24" />
 
                             <a href="/{{ $item->hash }}"
                                target="_blank"
@@ -223,7 +219,6 @@
                         </li>
                     @endforeach
                 </ol>
-                </noindex>
             </div>
         </div>
 
@@ -239,7 +234,7 @@
 
         <hr />
 
-        <form id="report" action="{{ route('report') }}" method="post">
+        <form id="form-report" action="{{ route('report') }}" method="post">
             {{ csrf_field() }}
             <div class="form-group">
                 <label class="form-control-label" for="report">Your short URL here</label>
