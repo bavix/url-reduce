@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Bavix\Gearman\Client;
 use Bavix\Helpers\JSON;
+use App\Console\Commands\GearmanCommand;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
@@ -141,7 +142,7 @@ class Tracker extends Model
                             config('gearman.port')
                         );
 
-                        $client->doLowBackground('tracker', serialize($model));
+                        $client->doLowBackground(GearmanCommand::TASK_TRACKER, serialize($model));
                     }
                     catch (\Throwable $throwable)
                     {

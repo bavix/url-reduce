@@ -15,8 +15,15 @@ use Illuminate\Support\Facades\DB;
  */
 class Link extends Model
 {
+
+    /**
+     * @var string
+     */
     protected $table = 'links';
 
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
     /**
@@ -36,12 +43,15 @@ class Link extends Model
             ->where('active', 1)
             ->where('blocked', 0)
             ->where('is_porn', 0)
-            ->whereNotNull(DB::raw('parameters->>\'$.title\''))
+            ->whereNotNull('parameters')
             ->orderBy('id', 'desc')
             ->limit(5)
             ->get();
     }
 
+    /**
+     * meta update
+     */
     public function updateMetadata()
     {
         if (!$this->updated_at)
@@ -51,7 +61,7 @@ class Link extends Model
 
         $carbon = Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at);
 
-        if ($this->parameters === 'null' || $carbon->diffInWeeks(Carbon::now()) >= 2)
+        if ((!$this->retry && null === $this->parameters) || $carbon->diffInWeeks(Carbon::now()) >= 2)
         {
             // reset information
             $this->parameters = JSON::encode(null);
@@ -84,6 +94,11 @@ class Link extends Model
             ->first();
     }
 
+    /**
+     * @param $url
+     *
+     * @return Model|null|static
+     */
     public static function findByUrl($url)
     {
         return static::query()
@@ -91,6 +106,9 @@ class Link extends Model
             ->first();
     }
 
+    /**
+     * @return string
+     */
     public static function hashUnique()
     {
         while (static::findByHash($hash = Str::random(5)))
@@ -101,6 +119,11 @@ class Link extends Model
         return $hash;
     }
 
+    /**
+     * @param $url
+     *
+     * @return Link|Model|null|static
+     */
     public static function addUrl($url)
     {
         $model = self::findByUrl($url);
@@ -108,7 +131,6 @@ class Link extends Model
         if (!$model)
         {
             $model             = new static();
-            $model->parameters = JSON::encode(null);
             $model->hash       = static::hashUnique();
             $model->url        = $url;
             $model->active     = 1;
@@ -128,7 +150,7 @@ class Link extends Model
      */
     private function _parameters()
     {
-        if (empty($this->_parameters) && $this->parameters !== 'null')
+        if (empty($this->_parameters))
         {
             $this->_parameters = JSON::decode($this->parameters);
         }

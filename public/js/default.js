@@ -38,6 +38,33 @@ $(function () {
 
     window.addEventListener('hashchange', reportEvent);
     reportEvent();
+
+    $('#report').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr('action'),
+            method: $(this).attr('method'),
+            data: $(this).serialize(),
+            success: function (json) {
+                if (typeof json.content !== "undefined")
+                {
+                    $('.close-bx-modal').click();
+                    return swal(
+                        json.title,
+                        json.content,
+                        'success'
+                    );
+                }
+
+                swal(
+                    'Oops...',
+                    json.error,
+                    'error'
+                )
+            }
+        });
+    });
+
     // /report
 
     // clipboard

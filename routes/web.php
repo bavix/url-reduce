@@ -30,6 +30,10 @@ Route::get('/qr/{hash}', 'QRController@index')
 Route::get('/{friendly}.html', 'PageController@index')
     ->name('page');
 
+// report
+Route::post('/report', 'FeedbackController@report')
+    ->name('report');
+
 // feedback
 Route::get('/feedback', 'FeedbackController@index')
     ->name('feedback');

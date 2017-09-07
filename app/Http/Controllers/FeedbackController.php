@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feedback;
+use App\Models\Link;
+use App\Models\Report;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
@@ -17,10 +19,11 @@ class FeedbackController extends Controller
      */
     public function index(Request $request)
     {
-        return view('feedback.index', [
-            'title'       => __('blocks.feedback'),
-            'description' => __('blocks.feedback')
-        ], $this->mergeData());
+        throw new \Exception();
+//        return view('feedback.index', [
+//            'title'       => __('blocks.feedback'),
+//            'description' => __('blocks.feedback')
+//        ], $this->mergeData());
     }
 
     /**
@@ -30,6 +33,7 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
+        throw new \Exception();
         $data = $request->input();
 
         $item = new Feedback();
@@ -44,6 +48,52 @@ class FeedbackController extends Controller
         $item->content       = \strip_tags($data['content']);
 
         return ['result' => $item->save()];
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array|string
+     */
+    public function report(Request $request)
+    {
+        $url = $request->input('url');
+
+        if (empty($url))
+        {
+            return [
+                'error' => 'URL is empty!'
+            ];
+        }
+
+        $path = parse_url($url, PHP_URL_PATH);
+
+        if (empty($path) || !preg_match('~(?:/s)?/(\w{5})~', $path, $matches))
+        {
+            return [
+                'error' => 'Invalid URL!'
+            ];
+        }
+
+        $link = Link::findByHash($matches[1]);
+
+        if (!$link)
+        {
+            return [
+                'error' => 'URL not found!'
+            ];
+        }
+
+        $report          = new Report();
+        $report->ip      = $request->ip();
+        $report->link_id = $link->id;
+        $report->save();
+
+        return [
+            // todo __(...)
+            'title'   => 'Thank you!',
+            'content' => 'The link will be checked in the next 48 hours.'
+        ];
     }
 
 }

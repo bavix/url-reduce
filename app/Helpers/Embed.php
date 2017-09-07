@@ -9,7 +9,14 @@ class Embed
 
     public static function read($url, array $config = null, DispatcherInterface $dispatcher = null)
     {
-        $info = \Embed\Embed::create($url, $config, $dispatcher);
+        try
+        {
+            $info = \Embed\Embed::create($url, $config, $dispatcher);
+        }
+        catch (\Throwable $throwable)
+        {
+            return null;
+        }
 
         return [
             'title'         => $info->title,

@@ -14,6 +14,7 @@
     <title>{{ $fullTitle }}</title>
 
     <!-- Styles -->
+    <link href="{{ asset2('https://cdn.bavix.ru/sweetalert2/latest/dist/sweetalert2.min.css')  }}" rel="stylesheet"/>
     <link href="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
     <link href="{{ asset2('css/default.css')  }}" rel="stylesheet"/>
 
@@ -230,9 +231,7 @@
 </div>
 
 <!-- report -->
-@if (env('APP_DEBUG'))
 <div class="report-btn"><i class="fa fa-bug" aria-hidden="true"></i></div>
-@endif
 
 <div class="bx-modal">
     <div class="bx-modal-content">
@@ -240,10 +239,11 @@
 
         <hr />
 
-        <form>
+        <form id="report" action="{{ route('report') }}" method="post">
+            {{ csrf_field() }}
             <div class="form-group">
                 <label class="form-control-label" for="report">Your short URL here</label>
-                <input type="text" class="form-control" id="report" placeholder="https://ln4.ru/exple">
+                <input type="text" class="form-control" name="url" id="report" placeholder="https://ln4.ru/exple">
             </div>
             <button type="submit" class="btn btn-warning">Report URL</button>
         </form>
@@ -265,6 +265,7 @@
 <!-- Scripts -->
 <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53347bb35778c0b9"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/jquery/latest/dist/jquery.min.js') }}"></script>
+<script src="{{ asset2('https://cdn.bavix.ru/sweetalert2/latest/dist/sweetalert2.min.js') }}"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/popper.js/latest/dist/umd/popper.min.js') }}"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/clipboard/latest/dist/clipboard.min.js') }}"></script>

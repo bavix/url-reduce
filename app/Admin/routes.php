@@ -27,6 +27,9 @@ Route::group([
     // trackers
     $router->resource('/trackers', TrackerController::class);
 
+    // report
+    $router->resource('/reports', ReportController::class);
+
     // configs
     $router->resource('/config', ConfigController::class);
 

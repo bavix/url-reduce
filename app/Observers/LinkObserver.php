@@ -2,30 +2,15 @@
 
 namespace App\Observers;
 
+use App\Console\Commands\GearmanCommand;
 use App\Models\Link;
-use Bavix\Gearman\Client;
 
-class LinkObserver
+class LinkObserver extends Observer
 {
 
-    public function created(Link $item)
+    public function created(Link $link)
     {
-        if (class_exists(Client::class))
-        {
-            try
-            {
-                $client = new Client();
-                $client->addServer(
-                    config('gearman.host'),
-                    config('gearman.port')
-                );
-
-                $client->doHighBackground('dns', serialize($item));
-            }
-            catch (\Throwable $throwable)
-            {
-            }
-        }
+        $this->addTask(GearmanCommand::TASK_DNS, $link);
     }
 
 }
