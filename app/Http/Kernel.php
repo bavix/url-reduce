@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\IfIndex;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -15,7 +14,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        Middleware\IfIndex::class,
+        \Bavix\Middleware\IfIndex::class,
         \Bavix\Middleware\HttpsProtocol::class,
         Middleware\LanguageHandle::class,
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
