@@ -27,7 +27,13 @@ $(function () {
         }
 
         $('.bx-modal').css('display', 'none');
-        history.back();
+        // history.back();
+
+        history.pushState(
+            {report: 1},
+            '',
+            location.origin + location.pathname
+        )
     });
 
     function reportEvent() {
