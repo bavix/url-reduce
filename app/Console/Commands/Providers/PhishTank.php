@@ -62,7 +62,7 @@ class PhishTank extends Provider
     {
         if (null === $this->apiKey())
         {
-            $this->command->warn('API key not found ' . __METHOD__);
+            $this->command->warn('API key not found ' . $this->key);
 
             return;
         }
