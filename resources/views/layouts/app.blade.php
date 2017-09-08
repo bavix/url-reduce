@@ -226,7 +226,7 @@
 </div>
 
 <!-- report -->
-<div class="report-btn"><i class="fa fa-bug" aria-hidden="true"></i></div>
+<div class="report-btn"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div>
 
 <div class="bx-modal">
     <div class="bx-modal-content">
