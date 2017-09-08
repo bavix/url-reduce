@@ -14,6 +14,8 @@
     @php($fullTitle = __('blocks.title'))
     @if(isset($title))
         @php($fullTitle = $title . ' / ' . $fullTitle)
+    @else
+        @php($fullTitle .= ' - ' . __('blocks.description'))
     @endif
 
     <title>{{ $fullTitle }}</title>
