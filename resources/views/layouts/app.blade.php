@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
     <!-- prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="dns-prefetch" href="https://ds.bavix.ru">
-    <link rel="dns-prefetch" href="https://cdn.bavix.ru">
+    <meta http-equiv="x-dns-prefetch-control" content="on"/>
+    <link rel="dns-prefetch" href="https://ds.bavix.ru"/>
+    <link rel="dns-prefetch" href="https://cdn.bavix.ru"/>
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     @php($fullTitle = __('blocks.title'))
     @if(isset($title))
         @php($fullTitle = $title . ' / ' . $fullTitle)
