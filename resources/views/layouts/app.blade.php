@@ -199,9 +199,7 @@
 
                 <span class="float-right badge badge-warning">{{ \App\Models\Link::consider() }}</span>
 
-                <h2>
-                    {{ __('blocks.live') }}
-                </h2>
+                <h2>{{ __('blocks.live') }}</h2>
                 <ol class="live">
                     @foreach(\App\Models\Link::live() as $item)
                         <li>
@@ -212,7 +210,9 @@
                                  class="float-right img-thumbnail"
                                  width="24" />
 
-                            <a href="/{{ $item->hash }}"
+                            <span class="badge badge-pill badge-secondary">{{ $item->getType() }}</span>
+
+                            <a href="{{ route('shorter', ['hash' => $item->hash]) }}"
                                target="_blank"
                                rel="nofollow"
                                title="">{{ $item->getTitle() }}</a>
@@ -222,7 +222,6 @@
                                     <span class="badge badge-light">{{ $tag }}</span>
                                 @endforeach
                             </div>
-
                         </li>
                     @endforeach
                 </ol>

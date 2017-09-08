@@ -189,4 +189,12 @@ class Link extends Model
         return $this->_parameters()['providerIcon'] ?? $this->url;
     }
 
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->_parameters()['type'] ?? 'link';
+    }
+
 }

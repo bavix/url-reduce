@@ -44,6 +44,10 @@ class Sitemap implements Runner
         // add items to the sitemap (url, date, priority, freq)
         $map->add(route('home'), null, '1.0', 'always');
 
+        $this->command->info('Add report to sitemap.xml');
+        // add items to the sitemap (url, date, priority, freq)
+        $map->add(route('home') . '#report', null, '0.9', 'weekly');
+
         $this->command->info('Add terms to sitemap.xml');
         $map->add(route('shorter', ['hash' => 'terms']), null, '0.9', 'weekly');
 
