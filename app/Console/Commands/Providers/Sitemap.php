@@ -48,6 +48,9 @@ class Sitemap implements Runner
         $map->add(route('shorter', ['hash' => 'terms']), null, '0.9', 'weekly');
 
         $links = Link::query()
+            ->where('active', 1)
+            ->where('blocked', 0)
+            ->whereNotNull('parameters')
             ->orderBy('id', 'desc')
             ->limit(10000);
 
