@@ -144,6 +144,7 @@
                             <div class="col-md-7">
                                 <h3 class="share-title">share title</h3>
                                 <p class="share-description"></p>
+                                <div class="share-tags"></div>
                             </div>
 
                         </div>

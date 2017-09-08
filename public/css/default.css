@@ -57,6 +57,8 @@ body {
         max-height: 140px;
         overflow: hidden;
         text-overflow: ellipsis; }
+      .wrapper .bx-container [data-share-info] .share-tags .badge {
+        margin-left: 0.3rem; }
       .wrapper .bx-container [data-share-info] .arc-rotate-double .loader > div {
         border-color: transparent #fff; }
     .wrapper .bx-container .referral {

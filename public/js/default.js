@@ -10,7 +10,7 @@ $(function () {
     // report
     var $btnReport = $('.report-btn');
 
-    $btnReport.click(function(){
+    $btnReport.click(function () {
         $('.bx-modal').css('display', 'flex');
 
         history.pushState(
@@ -20,7 +20,7 @@ $(function () {
         )
     });
 
-    $('.bx-modal, .close-bx-modal').click(function(e) {
+    $('.bx-modal, .close-bx-modal').click(function (e) {
 
         if ($(e.target).parents('.bx-modal-content').length > 0 || $(e.target).hasClass('bx-modal-content')) {
             return;
@@ -52,8 +52,7 @@ $(function () {
             method: $(this).attr('method'),
             data: $(this).serialize(),
             success: function (json) {
-                if (typeof json.content !== "undefined")
-                {
+                if (typeof json.content !== "undefined") {
                     $('.close-bx-modal').click();
                     return swal(
                         json.title,
@@ -124,7 +123,8 @@ $(function () {
                         addError($form, err);
                         clearInterval(id);
                         retry = 0;
-                    } else if (title !== null) {
+                    }
+                    else if (title !== null) {
 
                         var description = def(res.parameters, 'description', null);
 
@@ -223,19 +223,30 @@ $(function () {
 
                         $loader = '<div id="loaders">' +
                             '<div class="loader-container mx-auto arc-rotate-double">' +
-                                '<div class="loader">' +
-                                    '<div class="arc-1"></div>' +
-                                    '<div class="arc-2"></div>' +
-                                '</div>' +
+                            '<div class="loader">' +
+                            '<div class="arc-1"></div>' +
+                            '<div class="arc-2"></div>' +
                             '</div>' +
-                        '</div>';
+                            '</div>' +
+                            '</div>';
 
                         $collapse.find('.share-title').html($loader);
 
-                    } else {
+                    }
+                    else {
                         // description link
                         $collapse.find('.share-title').text(title);
                         $collapse.find('.share-description').text(description);
+
+                        var $tags = $collapse.find('.share-tags');
+
+                        $.each(def(res.parameters, 'tags', []), function (key, tag) {
+                            if (key > 10) {
+                                return;
+                            }
+
+                            $tags.append('<span class="badge badge-light">' + tag + '</span>');
+                        });
 
                         shareInfo(title, description, _url, media);
                     }
