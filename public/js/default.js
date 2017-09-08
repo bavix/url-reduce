@@ -172,6 +172,7 @@ $(function () {
         $result.val('');
         $collapse.find('.share-title').text('');
         $collapse.find('.share-description').text('');
+        $collapse.find('.share-tags').text('');
         $qr.attr('src', 'https://ds.bavix.ru/svg/logo.svg');
         // $collapse.collapse('hide');
         $share.hide();
