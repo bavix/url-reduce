@@ -257,9 +257,6 @@
 </div>
 <!-- /report -->
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
 <!-- Scripts -->
 <script src="{{ asset2('https://cdn.bavix.ru/jquery/latest/dist/jquery.min.js') }}"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/popper.js/latest/dist/umd/popper.min.js') }}"></script>
@@ -267,6 +264,7 @@
 <script src="{{ asset2('https://cdn.bavix.ru/clipboard/latest/dist/clipboard.min.js') }}"></script>
 <script src="{{ asset2('js/default.js') }}"></script>
 
+<link href="https://cdn.bavix.ru/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
 <link href="{{ asset2('css/css-loader/index.css') }}" rel="stylesheet" />
 
 <script async src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53347bb35778c0b9"></script>
