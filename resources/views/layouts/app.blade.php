@@ -15,7 +15,7 @@
     @if(isset($title))
         @php($fullTitle = $title . ' / ' . $fullTitle)
     @else
-        @php($fullTitle .= ' - ' . __('blocks.description'))
+        @php($fullTitle .= ' - ' . __('blocks.slogan'))
     @endif
 
     <title>{{ $fullTitle }}</title>
@@ -85,7 +85,7 @@
                     <a href="{{ route('home') }}" title="{{ __('blocks.title') }}">{{ __('blocks.title') }}</a>
                 </h1>
 
-                <h5 class="text-center description">{{ __('blocks.description') }}</h5>
+                <h5 class="text-center description">{{ __('blocks.slogan') }}</h5>
 
                 <form class="bx-form" action="{{ route('shorter.store') }}">
                     <div class="form-group">

@@ -2,7 +2,8 @@
 
 return [
     'title'       => 'URL Shortener',
-    'description' => 'To reduce the reference!',
+    'slogan' => 'To reduce the reference!',
+    'description' => 'URL Shortener at ln4.ru is used by Bavix products to create short URLs that can be easily shared, facebook, twitter, or emailed to friends.',
 
     'keywords' => 'ln4, awesome, save, share, shorten, shorten urls, security, link, smaller, hyperlink, tinyurl, tiny, advertising',
 
