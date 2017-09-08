@@ -139,8 +139,10 @@ body {
       color: #333; }
 
 @media (max-width: 700px) {
-  .bx-modal .bx-modal-content {
-    border-radius: 0; }
+  .bx-modal {
+    background: #fff; }
+    .bx-modal .bx-modal-content {
+      border-radius: 0; }
 
   .report-btn {
     left: 20px; } }
