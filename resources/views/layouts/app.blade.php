@@ -4,6 +4,11 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
+    <!-- prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="https://ds.bavix.ru">
+    <link rel="dns-prefetch" href="https://cdn.bavix.ru">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @php($fullTitle = __('blocks.title'))
@@ -14,7 +19,6 @@
     <title>{{ $fullTitle }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset2('https://cdn.bavix.ru/sweetalert2/latest/dist/sweetalert2.min.css')  }}" rel="stylesheet"/>
     <link href="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
     <link href="{{ asset2('css/default.css')  }}" rel="stylesheet"/>
 
@@ -253,18 +257,22 @@
 </div>
 <!-- /report -->
 
-<link href="{{ asset2('css/css-loader/index.css') }}" rel="stylesheet" />
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 <!-- Scripts -->
-<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53347bb35778c0b9"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/jquery/latest/dist/jquery.min.js') }}"></script>
-<script src="{{ asset2('https://cdn.bavix.ru/sweetalert2/latest/dist/sweetalert2.min.js') }}"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/popper.js/latest/dist/umd/popper.min.js') }}"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/clipboard/latest/dist/clipboard.min.js') }}"></script>
 <script src="{{ asset2('js/default.js') }}"></script>
+
+<link href="{{ asset2('css/css-loader/index.css') }}" rel="stylesheet" />
+
+<script async src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53347bb35778c0b9"></script>
+<script async defer src="{{ asset2('https://cdn.bavix.ru/sweetalert2/latest/dist/sweetalert2.min.js') }}"></script>
+
+<link href="{{ asset2('https://cdn.bavix.ru/sweetalert2/latest/dist/sweetalert2.min.css')  }}" rel="stylesheet"/>
 
 </body>
 </html>
