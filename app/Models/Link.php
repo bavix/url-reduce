@@ -178,7 +178,7 @@ class Link extends Model
 
         Arr::shuffle($tags);
 
-        return array_slice($tags, 0, 7);
+        return Arr::slice($tags, 0, 7);
     }
 
     /**
