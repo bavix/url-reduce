@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\Providers;
 
+use App\Console\Commands\SitemapCommand;
 use Bavix\Helpers\JSON;
 
 class VirusTotal extends PhishTank
@@ -44,6 +45,11 @@ class VirusTotal extends PhishTank
                     }
                 }
             }
+        }
+
+        if (!$this->link->blocked)
+        {
+            $this->doBackground(SitemapCommand::TASK_SITE_MAP);
         }
 
         curl_close($ch);

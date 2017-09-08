@@ -11,7 +11,6 @@ class LinkObserver extends Observer
 
     public function created(Link $link)
     {
-        $this->addTask(SitemapCommand::TASK_SITE_MAP, $link);
         $this->addTask(GearmanCommand::TASK_DNS, $link);
     }
 
