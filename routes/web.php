@@ -35,15 +35,15 @@ Route::post('/report', 'FeedbackController@report')
     ->name('report');
 
 // feedback
-Route::get('/feedback', 'FeedbackController@index')
-    ->name('feedback');
-
-// feedback store
-Route::post('/feedback', 'FeedbackController@store')
-    ->name('feedback.store');
-
-Route::get('/tracker.png', 'TrackerController@index')
-    ->name('tracker');
-
-Route::get('/statistics.html', 'TrackerController@statistics')
-    ->name('statistics');
+//Route::get('/feedback', 'FeedbackController@index')
+//    ->name('feedback');
+//
+//// feedback store
+//Route::post('/feedback', 'FeedbackController@store')
+//    ->name('feedback.store');
+//
+//Route::get('/tracker.png', 'TrackerController@index')
+//    ->name('tracker');
+//
+//Route::get('/statistics.html', 'TrackerController@statistics')
+//    ->name('statistics');

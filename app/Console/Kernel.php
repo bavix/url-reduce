@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\GearmanCommand::class
+        Commands\SitemapCommand::class,
+        Commands\GearmanCommand::class,
     ];
 
     /**

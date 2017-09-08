@@ -8,7 +8,7 @@ use GearmanJob as Job;
 use Embed\Http\CurlDispatcher;
 use Illuminate\Console\Command;
 
-abstract class Provider
+abstract class Provider implements Runner
 {
 
     /**

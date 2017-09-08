@@ -186,7 +186,11 @@ return [
         // qr
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
+        // carbon
         Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
+
+        // siteMap
+        Roumen\Sitemap\SitemapServiceProvider::class,
 
     ],
 

@@ -6,8 +6,8 @@
     "type": "project",
     "require": {
         "bavix/gearman": "^1.0",
-        "bavix/laravel-middleware-protocol": "^1.0",
         "bavix/laravel-middleware-ifindex": "^1.0",
+        "bavix/laravel-middleware-protocol": "^1.0",
         "bavix/sdk": "^1.0",
         "doctrine/dbal": "^2.5",
         "embed/embed": "^3.0",
@@ -20,6 +20,7 @@
         "mabrahamde/idna-converter": "^1.0",
         "predis/predis": "^1.1",
         "ps/image-optimizer": "^1.1",
+        "roumen/sitemap": "^2.7",
         "simplesoftwareio/simple-qrcode": "~1"
     },
     "require-dev": {

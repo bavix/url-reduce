@@ -6,6 +6,7 @@ use App\Console\Commands\Providers\DNS;
 use App\Console\Commands\Providers\Embed;
 use App\Console\Commands\Providers\PhishTank;
 use App\Console\Commands\Providers\PornEmbed;
+use App\Console\Commands\Providers\Sitemap;
 use App\Console\Commands\Providers\VirusTotal;
 use App\Models\Tracker;
 use Bavix\Gearman\Worker;
