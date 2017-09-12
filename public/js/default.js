@@ -131,6 +131,18 @@ $(function () {
                         // description link
                         $collapse.find('.share-title').text(title);
                         $collapse.find('.share-description').text(description);
+
+                        var $tags = $collapse.find('.share-tags');
+
+                        $.each(def(res.parameters, 'tags', []), function (key, tag) {
+
+                            if (key > 10) {
+                                return;
+                            }
+
+                            $tags.append('<span class="badge badge-light">' + tag + '</span>');
+                        });
+
                         shareInfo(title, description, _url, media);
                         retry = 0;
                     }
@@ -244,6 +256,7 @@ $(function () {
                         var $tags = $collapse.find('.share-tags');
 
                         $.each(def(res.parameters, 'tags', []), function (key, tag) {
+
                             if (key > 10) {
                                 return;
                             }
