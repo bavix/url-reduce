@@ -108,7 +108,7 @@
                             </span>
                         </div>
 
-                        <div class="form-control-report text-center"></div>
+                        <div class="invalid-feedback text-center"></div>
                     </div>
                 </form>
 

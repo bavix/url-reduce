@@ -149,9 +149,10 @@ $(function () {
         $form.find('.form-group')
             .addClass('has-danger')
             .find('input')
-            .addClass('form-control-danger');
+            .addClass('is-invalid');
 
-        $form.find('.form-group .form-control-feedback')
+        $form.find('.form-group .invalid-feedback')
+            .css('display', 'block')
             .text(message);
 
         $collapse.collapse('hide');
@@ -206,9 +207,10 @@ $(function () {
                     $form.find('.form-group')
                         .removeClass('has-danger')
                         .find('input')
-                        .removeClass('form-control-danger');
+                        .removeClass('is-invalid');
 
-                    $form.find('.form-group .form-control-feedback')
+                    $form.find('.form-group .invalid-feedback')
+                        .css('display', 'none')
                         .text('');
 
                     var _url = 'https://' + location.host + '/' + res.hash;
