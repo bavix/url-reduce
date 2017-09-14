@@ -208,7 +208,7 @@
                                  alt="{{ $item->getTitle() }}"
                                  onerror="this.src='/favicons/favicon-32x32.png';"
                                  class="float-right img-thumbnail"
-                                 width="24" />
+                                 width="24" height="24" />
 
                             <span class="badge badge-pill badge-secondary">{{ $item->getType() }}</span>
 
