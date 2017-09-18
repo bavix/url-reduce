@@ -23,5 +23,7 @@ return [
         '~/.*?\.xxx/?~i',
         '~.*(anus|porno?|xxx).*\..*~i',
         '~bongacams\.com~i',
+        '~kryosnaya\.ml~i',
+        '~salyut\.gq~i',
     ],
 ];
