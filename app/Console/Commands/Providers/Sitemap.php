@@ -69,7 +69,7 @@ class Sitemap implements Runner
                 $map->add(
                     route('shorter', ['hash' => $link->hash]),
                     $self->getLastModifiedDate($link->updated_at),
-                    '0.1',
+                    .7 - ($link->is_porn * .6),
                     'weekly'
                 );
             }
