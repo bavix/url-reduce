@@ -47,6 +47,17 @@ class LinkController extends AdminController
                     return '<span class="badge bg-yellow">No</span>';
                 });
 
+            $grid->column('suspicious', 'Suspicious')
+                ->display(function ($res) {
+
+                    if ($res)
+                    {
+                        return '<span class="badge bg-blue">Yes</span>';
+                    }
+
+                    return '<span class="badge bg-yellow">No</span>';
+                });
+
             $grid->column('blocked', 'Blocked')
                 ->display(function ($res) {
 
@@ -91,6 +102,7 @@ class LinkController extends AdminController
             $form->text('hash', 'Хэш');
 
             $form->switch('active', 'Видимость');
+            $form->switch('suspicious', 'Подозрительный');
 
             $form->textarea('message', 'Сообщение');
             $form->switch('blocked', 'Заблокировать');
