@@ -43,6 +43,7 @@ class Link extends Model
             ->where('active', 1)
             ->where('blocked', 0)
             ->where('is_porn', 0)
+            ->where('suspicious', 0)
             ->whereNotNull('parameters')
             ->orderBy('id', 'desc')
             ->limit(5)
