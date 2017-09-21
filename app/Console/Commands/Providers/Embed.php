@@ -19,8 +19,16 @@ class Embed extends Provider
             )
         );
 
+        if ($this->link->retry > 5)
+        {
+            $this->link->active = 0;
+            $this->link->save();
+            return;
+        }
+
         if ($data && $data['url'] === $data['title'])
         {
+            $this->link->suspicious = 1;
             $this->link->retry++;
             $this->link->save();
 
@@ -31,6 +39,7 @@ class Embed extends Provider
         }
 
         $this->command->info('embed: ' . $this->link->parameters);
+        $this->link->suspicious = 0;
         $this->link->retry = 0;
         $this->link->save();
     }
