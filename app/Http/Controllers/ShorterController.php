@@ -190,10 +190,11 @@ class ShorterController extends Controller
 
         $model->parameters = JSON::decode($model->parameters);
 
-        if ($model->is_porn)
+        if ($model->is_porn || $model->suspicious)
         {
-            return $this->render('_partials.porn', [
-                'item' => $model
+            return $this->render('_partials.suspicious', [
+                'item'   => $model,
+                'danger' => !$model->is_porn && $model->suspicious ? 'suspicious' : null,
             ]);
         }
 

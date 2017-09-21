@@ -123,7 +123,7 @@ class Link extends Model
     /**
      * @param $url
      *
-     * @return Link|Model|null|static
+     * @return Link|Model|static
      */
     public static function addUrl($url)
     {

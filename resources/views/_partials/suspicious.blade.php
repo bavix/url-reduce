@@ -61,7 +61,7 @@
 
         <div class="col-12">
             <h3>
-                <span class="float-right badge badge-danger">18+</span>
+                <span class="float-right badge badge-danger">{{ $danger ?? '18+' }}</span>
                 {{ $item->parameters['title'] ?? $item->hash }}
             </h3>
             <p>{{ $item->parameters['description'] ?? '' }}</p>
