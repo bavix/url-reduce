@@ -49,9 +49,11 @@ class PageController extends AdminController
     /**
      * Make a form builder.
      *
+     * @param int $id
+     *
      * @return Form
      */
-    protected function form()
+    protected function form($id = null)
     {
 
         return Admin::form($this->model, function (Form $form)
@@ -64,7 +66,7 @@ class PageController extends AdminController
 
             $form->textarea('description', 'Описание');
 
-            $form->ckeditor('content', 'Текст');
+            $form->editor('content', 'Текст');
 
             $form->switch('active', 'Видимость');
 
