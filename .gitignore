@@ -16,3 +16,5 @@ composer.lock
 yarn.lock
 swagger-codegen-cli-*.jar
 sitemap.xml
+*/yandex_*.html
+*/google*.html

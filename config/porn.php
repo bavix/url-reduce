@@ -5,6 +5,7 @@ return [
         '~18\+~i',
         '~porno?~i',
         '~anus~i',
+        '~sex~i',
         '~erotics?~i',
         '~XXX~i',
         '~pussy~i',
@@ -14,11 +15,13 @@ return [
         '~си(сь|…|\.+)ки?~iu',
         '~порно?~iu',
         '~эротика~iu',
+        '~секс~iu',
         '~скрытая?\s+камера?~iu',
     ],
 
     'url' => [
         '~/(www\.)?redtube\.com/?~i',
+        '~/(www\.)?pushok\.ml/?~i',
         '~dosugcloud\.~i',
         '~/.*?\.xxx/?~i',
         '~.*(anus|porno?|xxx).*\..*~i',
