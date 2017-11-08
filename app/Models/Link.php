@@ -190,7 +190,8 @@ class Link extends Model
         return \str_replace(
             'http:',
             'https:',
-            $this->_parameters()['providerIcon'] ?? $this->url
+            $this->_parameters()['providerIcon'] ??
+            '/favicons/favicon-32x32.png'
         );
     }
 
