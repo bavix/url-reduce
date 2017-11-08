@@ -187,12 +187,15 @@ class Link extends Model
      */
     public function getFavicon()
     {
-        return \str_replace(
-            'http:',
-            'https:',
-            $this->_parameters()['providerIcon'] ??
-            '/favicons/favicon-32x32.png'
-        );
+        $default = '/favicons/favicon-32x32.png';
+        $icon = $this->_parameters()['providerIcon'] ?? $default;
+
+        if (0 === strpos($icon, 'http:'))
+        {
+            return $default;
+        }
+
+        return $icon;
     }
 
     /**
