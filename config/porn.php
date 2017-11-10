@@ -23,6 +23,7 @@ return [
         '~/(www\.)?redtube\.com/?~i',
         '~/(www\.)?pushok\.ml/?~i',
         '~dosugcloud\.~i',
+        '~trkxc\.com~i',
         '~/.*?\.xxx/?~i',
         '~.*(anus|porno?|xxx).*\..*~i',
         '~bongacams\.com~i',
