@@ -97,7 +97,7 @@
                                    type="text"
                                    autocomplete="off" />
 
-                            <span class="input-group-btn">
+                            <span class="input-group-append">
                                 <button type="submit" class="btn btn-warning">
 
                                     <img width="18" src="/favicons/favicon-32x32.png"
