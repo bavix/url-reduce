@@ -73,7 +73,7 @@ $(function () {
     // /report
 
     // clipboard
-    var clipboard = new Clipboard('button.clipboard');
+    var clipboard = new ClipboardJS('button.clipboard');
     var $qr = $('#qr-code');
     var $share = $('#share');
     var $collapse = $('#collapse');
