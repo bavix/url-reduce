@@ -52,17 +52,17 @@ class GeoIP extends Model
 
         return static::query()
             ->forceCreate([
-                "ip" => $data['ip'],
+                "from" => $ip,
+                "to" => $ip,
                 "country_code" => $data['country_code'],
                 "country_name" => $data['country_name'],
                 "region_code" => $data['region_code'],
                 "region_name" => $data['region_name'],
                 "city" => $data['city'],
                 "zip_code" => $data['zip'],
-                "time_zone" => '',
+                "time_zone" => null,
                 "latitude" => $data['latitude'],
-                "longitude" => $data['longitude'],
-                "metro_code" => 0
+                "longitude" => $data['longitude']
             ]);
     }
 
