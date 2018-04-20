@@ -52,8 +52,8 @@ class GeoIP extends Model
 
         return static::query()
             ->forceCreate([
-                "from" => $ip,
-                "to" => $ip,
+                "from" => $data['from'],
+                "to" => $data['to'],
                 "country_code" => $data['country_code'],
                 "country_name" => $data['country_name'],
                 "region_code" => $data['region_code'],
