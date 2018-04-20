@@ -21,7 +21,7 @@ class GeoIP extends Model
     {
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, 'https://freegeoip.net/json/' . $ip);
+        curl_setopt($ch, CURLOPT_URL, 'http://api.ipstack.com/' . $ip . '?access_key=5fc56f13502959365dcd857c4b0d936d&format=1');
         curl_setopt($ch, CURLOPT_ACCEPT_ENCODING, 'UTF-8');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
@@ -51,7 +51,19 @@ class GeoIP extends Model
         }, $data);
 
         return static::query()
-            ->forceCreate($data);
+            ->forceCreate([
+                "ip" => $data['ip'],
+                "country_code" => $data['country_code'],
+                "country_name" => $data['country_name'],
+                "region_code" => $data['region_code'],
+                "region_name" => $data['region_name'],
+                "city" => $data['city'],
+                "zip_code" => $data['zip'],
+                "time_zone" => '',
+                "latitude" => $data['latitude'],
+                "longitude" => $data['longitude'],
+                "metro_code" => 0
+            ]);
     }
 
     protected static function detection($ip)
