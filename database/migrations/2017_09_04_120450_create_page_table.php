@@ -31,16 +31,6 @@ class CreatePageTable extends Migration
                 ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
 
-        DB::table('admin_menu')->where('order', '>', 5)->increment('order');
-
-        DB::table('admin_menu')->insert([
-            'parent_id' => 0,
-            'order' => 6,
-            'title' => 'Pages',
-            'icon' => 'fa-newspaper-o',
-            'uri' => '/pages',
-        ]);
-
     }
 
     /**
