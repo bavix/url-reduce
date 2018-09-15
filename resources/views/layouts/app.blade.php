@@ -262,7 +262,7 @@
 <!-- Scripts -->
 <script src="{{ asset2('https://cdn.bavix.ru/jquery/latest/dist/jquery.min.js') }}"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/popper.js/latest/dist/umd/popper.min.js') }}"></script>
-<script src="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset2('https://cdn.bavix.ru/bootstrap/latest/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset2('https://cdn.bavix.ru/clipboard/latest/dist/clipboard.min.js') }}"></script>
 <script src="{{ asset2('js/default.js') }}"></script>
 
