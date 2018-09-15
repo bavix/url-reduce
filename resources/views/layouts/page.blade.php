@@ -7,7 +7,7 @@
     <title>{{ $item->title }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
+    <link href="{{ asset2('https://cdn.bavix.ru/bootstrap/latest/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
     <link href="{{ asset2('css/blog.css')  }}" rel="stylesheet"/>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png"/>
