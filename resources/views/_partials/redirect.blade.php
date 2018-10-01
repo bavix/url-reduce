@@ -4,7 +4,7 @@
     <title>Redirecting to {{ $item->parameters['title'] ?? '#' . $item->hash }} - URL Shortener</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link href="{{ asset2('https://cdn.bavix.ru/bootstrap/next/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
+    <link href="{{ asset2('https://cdn.bavix.ru/bootstrap/latest/dist/css/bootstrap.min.css')  }}" rel="stylesheet"/>
 
     <meta http-equiv="refresh" content="0;url={{ $item->url }}" />
 
