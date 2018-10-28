@@ -21,7 +21,7 @@ class GeoIP extends Model
     {
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, 'http://api.ipstack.com/' . $ip . '?access_key=5fc56f13502959365dcd857c4b0d936d&format=1');
+        curl_setopt($ch, CURLOPT_URL, 'https://geo.bavix.ru/json/' . $ip);
         curl_setopt($ch, CURLOPT_ACCEPT_ENCODING, 'UTF-8');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
@@ -42,7 +42,6 @@ class GeoIP extends Model
             return $data;
         }
 
-        unset($data['ip'], $data['metro_code']);
         $data['from'] = ip2long($ip);
         $data['to']   = ip2long($ip);
 
@@ -59,7 +58,7 @@ class GeoIP extends Model
                 "region_code" => $data['region_code'],
                 "region_name" => $data['region_name'],
                 "city" => $data['city'],
-                "zip_code" => $data['zip'],
+                "zip_code" => $data['zip_code'],
                 "time_zone" => null,
                 "latitude" => $data['latitude'],
                 "longitude" => $data['longitude']
