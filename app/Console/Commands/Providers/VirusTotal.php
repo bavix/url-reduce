@@ -9,7 +9,7 @@ class VirusTotal extends PhishTank
 {
 
     protected $uri = 'https://www.virustotal.com/vtapi/v2/url/report';
-    protected $key = 'VT_API_KEY';
+    protected $key = 'bx.services.virusTotal.apiKey';
 
     protected function validator()
     {
