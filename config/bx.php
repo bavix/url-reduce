@@ -15,4 +15,13 @@ return [
             'default' => '#110022'
         ]
     ],
+    
+    'services' => [
+        'phishtank' => [
+            'apiKey' => env('PHISHTANK_API_KEY'),
+        ],
+        'virusTotal' => [
+            'apiKey' => env('VT_API_KEY'),
+        ],
+    ],
 ];
