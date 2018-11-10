@@ -8,7 +8,7 @@ class PhishTank extends Provider
 {
 
     protected $uri = 'https://phishtank.com/checkurl/';
-    protected $key = 'PHISHTANK_API_KEY';
+    protected $key = 'bx.services.phishtank.apiKey';
 
     protected $apiKey;
 
@@ -16,7 +16,7 @@ class PhishTank extends Provider
     {
         if (!$this->apiKey)
         {
-            $this->apiKey = env($this->key);
+            $this->apiKey = config($this->key);
         }
 
         return $this->apiKey;
