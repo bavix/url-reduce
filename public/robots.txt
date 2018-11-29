@@ -1,3 +1,2 @@
 User-agent: *
 Disallow:
-Host: ln4.ru
