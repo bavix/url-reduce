@@ -25,8 +25,19 @@ class HashRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'hash' => 'required|alpha_num|size:5'
+            'hash' => ['required', 'alpha_num', 'size:5']
         ];
+    }
+
+    /**
+     * Switching validation on the parameters
+     *
+     * @param null $keys
+     * @return array
+     */
+    public function all($keys = null): array
+    {
+        return $this->route()->parameters();
     }
 
 }

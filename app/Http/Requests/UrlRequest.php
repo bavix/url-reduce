@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\SelfUrlRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UrlRequest extends FormRequest
@@ -25,7 +26,7 @@ class UrlRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'url' => 'required|url'
+            'url' => ['required', 'min:12', 'url', new SelfUrlRule()]
         ];
     }
 

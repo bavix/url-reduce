@@ -2,19 +2,14 @@
 
 namespace App\Console;
 
+use App\Console\Commands\MetaCommand;
+use App\Console\Commands\MonthlyUpdateCommand;
+use App\Console\Commands\SitemapCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
-    protected $commands = [
-        //
-    ];
 
     /**
      * Define the application's command schedule.
@@ -24,8 +19,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command(MetaCommand::class)->hourly();
+        $schedule->command(SitemapCommand::class)->daily();
+        $schedule->command(MonthlyUpdateCommand::class)->daily();
     }
 
     /**
@@ -39,4 +35,5 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+
 }
