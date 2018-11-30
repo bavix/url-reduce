@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LinkRequest;
+use App\Http\Requests\HashRequest;
 use App\Http\Requests\UrlRequest;
 
 class LinkController extends Controller
@@ -17,7 +17,7 @@ class LinkController extends Controller
      * @param UrlRequest $request
      * @return array|string|null
      */
-    public function store(LinkRequest $request)
+    public function store(HashRequest $request)
     {
         return $request->input();
     }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LinkRequest extends FormRequest
+class HashRequest extends FormRequest
 {
 
     /**
@@ -25,7 +25,7 @@ class LinkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'hash' => 'required|alpha_num|size:5|exists:links'
+            'hash' => 'required|alpha_num|size:5'
         ];
     }
 
