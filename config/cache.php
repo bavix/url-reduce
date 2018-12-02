@@ -48,7 +48,7 @@ return [
 
         'file' => [
             'driver' => 'file',
-            'addThis' => storage_path('framework/cache/data'),
+            'path' => storage_path('framework/cache/data'),
         ],
 
         'memcached' => [
