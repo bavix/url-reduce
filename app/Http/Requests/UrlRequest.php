@@ -26,7 +26,15 @@ class UrlRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'url' => ['required', 'min:12', 'url', new SelfUrlRule()]
+            'url' => [
+                'bail',
+                'required',
+                'string',
+                'url',
+                'min:12',
+                new SelfUrlRule(),
+                'active_url',
+            ]
         ];
     }
 

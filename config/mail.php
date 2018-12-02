@@ -94,7 +94,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | When using the "sendmail" driver to send e-mails, we will need to know
-    | the path to where Sendmail lives on this server. A default path has
+    | the addThis to where Sendmail lives on this server. A default addThis has
     | been provided here, which will work well on most of your systems.
     |
     */

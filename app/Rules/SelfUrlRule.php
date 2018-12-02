@@ -27,7 +27,7 @@ class SelfUrlRule implements Rule
      */
     public function message(): string
     {
-        return 'You can\'t cut yourself';
+        return 'You can\'t cut yourself.';
     }
 
 }

@@ -1,22 +1,38 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-    },
-    "devDependencies": {
-        "axios": "^0.18",
-        "bootstrap": "^4.0.0",
-        "cross-env": "^5.1",
-        "jquery": "^3.2",
-        "laravel-mix": "^3.0.0",
-        "lodash": "^4.17.5",
-        "popper.js": "^1.12",
-        "vue": "^2.5.17"
-    }
+  "name": "ln4",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "webpack --mode development",
+    "watch": "webpack --watch --mode development",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-brands-svg-icons": "^5.5.0",
+    "@fortawesome/pro-light-svg-icons": "^5.5.0",
+    "@fortawesome/pro-regular-svg-icons": "^5.5.0",
+    "@fortawesome/pro-solid-svg-icons": "^5.5.0",
+    "@fortawesome/vue-fontawesome": "^0.1.2",
+    "animate.css": "^3.7.0",
+    "axios": "^0.18.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "bulma": "^0.7.2",
+    "css-loader": "^1.0.1",
+    "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "^0.4.5",
+    "node-sass": "^4.10.0",
+    "npm": "^6.4.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.17",
+    "vuex": "^3.0.1",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
+  }
 }

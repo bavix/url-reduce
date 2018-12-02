@@ -1,14 +1,38 @@
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+$warning: #ffc107;
+$primary: #f0ad4e;
+$danger: #dc3545;
 
-// Variables
-@import 'variables';
+// Bulma
+@import "~animate.css/animate.min.css";
+@import '~bulma';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+html {
+  overflow-y: auto;
+}
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.hero.is-primary {
+  background-color: #102;
+  .subtitle {
+    color: $primary;
+    & + .field {
+      padding-top: 2rem;
+    }
+  }
+  .navbar-brand a.navbar-item {
+    &.is-active, &:hover {
+      background-color: $warning;
+      color: #0a0a0a;
+    }
+  }
+}
+
+.footer {
+  background-color: #102;
+  .buttons {
+    .button {
+      width: 48px;
+      height: 48px;
+    }
+  }
 }

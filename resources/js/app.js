@@ -1,32 +1,38 @@
+/*jshint esversion: 6 */
+import Vue from 'vue';
+import ShortenForm from './components/ShortenForm.vue';
+import ShortenInfo from './components/ShortenInfo.vue';
+import Live from './components/Live.vue';
+import Copyright from './components/Copyright.vue';
+import Navbar from './components/Navbar.vue';
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-require('./bootstrap');
+import { faLink, faBug, faPaste } from '@fortawesome/pro-light-svg-icons';
+import {
+    faDev,
+    faFacebookF,
+    faTwitter,
+    faTelegram,
+    faGithub,
+} from '@fortawesome/free-brands-svg-icons';
 
-window.Vue = require('vue');
+library.add(faLink);
+library.add(faBug);
+library.add(faPaste);
+library.add(faDev);
+library.add(faFacebookF);
+library.add(faTwitter);
+library.add(faTelegram);
+library.add(faGithub);
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component('shorten-form', ShortenForm);
+Vue.component('shorten-info', ShortenInfo);
+Vue.component('live', Live);
+Vue.component('copyright', Copyright);
+Vue.component('navbar', Navbar);
 
 const app = new Vue({
     el: '#app'
