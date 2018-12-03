@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item is-active" href="/">
-                        <font-awesome-icon :icon="['fal', 'link']" size="lg" />
+                        <icon name="link"></icon>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenu">
                         <span></span>
@@ -17,7 +17,7 @@
                         <span class="navbar-item">
                             <a class="button is-white is-outlined" href="#">
                                 <span class="icon">
-                                    <font-awesome-icon :icon="['fal', 'bug']" />
+                                    <icon name="bug"></icon>
                                 </span>
                                 <span>Report</span>
                             </a>
@@ -25,7 +25,7 @@
                         <span class="navbar-item">
                             <a class="button is-white is-outlined" href="https://docs.ln4.ru" target="_blank">
                                 <span class="icon">
-                                    <font-awesome-icon :icon="['fab', 'dev']" />
+                                    <icon name="dev"></icon>
                                 </span>
                                 <span>Developers</span>
                             </a>

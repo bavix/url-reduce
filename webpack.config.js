@@ -1,18 +1,26 @@
 /*jshint esversion: 6 */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const SpritePlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
+    optimization: {
+        minimizer: [new UglifyJsPlugin({
+            sourceMap: true
+        })]
+    },
     entry: {
-        main: [
+        app: [
             './resources/js/app.js',
             './resources/sass/app.scss'
         ],
     },
     output: {
-        path: path.resolve(__dirname, 'public/js'),
-        filename: 'app.js'
+        path: path.resolve(__dirname, 'public/'),
+        chunkFilename: 'js/[name].bundle.js',
+        filename: 'js/[name].bundle.js'
     },
     resolve: {
         extensions: ['.js'],
@@ -42,10 +50,11 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
+                test: /\.svg$/,
+                loader: 'svg-sprite-loader',
                 options: {
-                    name: '[name].[ext]?[hash]'
+                    extract: true,
+                    spriteFilename: 'images/sprite.svg'
                 }
             },
         ]
@@ -54,8 +63,11 @@ module.exports = {
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: '../css/app.css',
+            filename: 'css/app.css',
         }),
         new VueLoaderPlugin(),
+        new SpritePlugin({
+            plainSprite: true
+        }),
     ]
 };

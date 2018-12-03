@@ -7,7 +7,7 @@
                 </label>
                 <div class="control is-medium">
                     <button class="button is-medium is-danger">
-                        <font-awesome-icon :icon="['fal', 'paste']" size="lg" />
+                        <icon name="paste"></icon>
                     </button>
                 </div>
             </div>

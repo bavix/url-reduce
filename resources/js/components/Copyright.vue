@@ -3,16 +3,16 @@
         <div class="content has-text-centered">
             <div class="buttons is-centered">
                 <a class="button is-outlined is-light" target="_blank" href="/fbook">
-                    <font-awesome-icon :icon="['fab', 'facebook-f']" size="2x" />
+                    <icon name="facebook"></icon>
                 </a>
                 <a class="button is-outlined is-light" target="_blank" href="/twitt">
-                    <font-awesome-icon :icon="['fab', 'twitter']" size="2x" />
+                    <icon name="twitter"></icon>
                 </a>
                 <a class="button is-outlined is-light" target="_blank" href="/teleg">
-                    <font-awesome-icon :icon="['fab', 'telegram']" size="2x" />
+                    <icon name="telegram"></icon>
                 </a>
                 <a class="button is-outlined is-light" target="_blank" href="/githb">
-                    <font-awesome-icon :icon="['fab', 'github']" size="2x" />
+                    <icon name="github"></icon>
                 </a>
             </div>
             <p>

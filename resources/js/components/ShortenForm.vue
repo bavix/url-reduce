@@ -11,7 +11,7 @@
             <div class="control is-large">
                 <button class="button is-large is-warning"
                         :disabled="submitting">
-                    <font-awesome-icon :icon="['fal', 'link']" size="lg" />
+                    <icon name="link"></icon>
                 </button>
             </div>
         </div>
