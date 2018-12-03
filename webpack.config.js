@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-const path = require('addThis');
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
@@ -11,13 +11,13 @@ module.exports = {
         ],
     },
     output: {
-        addThis: path.resolve(__dirname, 'public/js'),
+        path: path.resolve(__dirname, 'public/js'),
         filename: 'app.js'
     },
     resolve: {
         extensions: ['.js'],
         alias: {
-            'vue': 'vue/dist/vue.common.js',
+            'vue$': 'vue/dist/vue.esm.js'
         }
     },
     module: {
@@ -40,6 +40,13 @@ module.exports = {
                     'css-loader',
                     'sass-loader',
                 ],
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]?[hash]'
+                }
             },
         ]
     },

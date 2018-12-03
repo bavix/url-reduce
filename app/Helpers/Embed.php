@@ -11,9 +11,9 @@ class Embed
      * @param string $url
      * @param array|null $config
      * @param DispatcherInterface|null $dispatcher
-     * @return array|null
+     * @return array
      */
-    public static function getMeta(string $url, ?array $config = null, ?DispatcherInterface $dispatcher = null): ?array
+    public static function getMeta(string $url, ?array $config = null, ?DispatcherInterface $dispatcher = null): array
     {
         $info = \Embed\Embed::create($url, $config, $dispatcher);
 

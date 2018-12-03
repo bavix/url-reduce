@@ -13,5 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('add', 'LinkController@store');
+Route::get('live', 'LinkController@live');
 Route::post('add', 'LinkController@store');
+Route::post('report', 'LinkController@report');

@@ -3,9 +3,11 @@ $warning: #ffc107;
 $primary: #f0ad4e;
 $danger: #dc3545;
 
+@import "~animate.css/source/_base.css";
+@import "~animate.css/source/fading_entrances/fadeIn.css";
+
 // Bulma
-@import "~animate.css/animate.min.css";
-@import '~bulma';
+@import 'bulma/main';
 
 html {
   overflow-y: auto;

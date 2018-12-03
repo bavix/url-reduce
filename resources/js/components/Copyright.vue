@@ -3,16 +3,16 @@
         <div class="content has-text-centered">
             <div class="buttons is-centered">
                 <a class="button is-outlined is-light" target="_blank" href="/fbook">
-                    <font-awesome-icon class="animated fadeIn" :icon="['fab', 'facebook-f']" size="2x" />
+                    <font-awesome-icon :icon="['fab', 'facebook-f']" size="2x" />
                 </a>
                 <a class="button is-outlined is-light" target="_blank" href="/twitt">
-                    <font-awesome-icon class="animated fadeIn" :icon="['fab', 'twitter']" size="2x" />
+                    <font-awesome-icon :icon="['fab', 'twitter']" size="2x" />
                 </a>
                 <a class="button is-outlined is-light" target="_blank" href="/teleg">
-                    <font-awesome-icon class="animated fadeIn" :icon="['fab', 'telegram']" size="2x" />
+                    <font-awesome-icon :icon="['fab', 'telegram']" size="2x" />
                 </a>
                 <a class="button is-outlined is-light" target="_blank" href="/githb">
-                    <font-awesome-icon class="animated fadeIn" :icon="['fab', 'github']" size="2x" />
+                    <font-awesome-icon :icon="['fab', 'github']" size="2x" />
                 </a>
             </div>
             <p>
@@ -27,3 +27,9 @@
 
     }
 </script>
+
+<style scoped>
+    .footer {
+        padding-bottom: 1rem;
+    }
+</style>

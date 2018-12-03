@@ -12,4 +12,5 @@
 */
 
 Route::get('/', 'LinkController@index');
-
+Route::get('/{hash}', 'LinkController@redirect')
+    ->where('hash', '\w{5}');

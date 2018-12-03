@@ -19,11 +19,11 @@
                     <h1 class="title is-1">URL Shortener</h1>
                     <h2 class="subtitle animated fadeIn">To reduce the reference!</h2>
                     <shorten-form></shorten-form>
-                    <shorten-info></shorten-info>
+                    {{--<shorten-info></shorten-info>--}}
                     <copyright></copyright>
                 </div>
                 <div class="column is-3">
-                    <live></live>
+                    <live :count="{{ $count }}"></live>
                 </div>
             </div>
         </div>

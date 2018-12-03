@@ -2,8 +2,41 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Link
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link query()
+ * @mixin \Eloquent
+ * @property int $id
+ * @property string $hash
+ * @property string $url
+ * @property array|null $parameters
+ * @property int $active
+ * @property string|null $message
+ * @property int $blocked
+ * @property int $is_porn
+ * @property int $suspicious
+ * @property int $retry
+ * @property \Illuminate\Support\Carbon $created_at
+ * @property \Illuminate\Support\Carbon $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereBlocked($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereHash($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereIsPorn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereParameters($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereRetry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereSuspicious($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereUrl($value)
+ */
 class Link extends Model
 {
 
@@ -29,6 +62,18 @@ class Link extends Model
     protected $casts = [
         'parameters' => 'array'
     ];
+
+    /**
+     * @return Builder
+     */
+    public static function live(): Builder
+    {
+        return static::query()
+            ->where('active', true)
+            ->where('blocked', false)
+            ->whereNotNull('parameters')
+            ->orderBy('id', 'desc');
+    }
 
     /**
      * Generates a hash

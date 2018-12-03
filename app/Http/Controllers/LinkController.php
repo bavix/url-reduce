@@ -16,7 +16,19 @@ class LinkController extends Controller
      */
     public function index(): View
     {
-        return view('app');
+        $count = Link::live()->count();
+        return view('app', compact('count'));
+    }
+
+    /**
+     * @return array
+     */
+    public function live(): array
+    {
+        return Link::live()
+            ->limit(5)
+            ->get()
+            ->toArray();
     }
 
     /**

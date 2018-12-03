@@ -1,5 +1,8 @@
 /*jshint esversion: 6 */
 import Vue from 'vue';
+
+Vue.config.productionTip = false;
+
 import ShortenForm from './components/ShortenForm.vue';
 import ShortenInfo from './components/ShortenInfo.vue';
 import Live from './components/Live.vue';

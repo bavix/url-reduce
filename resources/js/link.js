@@ -2,7 +2,7 @@
 
 import _ from 'lodash';
 
-class Post {
+class Link {
     constructor(data) {
         this.title = _.get(data, 'parameters.title');
         this.content = _.get(data, 'parameters.description');
@@ -11,4 +11,4 @@ class Post {
     }
 }
 
-export default Post;
+export default Link;
