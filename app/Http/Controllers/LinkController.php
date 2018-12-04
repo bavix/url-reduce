@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\HashRequest;
 use App\Http\Requests\UrlRequest;
+use App\Http\Resources\LinkResource;
 use App\Models\Link;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\View\View;
 
 class LinkController extends Controller
@@ -21,26 +23,27 @@ class LinkController extends Controller
     }
 
     /**
-     * @return array
+     * @return AnonymousResourceCollection
      */
-    public function live(): array
+    public function live(): AnonymousResourceCollection
     {
-        return Link::live()
+        $collection = Link::live()
             ->limit(5)
-            ->get()
-            ->toArray();
+            ->get();
+
+        return LinkResource::collection($collection);
     }
 
     /**
      * @param UrlRequest $request
-     * @return Link|null
+     * @return LinkResource
      */
-    public function store(UrlRequest $request): Link
+    public function store(UrlRequest $request): LinkResource
     {
         $url = $request->input('url');
         $link = Link::produce($url);
         $this->commonAbort($link);
-        return $link;
+        return new LinkResource($link);
     }
 
     /**

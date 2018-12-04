@@ -6,15 +6,15 @@
         </div>
         <ul class="live" v-if="links.length">
             <li class="live-item" v-for="link of links">
-                <span class="tag is-dark is-rounded" v-text="link.parameters.type"></span>
-                <img :alt="link.parameters.title"
+                <span class="tag is-dark is-rounded" v-text="link.type"></span>
+                <img :alt="link.title"
                      class="favicon is-pulled-right"
-                     :src="favicon(link.parameters)" />
+                     :src="link.icon" />
 
-                <a target="_blank" rel="nofollow" :href="'/' + link.hash" :title="link.parameters.title" v-text="link.parameters.title"></a>
+                <a target="_blank" rel="nofollow" :href="'/' + link.hash" :title="link.title" v-text="link.title"></a>
 
                 <div class="tags">
-                    <span class="tag is-white" v-for="tag of tags(link.parameters.tags)" v-text="tag"></span>
+                    <span class="tag is-white" v-for="tag of tags(link.tags)" v-text="tag"></span>
                 </div>
             </li>
         </ul>
@@ -36,7 +36,7 @@
         },
         created() {
             const links = api.live((res) => {
-                this.links = res.data;
+                this.links = res.data.data;
             });
         },
         methods: {
@@ -50,9 +50,6 @@
 
                 return shuffle(tags.slice(0, 10));
             },
-            favicon(val) {
-                return val.providerIcon ? val.providerIcon : '/favicon.ico';
-            }
         }
     }
 </script>

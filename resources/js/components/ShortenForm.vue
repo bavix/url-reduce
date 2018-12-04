@@ -48,7 +48,7 @@
             onSuccess({ data }) {
                 this.error = '';
                 this.submitting = false;
-                this.loading = !data.parameters;
+                this.loading = !data.loaded;
             },
             onError(error) {
                 this.loading = false;
