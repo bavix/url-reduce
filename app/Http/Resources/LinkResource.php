@@ -16,13 +16,18 @@ class LinkResource extends JsonResource
     public function toArray($request): array
     {
         $parameters = (array)$this->parameters;
+        $icon = 'https://ds.bavix.ru/favicon.ico';
+        $providerIcon = \array_get($parameters, 'providerIcon');
+        if ($providerIcon && \starts_with($providerIcon, 'https')) {
+            $icon = $providerIcon;
+        }
 
         return [
             'type' => $this->type ?: 'link',
             'hash' => $this->hash,
             'title' => \array_get($parameters, 'title'),
             'description' => \array_get($parameters, 'description'),
-            'icon' => \array_get($parameters, 'providerIcon'),
+            'icon' => $icon,
             'tags' => \array_get($parameters, 'tags', []),
             'loaded' => !empty($parameters),
         ];
