@@ -15,16 +15,16 @@ class LinkResource extends JsonResource
      */
     public function toArray($request): array
     {
-        $parameters = (object)($this->parameters ?? []);
+        $parameters = (array)$this->parameters;
 
         return [
             'type' => $this->type ?: 'link',
             'hash' => $this->hash,
-            'title' => $parameters->title,
-            'description' => $parameters->description,
-            'icon' => $parameters->providerIcon,
-            'tags' => (array)$parameters->tags,
-            'loaded' => (bool)$this->parameters,
+            'title' => \array_get($parameters, 'title'),
+            'description' => \array_get($parameters, 'description'),
+            'icon' => \array_get($parameters, 'providerIcon'),
+            'tags' => \array_get($parameters, 'tags', []),
+            'loaded' => !empty($parameters),
         ];
     }
 
