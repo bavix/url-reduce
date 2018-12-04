@@ -34,6 +34,10 @@
         },
         computed: {
             icon() {
+                if (!icons.hasOwnProperty(this.name)) {
+                    throw new Error(`Icon '${this.name}' not found`);
+                }
+
                 return icons[this.name];
             }
         }
