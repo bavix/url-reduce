@@ -1,5 +1,5 @@
 <template>
-    <svg>
+    <svg class="icon">
         <use :xlink:href="icon"></use>
     </svg>
 </template>
@@ -39,3 +39,14 @@
         }
     }
 </script>
+
+<style lang="scss" scoped>
+    .icon {
+        fill: currentColor;
+        @for $i from 0 through 9 {
+            &.icon-#{$i + 1}x {
+                font-size: 1em + $i * .3;
+            }
+        }
+    }
+</style>

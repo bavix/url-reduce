@@ -43,8 +43,12 @@
     }
 </script>
 
-<style scoped>
-    .hero-head .navbar .navbar-burger {
-        color: white;
+<style lang="scss" scoped>
+    .hero-head {
+        .navbar {
+            .navbar-burger {
+                color: white;
+            }
+        }
     }
 </style>

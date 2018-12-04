@@ -52,7 +52,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .title:not(:last-child) {
         margin-bottom: 1rem;
     }

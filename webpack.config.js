@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 const path = require('path');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
@@ -7,9 +8,10 @@ const SpritePlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
     optimization: {
-        minimizer: [new UglifyJsPlugin({
-            sourceMap: true
-        })]
+        minimizer: [
+            new UglifyJsPlugin({sourceMap: true}),
+            new OptimizeCSSAssetsPlugin({}),
+        ]
     },
     entry: {
         app: [
@@ -25,7 +27,7 @@ module.exports = {
     resolve: {
         extensions: ['.js'],
         alias: {
-            'vue$': 'vue/dist/vue.esm.js'
+            'vue$': 'vue/dist/vue.esm.js',
         }
     },
     module: {
@@ -45,7 +47,12 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader: "css-loader",
+                        options: {
+                            minimize: true
+                        }
+                    },
                     'sass-loader',
                 ],
             },

@@ -23,7 +23,7 @@
 </template>
 
 <script>
-    import _ from 'lodash';
+    import shuffle from 'lodash/_arrayShuffle';
     import api from '../api';
     export default {
         props: {
@@ -48,7 +48,7 @@
                     }
                 }
 
-                return _.shuffle(tags.slice(0, 10));
+                return shuffle(tags.slice(0, 10));
             },
             favicon(val) {
                 return val.providerIcon ? val.providerIcon : '/favicon.ico';
@@ -57,7 +57,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .favicon {
         width: 24px;
         height: 24px;
@@ -65,17 +65,19 @@
     .title:not(:last-child) {
         margin-bottom: .5rem;
     }
-    .live .tag {
-        height: 1rem;
-        padding-left: .3rem;
-        padding-right: .3rem;
-    }
-    .live .live-item:not(:last-child) {
-        border-bottom: 1px solid white;
-        padding-bottom: .5rem;
-    }
-    .live .live-item:not(:first-child) {
-        margin-top: 7px;
+    .live {
+        .tag {
+            height: 1rem;
+            padding-left: .3rem;
+            padding-right: .3rem;
+        }
+        .live-item:not(:last-child) {
+            border-bottom: 1px solid white;
+            padding-bottom: .5rem;
+        }
+        .live-item:not(:first-child) {
+            margin-top: 7px;
+        }
     }
     .control.is-loading::after {
         left: 0;

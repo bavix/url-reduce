@@ -1,13 +1,13 @@
 /*jshint esversion: 6 */
 
-import _ from 'lodash';
+import get from 'lodash/get';
 
 class Link {
     constructor(data) {
-        this.title = _.get(data, 'parameters.title');
-        this.content = _.get(data, 'parameters.description');
-        this.hash = _.get(data, 'hash');
-        this.tags = _.get(data, 'parameters.tags');
+        this.title = get(data, 'parameters.title');
+        this.content = get(data, 'parameters.description');
+        this.hash = get(data, 'hash');
+        this.tags = get(data, 'parameters.tags');
     }
 }
 

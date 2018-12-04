@@ -21,7 +21,7 @@
 
 <script>
     import api from '../api';
-    import _ from 'lodash';
+    import has from 'lodash/has';
 
     export default {
         data() {
@@ -53,7 +53,7 @@
             onError(error) {
                 this.loading = false;
                 this.submitting = false;
-                if (_.has(error.response.data, 'errors.url')) {
+                if (has(error.response.data, 'errors.url')) {
                     this.error = error.response.data.errors.url.shift();
                 }
             }

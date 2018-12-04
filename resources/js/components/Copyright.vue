@@ -3,16 +3,16 @@
         <div class="content has-text-centered">
             <div class="buttons is-centered">
                 <a class="button is-outlined is-light" target="_blank" href="/fbook">
-                    <icon name="facebook"></icon>
+                    <icon name="facebook" class="icon-2x"></icon>
                 </a>
                 <a class="button is-outlined is-light" target="_blank" href="/twitt">
-                    <icon name="twitter"></icon>
+                    <icon name="twitter" class="icon-2x"></icon>
                 </a>
                 <a class="button is-outlined is-light" target="_blank" href="/teleg">
-                    <icon name="telegram"></icon>
+                    <icon name="telegram" class="icon-2x"></icon>
                 </a>
                 <a class="button is-outlined is-light" target="_blank" href="/githb">
-                    <icon name="github"></icon>
+                    <icon name="github" class="icon-2x"></icon>
                 </a>
             </div>
             <p>
@@ -28,7 +28,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .footer {
         padding-bottom: 1rem;
     }
