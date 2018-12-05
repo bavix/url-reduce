@@ -26,6 +26,7 @@ class LinkResource extends JsonResource
 
         return [
             'type' => $this->type ?: 'link',
+            'url' => \route('direct', [$this->hash]),
             'hash' => $this->hash,
             'title' => \array_get($parameters, 'title'),
             'description' => \array_get($parameters, 'description'),

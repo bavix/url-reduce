@@ -11,7 +11,7 @@
                      class="favicon is-pulled-right"
                      :src="link.icon" />
 
-                <a target="_blank" rel="nofollow" :href="'/' + link.hash" :title="link.title" v-text="link.title"></a>
+                <a target="_blank" rel="nofollow" class="link" :href="link.url" :title="link.title" v-text="link.title"></a>
 
                 <div class="tags">
                     <span class="tag is-white" v-for="tag of tags(link.tags)" v-text="tag"></span>
@@ -80,6 +80,9 @@
         }
         .live-item:not(:first-child) {
             margin-top: 7px;
+        }
+        .link:hover {
+            opacity: .85;
         }
     }
     .control.is-loading::after {

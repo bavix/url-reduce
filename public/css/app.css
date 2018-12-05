@@ -32,6 +32,9 @@
 .live .live-item[data-v-0fc05c52]:not(:first-child) {
   margin-top: 7px;
 }
+.live .link[data-v-0fc05c52]:hover {
+  opacity: .85;
+}
 .control.is-loading[data-v-0fc05c52]::after {
   left: 0;
 }
