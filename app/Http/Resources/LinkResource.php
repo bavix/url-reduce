@@ -22,13 +22,15 @@ class LinkResource extends JsonResource
             $icon = $providerIcon;
         }
 
+        $tags = \array_get($parameters, 'tags', []);
+
         return [
             'type' => $this->type ?: 'link',
             'hash' => $this->hash,
             'title' => \array_get($parameters, 'title'),
             'description' => \array_get($parameters, 'description'),
             'icon' => $icon,
-            'tags' => \array_get($parameters, 'tags', []),
+            'tags' => \array_unique($tags),
             'loaded' => !empty($parameters),
         ];
     }

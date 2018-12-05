@@ -3,10 +3,9 @@
 </template>
 
 <script>
-    import Link from '../link';
     export default {
         props: {
-            post: Link,
+
         },
         data() {
             return {

@@ -1,7 +1,7 @@
 <template>
     <nav>
         <div class="title">
-            <span class="tag is-pulled-right is-warning" v-text="count"></span>
+            <span class="tag is-pulled-right is-warning" v-text="total"></span>
             <h3 class="is-4">Live</h3>
         </div>
         <ul class="live" v-if="links.length">
@@ -24,19 +24,25 @@
 
 <script>
     import shuffle from 'lodash/_arrayShuffle';
+    import store from '../store';
     import api from '../api';
     export default {
+        store,
         props: {
             count: Number,
         },
-        data() {
-            return {
-                links: [],
-            };
+        computed: {
+            total() {
+                return this.$store.state.total;
+            },
+            links() {
+                return this.$store.state.links;
+            }
         },
         created() {
+            this.$store.commit('setTotal', this.count);
             const links = api.live((res) => {
-                this.links = res.data.data;
+                this.$store.dispatch('addLinks', res.data.data);
             });
         },
         methods: {

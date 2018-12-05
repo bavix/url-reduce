@@ -30,15 +30,15 @@
 
     export default {
         props: {
-            name: String,
+            file: String,
         },
         computed: {
             icon() {
-                if (!icons.hasOwnProperty(this.name)) {
-                    throw new Error(`Icon '${this.name}' not found`);
+                if (!icons.hasOwnProperty(this.file)) {
+                    throw new Error(`Icon '${this.file}' not found`);
                 }
 
-                return icons[this.name];
+                return icons[this.file];
             }
         }
     }

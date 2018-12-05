@@ -4,14 +4,15 @@
             <div class="control is-expanded is-large"
                  :class="[submitting || loading ? 'is-loading' : '']">
                 <input class="input is-large"
-                       v-model="link"
+                       :value="url"
+                       @change="setUrl"
                        :disabled="submitting"
                        type="text" placeholder="Your original URL here">
             </div>
             <div class="control is-large">
                 <button class="button is-large is-warning"
                         :disabled="submitting">
-                    <icon name="link"></icon>
+                    <icon file="link"></icon>
                 </button>
             </div>
         </div>
@@ -20,42 +21,38 @@
 </template>
 
 <script>
+    import store from '../store';
     import api from '../api';
-    import has from 'lodash/has';
 
     export default {
-        data() {
-            return {
-                link: '',
-                error: '',
-                submitting: false,
-                loading: false,
-            }
-        },
+        store,
         computed: {
             url() {
-                return this.link.length && !/^[a-z]+?:\/\//.test(this.link) ?
-                    'http://' + this.link :
-                    this.link;
-            }
+                return this.$store.state.url
+            },
+            error() {
+                return this.$store.state.error
+            },
+            loading() {
+                return this.$store.state.loading
+            },
+            submitting() {
+                return this.$store.state.submitting
+            },
         },
         methods: {
+            setUrl(e) {
+                this.$store.commit('setUrl', e.target.value);
+            },
             onSubmit() {
-                this.loading = true;
-                this.submitting = true;
+                this.$store.commit('onSubmit');
                 api.create(this.url, this.onSuccess, this.onError);
             },
             onSuccess({ data }) {
-                this.error = '';
-                this.submitting = false;
-                this.loading = !data.loaded;
+                this.$store.commit('onSuccess', data);
             },
             onError(error) {
-                this.loading = false;
-                this.submitting = false;
-                if (has(error.response.data, 'errors.url')) {
-                    this.error = error.response.data.errors.url.shift();
-                }
+                this.$store.commit('onError', error);
             }
         }
     }

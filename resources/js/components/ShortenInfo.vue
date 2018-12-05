@@ -7,7 +7,7 @@
                 </label>
                 <div class="control is-medium">
                     <button class="button is-medium is-danger">
-                        <icon name="paste"></icon>
+                        <icon file="paste"></icon>
                     </button>
                 </div>
             </div>

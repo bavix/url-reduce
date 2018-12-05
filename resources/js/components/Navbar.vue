@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item is-active" href="/">
-                        <icon name="link"></icon>
+                        <icon file="link"></icon>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenu">
                         <span></span>
@@ -17,7 +17,7 @@
                         <span class="navbar-item">
                             <a class="button is-white is-outlined" href="#">
                                 <span class="icon">
-                                    <icon name="bug"></icon>
+                                    <icon file="bug"></icon>
                                 </span>
                                 <span>Report</span>
                             </a>
@@ -25,7 +25,7 @@
                         <span class="navbar-item">
                             <a class="button is-white is-outlined" href="https://docs.ln4.ru" target="_blank">
                                 <span class="icon">
-                                    <icon name="dev"></icon>
+                                    <icon file="dev"></icon>
                                 </span>
                                 <span>Developers</span>
                             </a>
