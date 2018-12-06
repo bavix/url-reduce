@@ -14,6 +14,10 @@
 Route::get('/', 'LinkController@index')
     ->name('home');
 
+Route::get('/qr/{hash}', 'LinkController@qr')
+    ->where('hash', '\w{5}')
+    ->name('qr');
+
 Route::get('/{hash}', 'LinkController@redirect')
     ->where('hash', '\w{5}')
     ->name('direct');

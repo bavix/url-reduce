@@ -11,6 +11,9 @@
   height: 150px;
   width: 150px;
 }
+.control.is-loading[data-v-7ea929d8]::after {
+  left: 0;
+}
 
 
 .favicon[data-v-0fc05c52] {

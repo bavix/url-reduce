@@ -6,9 +6,12 @@ use App\Http\Requests\HashRequest;
 use App\Http\Requests\UrlRequest;
 use App\Http\Resources\LinkResource;
 use App\Models\Link;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class LinkController extends Controller
 {
@@ -49,18 +52,37 @@ class LinkController extends Controller
     /**
      * @param HashRequest $request
      * @param string $hash
+     * @return Response
+     */
+    public function qr(HashRequest $request, string $hash): Response
+    {
+        $link = Link::findByHash($hash);
+        $this->commonAbort($link);
+
+        /**
+         * @var $qr \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator
+         */
+        $qr = QrCode::format('png');
+
+        $png = $qr
+            ->size(160)
+            ->margin(0)
+            ->color(1, 0, 2)
+            ->merge(resource_path('images/logo.png'), .3, true)
+            ->generate(route('direct', [$hash]));
+
+        return response($png, 200, ['Content-Type' => 'image/png'])
+            ->setExpires(Carbon::now()->addYear());
+    }
+
+    /**
+     * @param HashRequest $request
+     * @param string $hash
      * @return \Illuminate\Contracts\View\Factory|RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
     public function redirect(HashRequest $request, string $hash)
     {
-        /**
-         * @var Link $link
-         */
-        $link = Link::query()
-            ->where('hash', $hash)
-            ->firstOrFail();
-
-        abort_if($link->hash !== $hash, 404);
+        $link = Link::findByHash($hash);
         $this->commonAbort($link);
 
         if ($link->isAdult()) {

@@ -58,11 +58,25 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                loader: 'svg-sprite-loader',
-                options: {
-                    extract: true,
-                    spriteFilename: 'images/sprite.svg'
-                }
+                use: [
+                    {
+                        loader: 'svg-sprite-loader',
+                        options: {
+                            extract: true,
+                            spriteFilename: 'images/sprite.svg'
+                        }
+                    },
+                    {
+                        loader: 'svgo-loader',
+                        options: {
+                            plugins: [
+                                {removeTitle: true},
+                                {convertColors: {shorthex: false}},
+                                {convertPathData: false}
+                            ]
+                        }
+                    },
+                ],
             },
         ]
     },

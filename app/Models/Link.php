@@ -76,6 +76,23 @@ class Link extends Model
     }
 
     /**
+     * @param string $hash
+     * @return Link
+     */
+    public static function findByHash(string $hash): Link
+    {
+        /**
+         * @var Link $link
+         */
+        $link = static::query()
+            ->where('hash', $hash)
+            ->firstOrFail();
+
+        abort_if($link->hash !== $hash, 404);
+        return $link;
+    }
+
+    /**
      * Generates a hash
      *
      * @return string

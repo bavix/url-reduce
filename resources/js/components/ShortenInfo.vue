@@ -1,9 +1,9 @@
 <template>
-    <div class="columns is-centered animated fadeIn">
+    <div v-if="link" class="columns is-centered animated fadeIn">
         <div class="column is-11">
             <div class="field has-addons">
                 <label class="control is-expanded is-medium">
-                    <input class="input is-medium" readonly value="https://ln4.ru/v6Ql4" type="text">
+                    <input class="input is-medium" readonly :value="link.url" type="text">
                 </label>
                 <div class="control is-medium">
                     <button class="button is-medium is-danger">
@@ -16,26 +16,18 @@
                     <figure class="image">
                         <img class="is-square"
                              alt="QR-code"
-                             src="https://ln4.ru/qr/v6Ql4"
-                             onerror="this.src=logo" />
+                             :src="link.qr" />
                     </figure>
                 </div>
-                <div class="column">
-                    <h3 class="title is-3">Einstein Telescope: детектор гравитационных волн нового поколения</h3>
-                    <p>Длиннее, мощнее, точнее — Европа собирается построить
-                        гравитационно-волновой детектор нового поколения под
-                        названием Einstein Telescope. Einstein Telescope...</p>
+                <div v-if="link.title" class="column">
+                    <h3 class="title is-3" v-text="link.title"></h3>
+                    <p v-text="link.description"></p>
                     <div class="tags">
-                        <span class="tag">ОТО</span>
-                        <span class="tag">LIGO</span>
-                        <span class="tag">Advanced LIGO</span>
-                        <span class="tag">Advanced</span>
-                        <span class="tag">Einstein Telescope</span>
-                        <span class="tag">черные дыры</span>
-                        <span class="tag">нейтронные звезды</span>
-                        <span class="tag">гравитационные волны</span>
-                        <span class="tag">детектор гравитационных волн</span>
+                        <span class="tag" v-for="tag of link.tags" v-text="tag"></span>
                     </div>
+                </div>
+                <div v-else class="column">
+                    <div class="control is-large is-loading"></div>
                 </div>
             </div>
         </div>
@@ -43,10 +35,13 @@
 </template>
 
 <script>
+    import store from '../store';
+
     export default {
-        data() {
-            return {
-                logo: 'https://ds.bavix.ru/svg/logo.svg',
+        store,
+        computed: {
+            link() {
+                return this.$store.state.link;
             }
         }
     }
@@ -64,5 +59,8 @@
         border-radius: 4px;
         height: 150px;
         width: 150px;
+    }
+    .control.is-loading::after {
+        left: 0;
     }
 </style>
