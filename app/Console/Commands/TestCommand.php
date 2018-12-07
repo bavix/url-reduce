@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\VirusTotal;
+use App\Jobs\PhishTank;
 use App\Models\Link;
 use Illuminate\Console\Command;
 
@@ -30,7 +30,7 @@ class TestCommand extends Command
      */
     public function handle(): void
     {
-        $vt = new VirusTotal(Link::find(26));
+        $vt = new PhishTank(Link::find(26));
         $vt->handle();
     }
 
