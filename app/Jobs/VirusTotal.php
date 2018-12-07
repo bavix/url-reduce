@@ -39,6 +39,9 @@ class VirusTotal implements ShouldQueue
     public function handle(): void
     {
         $response = (new Client())->post(static::API_URL, [
+            'headers' => [
+                'User-Agent' => config('bx.userAgent'),
+            ],
             'form_params' => [
                 'apikey' => config('providers.virusTotal.key'),
                 'resource' => $this->link->url,
