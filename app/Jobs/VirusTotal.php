@@ -13,7 +13,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 class VirusTotal implements ShouldQueue
 {
 
-    public const API_URL = 'https://www.virustotal.com/vtapi/v2/url/scan';
+    public const API_URL = 'https://www.virustotal.com/vtapi/v2/url/report';
 
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -33,14 +33,6 @@ class VirusTotal implements ShouldQueue
     }
 
     /**
-     * @return string
-     */
-    protected function getKey(): string
-    {
-        // todo:
-    }
-
-    /**
      * Execute the job.
      * @throws
      */
@@ -48,8 +40,8 @@ class VirusTotal implements ShouldQueue
     {
         $response = (new Client())->post(static::API_URL, [
             'form_params' => [
-                'apikey' => $this->getKey(),
-                'url' => $this->link->url,
+                'apikey' => config('providers.virusTotal.key'),
+                'resource' => $this->link->url,
             ],
         ]);
 
@@ -58,32 +50,23 @@ class VirusTotal implements ShouldQueue
         }
 
         $contents = $response->getBody()->getContents();
-        $data = \json_decode($contents);
+        $data = \json_decode($contents, true);
 
         if (empty($data['scans'])) {
             return;
         }
 
+        $this->link->blocked = false;
         foreach ($data['scans'] as $anti => $datum) {
             if ($datum['detected']) {
                 $this->link->blocked = true;
                 $this->link->message = $this->link->message ?:
                     $anti . ' found ' . $datum['result'];
-                $this->link->save();
                 break;
             }
         }
-    }
 
-    /**
-     * The job failed to process.
-     *
-     * @param \Throwable $throwable
-     * @return void
-     */
-    public function failed(\Throwable $throwable): void
-    {
-
+        $this->link->save();
     }
 
 }
