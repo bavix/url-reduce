@@ -15,6 +15,14 @@
                     <icon file="github" class="icon-2x"></icon>
                 </a>
             </div>
+            <div class="links">
+                <div class="link">
+                    <a target="_blank" href="https://docs.ln4.ru" title="Documentation for developers">API</a>
+                </div>
+                <div class="link">
+                    <a target="_blank" href="/terms" title="Terms of Service">Terms of Service</a>
+                </div>
+            </div>
             <p>
                 Powered by <a href="https://babichev.net" target="_blank" title="Babichev Maxim"><strong>Babichev</strong></a>
             </p>
@@ -29,6 +37,16 @@
 </script>
 
 <style lang="scss" scoped>
+    .links {
+        .link {
+            display: inline;
+            font-size: .9rem;
+        }
+        .link + .link:before {
+            content: "| ";
+            color: #efefef;
+        }
+    }
     .footer {
         padding-bottom: 1rem;
     }

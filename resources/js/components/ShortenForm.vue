@@ -16,7 +16,7 @@
                 </button>
             </div>
         </div>
-        <p class="help is-danger" v-show="!submitting" v-text="error"></p>
+        <p class="help is-danger animated fadeIn" v-show="!submitting" v-text="error"></p>
     </form>
 </template>
 

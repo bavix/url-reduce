@@ -47,14 +47,12 @@
         },
         methods: {
             tags(arr) {
-                let tags = [];
-                for (const tag of arr) {
-                    if (tag && tag.length < 48) {
-                        tags.push(tag);
-                    }
-                }
+                const data = [...arr.filter(a => a.length > 0 && a.length < 48)];
+                const tags = data.sort((a, b) => {
+                    return a.length <= b.length ? -1 : 1;
+                });
 
-                return shuffle(tags.slice(0, 10));
+                return shuffle(tags.slice(0, 8));
             },
         }
     }
@@ -64,6 +62,9 @@
     .favicon {
         width: 24px;
         height: 24px;
+        background-color: white;
+        border-radius: 2px;
+        /*padding: 1px;*/
     }
     .title:not(:last-child) {
         margin-bottom: .5rem;

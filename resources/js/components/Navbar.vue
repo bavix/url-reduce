@@ -22,14 +22,6 @@
                                 <span>Report</span>
                             </a>
                         </span>
-                        <span class="navbar-item">
-                            <a class="button is-white is-outlined" href="https://docs.ln4.ru" target="_blank">
-                                <span class="icon">
-                                    <icon file="dev"></icon>
-                                </span>
-                                <span>Developers</span>
-                            </a>
-                        </span>
                     </div>
                 </div>
             </div>
