@@ -4,6 +4,16 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * Class LinkResource
+ * @package App\Http\Resources
+ * @property-read string $hash
+ * @property-read array $parameters
+ * @method string getTitle()
+ * @method string getDescription()
+ * @method string getIcon()
+ * @method array getTags()
+ */
 class LinkResource extends JsonResource
 {
 

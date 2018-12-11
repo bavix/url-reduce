@@ -39,7 +39,7 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">{{ config('app.name') }}</h1>
-                <p class="subtitle">Warning! Clicking on the link can harm your computer.</p>
+                <p class="subtitle">{{ __('shorten.warning.subtitle') }}</p>
                 @include('nav')
             </div>
         </div>
@@ -54,21 +54,21 @@
                             <img alt="{{ $link->getTitle() }}" src="{{ $link->getIcon() }}" />
                         </figure>
 
-                        <h3>{{ $link->getTitle() ?: 'Title not found' }}</h3>
-                        <p>{{ $link->getDescription() ?: 'No description found' }}</p>
+                        <h3>{{ $link->getTitle() ?: __('shorten.warning.empty_title') }}</h3>
+                        <p>{{ $link->getDescription() ?: __('shorten.warning.empty_description') }}</p>
 
                         <div class="tags">
                             @forelse($link->getTags() as $tag)
                                 <span class="tag">{{ $tag }}</span>
                             @empty
-                                <p>No tags found</p>
+                                <p>{{ __('shorten.warning.empty_tags') }}</p>
                             @endforelse
                         </div>
 
                         <a href="{{ $link->url }}" rel="nofollow noreferrer"
                            title="{{ $link->getTitle() }}"
-                           class="button is-danger">Follow the link</a>
-                        <a href="/" class="button">Cancel</a>
+                           class="button is-danger">{{ __('shorten.follow_the_link') }}</a>
+                        <a href="/" class="button">{{ __('shorten.cancel') }}</a>
                     </div>
                 </div>
             </div>
