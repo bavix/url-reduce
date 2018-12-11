@@ -53,10 +53,12 @@
                             @endforelse
                         </div>
 
-                        <a href="{{ $link->url }}" rel="nofollow noreferrer"
-                           title="{{ $link->getTitle() }}"
-                           class="button is-danger">{{ __('shorten.follow_the_link') }}</a>
-                        <a href="/" class="button">{{ __('shorten.cancel') }}</a>
+                        <div class="buttons">
+                            <a href="{{ $link->url }}" rel="nofollow noreferrer"
+                               title="{{ $link->getTitle() }}"
+                               class="button is-danger">{{ __('shorten.follow_the_link') }}</a>
+                            <a href="/" class="button">{{ __('shorten.cancel') }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
