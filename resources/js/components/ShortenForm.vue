@@ -3,7 +3,7 @@
         <div class="field has-addons">
             <div class="control is-expanded is-large"
                  :class="[submitting || loading ? 'is-loading' : '']">
-                <input class="input is-large"
+                <input class="input is-large is-warning"
                        :value="url"
                        @change="setUrl"
                        :disabled="submitting"
@@ -77,3 +77,9 @@
         }
     }
 </script>
+
+<style lang="scss" scoped>
+    .input {
+        border: 1px solid currentColor;
+    }
+</style>

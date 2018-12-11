@@ -3,10 +3,10 @@
         <div class="column is-11">
             <div class="field has-addons">
                 <label class="control is-expanded is-medium">
-                    <input class="input is-medium" readonly :value="link.url" type="text">
+                    <input ref="input" class="input is-medium" readonly :value="link.url" type="text">
                 </label>
                 <div class="control is-medium">
-                    <button class="button is-medium is-danger">
+                    <button class="button is-medium is-danger" v-clipboard:copy="link.url">
                         <icon file="paste"></icon>
                     </button>
                 </div>

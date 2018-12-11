@@ -3,7 +3,7 @@ const path = require('path');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
+const {VueLoaderPlugin} = require('vue-loader');
 const SpritePlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
@@ -46,14 +46,17 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {loader: MiniCssExtractPlugin.loader, options: {sourceMap: true}},
                     {
                         loader: "css-loader",
                         options: {
-                            minimize: true
+                            importLoaders: 1,
+                            sourceMap: true,
+                            minimize: true,
                         }
                     },
-                    'sass-loader',
+                    {loader: 'postcss-loader', options: {sourceMap: true}},
+                    {loader: 'sass-loader', options: {sourceMap: true}},
                 ],
             },
             {
