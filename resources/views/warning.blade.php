@@ -6,32 +6,20 @@
 
 @section('seo')
     @include('noindex')
-    {{--<meta name="description" content="{{ $link->description }}" />--}}
-    {{--<meta name="keywords" content="{{ __('shorten.keywords') }}" />--}}
+    <meta property="og:title" content="{{ $link->getTitle() ?: $link->hash }}"/>
+    <meta property="og:description" content="{{ $link->getDescription() }}"/>
+    <meta property="og:url" content="{{ route('direct', [$link->hash]) }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="{{ route('qr', [$link->hash]) }}"/>
 
-    {{--<meta property="og:title" content="{{ $link->title }} — {{ config('app.name') }}" />--}}
-    {{--<meta property="og:description" content="{{ $link->description }}" />--}}
-    {{--<meta property="og:url" content="{{ route('page', [$link->friendly_url]) }}" />--}}
-    {{--<meta property="og:type" content="website" />--}}
-    {{--<meta name="twitter:site" content="{{ config('app.name') }}" />--}}
-    {{--<meta name="twitter:title" content="{{ $link->title }} — {{ config('app.name') }}" />--}}
-    {{--<meta name="twitter:description" content="{{ $link->description }}" />--}}
-    {{--<meta name="twitter:domain" content="{{ request()->getHttpHost() }}" />--}}
+    <meta name="twitter:image:src" content="{{ route('qr', [$link->hash]) }}"/>
+    <meta name="twitter:site" content="{{ __('blocks.title') }}"/>
+    <meta name="twitter:title" content="{{ $link->getTitle() ?: $link->hash }}"/>
+    <meta name="twitter:description" content="{{ $link->getDescription() }}"/>
+    <meta name="twitter:domain" content="{{ request()->getHost() }}"/>
 
-    {{--<meta property="og:title" content="{{ $item->parameters['title'] ?? $item->hash }}"/>--}}
-    {{--<meta property="og:description" content="{{ $item->parameters['description'] ?? '' }}"/>--}}
-    {{--<meta property="og:url" content="{{ request()->url() }}"/>--}}
-    {{--<meta property="og:type" content="website"/>--}}
-    {{--<meta property="og:image" content="https://{{ request()->getHost() }}/qr/{{ $item->hash }}"/>--}}
-
-    {{--<meta name="twitter:image:src" content="https://{{ request()->getHost() }}/qr/{{ $item->hash }}"/>--}}
-    {{--<meta name="twitter:site" content="{{ __('blocks.title') }}"/>--}}
-    {{--<meta name="twitter:title" content="{{ $item->parameters['title'] ?? $item->hash }}"/>--}}
-    {{--<meta name="twitter:description" content="{{ $item->parameters['description'] ?? '' }}"/>--}}
-    {{--<meta name="twitter:domain" content="{{ request()->getHost() }}"/>--}}
-
-    {{--<meta name="description" content="{{ $item->parameters['description'] ?? '' }}"/>--}}
-    {{--<meta name="keywords" content="{{ keywords($item->parameters['title'] ?? 'URL Shortener', $item->parameters['tags'] ?? []) }}"/>--}}
+    <meta name="description" content="{{ $link->getDescription() }}"/>
+    <meta name="keywords" content="{{ \implode(',', $link->getTags()) }}"/>
 @endsection
 
 @section('content')
