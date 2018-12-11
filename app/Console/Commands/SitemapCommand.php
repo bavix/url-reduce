@@ -40,7 +40,7 @@ class SitemapCommand extends Command
 
         Link::live()->each(function (Link $link) use ($map) {
             $map->add(
-                route('shorter', ['hash' => $link->hash]),
+                route('direct', ['hash' => $link->hash]),
                 date('c', strtotime($link->updated_at)),
                 .8 - ($link->isAdult() * .7),
                 'weekly'
