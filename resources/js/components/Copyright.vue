@@ -49,5 +49,12 @@
     }
     .footer {
         padding-bottom: 1rem;
+        background-color: #102;
+        .buttons {
+            .button {
+                width: 48px;
+                height: 48px;
+            }
+        }
     }
 </style>

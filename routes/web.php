@@ -14,6 +14,9 @@
 Route::get('/', 'LinkController@index')
     ->name('home');
 
+Route::get('/{slug}.html', 'PageController@index')
+    ->name('page');
+
 Route::get('/qr/{hash}', 'LinkController@qr')
     ->where('hash', '\w{5}')
     ->name('qr');
