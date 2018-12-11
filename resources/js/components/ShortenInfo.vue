@@ -6,7 +6,12 @@
                     <input ref="input" class="input is-medium" readonly :value="link.url" type="text">
                 </label>
                 <div class="control is-medium">
-                    <button class="button is-medium is-danger" v-clipboard:copy="link.url">
+                    <button class="button is-medium is-danger"
+                            :class="{tooltip: show}"
+                            data-tooltip="Copied!"
+                            v-clipboard:copy="link.url"
+                            v-clipboard:success="onCopy"
+                            v-clipboard:error="onError">
                         <icon file="paste"></icon>
                     </button>
                 </div>
@@ -35,14 +40,43 @@
 </template>
 
 <script>
+    import VueClipboard from 'vue-clipboard2';
     import store from '../store';
+    import Vue from 'vue';
+
+    Vue.use(VueClipboard);
 
     export default {
         store,
+        data() {
+            return {
+                handle: null,
+                show: false,
+            };
+        },
+        methods: {
+            onCopy() {
+                const { input } = this.$refs;
+                input.select();
+                this.show = true;
+
+                if (this.handle) {
+                    clearTimeout(this.handle);
+                }
+
+                this.handle = setTimeout(() => {
+                    this.show = false;
+                    this.handle = null;
+                }, 750);
+            },
+            onError(e) {
+                alert('Failed to copy texts');
+            },
+        },
         computed: {
             link() {
                 return this.$store.state.link;
-            }
+            },
         }
     }
 </script>

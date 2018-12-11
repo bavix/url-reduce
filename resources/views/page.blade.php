@@ -24,14 +24,7 @@
             <div class="container">
                 <h1 class="title">{{ $page->title }}</h1>
                 <p class="subtitle">{{ $page->description }}</p>
-                <div class="tags">
-                    <a target="_blank" href="/" class="tag">{{ config('app.name') }}</a>
-                    <a target="_blank" href="#" class="tag">API Docs</a>
-                    <a target="_blank" href="/githb" class="tag">GitHub</a>
-                    <a target="_blank" href="/twitt" class="tag">Twitter</a>
-                    <a target="_blank" href="/teleg" class="tag">Telegram</a>
-                    <a target="_blank" href="/fbook" class="tag">Facebook</a>
-                </div>
+                @include('nav')
             </div>
         </div>
     </section>
@@ -46,9 +39,5 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="has-text-centered">
-            <strong>{{ config('app.name') }}</strong> by <a href="https://babichev.net">Babichev</a>.
-        </div>
-    </footer>
+    @include('footer')
 @endsection

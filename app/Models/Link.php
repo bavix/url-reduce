@@ -144,6 +144,54 @@ class Link extends Model
     }
 
     /**
+     * @return string
+     */
+    public function getIcon(): string
+    {
+        $providerIcon = \array_get((array)$this->parameters, 'providerIcon');
+        if ($providerIcon && \starts_with($providerIcon, 'https')) {
+            return $providerIcon;
+        }
+
+        return 'https://ds.bavix.ru/favicon.ico';
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTitle(): ?string
+    {
+        return $this->parameters['title'] ?? null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->parameters['description'] ?? null;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTags(): array
+    {
+        if (empty($this->parameters['tags'])) {
+            $content = $this->getDescription();
+
+            if (!$content) {
+                return [];
+            }
+
+            \preg_match_all('~#(\w+)~', $content, $tags);
+            return \array_unique($tags[1] ?? []);
+        }
+
+        return \array_unique($this->parameters['tags']);
+    }
+
+    /**
      * adult content
      *
      * @return bool
