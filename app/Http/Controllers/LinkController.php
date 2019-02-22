@@ -61,7 +61,7 @@ class LinkController extends Controller
         $link = Link::findByHash($hash, true);
 
         $carbon = Carbon::create()->subDays(2);
-        if ($link->updated_at->greaterThan($carbon)) {
+        if ($carbon->greaterThan($link->updated_at)) {
             $this->dispatch(new UpdateMetadata($link));
             return [
                 'title' => 'Thank you!',
