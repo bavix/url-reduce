@@ -2,10 +2,14 @@
 
 namespace App\Providers;
 
+use App\Models\Link;
+use App\Observers\LinkObserver;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap any application services.
      *
@@ -13,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(191);
+        Link::observe(LinkObserver::class);
     }
 
     /**
@@ -25,4 +30,5 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
 }

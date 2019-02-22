@@ -13,9 +13,12 @@ use Illuminate\Foundation\Bus\Dispatchable;
 class PhishTank implements ShouldQueue
 {
 
-    public const API_URL = 'https://phishtank.com/checkurl/';
-
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    /**
+     * Base URL
+     */
+    public const API_URL = 'https://phishtank.com/checkurl/';
 
     /**
      * @var Link
@@ -38,17 +41,22 @@ class PhishTank implements ShouldQueue
      */
     public function handle(): void
     {
-        $response = (new Client())->post(static::API_URL, [
-            'headers' => [
-                'User-Agent' => config('bx.userAgent'),
-            ],
-            'form_params' => [
-                'app_key' => config('providers.phishtank.key'),
-                'format' => 'json',
-                'url' => $this->link->url,
+        try {
+            $response = (new Client())->post(static::API_URL, [
+                'headers' => [
+                    'User-Agent' => config('bx.userAgent'),
+                ],
+                'form_params' => [
+                    'app_key' => config('providers.phishtank.key'),
+                    'format' => 'json',
+                    'url' => $this->link->url,
 
-            ],
-        ]);
+                ],
+            ]);
+        } catch (\Throwable $throwable) {
+            // проблемы на phishtank.com
+            return;
+        }
 
         if ($response->getStatusCode() !== 200) {
             return;

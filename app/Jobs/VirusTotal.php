@@ -38,6 +38,11 @@ class VirusTotal implements ShouldQueue
      */
     public function handle(): void
     {
+        if (!$this->link->active || $this->link->blocked) {
+            // ссылка уже заблокирована
+            return;
+        }
+
         $response = (new Client())->post(static::API_URL, [
             'headers' => [
                 'User-Agent' => config('bx.userAgent'),

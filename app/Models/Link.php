@@ -71,20 +71,22 @@ class Link extends Model
         return static::query()
             ->where('active', true)
             ->where('blocked', false)
+            ->where('is_porn', false)
             ->whereNotNull('parameters')
             ->orderBy('id', 'desc');
     }
 
     /**
      * @param string $hash
+     * @param bool $live
      * @return Link
      */
-    public static function findByHash(string $hash): Link
+    public static function findByHash(string $hash, bool $live = false): Link
     {
         /**
          * @var Link $link
          */
-        $link = static::query()
+        $link = ($live ? static::live() : static::query())
             ->where('hash', $hash)
             ->firstOrFail();
 

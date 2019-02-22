@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\HashRequest;
+use App\Http\Requests\ReportRequest;
 use App\Http\Requests\UrlRequest;
 use App\Http\Resources\LinkResource;
+use App\Jobs\UpdateMetadata;
 use App\Models\Link;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
@@ -47,6 +49,30 @@ class LinkController extends Controller
         $link = Link::produce($url);
         $this->commonAbort($link);
         return new LinkResource($link);
+    }
+
+    /**
+     * @param ReportRequest $request
+     * @return array
+     */
+    public function report(ReportRequest $request): array
+    {
+        $hash = $request->input('hash');
+        $link = Link::findByHash($hash, true);
+
+        $carbon = Carbon::create()->subDays(2);
+        if ($link->updated_at->greaterThan($carbon)) {
+            $this->dispatch(new UpdateMetadata($link));
+            return [
+                'title' => 'Thank you!',
+                'content' => 'The link will be checked in the next 48 hours.',
+            ];
+        }
+
+        return [
+            'title' => 'Thank you!',
+            'content' => 'This link is in the verification queue.',
+        ];
     }
 
     /**

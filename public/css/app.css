@@ -4,6 +4,9 @@
 }
 
 
+.words.words--wrap[data-v-7ea929d8] {
+  word-wrap: break-word;
+}
 .title[data-v-7ea929d8]:not(:last-child) {
   margin-bottom: 1rem;
 }
@@ -35,6 +38,9 @@
   height: 1rem;
   padding-left: .3rem;
   padding-right: .3rem;
+}
+.live .live-item[data-v-0fc05c52] {
+  word-wrap: break-word;
 }
 .live .live-item[data-v-0fc05c52]:not(:last-child) {
   border-bottom: 1px solid white;

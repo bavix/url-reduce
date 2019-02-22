@@ -31,12 +31,58 @@ class UpdateMetadata implements ShouldQueue
     }
 
     /**
+     * Функция определяет есть ли в мета-информации
+     * контент для взрослых
+     *
+     * @param array $data
+     * @return bool
+     */
+    protected function adults(array $data): bool
+    {
+        $url = $data['url'] ?? null;
+        $words = $data['tags'] ?? [];
+        if (!empty($data['title'])) {
+            $words = \array_merge([$data['title']], $words);
+        }
+
+        $urlRules = config('adults.url', []);
+        $wordRules = config('adults.keywords', []);
+
+        foreach ($urlRules as $rule) {
+            if (\preg_match($rule, $this->link->url)) {
+                return true;
+            }
+
+            if ($url && \preg_match($rule, $url)) {
+                return true;
+            }
+        }
+
+        foreach ($wordRules as $rule) {
+            foreach ($words as $word) {
+                if (\preg_match($rule, $word)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Execute the job.
      * @throws
      */
     public function handle(): void
     {
-        $this->link->parameters = Embed::getMeta($this->link->url);
+        $data = Embed::getMeta($this->link->url);
+
+        if (empty($data)) {
+            return;
+        }
+
+        $this->link->is_porn = $this->adults($data);
+        $this->link->parameters = $data;
         $this->link->save();
     }
 

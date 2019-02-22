@@ -24,9 +24,9 @@
                              :src="link.qr" />
                     </figure>
                 </div>
-                <div v-if="link.title" class="column">
-                    <h3 class="title is-3" v-text="link.title"></h3>
-                    <p v-text="link.description"></p>
+                <div v-if="link.title" class="column is-two-thirds">
+                    <h3 class="title is-5" v-text="link.title"></h3>
+                    <p class="words words--wrap" v-text="link.description"></p>
                     <div class="tags">
                         <span class="tag" v-for="tag of link.tags" v-text="tag"></span>
                     </div>
@@ -82,6 +82,10 @@
 </script>
 
 <style lang="scss" scoped>
+    .words {}
+    .words.words--wrap {
+        word-wrap: break-word;
+    }
     .title:not(:last-child) {
         margin-bottom: 1rem;
     }

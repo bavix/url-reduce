@@ -75,6 +75,9 @@
             padding-left: .3rem;
             padding-right: .3rem;
         }
+        .live-item {
+            word-wrap: break-word;
+        }
         .live-item:not(:last-child) {
             border-bottom: 1px solid white;
             padding-bottom: .5rem;
