@@ -2,7 +2,7 @@
     <div v-if="link" class="columns is-centered animated fadeIn">
         <div class="column is-11">
             <div class="field has-addons">
-                <label class="control is-expanded is-medium">
+                <label class="control is-expanded">
                     <input ref="input" class="input is-medium" readonly :value="link.url" type="text">
                 </label>
                 <div class="control is-medium">
@@ -43,11 +43,15 @@
     import VueClipboard from 'vue-clipboard2';
     import store from '../store';
     import Vue from 'vue';
+    import Icon from './Icon';
 
     Vue.use(VueClipboard);
 
     export default {
         store,
+        components: {
+            Icon,
+        },
         data() {
             return {
                 handle: null,

@@ -2,7 +2,7 @@
     <nav>
         <div class="title">
             <span class="tag is-pulled-right is-warning" v-text="total"></span>
-            <h3 class="is-4">Live</h3>
+            <h3 class="title is-4">Live</h3>
         </div>
         <ul class="live" v-if="links.length">
             <li class="live-item" v-for="link of links">
@@ -71,11 +71,16 @@
     }
     .live {
         .tag {
+            font-size: .7rem;
             height: 1rem;
-            padding-left: .3rem;
-            padding-right: .3rem;
+            padding-left: .25rem;
+            padding-right: .25rem;
+        }
+        .tags .tag:not(:last-child) {
+            margin-right: .2rem;
         }
         .live-item {
+            font-size: .9rem;
             word-wrap: break-word;
         }
         .live-item:not(:last-child) {

@@ -7,18 +7,19 @@ import ShortenInfo from './components/ShortenInfo.vue';
 import Live from './components/Live.vue';
 import Copyright from './components/Copyright.vue';
 import Navbar from './components/Navbar.vue';
-import Icon from './components/Icon.vue';
-
-Vue.component('shorten-form', ShortenForm);
-Vue.component('shorten-info', ShortenInfo);
-Vue.component('live', Live);
-Vue.component('copyright', Copyright);
-Vue.component('navbar', Navbar);
-Vue.component('icon', Icon);
+// import Icon from './components/Icon.vue';
 
 Vue.config.productionTip = false;
 
 const app = new Vue({
     el: '#app',
     store,
+    components: {
+        ShortenForm,
+        ShortenInfo,
+        Live,
+        Copyright,
+        Navbar,
+        // Icon,
+    }
 });

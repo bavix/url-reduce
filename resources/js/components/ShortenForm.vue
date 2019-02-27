@@ -23,9 +23,13 @@
 <script>
     import store from '../store';
     import api from '../api';
+    import Icon from './Icon';
 
     export default {
         store,
+        components: {
+            Icon,
+        },
         computed: {
             url() {
                 return this.$store.state.url;
