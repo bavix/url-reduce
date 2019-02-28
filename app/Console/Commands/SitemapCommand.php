@@ -36,8 +36,6 @@ class SitemapCommand extends Command
          */
         $map = app()->make('sitemap');
         $map->add(route('home'), null, '1.0', 'always');
-        $map->add(route('home') . '#report', null, '0.9', 'weekly');
-
         Link::live()->each(function (Link $link) use ($map) {
             $map->add(
                 route('direct', ['hash' => $link->hash]),
