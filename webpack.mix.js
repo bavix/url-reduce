@@ -11,18 +11,18 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.sass('resources/sass/app.scss', 'public/css')
+mix.sass('resources/sass/app.scss', 'public/css');
 
-mix.js('resources/js/app.js', 'public/js')
-    .extract([
-        // '@fortawesome/fontawesome-pro',
-        'vue-clipboard2',
-        // 'sweetalert2',
-        // 'lodash',
-        'axios',
-        'vuex',
-        'vue',
-    ])
+mix.js('resources/js/app.js', 'public/js').extract([
+    '@fortawesome/fontawesome-svg-core',
+    '@fortawesome/vue-fontawesome',
+    'vue-clipboard2',
+    'sweetalert2',
+    // 'lodash',
+    'axios',
+    'vuex',
+    'vue',
+]);
 
 mix.options({
     extractVueStyles: true,
@@ -30,7 +30,7 @@ mix.options({
         require('autoprefixer')({
             browsers: [
                 "> 1%",
-                "last 3 versions",
+                "last 4 versions",
                 "ios >= 9",
                 "ie >= 11"
             ]
@@ -38,22 +38,14 @@ mix.options({
     ],
 });
 
-
 mix.webpackConfig(webpack => {
     return {
         resolve: {
             alias: {
                 'vue$': 'vue/dist/vue.esm.js',
+                'sweetalert2$': 'sweetalert2/dist/sweetalert2.js',
             }
-        },
-        module: {
-            rules: [
-                {
-                    test: /\.svg$/,
-                    loader: 'vue-svg-loader',
-                },
-            ]
-        },
+        }
     };
 });
 

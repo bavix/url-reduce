@@ -12,7 +12,7 @@
                             v-clipboard:copy="link.url"
                             v-clipboard:success="onCopy"
                             v-clipboard:error="onError">
-                        <icon file="paste"></icon>
+                        <font-awesome-icon :icon="['fal', 'paste']" size="2x"></font-awesome-icon>
                     </button>
                 </div>
             </div>
@@ -43,15 +43,11 @@
     import VueClipboard from 'vue-clipboard2';
     import store from '../store';
     import Vue from 'vue';
-    import Icon from './Icon';
 
     Vue.use(VueClipboard);
 
     export default {
         store,
-        components: {
-            Icon,
-        },
         data() {
             return {
                 handle: null,

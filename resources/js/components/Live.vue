@@ -26,6 +26,7 @@
     import shuffle from 'lodash/_arrayShuffle';
     import store from '../store';
     import api from '../api';
+
     export default {
         store,
         props: {

@@ -12,7 +12,7 @@
             <div class="control is-large">
                 <button class="button is-large is-warning"
                         :disabled="submitting">
-                    <icon file="link"></icon>
+                    <font-awesome-icon :icon="['fal', 'link']"></font-awesome-icon>
                 </button>
             </div>
         </div>
@@ -23,13 +23,9 @@
 <script>
     import store from '../store';
     import api from '../api';
-    import Icon from './Icon';
 
     export default {
         store,
-        components: {
-            Icon,
-        },
         computed: {
             url() {
                 return this.$store.state.url;

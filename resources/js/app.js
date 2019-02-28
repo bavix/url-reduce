@@ -7,9 +7,7 @@ import ShortenInfo from './components/ShortenInfo.vue';
 import Live from './components/Live.vue';
 import Copyright from './components/Copyright.vue';
 import Navbar from './components/Navbar.vue';
-// import Icon from './components/Icon.vue';
-
-Vue.config.productionTip = false;
+import './icon';
 
 const app = new Vue({
     el: '#app',
@@ -20,6 +18,5 @@ const app = new Vue({
         Live,
         Copyright,
         Navbar,
-        // Icon,
     }
 });

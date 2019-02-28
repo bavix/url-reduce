@@ -10,6 +10,9 @@ $danger: #dc3545;
 @import 'bulma/main';
 @import "~bulma-tooltip";
 
+// sweetalert2
+@import "~sweetalert2/src/sweetalert2.scss";
+
 html {
   overflow-y: auto;
 }

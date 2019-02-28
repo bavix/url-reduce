@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item is-active" href="/">
-                        <icon file="link"></icon>
+                        <font-awesome-icon :icon="['fal', 'link']"></font-awesome-icon>
                     </a>
                     <span @click="toggleBurger" class="navbar-burger">
                         <span></span>
@@ -17,7 +17,7 @@
                         <span class="navbar-item">
                             <a @click="toggleModal" class="button is-white is-outlined" href="#">
                                 <span class="icon">
-                                    <icon file="bug"></icon>
+                                    <font-awesome-icon :icon="['fal', 'bug']"></font-awesome-icon>
                                 </span>
                                 <span>Report</span>
                             </a>
@@ -37,7 +37,7 @@
                                 <form>
                                     <div class="field">
                                         <div class="control">
-                                            <h1>The short URL you wish to report:</h1>
+                                            <h2>The short URL you wish to report:</h2>
                                         </div>
                                     </div>
 
@@ -81,7 +81,6 @@
 
 <script>
     import Swal from 'sweetalert2/dist/sweetalert2.js'
-    import 'sweetalert2/src/sweetalert2.scss'
 
     export default {
         data() {
