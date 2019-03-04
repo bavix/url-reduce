@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 /**
  * App\Models\Link
@@ -99,9 +100,9 @@ class Link extends Model
      *
      * @return string
      */
-    public static function hash(): string
+    public static function generateRandom(): string
     {
-        return \str_random(5);
+        return Str::random(5);
     }
 
     /**
@@ -112,7 +113,7 @@ class Link extends Model
     public static function hashUnique(): string
     {
         do {
-            $unique = static::hash();
+            $unique = static::generateRandom();
             $link = static::query()
                 ->where('hash', $unique)
                 ->first();
