@@ -14,14 +14,22 @@
                 </div>
                 <div class="navbar-menu" :class="classBurger">
                     <div class="navbar-end">
-                        <span class="navbar-item">
+                        <div class="navbar-item">
+                            <!--<a class="button is-white is-outlined" href="#">-->
+                                <!--<span class="icon">-->
+                                    <!--<font-awesome-icon :icon="['fal', 'globe']"></font-awesome-icon>-->
+                                <!--</span>-->
+                                <!--<span>Language</span>-->
+                            <!--</a>-->
+                        </div>
+                        <div class="navbar-item">
                             <a @click="toggleModal" class="button is-white is-outlined" href="#">
                                 <span class="icon">
                                     <font-awesome-icon :icon="['fal', 'bug']"></font-awesome-icon>
                                 </span>
                                 <span>Report</span>
                             </a>
-                        </span>
+                        </div>
                     </div>
                 </div>
             </div>

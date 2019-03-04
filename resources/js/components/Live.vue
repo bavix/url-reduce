@@ -4,7 +4,7 @@
             <span class="tag is-pulled-right is-warning" v-text="total"></span>
             <h3 class="title is-4">Live</h3>
         </div>
-        <ul class="live" v-if="links.length">
+        <ul class="is-scrollable live" v-if="links.length">
             <li class="live-item" v-for="link of links">
                 <span class="tag is-dark is-rounded" v-text="link.type"></span>
                 <img :alt="link.title"
@@ -60,6 +60,31 @@
 </script>
 
 <style lang="scss" scoped>
+    ::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #ffc107;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #b30000;
+    }
+
+    .is-scrollable {
+        padding-right: 2px;
+        flex-direction: column;
+        max-height: 400px;
+        overflow-y: auto;
+        display: flex;
+        height: 100%;
+    }
+
     .favicon {
         width: 24px;
         height: 24px;

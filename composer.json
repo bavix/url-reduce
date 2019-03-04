@@ -17,12 +17,14 @@
         "php": "^7.1.3",
         "ext-curl": "*",
         "ext-json": "*",
+        "coderello/laravel-nova-lang": "^1.0",
         "doctrine/dbal": "^2.8",
         "embed/embed": "^3.3",
-        "laravel/nova": "^2.0",
         "fideloper/proxy": "^4.0",
+        "gregoriohc/laravel-nova-theme-responsive": "^0.6.1",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.8.*",
+        "laravel/nova": "^2.0",
         "laravel/tinker": "^1.0",
         "laravelium/sitemap": "3.1.*",
         "pda/pheanstalk": "^4.0",
@@ -66,7 +68,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan nova-lang:publish ru --force"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
