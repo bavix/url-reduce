@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use Illuminate\Support\Str;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -31,10 +33,7 @@ class Link extends Resource
         'id',
         'hash',
         'url',
-        'active',
-        'blocked',
-        'is_porn',
-        'suspicious',
+        'message',
     ];
 
     /**
@@ -48,17 +47,38 @@ class Link extends Resource
         return [
             ID::make()->sortable(),
 
+            Text::make('Url')
+                ->sortable()
+                ->onlyOnIndex()
+                ->resolveUsing(function ($title) {
+                    $url = \mb_substr($title, \strpos($title, '://') + 3);
+                    return Str::limit($url, 30);
+                }),
+
+            Text::make('Url')
+                ->sortable()
+                ->rules('required', 'max:1600')
+                ->creationRules('unique:links,url')
+                ->hideFromIndex()
+                ->updateRules('unique:links,url,{{resourceId}}'),
+
             Text::make('Hash')
                 ->sortable()
                 ->rules('required', 'length:5')
                 ->creationRules('unique:links,hash')
                 ->updateRules('unique:links,hash,{{resourceId}}'),
 
-            Text::make('Url')
-                ->sortable()
-                ->rules('required', 'max:1600')
-                ->creationRules('unique:links,url')
-                ->updateRules('unique:links,url,{{resourceId}}'),
+            Boolean::make('Active')
+                ->sortable(),
+
+            Boolean::make('Suspicious')
+                ->sortable(),
+
+            Boolean::make('Blocked')
+                ->sortable(),
+
+            Boolean::make('Is Porn')
+                ->sortable(),
         ];
     }
 
@@ -83,7 +103,9 @@ class Link extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new Filters\LinkSwitch(),
+        ];
     }
 
     /**
