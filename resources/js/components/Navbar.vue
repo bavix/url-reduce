@@ -65,7 +65,7 @@
 
                                     <div class="field">
                                         <div class="control">
-                                            <button :disabled="urlFieldValidate" class="button is-warning">Report URL</button>
+                                            <button :disabled="!urlFieldValidate" class="button is-warning">Report URL</button>
                                         </div>
                                     </div>
 
@@ -89,6 +89,7 @@
 
 <script>
     import Swal from 'sweetalert2/dist/sweetalert2.js'
+    import axios from 'axios'
 
     export default {
         data() {
@@ -113,12 +114,13 @@
                 return location.origin + '/exmpl'
             },
             urlFieldValidate() {
-                return this.urlFieldMatch() === null
+                const match = this.urlFieldMatch();
+                return match && match.groups && (match.groups.domain === location.host)
             }
         },
         methods: {
             urlFieldMatch() {
-                return this.urlField.trim().match(/^https?:\/\/[^/]+\/(\w{5})$/)
+                return this.urlField.trim().match(/^https?:\/\/(?<domain>[^/]+)\/(?<hash>\w{5})$/)
             },
             toggleBurger() {
                 this.showBurger = !this.showBurger;
@@ -127,12 +129,25 @@
                 this.showModal = !this.showModal;
             },
             report() {
-                console.log(this.urlFieldMatch())
-                Swal.fire(
-                    'Good job!',
-                    'You clicked the button!',
-                    'success'
-                )
+                const match = this.urlFieldMatch();
+                const hash = match.groups.hash;
+                this.toggleModal();
+
+                axios.post('/api/report', {hash})
+                    .then(({data}) => {
+                        Swal.fire(
+                            data.title,
+                            data.content,
+                            'success'
+                        )
+                    })
+                    .catch(error => {
+                        Swal.fire(
+                            'Error!',
+                            error.response.data.message,
+                            'error'
+                        )
+                    })
             }
         }
     }
