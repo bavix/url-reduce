@@ -10,6 +10,12 @@ return [
         'empty_description' => 'No description found',
         'empty_tags' => 'No tags found',
     ],
+    'adult' => [
+        'subtitle' => 'Warning! The site contains adult content.',
+        'empty_title' => 'Title not found',
+        'empty_description' => 'No description found',
+        'empty_tags' => 'No tags found',
+    ],
     'follow_the_link' => 'Follow the link',
     'cancel' => 'Cancel',
 ];

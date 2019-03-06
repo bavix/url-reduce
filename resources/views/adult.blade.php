@@ -23,11 +23,11 @@
 @endsection
 
 @section('content')
-    <section class="hero is-medium is-warning is-bold">
+    <section class="hero is-medium is-danger is-bold">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">{{ config('app.name') }}</h1>
-                <p class="subtitle">{{ __('shorten.warning.subtitle') }}</p>
+                <p class="subtitle">{{ __('shorten.adult.subtitle') }}</p>
                 @include('nav')
             </div>
         </div>
@@ -38,18 +38,19 @@
             <div class="container">
                 <div class="columns is-centered">
                     <div class="column content is-9">
+                        <span class="tag is-danger is-pulled-right">18+</span>
                         <figure class="image is-64x64 is-pulled-right">
                             <img alt="{{ $link->getTitle() }}" src="{{ $link->getIcon() }}" />
                         </figure>
 
-                        <h3>{{ $link->getTitle() ?: __('shorten.warning.empty_title') }}</h3>
-                        <p>{{ $link->getDescription() ?: __('shorten.warning.empty_description') }}</p>
+                        <h3>{{ $link->getTitle() ?: __('shorten.adult.empty_title') }}</h3>
+                        <p>{{ $link->getDescription() ?: __('shorten.adult.empty_description') }}</p>
 
                         <div class="tags">
                             @forelse($link->getTags() as $tag)
                                 <span class="tag">{{ $tag }}</span>
                             @empty
-                                <p>{{ __('shorten.warning.empty_tags') }}</p>
+                                <p>{{ __('shorten.adult.empty_tags') }}</p>
                             @endforelse
                         </div>
 

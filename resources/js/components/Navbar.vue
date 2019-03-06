@@ -42,7 +42,7 @@
                     <article class="media">
                         <div class="media-content">
                             <div class="content">
-                                <form>
+                                <form @submit.prevent="report">
                                     <div class="field">
                                         <div class="control">
                                             <h2>The short URL you wish to report:</h2>
@@ -59,13 +59,13 @@
 
                                     <div class="field">
                                         <div class="control">
-                                            <input id="urlField" class="input is-large" type="url" :placeholder="placeholder">
+                                            <input id="urlField" v-model="urlField" class="input is-large" type="url" :placeholder="placeholder">
                                         </div>
                                     </div>
 
                                     <div class="field">
                                         <div class="control">
-                                            <button class="button is-warning">Report URL</button>
+                                            <button :disabled="urlFieldValidate" class="button is-warning">Report URL</button>
                                         </div>
                                     </div>
 
@@ -93,6 +93,7 @@
     export default {
         data() {
             return {
+                urlField: '',
                 showBurger: false,
                 showModal: false,
             }
@@ -109,10 +110,16 @@
                 }
             },
             placeholder() {
-                return 'https://' + location.host + '/exmpl'
+                return location.origin + '/exmpl'
+            },
+            urlFieldValidate() {
+                return this.urlFieldMatch() === null
             }
         },
         methods: {
+            urlFieldMatch() {
+                return this.urlField.trim().match(/^https?:\/\/[^/]+\/(\w{5})$/)
+            },
             toggleBurger() {
                 this.showBurger = !this.showBurger;
             },
@@ -120,6 +127,7 @@
                 this.showModal = !this.showModal;
             },
             report() {
+                console.log(this.urlFieldMatch())
                 Swal.fire(
                     'Good job!',
                     'You clicked the button!',
