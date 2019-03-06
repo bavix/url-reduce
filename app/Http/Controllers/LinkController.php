@@ -33,7 +33,7 @@ class LinkController extends Controller
     public function live(): AnonymousResourceCollection
     {
         $collection = Link::live()
-            ->limit(5)
+            ->limit(50)
             ->get();
 
         return LinkResource::collection($collection);

@@ -12,7 +12,7 @@
                             v-clipboard:copy="link.url"
                             v-clipboard:success="onCopy"
                             v-clipboard:error="onError">
-                        <font-awesome-icon :icon="['fal', 'paste']" size="2x"></font-awesome-icon>
+                        <font-awesome-icon :icon="['fal', 'paste']"></font-awesome-icon>
                     </button>
                 </div>
             </div>
