@@ -49,7 +49,7 @@ class PhishTank implements ShouldQueue
                 'form_params' => [
                     'app_key' => config('providers.phishtank.key'),
                     'format' => 'json',
-                    'url' => $this->link->url,
+                    'url' => $this->link->url_direction,
 
                 ],
             ]);

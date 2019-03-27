@@ -13,9 +13,9 @@ use Illuminate\Foundation\Bus\Dispatchable;
 class VirusTotal implements ShouldQueue
 {
 
-    public const API_URL = 'https://www.virustotal.com/vtapi/v2/url/report';
-
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    public const API_URL = 'https://www.virustotal.com/vtapi/v2/url/report';
 
     /**
      * @var Link
@@ -49,7 +49,7 @@ class VirusTotal implements ShouldQueue
             ],
             'form_params' => [
                 'apikey' => config('providers.virusTotal.key'),
-                'resource' => $this->link->url,
+                'resource' => $this->link->url_direction,
             ],
         ]);
 

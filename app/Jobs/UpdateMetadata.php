@@ -75,7 +75,8 @@ class UpdateMetadata implements ShouldQueue
      */
     public function handle(): void
     {
-        $data = Embed::getMeta($this->link->url);
+        $data = Embed::getMeta($this->link->url_direction);
+        var_dump($this->link->url_direction);
 
         if (empty($data)) {
             return;

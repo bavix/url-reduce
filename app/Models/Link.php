@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\TransferStats;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 /**
@@ -16,6 +20,7 @@ use Illuminate\Support\Str;
  * @property int $id
  * @property string $hash
  * @property string $url
+ * @property string $url_direction
  * @property array|null $parameters
  * @property int $active
  * @property string|null $message
@@ -147,12 +152,37 @@ class Link extends Model
     }
 
     /**
+     * Получаем финальный URL,
+     * нужен для борьбы с опасными ссылками
+     *
+     * @return string
+     */
+    public function getUrlDirectionAttribute(): string
+    {
+        static $urlDirections = [];
+
+        if (empty($urlDirections[$this->url])) {
+            try {
+                (new Client())->head($this->url, [
+                    'on_stats' => function (TransferStats $stats) use (&$urlDirections) {
+                        $urlDirections[$this->url] = $stats->getEffectiveUri();
+                    }
+                ]);
+            } catch (ConnectException $connect) {
+                $urlDirections[$this->url] = $connect->getRequest()->getUri();
+            }
+        }
+
+        return $urlDirections[$this->url] ?? $this->url;
+    }
+
+    /**
      * @return string
      */
     public function getIcon(): string
     {
-        $providerIcon = \array_get((array)$this->parameters, 'providerIcon');
-        if ($providerIcon && \starts_with($providerIcon, 'https')) {
+        $providerIcon = Arr::get((array)$this->parameters, 'providerIcon');
+        if ($providerIcon && Str::startsWith($providerIcon, 'https')) {
             return $providerIcon;
         }
 
