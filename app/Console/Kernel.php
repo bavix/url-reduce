@@ -20,8 +20,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command(MetaCommand::class)->hourly();
-        $schedule->command(SitemapCommand::class)->daily();
-        $schedule->command(MonthlyUpdateCommand::class)->daily();
+        $schedule->command(SitemapCommand::class)->weekly();
+        $schedule->command(MonthlyUpdateCommand::class)->mondays();
     }
 
     /**
