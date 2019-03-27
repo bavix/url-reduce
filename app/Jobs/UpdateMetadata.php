@@ -16,6 +16,11 @@ class UpdateMetadata implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
+     * @var int
+     */
+    protected $attempts = 5;
+
+    /**
      * @var Link
      */
     protected $link;
@@ -75,16 +80,19 @@ class UpdateMetadata implements ShouldQueue
      */
     public function handle(): void
     {
-        $data = Embed::getMeta($this->link->url_direction);
-        var_dump($this->link->url_direction);
+        try {
+            if (!$this->link->active && $this->link->updated_at->diffInDays(now()) < 3) {
+                return;
+            }
 
-        if (empty($data)) {
-            return;
+            $data = Embed::getMeta($this->link->url_direction);
+            $this->link->is_porn = $this->adults($data);
+            $this->link->parameters = $data;
+            $this->link->save();
+        } catch (\Throwable $throwable) {
+            $this->failed($throwable);
+            throw $throwable;
         }
-
-        $this->link->is_porn = $this->adults($data);
-        $this->link->parameters = $data;
-        $this->link->save();
     }
 
     /**
@@ -95,7 +103,10 @@ class UpdateMetadata implements ShouldQueue
      */
     public function failed(\Throwable $throwable): void
     {
-        if (++$this->link->retry > 5) {
+        if (++$this->link->retry > $this->attempts) {
+            $this->link->active = 0;
+        }
+        if ($this->attempts() > $this->attempts) {
             $this->link->active = 0;
         }
 

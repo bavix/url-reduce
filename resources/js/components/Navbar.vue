@@ -16,10 +16,10 @@
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <!--<a class="button is-white is-outlined" href="#">-->
-                                <!--<span class="icon">-->
-                                    <!--<font-awesome-icon :icon="['fal', 'globe']"></font-awesome-icon>-->
-                                <!--</span>-->
-                                <!--<span>Language</span>-->
+                            <!--<span class="icon">-->
+                            <!--<font-awesome-icon :icon="['fal', 'globe']"></font-awesome-icon>-->
+                            <!--</span>-->
+                            <!--<span>Language</span>-->
                             <!--</a>-->
                         </div>
                         <div class="navbar-item">
@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
 
-                                    <hr />
+                                    <hr/>
 
                                     <div class="field-label is-normal">
                                         <div class="control">
@@ -59,17 +59,19 @@
 
                                     <div class="field">
                                         <div class="control">
-                                            <input id="urlField" v-model="urlField" class="input is-large" type="url" :placeholder="placeholder">
+                                            <input id="urlField" v-model="urlField" class="input is-large" type="text"
+                                                   :placeholder="placeholder">
                                         </div>
                                     </div>
 
                                     <div class="field">
                                         <div class="control">
-                                            <button :disabled="!urlFieldValidate" class="button is-warning">Report URL</button>
+                                            <button :disabled="!urlFieldValidate" class="button is-warning">Report URL
+                                            </button>
                                         </div>
                                     </div>
 
-                                    <hr />
+                                    <hr/>
 
                                     <div class="field">
                                         <div class="control has-text-centered">
@@ -88,69 +90,74 @@
 </template>
 
 <script>
-    import Swal from 'sweetalert2/dist/sweetalert2.js'
-    import axios from 'axios'
+  import Swal from 'sweetalert2/dist/sweetalert2.js'
+  import axios from 'axios'
 
-    export default {
-        data() {
-            return {
-                urlField: '',
-                showBurger: false,
-                showModal: false,
-            }
-        },
-        computed: {
-            classBurger() {
-                return {
-                    'is-active': this.showBurger
-                }
-            },
-            classModal() {
-                return {
-                    'is-active': this.showModal
-                }
-            },
-            placeholder() {
-                return location.origin + '/exmpl'
-            },
-            urlFieldValidate() {
-                const match = this.urlFieldMatch();
-                return match && match.groups && (match.groups.domain === location.host)
-            }
-        },
-        methods: {
-            urlFieldMatch() {
-                return this.urlField.trim().match(/^https?:\/\/(?<domain>[^/]+)\/(?<hash>\w{5})$/)
-            },
-            toggleBurger() {
-                this.showBurger = !this.showBurger;
-            },
-            toggleModal() {
-                this.showModal = !this.showModal;
-            },
-            report() {
-                const match = this.urlFieldMatch();
-                const hash = match.groups.hash;
-                this.toggleModal();
-
-                axios.post('/api/report', {hash})
-                    .then(({data}) => {
-                        Swal.fire(
-                            data.title,
-                            data.content,
-                            'success'
-                        )
-                    })
-                    .catch(error => {
-                        Swal.fire(
-                            'Error!',
-                            error.response.data.message,
-                            'error'
-                        )
-                    })
-            }
+  export default {
+    data() {
+      return {
+        urlField: '',
+        showBurger: false,
+        showModal: false,
+      }
+    },
+    computed: {
+      classBurger() {
+        return {
+          'is-active': this.showBurger
         }
+      },
+      classModal() {
+        return {
+          'is-active': this.showModal
+        }
+      },
+      placeholder() {
+        return location.origin + '/exmpl'
+      },
+      urlFieldValidate() {
+        const match = this.urlFieldMatch();
+        return match && match.groups && match.groups.hash.length === 5
+      }
+    },
+    methods: {
+      urlFieldMatch() {
+        const urlField = this.urlField.trim();
+        if (urlField.length === 5) {
+          return urlField.match(/^(?<hash>\w{5})$/)
+        }
+
+        return urlField.match(/^https?:\/\/(?<domain>[^/]+)\/(?<hash>\w{5})$/)
+      },
+      toggleBurger() {
+        this.showBurger = !this.showBurger;
+      },
+      toggleModal() {
+        this.showModal = !this.showModal;
+      },
+      report() {
+        const match = this.urlFieldMatch();
+        const hash = match.groups.hash;
+        this.toggleModal();
+
+        axios.post('/api/report', {hash})
+          .then(({data}) => {
+            Swal.fire(
+              data.title,
+              data.content,
+              'success'
+            )
+          })
+          .catch(error => {
+            Swal.fire(
+              'Error!',
+              error.response.data.message,
+              'error'
+            )
+          })
+      }
     }
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -159,11 +166,13 @@
             .navbar-burger {
                 color: white;
             }
+
             .navbar-menu {
                 background: transparent;
             }
         }
     }
+
     @media (max-width: 700px) {
         .modal-background {
             background-color: #fff;
@@ -172,9 +181,9 @@
             box-shadow: none;
         }
         .modal-content {
-             margin: 0;
-             max-height: 100%;
-             overflow: auto;
+            margin: 0;
+            max-height: 100%;
+            overflow: auto;
         }
     }
 </style>

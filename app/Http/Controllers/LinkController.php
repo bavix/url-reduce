@@ -36,7 +36,9 @@ class LinkController extends Controller
             ->limit(50)
             ->get();
 
-        return LinkResource::collection($collection);
+        return LinkResource::collection($collection->filter(function (Link $link) {
+            return $link->getTitle() !== null;
+        }));
     }
 
     /**

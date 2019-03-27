@@ -30,7 +30,7 @@ class LinkResource extends JsonResource
             'url' => \route('direct', [$this->hash]),
             'qr' => \route('qr', [$this->hash]),
             'hash' => $this->hash,
-            'title' => $this->getTitle(),
+            'title' => $this->getTitle() ?: 'Unknown',
             'description' => $this->getDescription(),
             'icon' => $this->getIcon(),
             'tags' => $this->getTags(),

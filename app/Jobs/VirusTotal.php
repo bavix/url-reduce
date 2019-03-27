@@ -43,17 +43,23 @@ class VirusTotal implements ShouldQueue
             return;
         }
 
-        $response = (new Client())->post(static::API_URL, [
-            'headers' => [
-                'User-Agent' => config('bx.userAgent'),
-            ],
-            'form_params' => [
-                'apikey' => config('providers.virusTotal.key'),
-                'resource' => $this->link->url_direction,
-            ],
-        ]);
+        try {
+            $response = (new Client())->post(static::API_URL, [
+                'headers' => [
+                    'User-Agent' => config('bx.userAgent'),
+                ],
+                'form_params' => [
+                    'apikey' => config('providers.virusTotal.key'),
+                    'resource' => $this->link->url_direction,
+                ],
+            ]);
+        } catch (\Throwable $throwable) {
+            $this->release(300);
+            return;
+        }
 
         if ($response->getStatusCode() !== 200) {
+            $this->release(900);
             return;
         }
 

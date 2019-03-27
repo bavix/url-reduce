@@ -55,10 +55,12 @@ class PhishTank implements ShouldQueue
             ]);
         } catch (\Throwable $throwable) {
             // проблемы на phishtank.com
+            $this->release(300);
             return;
         }
 
         if ($response->getStatusCode() !== 200) {
+            $this->release(900);
             return;
         }
 
