@@ -6,7 +6,7 @@ use App\Models\Link;
 use Illuminate\Http\Request;
 use Laravel\Nova\Metrics\Trend;
 
-class LinksPerDay extends Trend
+class LinksPerMonth extends Trend
 {
 
     /**
@@ -17,7 +17,7 @@ class LinksPerDay extends Trend
      */
     public function calculate(Request $request)
     {
-        return $this->countByDays($request, Link::class);
+        return $this->countByMonths($request, Link::class);
     }
 
     /**
@@ -28,9 +28,10 @@ class LinksPerDay extends Trend
     public function ranges(): array
     {
         return [
-            30 => '30 Days',
-            60 => '60 Days',
-            90 => '90 Days',
+            6 => 'six months',
+            9 => 'nine months',
+            12 => 'one year',
+            24 => 'two years',
         ];
     }
 
@@ -51,7 +52,7 @@ class LinksPerDay extends Trend
      */
     public function uriKey(): string
     {
-        return 'links-per-day';
+        return 'links-per-month';
     }
 
 }

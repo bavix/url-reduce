@@ -9,6 +9,7 @@
                 <span class="tag is-dark is-rounded" v-text="link.type"></span>
                 <img :alt="link.title"
                      class="favicon is-pulled-right"
+                     onerror="this.src='/favicon.ico'"
                      :src="link.icon" />
 
                 <a target="_blank" rel="nofollow" class="link" :href="link.url" :title="link.title" v-text="link.title"></a>

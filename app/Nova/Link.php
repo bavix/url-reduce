@@ -91,7 +91,7 @@ class Link extends Resource
     public function cards(Request $request)
     {
         return [
-            new Metrics\LinksPerDay()
+            new Metrics\LinksPerMonth()
         ];
     }
 

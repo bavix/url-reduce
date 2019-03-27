@@ -42,7 +42,7 @@
                     <article class="media">
                         <div class="media-content">
                             <div class="content">
-                                <form>
+                                <form @submit.prevent="report">
                                     <div class="field">
                                         <div class="control">
                                             <h2>The short URL you wish to report:</h2>
@@ -59,13 +59,13 @@
 
                                     <div class="field">
                                         <div class="control">
-                                            <input id="urlField" class="input is-large" type="url" :placeholder="placeholder">
+                                            <input id="urlField" v-model="urlField" class="input is-large" type="url" :placeholder="placeholder">
                                         </div>
                                     </div>
 
                                     <div class="field">
                                         <div class="control">
-                                            <button class="button is-warning">Report URL</button>
+                                            <button :disabled="!urlFieldValidate" class="button is-warning">Report URL</button>
                                         </div>
                                     </div>
 
@@ -89,10 +89,12 @@
 
 <script>
     import Swal from 'sweetalert2/dist/sweetalert2.js'
+    import axios from 'axios'
 
     export default {
         data() {
             return {
+                urlField: '',
                 showBurger: false,
                 showModal: false,
             }
@@ -109,10 +111,17 @@
                 }
             },
             placeholder() {
-                return 'https://' + location.host + '/exmpl'
+                return location.origin + '/exmpl'
+            },
+            urlFieldValidate() {
+                const match = this.urlFieldMatch();
+                return match && match.groups && (match.groups.domain === location.host)
             }
         },
         methods: {
+            urlFieldMatch() {
+                return this.urlField.trim().match(/^https?:\/\/(?<domain>[^/]+)\/(?<hash>\w{5})$/)
+            },
             toggleBurger() {
                 this.showBurger = !this.showBurger;
             },
@@ -120,11 +129,25 @@
                 this.showModal = !this.showModal;
             },
             report() {
-                Swal.fire(
-                    'Good job!',
-                    'You clicked the button!',
-                    'success'
-                )
+                const match = this.urlFieldMatch();
+                const hash = match.groups.hash;
+                this.toggleModal();
+
+                axios.post('/api/report', {hash})
+                    .then(({data}) => {
+                        Swal.fire(
+                            data.title,
+                            data.content,
+                            'success'
+                        )
+                    })
+                    .catch(error => {
+                        Swal.fire(
+                            'Error!',
+                            error.response.data.message,
+                            'error'
+                        )
+                    })
             }
         }
     }

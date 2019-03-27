@@ -30,6 +30,7 @@ use Illuminate\Support\Str;
  * @property int $retry
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
+ * @property \Illuminate\Support\Carbon $reported_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereBlocked($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereCreatedAt($value)
