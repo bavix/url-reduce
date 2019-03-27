@@ -10,13 +10,13 @@ import Navbar from './components/Navbar.vue';
 import './icon';
 
 const app = new Vue({
-    el: '#app',
-    store,
-    components: {
-        ShortenForm,
-        ShortenInfo,
-        Live,
-        Copyright,
-        Navbar,
-    }
+  el: '#app',
+  store,
+  components: {
+    ShortenForm,
+    ShortenInfo,
+    Live,
+    Copyright,
+    Navbar,
+  }
 });

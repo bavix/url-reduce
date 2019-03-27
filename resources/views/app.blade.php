@@ -24,7 +24,7 @@
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-centered">
-                    <div class="has-text-centered column is-6">
+                    <div class="has-text-centered column is-5">
                         <h1 class="title is-1">{{ config('app.name') }}</h1>
                         <h2 class="subtitle animated fadeIn">{{ __('shorten.describe') }}</h2>
                         <shorten-form></shorten-form>

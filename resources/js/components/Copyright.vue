@@ -24,16 +24,15 @@
                 </div>
             </div>
             <p>
-                Powered by <a href="https://babichev.net" target="_blank" title="Babichev Maxim"><strong>Babichev</strong></a>
+                Powered by <a href="https://babichev.net" target="_blank"
+                              title="Babichev Maxim"><strong>Babichev</strong></a>
             </p>
         </div>
     </footer>
 </template>
 
 <script>
-    export default {
-
-    }
+  export default {}
 </script>
 
 <style lang="scss" scoped>
@@ -42,14 +41,17 @@
             display: inline;
             font-size: .9rem;
         }
+
         .link + .link:before {
             content: "| ";
             color: #efefef;
         }
     }
+
     .footer {
         padding-bottom: 1rem;
         background-color: #102;
+
         .buttons {
             .button {
                 width: 48px;
