@@ -77,6 +77,10 @@ class Link extends Resource
             Boolean::make('Blocked')
                 ->sortable(),
 
+            Text::make('Message')
+                ->rules('required', 'max:255')
+                ->hideFromIndex(),
+
             Boolean::make('Is Porn')
                 ->sortable(),
         ];
