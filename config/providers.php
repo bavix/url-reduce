@@ -7,4 +7,7 @@ return [
     'phishtank' => [
         'key' => env('PHISHTANK_API_KEY'),
     ],
+    'yandexSafeBrowsing' => [
+        'key' => env('YANDEX_SAFE_BROWSING_KEY'),
+    ],
 ];
