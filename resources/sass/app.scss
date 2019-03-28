@@ -1,0 +1,34 @@
+
+$warning: #ffc107;
+$primary: #f0ad4e;
+$danger: #dc3545;
+
+@import "~animate.css/source/_base.css";
+@import "~animate.css/source/fading_entrances/fadeIn.css";
+
+// Bulma
+@import 'bulma/main';
+@import "~bulma-tooltip";
+
+// sweetalert2
+@import "~sweetalert2/src/sweetalert2.scss";
+
+html {
+  overflow-y: auto;
+}
+
+.hero.is-primary {
+  background-color: #102;
+  .subtitle {
+    color: $primary;
+    & + .field {
+      padding-top: 2rem;
+    }
+  }
+  .navbar-brand a.navbar-item {
+    &.is-active, &:hover {
+      background-color: $warning;
+      color: #0a0a0a;
+    }
+  }
+}

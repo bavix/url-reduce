@@ -2,23 +2,22 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    protected $table      = 'pages';
-    public    $timestamps = false;
 
     /**
-     * @param $uri
+     * @param string $slug
      *
-     * @return mixed
+     * @return Builder
      */
-    public static function findByFriendly($uri)
+    public static function live(string $slug): Builder
     {
         return static::query()
-            ->where('friendly_url', $uri)
-            ->first();
+            ->where('active', true)
+            ->where('friendly_url', $slug);
     }
 
 }

@@ -2,208 +2,251 @@
 
 namespace App\Models;
 
-use App\Observers\LinkObserver;
-use Bavix\Helpers\Arr;
-use Bavix\Helpers\JSON;
-use Bavix\Helpers\Str;
-use Carbon\Carbon;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\TransferStats;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 /**
- * @SWG\Definition()
+ * App\Models\Link
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link query()
+ * @mixin \Eloquent
+ * @property int $id
+ * @property string $hash
+ * @property string $url
+ * @property string $url_direction
+ * @property array|null $parameters
+ * @property int $active
+ * @property string|null $message
+ * @property int $blocked
+ * @property int $is_porn
+ * @property int $suspicious
+ * @property int $retry
+ * @property \Illuminate\Support\Carbon $created_at
+ * @property \Illuminate\Support\Carbon $updated_at
+ * @property \Illuminate\Support\Carbon $reported_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereBlocked($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereHash($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereIsPorn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereParameters($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereRetry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereSuspicious($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link whereUrl($value)
  */
 class Link extends Model
 {
 
     /**
-     * @var string
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
-    protected $table = 'links';
+    protected $fillable = [
+        'active', 'hash', 'url'
+    ];
 
     /**
-     * @var bool
+     * @var array
      */
-    public $timestamps = false;
+    protected $visible = [
+        'hash', 'parameters'
+    ];
 
     /**
-     * @return int
+     * @var array
      */
-    public static function consider()
-    {
-        return static::query()->count();
-    }
+    protected $casts = [
+        'parameters' => 'array'
+    ];
 
     /**
-     * @return Link[]
+     * @return Builder
      */
-    public static function live()
+    public static function live(): Builder
     {
         return static::query()
-            ->where('active', 1)
-            ->where('blocked', 0)
-            ->where('is_porn', 0)
-            ->where('suspicious', 0)
+            ->where('active', true)
+            ->where('blocked', false)
+            ->where('is_porn', false)
             ->whereNotNull('parameters')
-            ->orderBy('id', 'desc')
-            ->limit(5)
-            ->get();
+            ->orderBy('id', 'desc');
     }
 
     /**
-     * meta update
+     * @param string $hash
+     * @param bool $live
+     * @return Link
      */
-    public function updateMetadata()
+    public static function findByHash(string $hash, bool $live = false): Link
     {
-        if (!$this->updated_at)
-        {
-            return;
-        }
-
-        $carbon = Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at);
-
-        if ((!$this->retry && null === $this->parameters) || $carbon->diffInWeeks(Carbon::now()) >= 2)
-        {
-            // reset information
-            $this->parameters = JSON::encode(null);
-            $this->active     = 1; // if not active
-            $this->save();
-
-            // gearman update information
-            (new LinkObserver())
-                ->created($this);
-        }
-    }
-
-    /**
-     * @SWG\Property(
-     *   property="url",
-     *   type="string",
-     *   description="URL"
-     * )
-     */
-
-    /**
-     * @param $hash
-     *
-     * @return mixed
-     */
-    public static function findByHash($hash)
-    {
-        return static::query()
+        /**
+         * @var Link $link
+         */
+        $link = ($live ? static::live() : static::query())
             ->where('hash', $hash)
-            ->first();
+            ->firstOrFail();
+
+        abort_if($link->hash !== $hash, 404);
+        return $link;
     }
 
     /**
-     * @param $url
+     * Generates a hash
      *
-     * @return Model|null|static
+     * @return string
      */
-    public static function findByUrl($url)
+    public static function generateRandom(): string
     {
-        return static::query()
+        return Str::random(5);
+    }
+
+    /**
+     * Finding a unique hash
+     *
+     * @return string
+     */
+    public static function hashUnique(): string
+    {
+        do {
+            $unique = static::generateRandom();
+            $link = static::query()
+                ->where('hash', $unique)
+                ->first();
+        }
+        while ($link && $link->hash === $unique);
+        return $unique;
+    }
+
+    /**
+     * @param string $url
+     * @return Link
+     */
+    public static function produce(string $url): Link
+    {
+        /**
+         * @var Link $link
+         */
+        $link = static::query()
             ->where('url', $url)
             ->first();
+
+        if (!$link) {
+            $link = static::query()->create([
+                'active' => true,
+                'hash' => static::hashUnique(),
+                'url' => $url,
+            ]);
+        }
+
+        return $link;
+    }
+
+    /**
+     * Получаем финальный URL,
+     * нужен для борьбы с опасными ссылками
+     *
+     * @return string
+     */
+    public function getUrlDirectionAttribute(): string
+    {
+        static $urlDirections = [];
+
+        if (empty($urlDirections[$this->url])) {
+            try {
+                (new Client())->head($this->url, [
+                    'on_stats' => function (TransferStats $stats) use (&$urlDirections) {
+                        $urlDirections[$this->url] = $stats->getEffectiveUri();
+                    }
+                ]);
+            } catch (ConnectException $connect) {
+                $urlDirections[$this->url] = $connect->getRequest()->getUri();
+            }
+        }
+
+        return $urlDirections[$this->url] ?? $this->url;
     }
 
     /**
      * @return string
      */
-    public static function hashUnique()
+    public function getIcon(): string
     {
-        while (static::findByHash($hash = Str::random(5)))
-        {
-            continue;
+        $providerIcon = Arr::get((array)$this->parameters, 'providerIcon');
+        if ($providerIcon && Str::startsWith($providerIcon, 'https')) {
+            return $providerIcon;
         }
 
-        return $hash;
+        return 'https://ds.bavix.ru/favicon.ico';
     }
 
     /**
-     * @param $url
-     *
-     * @return Link|Model|static
+     * @return string|null
      */
-    public static function addUrl($url)
+    public function getTitle(): ?string
     {
-        $model = self::findByUrl($url);
-
-        if (!$model)
-        {
-            $model             = new static();
-            $model->hash       = static::hashUnique();
-            $model->url        = $url;
-            $model->active     = 1;
-
-            $model->save();
-        }
-
-        return $model;
-    }
-
-    // property parameters
-
-    private $_parameters = [];
-
-    /**
-     * @return array|mixed
-     */
-    private function _parameters()
-    {
-        if (empty($this->_parameters))
-        {
-            $this->_parameters = JSON::decode($this->parameters);
-        }
-
-        return $this->_parameters;
+        return $this->parameters['title'] ?? null;
     }
 
     /**
-     * @return mixed
+     * @return string|null
      */
-    public function getTitle()
+    public function getDescription(): ?string
     {
-        return $this->_parameters()['title'] ?? $this->url;
+        return $this->parameters['description'] ?? null;
     }
 
     /**
      * @return array
      */
-    public function getTags()
+    public function getTags(): array
     {
-        $tags = $this->_parameters()['tags'] ?? [];
-        $tags = Arr::filter($tags, function ($tag) {
-            return mb_strlen($tag) < 16;
-        });
+        if (empty($this->parameters['tags'])) {
+            $content = $this->getDescription();
 
-        Arr::shuffle($tags);
+            if (!$content) {
+                return [];
+            }
 
-        return Arr::slice($tags, 0, 7);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFavicon()
-    {
-        $default = '/favicons/favicon-32x32.png';
-        $icon = $this->_parameters()['providerIcon'] ?? $default;
-
-        if (0 === strpos($icon, 'http:'))
-        {
-            return $default;
+            \preg_match_all('~#(\w+)~', $content, $tags);
+            return \array_unique($tags[1] ?? []);
         }
 
-        return $icon;
+        return \array_unique($this->parameters['tags']);
     }
 
     /**
-     * @return string
+     * adult content
+     *
+     * @return bool
      */
-    public function getType()
+    public function isAdult(): bool
     {
-        return $this->_parameters()['type'] ?? 'link';
+        return !$this->suspicious && $this->is_porn;
+    }
+
+    /**
+     * If the user has followed a link that may be phishing you need to throw a warning
+     *
+     * @return bool
+     */
+    public function isWarning(): bool
+    {
+        if ($this->is_porn || $this->suspicious) {
+            return true;
+        }
+
+        return !$this->parameters && $this->retry > 0;
     }
 
 }

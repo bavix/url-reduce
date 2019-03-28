@@ -2,16 +2,22 @@
 
 namespace App\Observers;
 
-use App\Console\Commands\GearmanCommand;
-use App\Console\Commands\SitemapCommand;
+use App\Jobs\PhishTank;
+use App\Jobs\UpdateMetadata;
+use App\Jobs\VirusTotal;
 use App\Models\Link;
 
-class LinkObserver extends Observer
+class LinkObserver
 {
 
-    public function created(Link $link)
+    /**
+     * @param Link $link
+     */
+    public function created(Link $link): void
     {
-        $this->addTask(GearmanCommand::TASK_DNS, $link);
+        dispatch(new UpdateMetadata($link));
+        dispatch(new PhishTank($link));
+        dispatch(new VirusTotal($link));
     }
 
 }

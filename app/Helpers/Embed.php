@@ -7,16 +7,15 @@ use Embed\Http\DispatcherInterface;
 class Embed
 {
 
-    public static function read($url, array $config = null, DispatcherInterface $dispatcher = null)
+    /**
+     * @param string $url
+     * @param array|null $config
+     * @param DispatcherInterface|null $dispatcher
+     * @return array
+     */
+    public static function getMeta(string $url, ?array $config = null, ?DispatcherInterface $dispatcher = null): array
     {
-        try
-        {
-            $info = \Embed\Embed::create($url, $config, $dispatcher);
-        }
-        catch (\Throwable $throwable)
-        {
-            return null;
-        }
+        $info = \Embed\Embed::create($url, $config, $dispatcher);
 
         return [
             'title'         => $info->title,
@@ -38,10 +37,10 @@ class Embed
             'providerUrl'   => $info->providerUrl,
             'providerIcons' => $info->providerIcons,
             'providerIcon'  => $info->providerIcon,
-            'publishedDate' => $info->publishedDate,
-            'license'       => $info->license,
-            'linkedData'    => $info->linkedData,
-            'feeds'         => $info->feeds,
+            'publishedDate' => $info->getPublishedTime(),
+            'license'       => $info->getLicense(),
+            'linkedData'    => $info->getLinkedData(),
+            'feeds'         => $info->getFeeds(),
         ];
     }
 

@@ -1,4 +1,4 @@
-const { mix } = require('laravel-mix');
+const mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +11,44 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.sass('resources/sass/app.scss', 'public/css');
+
+mix.js('resources/js/app.js', 'public/js').extract([
+    '@fortawesome/fontawesome-svg-core',
+    '@fortawesome/vue-fontawesome',
+    'vue-clipboard2',
+    'sweetalert2',
+    // 'lodash',
+    'axios',
+    'vuex',
+    'vue',
+]);
+
+mix.options({
+    extractVueStyles: true,
+    postCss: [
+        require('autoprefixer')({
+            browsers: [
+                "> 1%",
+                "last 4 versions",
+                "ios >= 9",
+                "ie >= 11"
+            ]
+        })
+    ],
+});
+
+mix.webpackConfig(webpack => {
+    return {
+        resolve: {
+            alias: {
+                'vue$': 'vue/dist/vue.esm.js',
+                'sweetalert2$': 'sweetalert2/dist/sweetalert2.js',
+            }
+        }
+    };
+});
+
+if (mix.inProduction()) {
+    mix.version();
+}

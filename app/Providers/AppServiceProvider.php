@@ -3,13 +3,13 @@
 namespace App\Providers;
 
 use App\Models\Link;
-use App\Models\Report;
 use App\Observers\LinkObserver;
-use App\Observers\ReportObserver;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap any application services.
      *
@@ -17,8 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
         Link::observe(LinkObserver::class);
-        Report::observe(ReportObserver::class);
     }
 
     /**
@@ -30,4 +30,5 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
 }
