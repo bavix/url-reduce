@@ -83,6 +83,7 @@
         flex-direction: column;
         max-height: 400px;
         overflow-y: auto;
+        overflow-x: hidden;
         display: flex;
         height: 100%;
     }
