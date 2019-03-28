@@ -57,7 +57,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             new Metrics\LinksPerMonth(),
-            new Metrics\LinksLivePerMonth(),
+            new Metrics\LinksActivePerMonth(),
             new Metrics\LinksBlockedPerMonth(),
         ];
     }

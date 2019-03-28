@@ -5,7 +5,7 @@ namespace App\Nova\Metrics;
 use App\Models\Link;
 use Illuminate\Http\Request;
 
-class LinksLivePerMonth extends LinksPerMonth
+class LinksActivePerMonth extends LinksPerMonth
 {
 
     /**
@@ -16,7 +16,8 @@ class LinksLivePerMonth extends LinksPerMonth
      */
     public function calculate(Request $request)
     {
-        return $this->countByMonths($request, Link::live());
+        $query = Link::query()->where('active', 1);
+        return $this->countByMonths($request, $query);
     }
 
     /**
@@ -26,7 +27,7 @@ class LinksLivePerMonth extends LinksPerMonth
      */
     public function uriKey(): string
     {
-        return 'links-live-per-month';
+        return 'links-active-per-month';
     }
 
 }
