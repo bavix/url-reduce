@@ -53,7 +53,7 @@ class Link extends Resource
                 ->onlyOnIndex()
                 ->resolveUsing(function ($title) {
                     $url = \mb_substr($title, \strpos($title, '://') + 3);
-                    if (Str::startsWith('www.', $url)) {
+                    if (Str::startsWith($url, 'www.')) {
                         $url = Str::substr($url, 4);
                     }
                     return Str::limit($url, 30);
