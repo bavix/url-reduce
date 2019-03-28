@@ -7,10 +7,9 @@ use App\Http\Requests\ReportRequest;
 use App\Http\Requests\UrlRequest;
 use App\Http\Resources\LinkResource;
 use App\Jobs\ReportLink;
-use App\Jobs\UpdateMetadata;
 use App\Models\Link;
 use App\Models\Report;
-use Carbon\Carbon;
+use App\Services\TrackerService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
@@ -102,7 +101,7 @@ class LinkController extends Controller
             ->generate(route('direct', [$hash]));
 
         return response($png, 200, ['Content-Type' => 'image/png'])
-            ->setExpires(Carbon::now()->addYear());
+            ->setExpires(now()->addYear());
     }
 
     /**
@@ -122,6 +121,9 @@ class LinkController extends Controller
         if ($link->isWarning()) {
             return view('warning', compact('link'));
         }
+
+        app(TrackerService::class)
+            ->redirect($link);
 
         return redirect($link->url);
     }
