@@ -21,7 +21,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command(MetaCommand::class)->hourly();
         $schedule->command(SitemapCommand::class)->weekly();
-        $schedule->command(MonthlyUpdateCommand::class)->mondays();
+        $schedule->command(MonthlyUpdateCommand::class)->hourly();
     }
 
     /**

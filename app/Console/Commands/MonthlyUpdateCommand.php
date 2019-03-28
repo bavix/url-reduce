@@ -30,7 +30,8 @@ class MonthlyUpdateCommand extends Command
     {
         $links = Link::query()
             ->where('updated_at', '<', now()->subMonth())
-            ->where('active', true);
+            ->where('active', true)
+            ->limit(100);
 
         $links->each(function (Link $link) {
             dispatch(new UpdateMetadata($link));
