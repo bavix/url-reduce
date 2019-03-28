@@ -88,6 +88,7 @@ class UpdateMetadata implements ShouldQueue
             $data = Embed::getMeta($this->link->url_direction);
             $this->link->is_porn = $this->adults($data);
             $this->link->parameters = $data;
+            $this->link->suspicious = $this->link->hasSuspicious();
             $this->link->save();
         } catch (\Throwable $throwable) {
             $this->failed($throwable);

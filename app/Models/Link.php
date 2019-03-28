@@ -207,6 +207,16 @@ class Link extends Model
     }
 
     /**
+     * @return bool
+     */
+    public function hasSuspicious(): bool
+    {
+        return $this->suspicious ||
+            $this->url !== $this->url_direction ||
+            $this->getTitle() === null;
+    }
+
+    /**
      * @return array
      */
     public function getTags(): array
