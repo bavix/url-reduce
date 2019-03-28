@@ -3,6 +3,7 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Str;
 
 class SelfUrlRule implements Rule
 {
@@ -17,7 +18,7 @@ class SelfUrlRule implements Rule
     public function passes($attribute, $value): bool
     {
         $host = \parse_url($value, PHP_URL_HOST);
-        return !ends_with($host, request()->getHost());
+        return !Str::endsWith($host, request()->getHost());
     }
 
     /**
