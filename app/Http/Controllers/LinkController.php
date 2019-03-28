@@ -61,11 +61,11 @@ class LinkController extends Controller
     public function report(ReportRequest $request): array
     {
         $hash = $request->input('hash');
-        
+
         try {
             $link = Link::findByHash($hash, true);
         } catch (\Throwable $throwable) {
-            abort(404);
+            abort(404, 'Link not found');
             die; // для phpStorm ;)
         }
 
