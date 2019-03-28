@@ -29,5 +29,9 @@
 </head>
 <body>
     @yield('content')
+
+    @foreach(app(\App\Services\CounterService::class)->get() as $counter)
+        {!! $counter->code !!}
+    @endforeach
 </body>
 </html>
