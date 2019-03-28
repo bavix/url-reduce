@@ -64,7 +64,7 @@ class Link extends Resource
 
             Text::make('Hash')
                 ->sortable()
-                ->rules('required', 'length:5')
+                ->rules('required', 'size:5')
                 ->creationRules('unique:links,hash')
                 ->updateRules('unique:links,hash,{{resourceId}}'),
 
