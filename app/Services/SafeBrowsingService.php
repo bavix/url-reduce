@@ -8,6 +8,22 @@ class SafeBrowsingService
 {
 
     /**
+     * @param string $url
+     * @return array|null
+     * @throws
+     */
+    public function searchUrl(string $url): ?array
+    {
+        $data = $this->ya()->searchUrl($url);
+
+        if ($data) {
+            return $data;
+        }
+
+        return null;
+    }
+
+    /**
      * безопасный сайт phishing или malware- тип найденной угрозы
      *
      * @param string $url

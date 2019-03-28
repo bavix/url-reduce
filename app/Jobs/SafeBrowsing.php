@@ -37,8 +37,14 @@ class SafeBrowsing implements ShouldQueue
     public function handle(): void
     {
         $safeBrowsing = app(SafeBrowsingService::class);
+        $unsafe = $safeBrowsing->searchUrl($this->link->url_direction);
         $message = $safeBrowsing->lookup($this->link->url_direction);
         $save = false;
+
+        if ($unsafe) {
+            $this->link->message = implode(', ', $unsafe);
+            $this->link->blocked = 1;
+        }
 
         if ($message) {
             $this->link->message = $message;
