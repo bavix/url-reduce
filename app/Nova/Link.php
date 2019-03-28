@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 
 class Link extends Resource
 {
@@ -77,7 +78,7 @@ class Link extends Resource
             Boolean::make('Blocked')
                 ->sortable(),
 
-            Text::make('Message')
+            Textarea::make('Message')
                 ->rules('required', 'max:255')
                 ->hideFromIndex(),
 
