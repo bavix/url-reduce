@@ -61,7 +61,14 @@ class LinkController extends Controller
     public function report(ReportRequest $request): array
     {
         $hash = $request->input('hash');
-        $link = Link::findByHash($hash, true);
+        
+        try {
+            $link = Link::findByHash($hash, true);
+        } catch (\Throwable $throwable) {
+            abort(404);
+            die; // для phpStorm ;)
+        }
+
         $report = Report::add($link);
 
         if ($report) {
