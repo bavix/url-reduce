@@ -6,8 +6,10 @@ use App\Http\Requests\HashRequest;
 use App\Http\Requests\ReportRequest;
 use App\Http\Requests\UrlRequest;
 use App\Http\Resources\LinkResource;
+use App\Jobs\ReportLink;
 use App\Jobs\UpdateMetadata;
 use App\Models\Link;
+use App\Models\Report;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -61,13 +63,10 @@ class LinkController extends Controller
     {
         $hash = $request->input('hash');
         $link = Link::findByHash($hash, true);
+        $report = Report::add($link);
 
-        $carbon = Carbon::create()->subDays(2);
-        if ($carbon->greaterThan($link->reported_at)) {
-            $link->reported_at = now();
-            $link->save();
-
-            $this->dispatch(new UpdateMetadata($link));
+        if ($report) {
+            $this->dispatch(new ReportLink($report));
             return [
                 'title' => 'Thank you!',
                 'content' => 'The link will be checked in the next 48 hours.',
