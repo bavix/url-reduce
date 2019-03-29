@@ -17,7 +17,7 @@ class LinksBlockedPerDay extends LinksPerMonth
     public function calculate(Request $request)
     {
         $query = Link::where('blocked', 1);
-        return $this->countByDays($request, $query->getUpdatedAtColumn());
+        return $this->countByDays($request, $query, Link::UPDATED_AT);
     }
 
     /**
@@ -31,7 +31,6 @@ class LinksBlockedPerDay extends LinksPerMonth
             7 => 'seven days',
             14 => 'fourteen days',
             28 => 'twenty eight days',
-            42 => 'forty-two days',
         ];
     }
 
