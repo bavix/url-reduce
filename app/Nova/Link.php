@@ -82,7 +82,7 @@ class Link extends Resource
                 ->sortable(),
 
             Textarea::make('Message')
-                ->rules('required', 'max:255')
+                ->rules('max:255')
                 ->hideFromIndex(),
 
             Boolean::make('Is Porn')
