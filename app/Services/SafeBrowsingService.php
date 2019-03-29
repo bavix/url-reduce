@@ -14,13 +14,15 @@ class SafeBrowsingService
      */
     public function searchUrl(string $url): ?array
     {
-        $data = $this->ya()->searchUrl($url);
+        $data = null;
 
-        if ($data) {
-            return $data;
+        try {
+            $data = $this->ya()->searchUrl($url);
+        } catch (\Throwable $exception) {
+            // todo
         }
 
-        return null;
+        return \is_array($data) ? $data : null;
     }
 
     /**
