@@ -19,13 +19,6 @@ class Link extends Resource
     public static $model = \App\Models\Link::class;
 
     /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
-    public static $title = 'url';
-
-    /**
      * The columns that should be searched.
      *
      * @var array
@@ -35,7 +28,33 @@ class Link extends Resource
         'hash',
         'url',
         'message',
+        'parameters->title',
+        'parameters->description',
     ];
+
+    /**
+     * @return string
+     */
+    public function title(): string
+    {
+        /**
+         * @var \App\Models\Link $link
+         */
+        $link = $this->model();
+        return $link->getTitle();
+    }
+
+    /**
+     * @return string|null
+     */
+    public function subtitle(): string
+    {
+        /**
+         * @var \App\Models\Link $link
+         */
+        $link = $this->model();
+        return $link->url;
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -58,6 +77,12 @@ class Link extends Resource
                     }
                     return Str::limit($url, 30);
                 }),
+
+            Text::make('Title', 'parameters->title')
+                ->onlyOnDetail(),
+
+            Textarea::make('Description', 'parameters->description')
+                ->onlyOnDetail(),
 
             Text::make('Url')
                 ->sortable()
