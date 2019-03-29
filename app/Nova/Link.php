@@ -100,8 +100,7 @@ class Link extends Resource
     {
         return [
             new Metrics\LinksPerMonth(),
-            new Metrics\LinksActivePerMonth(),
-            new Metrics\LinksBlockedPerMonth(),
+            new Metrics\LinksBlockedPerDay(),
         ];
     }
 
