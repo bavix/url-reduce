@@ -212,6 +212,7 @@ class Link extends Model
     public function hasSuspicious(): bool
     {
         return $this->suspicious ||
+            !Str::startsWith($this->url_direction, 'https') ||
             $this->url !== $this->url_direction ||
             $this->getTitle() === null;
     }
