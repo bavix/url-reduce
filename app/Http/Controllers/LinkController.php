@@ -38,7 +38,7 @@ class LinkController extends Controller
             ->get();
 
         return LinkResource::collection($collection->filter(function (Link $link) {
-            return $link->getTitle() !== null;
+            return $link->title !== null;
         }));
     }
 

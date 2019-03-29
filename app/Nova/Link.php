@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Support\Str;
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
@@ -41,7 +42,7 @@ class Link extends Resource
          * @var \App\Models\Link $link
          */
         $link = $this->model();
-        return $link->getTitle();
+        return $link->title ?: $link->url;
     }
 
     /**
@@ -67,6 +68,12 @@ class Link extends Resource
         return [
             ID::make()->sortable(),
 
+            Avatar::make('Icon')
+                ->thumbnail(function ($value) {
+                    return $value;
+                })
+                ->onlyOnIndex(),
+
             Text::make('Url')
                 ->sortable()
                 ->onlyOnIndex()
@@ -75,7 +82,7 @@ class Link extends Resource
                     if (Str::startsWith($url, 'www.')) {
                         $url = Str::substr($url, 4);
                     }
-                    return Str::limit($url, 30);
+                    return Str::limit($url, 20);
                 }),
 
             Text::make('Title', 'parameters->title')

@@ -7,12 +7,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
 /**
  * Class LinkResource
  * @package App\Http\Resources
+ * @property-read string $type
+ * @property-read string $title
+ * @property-read string $description
+ * @property-read string $icon
  * @property-read string $hash
+ * @property-read array $tags
  * @property-read array $parameters
- * @method string getTitle()
- * @method string getDescription()
- * @method string getIcon()
- * @method array getTags()
  */
 class LinkResource extends JsonResource
 {
@@ -26,14 +27,14 @@ class LinkResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'type' => $this->type ?: 'link',
+            'type' => $this->type,
             'url' => \route('direct', [$this->hash]),
             'qr' => \route('qr', [$this->hash]),
             'hash' => $this->hash,
-            'title' => $this->getTitle() ?: 'Unknown',
-            'description' => $this->getDescription(),
-            'icon' => $this->getIcon(),
-            'tags' => $this->getTags(),
+            'title' => $this->title ?: 'Unknown',
+            'description' => $this->description,
+            'icon' => $this->icon,
+            'tags' => $this->tags,
             'loaded' => !empty($this->parameters),
         ];
     }

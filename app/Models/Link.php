@@ -18,7 +18,11 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Link query()
  * @mixin \Eloquent
  * @property int $id
+ * @property string $type
+ * @property string $title
+ * @property string $description
  * @property string $hash
+ * @property string $icon
  * @property string $url
  * @property string $url_direction
  * @property array|null $parameters
@@ -180,7 +184,7 @@ class Link extends Model
     /**
      * @return string
      */
-    public function getIcon(): string
+    public function getIconAttribute(): string
     {
         $providerIcon = Arr::get((array)$this->parameters, 'providerIcon');
         if ($providerIcon && Str::startsWith($providerIcon, 'https')) {
@@ -191,9 +195,17 @@ class Link extends Model
     }
 
     /**
+     * @return string
+     */
+    public function getTypeAttribute(): string
+    {
+        return $this->parameters['type'] ?? 'link';
+    }
+
+    /**
      * @return string|null
      */
-    public function getTitle(): ?string
+    public function getTitleAttribute(): ?string
     {
         return $this->parameters['title'] ?? null;
     }
@@ -201,7 +213,7 @@ class Link extends Model
     /**
      * @return string|null
      */
-    public function getDescription(): ?string
+    public function getDescriptionAttribute(): ?string
     {
         return $this->parameters['description'] ?? null;
     }
@@ -214,16 +226,16 @@ class Link extends Model
         return $this->suspicious ||
             !Str::startsWith($this->url_direction, 'https') ||
             $this->url !== $this->url_direction ||
-            $this->getTitle() === null;
+            $this->title === null;
     }
 
     /**
      * @return array
      */
-    public function getTags(): array
+    public function getTagsAttribute(): array
     {
         if (empty($this->parameters['tags'])) {
-            $content = $this->getDescription();
+            $content = $this->description;
 
             if (!$content) {
                 return [];
