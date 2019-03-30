@@ -39,7 +39,7 @@
                 <div class="columns is-centered">
                     <div class="column content is-9">
                         <figure class="image is-64x64 is-pulled-right">
-                            <img alt="{{ $link->title }}" src="{{ $link->getIcon() }}" />
+                            <img alt="{{ $link->title }}" src="{{ $link->icon }}" />
                         </figure>
 
                         <h3>{{ $link->title ?: __('shorten.warning.empty_title') }}</h3>
