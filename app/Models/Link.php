@@ -168,11 +168,21 @@ class Link extends Model
 
         if (empty($urlDirections[$this->url])) {
             try {
-                (new Client())->head($this->url, [
+                $client = new Client();
+                $response = $client->get($this->url, [
                     'on_stats' => function (TransferStats $stats) use (&$urlDirections) {
                         $urlDirections[$this->url] = $stats->getEffectiveUri();
                     }
                 ]);
+
+                \preg_match(
+                    '~content=(?<q1>["\']?)\d+;\s*url=(?<q2>["\']?)(?<url>.*?)\k<q2>\k<q1>~i',
+                    $response->getBody()->getContents(),
+                    $matches
+                );
+
+                $urlDirections[$this->url] = $matches['url'] ?? $urlDirections[$this->url];
+
             } catch (ConnectException $connect) {
                 $urlDirections[$this->url] = $connect->getRequest()->getUri();
             }
