@@ -74,16 +74,18 @@ class Link extends Resource
                 })
                 ->onlyOnIndex(),
 
-            Text::make('Url')
+            Text::make('Url', function () {
+                    $template = view('vendor.nova.fields.custom.link', [
+                        'anchor' => Str::limit($this->title(), 25),
+                        'title' => $this->title(),
+                        'link' => $this->url,
+                    ]);
+
+                    return $template->render();
+                })
                 ->sortable()
                 ->onlyOnIndex()
-                ->resolveUsing(function ($title) {
-                    $url = \mb_substr($title, \strpos($title, '://') + 3);
-                    if (Str::startsWith($url, 'www.')) {
-                        $url = Str::substr($url, 4);
-                    }
-                    return Str::limit($url, 20);
-                }),
+                ->asHtml(),
 
             Text::make('Title', 'parameters->title')
                 ->onlyOnDetail(),
