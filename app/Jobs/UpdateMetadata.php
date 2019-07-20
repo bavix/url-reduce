@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Enums\QueueEnum;
 use App\Helpers\Embed;
 use App\Models\Link;
 use Illuminate\Bus\Queueable;
@@ -32,6 +33,7 @@ class UpdateMetadata implements ShouldQueue
      */
     public function __construct(Link $link)
     {
+        $this->queue = QueueEnum::METADATA;
         $this->link = $link;
     }
 

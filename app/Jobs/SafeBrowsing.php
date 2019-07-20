@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Enums\QueueEnum;
 use App\Models\Link;
 use App\Services\SafeBrowsingService;
 use Illuminate\Bus\Queueable;
@@ -27,6 +28,7 @@ class SafeBrowsing implements ShouldQueue
      */
     public function __construct(Link $link)
     {
+        $this->queue = QueueEnum::SAFE_BROWSING;
         $this->link = $link;
     }
 

@@ -24,20 +24,6 @@ mix.js('resources/js/app.js', 'public/js').extract([
     'vue',
 ]);
 
-mix.options({
-    extractVueStyles: true,
-    postCss: [
-        require('autoprefixer')({
-            browsers: [
-                "> 1%",
-                "last 4 versions",
-                "ios >= 9",
-                "ie >= 11"
-            ]
-        })
-    ],
-});
-
 mix.webpackConfig(webpack => {
     return {
         resolve: {

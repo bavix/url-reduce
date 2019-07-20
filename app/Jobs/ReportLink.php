@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Enums\QueueEnum;
 use App\Models\Report;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -26,6 +27,7 @@ class ReportLink implements ShouldQueue
      */
     public function __construct(Report $report)
     {
+        $this->queue = QueueEnum::REPORT_LINK;
         $this->report = $report;
     }
 

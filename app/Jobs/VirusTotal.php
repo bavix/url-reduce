@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Enums\QueueEnum;
 use App\Models\Link;
 use GuzzleHttp\Client;
 use Illuminate\Bus\Queueable;
@@ -29,6 +30,7 @@ class VirusTotal implements ShouldQueue
      */
     public function __construct(Link $link)
     {
+        $this->queue = QueueEnum::VIRUS_TOTAL;
         $this->link = $link;
     }
 
