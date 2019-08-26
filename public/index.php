@@ -8,6 +8,7 @@
  */
 
 define('LARAVEL_START', microtime(true));
+extension_loaded('xhprof') && xhprof_enable();
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,4 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+extension_loaded('xhprof') && xhprof_disable();
