@@ -30,7 +30,7 @@
         "nixsolutions/yandex-php-library": "^3.0",
         "pda/pheanstalk": "^4.0",
         "simplesoftwareio/simple-qrcode": "^2.0",
-        "bavix/laravel-xhprof": "^0.0"
+        "bavix/laravel-xhprof": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
